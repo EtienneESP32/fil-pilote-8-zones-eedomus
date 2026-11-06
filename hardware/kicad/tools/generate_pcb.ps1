@@ -17,11 +17,14 @@ $sb = New-Object System.Text.StringBuilder
 function W([string]$s) { [void]$sb.AppendLine($s) }
 
 # ---------- Dimensions de carte ----------
-# Largeur fixee par le rail DIN 6 modules (105 mm). Hauteur recalculee a partir de
-# l'encombrement reel des composants THT + la bande d'isolement 6 mm (voir docs/04) ;
-# depasse le 85 mm indicatif de la source, qui n'etait pas valide par le boitier (point ouvert).
-$BOARD_W = 105.0
-$BOARD_H = 180.0
+# Reoriente le 2026-11-07 : un boitier DIN modulaire a une HAUTEUR fixee par la gamme du
+# fabricant (environ 80-130 mm usuel) et une LARGEUR qui varie avec le nombre de modules
+# (1 module = 17,5 mm). La carte 105x180mm ne tenait dans aucun boitier catalogue standard.
+# Reorientee ici en ~11 modules de large (192,5 mm catalogue) x ~108 mm de haut, gabarit
+# courant du commerce (ex. boitiers RS PRO ~178x90mm de la meme famille). Toujours indicatif,
+# a confronter a la reference reelle du boitier (point ouvert, voir docs/04).
+$BOARD_W = 192.0
+$BOARD_H = 108.0
 
 W '(kicad_pcb'
 W '	(version 20260206)'
@@ -77,8 +80,15 @@ $Pads = @{
 	"PSU4"      = @{ "1" = @(-5, 2.5); "2" = @(-5, -2.5); "3" = @(5, 2.5); "4" = @(5, -2.5) }
 	"DIP6"      = @{ "1" = @(-3.81, 2.54); "2" = @(-3.81, 0); "3" = @(-3.81, -2.54); "4" = @(3.81, -2.54); "5" = @(3.81, 0); "6" = @(3.81, 2.54) }
 }
-$Pads["CONN19_254"] = @{}
-for ($k = 1; $k -le 19; $k++) { $Pads["CONN19_254"]["$k"] = @((($k - 1) * 2.54), 0) }
+# En-tete Waveshare ESP32-S3-ETH : 2x20 broches format Raspberry Pi Pico verifie
+# (pas 2,54 mm, rangees espacees de 17,78 mm ; broche 1 en haut a gauche, broche 40 en haut a droite).
+$Pads["CONN40_PICO"] = @{}
+for ($k = 1; $k -le 20; $k++) {
+	$y = ($k - 1) * 2.54
+	$rightPin = 41 - $k
+	$Pads["CONN40_PICO"]["$k"] = @(0, $y)
+	$Pads["CONN40_PICO"]["$rightPin"] = @(17.78, $y)
+}
 
 function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [double]$y, [double]$rot, [hashtable]$netByPad) {
 	$pads = $Pads[$fpType]
@@ -112,89 +122,95 @@ function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [do
 }
 
 # ======================================================================
-# PLACEMENT
-# Bande logique (haut, Y petit) / bande d isolement 6 mm / bande secteur (bas, Y grand)
+# PLACEMENT (reoriente 2026-11-07, voir note de gabarit ci-dessus)
+# Colonne gauche : en-tete Waveshare + conditionnement alimentation.
+# Centre : 8 zones en 4 bandes horizontales (une par index GPIO) x 2 zones cote a cote.
+# Colonne droite : connectique secteur/FP en bord de carte.
 # ======================================================================
 
-# ---------- Bande secteur basse : alimentation (sous les deux rangees de zones) ----------
-Place-FP "CONN2_508" "J1" "MAINS_IN" 15 155 0 @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
-Place-FP "F_Axial" "F0" "250mA_T" 30 155 0 @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
-Place-FP "PSU4" "PS1" "HLK-5M05" 50 155 0 @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
-Place-FP "CONN2_508" "J2" "FP1_FP2" 15 168 0 @{ "1" = "FP1"; "2" = "FP2" }
-Place-FP "CONN2_508" "J3" "FP3_FP4" 35 168 0 @{ "1" = "FP3"; "2" = "FP4" }
-Place-FP "CONN2_508" "J4" "FP5_FP6" 55 168 0 @{ "1" = "FP5"; "2" = "FP6" }
-Place-FP "CONN2_508" "J5" "FP7_FP8" 75 168 0 @{ "1" = "FP7"; "2" = "FP8" }
-
-# ---------- Bande logique haute : conditionnement alimentation + en-tete Waveshare ----------
-Place-FP "SW_SPDT_3" "SW1" "SPDT" 10 13 0 @{ "1" = "LOCAL_5V"; "2" = "VSYS"; "3" = "POE_5V" }
-Place-FP "TO220_3" "U1" "AMS1117-3.3" 25 13 0 @{ "1" = "VSYS"; "2" = "GND"; "3" = "3V3_OPTO" }
-Place-FP "CAP_Radial" "C1" "100uF" 36 13 0 @{ "1" = "VSYS"; "2" = "GND" }
-Place-FP "CAP_Radial" "C2" "100uF" 46 13 0 @{ "1" = "3V3_OPTO"; "2" = "GND" }
-Place-FP "CONN19_254" "JWS" "Waveshare_header" 10 3 0 @{
-	"1" = "GND"; "2" = "VSYS"; "3" = "POE_5V"
-	"4" = "GPIO1"; "5" = "GPIO2"; "6" = "GPIO4"; "7" = "GPIO5"; "8" = "GPIO15"; "9" = "GPIO16"; "10" = "GPIO17"
-	"11" = "GPIO18"; "12" = "GPIO21"; "13" = "GPIO38"; "14" = "GPIO39"; "15" = "GPIO40"; "16" = "GPIO41"
-	"17" = "GPIO42"; "18" = "GPIO47"; "19" = "GPIO48"
+# ---------- Colonne gauche : en-tete Waveshare (empreinte reelle verifiee 2026-11-07) ----------
+# Format Raspberry Pi Pico : 2x20 broches, pas 2,54 mm, rangees espacees de 17,78 mm.
+# GND/VSYS/VBUS/3V3/3V3_EN/RUN et les broches non utilisees (GPIO0/43/44/19/20/33-37/46) sont NC.
+Place-FP "CONN40_PICO" "JWS" "Waveshare_ESP32-S3-ETH_40pin" 8 8 0 @{
+	"2" = "VSYS"; "3" = "GND"
+	"6" = "GPIO21"; "7" = "GPIO17"; "9" = "GPIO16"; "10" = "GPIO18"; "12" = "GPIO15"
+	"14" = "GPIO3"; "15" = "GPIO2"; "16" = "GPIO1"
+	"24" = "GPIO48"; "25" = "GPIO47"; "27" = "GPIO45"
+	"29" = "GPIO42"; "30" = "GPIO41"; "31" = "GPIO40"; "32" = "GPIO39"; "34" = "GPIO38"
 }
 
-# ---------- 8 zones, grille 4 colonnes x 2 lignes ----------
+# ---------- Colonne gauche (suite) : conditionnement alimentation, sous l en-tete ----------
+Place-FP "SW_SPDT_3" "SW1" "SPDT" 13 65 0 @{ "1" = "LOCAL_5V"; "2" = "VSYS"; "3" = "POE_5V_A_CONFIRMER" }
+Place-FP "TO220_3" "U1" "AMS1117-3.3" 13 72 0 @{ "1" = "VSYS"; "2" = "GND"; "3" = "3V3_OPTO" }
+Place-FP "CAP_Radial" "C1" "100uF" 13 79 0 @{ "1" = "VSYS"; "2" = "GND" }
+Place-FP "CAP_Radial" "C2" "100uF" 13 86 0 @{ "1" = "3V3_OPTO"; "2" = "GND" }
+
+# ---------- Colonne droite : connectique secteur et sorties FP (bord de carte) ----------
+Place-FP "CONN2_508" "J1" "MAINS_IN" 182 10 0 @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
+Place-FP "F_Axial" "F0" "250mA_T" 182 20 0 @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
+Place-FP "PSU4" "PS1" "HLK-5M05" 182 30 0 @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
+Place-FP "CONN2_508" "J2" "FP1_FP2" 182 45 0 @{ "1" = "FP1"; "2" = "FP2" }
+Place-FP "CONN2_508" "J3" "FP3_FP4" 182 55 0 @{ "1" = "FP3"; "2" = "FP4" }
+Place-FP "CONN2_508" "J4" "FP5_FP6" 182 65 0 @{ "1" = "FP5"; "2" = "FP6" }
+Place-FP "CONN2_508" "J5" "FP7_FP8" 182 75 0 @{ "1" = "FP7"; "2" = "FP8" }
+
+# ---------- 8 zones : 4 bandes horizontales (une par index GPIO 0-3) x 2 zones cote a cote ----------
 $zoneGpio = @{
 	1 = @{ P = "GPIO1";  N = "GPIO2"  }
 	2 = @{ P = "GPIO15"; N = "GPIO16" }
 	3 = @{ P = "GPIO17"; N = "GPIO18" }
-	4 = @{ P = "GPIO21"; N = "GPIO4"  }
-	5 = @{ P = "GPIO5";  N = "GPIO38" }
+	4 = @{ P = "GPIO21"; N = "GPIO45" }
+	5 = @{ P = "GPIO3";  N = "GPIO38" }
 	6 = @{ P = "GPIO39"; N = "GPIO40" }
 	7 = @{ P = "GPIO41"; N = "GPIO42" }
 	8 = @{ P = "GPIO47"; N = "GPIO48" }
 }
 
-# Chaque colonne de zone (2 canaux) occupe 24 mm de large ; 4 colonnes = 96 mm (tient dans 105 mm).
-# Chaque ligne de zones s etend verticalement de la bande logique (haut) a la bande secteur (bas),
-# en traversant la bande d isolement avec l optotriac.
-$colW = 24.0
-$chOffset = 12.0  # ecart entre les deux canaux (POS/NEG) d'une meme colonne de zone
-$step = 9.0       # pas vertical entre composants d'une pile de canal (aucune rotation -> faible emprise en Y)
-$row1Y0 = 20.0    # ligne de zones 1-4 : debut (cote logique) de la pile verticale
-$row2Y0 = 90.0    # ligne de zones 5-8 : debut, sous la ligne 1 (54 mm de pile + marge mecanique)
+# Chaque zone (2 canaux) occupe une pile horizontale de 7 composants, pas $step, rotation 90
+# (pastilles perpendiculaires au sens d empilement -> pas de collision). $chOffset separe les
+# 2 canaux en Y. 4 bandes espacees de $bandPitch couvrent les 4 index GPIO (zone N et zone N+4
+# partagent la meme bande, cote a cote horizontalement).
+$chOffset = 12.0
+$step = 9.0
+$bandPitch = 24.0
+$bandY0 = 8.0
+$zoneLeftX0 = 35.0
+$zoneRightX0 = 100.0
 
 for ($z = 1; $z -le 8; $z++) {
-	$col = ($z - 1) % 4
-	$rowIsSecond = ($z -gt 4)
-	$blockX = 8 + $col * $colW
-	$y0 = if ($rowIsSecond) { $row2Y0 } else { $row1Y0 }
+	$bandIdx = ($z - 1) % 4
+	$isRightZone = ($z -gt 4)
+	$y0 = $bandY0 + $bandIdx * $bandPitch
+	$x0 = if ($isRightZone) { $zoneRightX0 } else { $zoneLeftX0 }
 
 	foreach ($ch in @("P", "N")) {
-		$cx = $blockX + ($(if ($ch -eq "P") { 0 } else { $chOffset }))
+		$cy = $y0 + ($(if ($ch -eq "P") { 0 } else { $chOffset }))
 		$gpioNet = $zoneGpio[$z][$ch]
 		$suffix = "Z${z}${ch}"
 
-		# Aucune rotation : ces empreintes ont une faible emprise verticale a plat (pastilles alignees en X),
-		# ce qui permet un pas de pile compact tout en restant a l'interieur de la colonne de 24 mm.
-		Place-FP "R_Axial" "RB$suffix" "10k" $cx ($y0) 0 @{ "1" = $gpioNet; "2" = "QB_$suffix" }
-		Place-FP "TO92_3" "Q$suffix" "BC547B" $cx ($y0 + $step) 0 @{ "1" = "QB_$suffix"; "2" = "LEDK_$suffix"; "3" = "GND" }
-		Place-FP "R_Axial" "RL$suffix" "200_1pct" $cx ($y0 + 2 * $step) 0 @{ "1" = "3V3_OPTO"; "2" = "LEDA_$suffix" }
+		Place-FP "R_Axial" "RB$suffix" "10k" ($x0) $cy 90 @{ "1" = $gpioNet; "2" = "QB_$suffix" }
+		Place-FP "TO92_3" "Q$suffix" "BC547B" ($x0 + $step) $cy 90 @{ "1" = "QB_$suffix"; "2" = "LEDK_$suffix"; "3" = "GND" }
+		Place-FP "R_Axial" "RL$suffix" "200_1pct" ($x0 + 2 * $step) $cy 90 @{ "1" = "3V3_OPTO"; "2" = "LEDA_$suffix" }
 
-		# Optotriac : fait la transition entre la logique (pattes LED, cote haut/logique) et le secteur (pattes triac, cote bas/secteur)
-		$ocY = $y0 + 3 * $step
-		Place-FP "DIP6" "OC$suffix" "MOC3063M" $cx $ocY 0 @{ "1" = "LEDA_$suffix"; "2" = "LEDK_$suffix"; "4" = "MT1D_$suffix"; "6" = "FMT2_$suffix" }
+		# Optotriac : transition logique (pattes LED, cote gauche de la pile) / secteur (pattes triac, cote droit)
+		$ocX = $x0 + 3 * $step
+		Place-FP "DIP6" "OC$suffix" "MOC3063M" $ocX $cy 90 @{ "1" = "LEDA_$suffix"; "2" = "LEDK_$suffix"; "4" = "MT1D_$suffix"; "6" = "FMT2_$suffix" }
 
-		Place-FP "R_Axial" "RS$suffix" "4.7k" $cx ($ocY + $step) 0 @{ "1" = "PHASE_PROT"; "2" = "RSF_$suffix" }
-		Place-FP "F_Axial" "F$suffix" "100mA_PTC" $cx ($ocY + 2 * $step) 0 @{ "1" = "RSF_$suffix"; "2" = "FMT2_$suffix" }
+		Place-FP "R_Axial" "RS$suffix" "4.7k" ($ocX + $step) $cy 90 @{ "1" = "PHASE_PROT"; "2" = "RSF_$suffix" }
+		Place-FP "F_Axial" "F$suffix" "100mA_PTC" ($ocX + 2 * $step) $cy 90 @{ "1" = "RSF_$suffix"; "2" = "FMT2_$suffix" }
 
 		if ($ch -eq "P") {
-			Place-FP "D_Axial" "D$suffix" "1N4007" $cx ($ocY + 3 * $step) 0 @{ "1" = "MT1D_$suffix"; "2" = "FP$z" }
+			Place-FP "D_Axial" "D$suffix" "1N4007" ($ocX + 3 * $step) $cy 90 @{ "1" = "MT1D_$suffix"; "2" = "FP$z" }
 		} else {
-			Place-FP "D_Axial" "D$suffix" "1N4007" $cx ($ocY + 3 * $step) 0 @{ "1" = "FP$z"; "2" = "MT1D_$suffix" }
+			Place-FP "D_Axial" "D$suffix" "1N4007" ($ocX + 3 * $step) $cy 90 @{ "1" = "FP$z"; "2" = "MT1D_$suffix" }
 		}
 	}
 }
 
-# Lignes de reperage visuelles autour de la rangee d optotriacs de chaque ligne de zones
-Draw-IsoLine ($row1Y0 + 3 * $step - 3)
-Draw-IsoLine ($row1Y0 + 3 * $step + 3)
-Draw-IsoLine ($row2Y0 + 3 * $step - 3)
-Draw-IsoLine ($row2Y0 + 3 * $step + 3)
+# Lignes de reperage visuelles delimitant chaque bande de zones
+for ($b = 0; $b -le 4; $b++) {
+	Draw-IsoLine ($bandY0 + $b * $bandPitch - 3)
+}
 
 W '	(embedded_fonts no)'
 W ')'

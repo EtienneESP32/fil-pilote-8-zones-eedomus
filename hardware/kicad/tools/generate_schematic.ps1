@@ -27,9 +27,14 @@ $PinOffsets = @{
 	"SW3"    = @{ "1" = @(-5.08, 0);    "2" = @(0, -5.08);   "3" = @(5.08, 0) }
 	"PSU4"   = @{ "1" = @(-5.08, 2.54); "2" = @(-5.08, -2.54); "3" = @(5.08, 2.54); "4" = @(5.08, -2.54) }
 }
-# CONN19 : 19 pins alignées verticalement côté gauche
-$PinOffsets["CONN19"] = @{}
-for ($k = 1; $k -le 19; $k++) { $yoff = -($k - 1) * 2.54; $PinOffsets["CONN19"]["$k"] = @(-5.08, $yoff) }
+# CONN40 : en-tete Waveshare, 2 rangees de 20 broches (format Pico), rangees espacees de 17,78 mm
+$PinOffsets["CONN40"] = @{}
+for ($k = 1; $k -le 20; $k++) {
+	$yoff = -($k - 1) * 2.54
+	$rightPin = 41 - $k
+	$PinOffsets["CONN40"]["$k"] = @(-8.89, $yoff)
+	$PinOffsets["CONN40"]["$rightPin"] = @(8.89, $yoff)
+}
 
 $sb = New-Object System.Text.StringBuilder
 function W([string]$s) { [void]$sb.AppendLine($s) }
@@ -137,18 +142,21 @@ W '			)'
 W '			(embedded_fonts no)'
 W '		)'
 
-# CONN19 : connecteur 19 broches (en-tête Waveshare)
-W '		(symbol "FP:CONN19"'
+# CONN40 : en-tete Waveshare ESP32-S3-ETH, 40 broches 2 rangees, compatible Raspberry Pi Pico
+# (verifie 2026-11-07 : carte 72,8 x 21 mm, pas 2,54 mm, rangees espacees de 17,78 mm, pinout reel confirme)
+W '		(symbol "FP:CONN40"'
 W '			(exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (duplicate_pin_numbers_are_jumpers no)'
 W '			(property "Reference" "J" (at 0 3.81 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))'
-W '			(property "Value" "CONN19" (at 0 -48 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))'
-W '			(symbol "CONN19_0_1"'
-W '				(rectangle (start -3.81 1.27 ) (end 3.81 -45.72) (stroke (width 0.254) (type default)) (fill (type none)))'
+W '			(property "Value" "CONN40" (at 0 -51 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))'
+W '			(symbol "CONN40_0_1"'
+W '				(rectangle (start -8.89 1.27) (end 8.89 -49.53) (stroke (width 0.254) (type default)) (fill (type none)))'
 W '			)'
-W '			(symbol "CONN19_1_1"'
-for ($k = 1; $k -le 19; $k++) {
+W '			(symbol "CONN40_1_1"'
+for ($k = 1; $k -le 20; $k++) {
 	$y = -($k - 1) * 2.54
-	W "				(pin passive line (at -5.08 $y 0) (length 1.27) (name `"P$k`" (effects (font (size 1.27 1.27)))) (number `"$k`" (effects (font (size 1.27 1.27)))))"
+	$rightPin = 41 - $k
+	W "				(pin passive line (at -8.89 $y 0) (length 2.54) (name `"L$k`" (effects (font (size 1.27 1.27)))) (number `"$k`" (effects (font (size 1.27 1.27)))))"
+	W "				(pin passive line (at 8.89 $y 180) (length 2.54) (name `"R$rightPin`" (effects (font (size 1.27 1.27)))) (number `"$rightPin`" (effects (font (size 1.27 1.27)))))"
 }
 W '			)'
 W '			(embedded_fonts no)'
@@ -208,7 +216,7 @@ $px = 16 * $G; $py = 16 * $G
 Place "CONN2" "J1" "MAINS_IN" "FP:TerminalBlock_2.54_2pin" $px $py @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
 Place "F2" "F0" "250mA_T_250V" "FP:Axial_THT" ($px + 16 * $G) $py @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
 Place "PSU4" "PS1" "HLK-5M05" "FP:Module_PSU4" ($px + 32 * $G) $py @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
-Place "SW3" "SW1" "SPDT_sel" "FP:Switch_SPDT_THT" ($px + 48 * $G) $py @{ "1" = "LOCAL_5V"; "2" = "VSYS"; "3" = "POE_5V" }
+Place "SW3" "SW1" "SPDT_sel" "FP:Switch_SPDT_THT" ($px + 48 * $G) $py @{ "1" = "LOCAL_5V"; "2" = "VSYS"; "3" = "POE_5V_A_CONFIRMER" }
 Place "REG3" "U1" "AMS1117-3.3" "FP:TO220_3pin" ($px + 64 * $G) $py @{ "1" = "VSYS"; "2" = "GND"; "3" = "3V3_OPTO" }
 Place "CAP2" "C1" "100uF" "FP:CAP_THT_Radial" ($px + 64 * $G) ($py + 12 * $G) @{ "1" = "VSYS"; "2" = "GND" }
 Place "CAP2" "C2" "100uF" "FP:CAP_THT_Radial" ($px + 76 * $G) ($py + 12 * $G) @{ "1" = "3V3_OPTO"; "2" = "GND" }
@@ -218,19 +226,28 @@ Place "CONN2" "J3" "FP3_FP4" "FP:TerminalBlock_5.08_2pin" ($px + 16 * $G) ($py +
 Place "CONN2" "J4" "FP5_FP6" "FP:TerminalBlock_5.08_2pin" ($px + 32 * $G) ($py + 24 * $G) @{ "1" = "FP5"; "2" = "FP6" }
 Place "CONN2" "J5" "FP7_FP8" "FP:TerminalBlock_5.08_2pin" ($px + 48 * $G) ($py + 24 * $G) @{ "1" = "FP7"; "2" = "FP8" }
 
-# En-tête Waveshare ESP32-S3-POE-ETH : pin1=GND pin2=VSYS pin3=POE_5V pin4..19=GPIO
-$gpioPinList = @("GPIO1","GPIO2","GPIO4","GPIO5","GPIO15","GPIO16","GPIO17","GPIO18","GPIO21","GPIO38","GPIO39","GPIO40","GPIO41","GPIO42","GPIO47","GPIO48")
-$wsNets = @{ "1" = "GND"; "2" = "VSYS"; "3" = "POE_5V" }
-for ($i = 0; $i -lt $gpioPinList.Count; $i++) { $wsNets["$($i+4)"] = $gpioPinList[$i] }
-Place "CONN19" "JWS" "Waveshare_header" "FP:PinHeader_19x1_2.54" ($px + 96 * $G) ($py + 48 * $G) $wsNets
+# En-tête Waveshare ESP32-S3-ETH : pinout reel verifie le 2026-11-07 (carte 72,8x21mm, 40 broches,
+# format Raspberry Pi Pico). GPIO4/GPIO5 retires : ils ne sortent que sur le connecteur carte TF,
+# pas sur cet en-tete. GPIO21 conserve mais partage avec la LED WS2812 embarquee (effet cosmetique
+# accepte : la LED de statut suit l'etat de la zone 4 POS). GPIO3 ajoute (broche de strapping JTAG,
+# risque limite a la selection de source JTAG au demarrage, pas un risque de boot) en remplacement
+# de GPIO5. Broches GND/VSYS/VBUS/3V3/3V3_EN/RUN/GPIO0/43/44/19/20/33-37/46 non utilisees (NC).
+$wsNets = @{
+	"2" = "VSYS"; "3" = "GND"
+	"6" = "GPIO21"; "7" = "GPIO17"; "9" = "GPIO16"; "10" = "GPIO18"; "12" = "GPIO15"
+	"14" = "GPIO3"; "15" = "GPIO2"; "16" = "GPIO1"
+	"24" = "GPIO48"; "25" = "GPIO47"; "27" = "GPIO45"
+	"29" = "GPIO42"; "30" = "GPIO41"; "31" = "GPIO40"; "32" = "GPIO39"; "34" = "GPIO38"
+}
+Place "CONN40" "JWS" "Waveshare_ESP32-S3-ETH_40pin" "FP:PinHeader_2x20_2.54_Pico" ($px + 96 * $G) ($py + 48 * $G) $wsNets
 
 # ---------- 8 zones ----------
 $zoneGpio = @{
 	1 = @{ P = "GPIO1";  N = "GPIO2"  }
 	2 = @{ P = "GPIO15"; N = "GPIO16" }
 	3 = @{ P = "GPIO17"; N = "GPIO18" }
-	4 = @{ P = "GPIO21"; N = "GPIO4"  }
-	5 = @{ P = "GPIO5";  N = "GPIO38" }
+	4 = @{ P = "GPIO21"; N = "GPIO45" }
+	5 = @{ P = "GPIO3";  N = "GPIO38" }
 	6 = @{ P = "GPIO39"; N = "GPIO40" }
 	7 = @{ P = "GPIO41"; N = "GPIO42" }
 	8 = @{ P = "GPIO47"; N = "GPIO48" }

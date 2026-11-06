@@ -4,7 +4,7 @@
 
 ## 1. Blocs fonctionnels
 
-1. **Entrée d'alimentation** : deux modes : PoE via le Waveshare ESP32-S3-POE-ETH, ou alimentation secteur locale isolée sur le PCB via **Hi-Link HLK-5M05 (5 V / 1 A)**. **Point fermé (2026-11-06) :** sélecteur manuel SPDT entre les deux sources, un seul mode actif à la fois, aucun retour possible (pas de power-path électronique à concevoir).
+1. **Entrée d'alimentation** : deux modes : PoE via le Waveshare ESP32-S3-POE-ETH, ou alimentation secteur locale isolée sur le PCB via **Hi-Link HLK-5M05 (5 V / 1 A)**. Sélecteur manuel SPDT entre les deux sources prévu dans le schéma. **Point ouvert (découvert 2026-11-07) :** le connecteur principal 40 broches de la carte Waveshare (voir §2) n'expose aucune broche identifiée « sortie PoE » — seules `VBUS`/`VSYS`/`GND`/`3V3`/`3V3_EN`/`RUN` sont documentées côté alimentation. Le schéma câble pour l'instant l'entrée « PoE » du sélecteur sur un réseau non raccordé (`POE_5V_A_CONFIRMER`, visible comme avertissement ERC intentionnel). À vérifier sur le schéma du module PoE Waveshare lui-même avant de considérer ce sélecteur comme validé : si le module PoE alimente `VSYS` en interne sans sortie externe séparée, le principe même du sélecteur est à revoir (la mutualité PoE/local pourrait être intrinsèque au module plutôt que pilotée par un commutateur externe).
 2. **Contrôleur** : Waveshare ESP32-S3-POE-ETH, SKU 28771, avec module PoE inclus, RJ45, Wi-Fi et Bluetooth. L'Ethernet utilise un W5500 sur SPI; vérifier le pinout avant d'allouer les GPIO applicatifs.
 3. **Sorties logiques** : 16 signaux, deux optocoupleurs par zone pour huit zones. **Point fermé (2026-11-06) :** commande GPIO → transistor tampon → LED d'opto, voir §3. Le direct-drive GPIO→LED est abandonné au profit d'un étage tampon, pour les raisons détaillées ci-dessous.
 4. **Commandes d'isolement** : deux voies optocoupleur par zone d'après le schéma fourni. Leur aptitude à générer les six ordres, notamment les ordres temporels, reste à vérifier et peut nécessiter une modification du circuit.
@@ -17,13 +17,19 @@
 | 1 | POS | NEG | GPIO1 | GPIO2 |
 | 2 | POS | NEG | GPIO15 | GPIO16 |
 | 3 | POS | NEG | GPIO17 | GPIO18 |
-| 4 | POS | NEG | GPIO21 | GPIO4 |
-| 5 | POS | NEG | GPIO5 | GPIO38 |
+| 4 | POS | NEG | GPIO21 | GPIO45 |
+| 5 | POS | NEG | GPIO3 | GPIO38 |
 | 6 | POS | NEG | GPIO39 | GPIO40 |
 | 7 | POS | NEG | GPIO41 | GPIO42 |
 | 8 | POS | NEG | GPIO47 | GPIO48 |
 
-**Point fermé (2026-11-06) :** le wiki fabricant (docs.waveshare.com/ESP32-S3-ETH) confirme que GPIO9/10/11/12/13/14 sont pris par le W5500 (RST/INT/MOSI/MISO/SCLK/CS), que GPIO43/44 sont la console UART0, et surtout que **GPIO33 à GPIO37 sont internes au module (PSRAM octale de l'ESP32-S3R8) et inutilisables**. L'affectation initiale plaçait GPIO33 (zone 4, voie B) et GPIO34 (zone 5, voie A) dans cette plage : ces deux lignes sont remplacées ci-dessus par GPIO4 et GPIO5 (en-tête carte TF, libres sur la variante sans lecteur de carte). Les 14 autres GPIO (1, 2, 15, 16, 17, 18, 21, 38, 39, 40, 41, 42, 47, 48) ne recoupent ni le SPI Ethernet, ni l'UART0, ni la PSRAM, ni les broches de strapping (0, 3, 45, 46), ni l'USB natif (19, 20) : affectation validée pour le schéma. La position physique exacte des broches sur le connecteur reste à relever sur le dessin du footprint au moment du placement, mais ne remet plus en cause le choix des GPIO.
+**Point fermé (2026-11-06), corrigé le 2026-11-07 :** le wiki fabricant confirme que GPIO9/10/11/12/13/14 sont pris par le W5500, que GPIO43/44 sont la console UART0, et que **GPIO33 à GPIO37 sont internes au module (PSRAM octale) et inutilisables**. Une première correction avait remplacé GPIO33/34 par GPIO4/5 (en-tête carte TF) — **erreur découverte le 2026-11-07** : GPIO4 et GPIO5 ne sortent que sur le connecteur carte TF, absent de l'en-tête principal 40 broches réellement disponible pour le câblage. Le pinout physique réel du connecteur (format Raspberry Pi Pico, 40 broches 2,54 mm sur 2 rangées, vérifié contre [espboards.dev](https://www.espboards.dev/esp32/waveshare-esp32-s3-eth/)) a été récupéré et croisé avec l'affectation :
+- **GPIO4 → GPIO45** (zone 4, voie B) : GPIO4 retiré (TF card only), GPIO45 confirmé présent sur l'en-tête principal (broche physique 27, fonction Camera D1 inutilisée ici).
+- **GPIO5 → GPIO3** (zone 5, voie A) : GPIO5 retiré (TF card only), GPIO3 confirmé présent (broche physique 14). GPIO3 est une broche de strapping JTAG sur ESP32-S3 : risque limité à la sélection de la source JTAG au démarrage (pas un risque de boot), accepté faute de broche libre alternative — à revalider si une broche plus neutre se libère.
+- **GPIO21 conservé** (zone 4, voie A, broche physique 6) mais **partagé avec la LED WS2812 embarquée** de la carte Waveshare : effet cosmétique accepté (la LED de statut suivra l'état de la zone 4 POS), pas un risque électrique dur.
+- **GPIO46 exclu** : présent sur l'en-tête (broche 26) mais **entrée seule** sur ESP32-S3 (ne peut pas piloter un transistor en sortie).
+
+Les 13 autres GPIO (1, 2, 15, 16, 17, 18, 38, 39, 40, 41, 42, 47, 48) sont confirmés présents sur l'en-tête principal et libres de toute fonction réservée. Voir [11_État du projet KiCad](11_Etat-KiCad.md) pour le détail complet du connecteur et la correction de l'empreinte PCB (l'empreinte précédente modélisait à tort un connecteur 1 rangée/19 broches au lieu du vrai connecteur 2 rangées/40 broches).
 
 Le MCP23017 et le bus I2C sont retirés de l'architecture. Prévoir des résistances de rappel définissant l'état inactif des drivers au démarrage et pendant reset.
 
