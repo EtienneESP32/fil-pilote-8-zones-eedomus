@@ -18,7 +18,7 @@
 
 1. L'API HTTP locale pour eedomus est une direction crédible : le dépôt tducret démontre ce modèle de contrôle HTTP à plusieurs zones, même si sa capacité documentée est de 7 zones et 4 ordres.
 2. Le tableau de six ordres doit inclure les séquences répétitives confort -1/-2. La table de `epsilonrt/gifam-chip` est une bonne base de vérification, pas une preuve normative suffisante.
-3. Le sujet triphasé est maintenant le principal point de sécurité ouvert : Dackara prescrit une phase pilote correspondant à la phase d'alimentation du radiateur. Il faut vérifier si cette prescription s'applique aux appareils et au câblage de notre installation avant de conserver une seule `PHASE_PROT`.
+3. Dackara prescrit une phase pilote correspondant à la phase d'alimentation du radiateur, à l'inverse de notre `PHASE_PROT` unique. **Point fermé (2026-11-06) :** l'utilisateur a tranché pour `PHASE_PROT` unique en connaissance de son installation (neutre et protection différentielle communs) ; ce point n'est plus traité comme bloquant dans ce dossier.
 4. Aucun des projets examinés n'est une preuve de conformité ni un substitut à la revue du schéma, aux calculs d'isolement/courant et à la validation par une personne qualifiée.
 5. Ne pas copier le matériel ou le firmware de ces dépôts sans vérifier les licences fichier par fichier et sans revue technique. En particulier, les éléments matériels du dépôt tducret sont annoncés CC BY-NC-SA 4.0.
 

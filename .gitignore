@@ -22,10 +22,14 @@ __pycache__/
 .venv/
 venv/
 
-# KiCad local-only files (when migrated to KiCad)
+# KiCad local-only files
 *.kicad_prl
 *-backups/
 fp-info-cache
+~*.lck
+
+# Editor local-history backups (e.g. VSCode Local History extension)
+.history/
 
 # EasyEDA local cache/export files
 *.tmp

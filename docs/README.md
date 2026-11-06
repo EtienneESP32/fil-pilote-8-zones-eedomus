@@ -16,8 +16,9 @@ Cette documentation décrit l'intention et les décisions connues. Elle ne const
 - [Plan de validation](06_Plan-de-validation.md) : contrôles documentaires, électriques, mécaniques et firmware.
 - [Questions et décisions ouvertes](07_Questions-a-confirmer.md) : informations à fournir et registre de décision.
 - [Revue du schéma source](08_Revue-schema-source.md) : composants repérés dans l'export EasyEDA et limites de l'inspection actuelle.
-- [Commande directe des optos](09_Commande-directe-opto.md) : comparaison MOC3041M/330 Ω et cible de calcul pour un direct-drive GPIO.
-- [Projets similaires](10_Projets-similaires.md) : analyse comparative GitHub, limites de réutilisation et point critique triphasé.
+- [Commande directe des optos](09_Commande-directe-opto.md) : calcul ayant conduit au choix MOC3063M/200 Ω, piloté via un étage tampon transistor (direct-drive GPIO abandonné).
+- [Projets similaires](10_Projets-similaires.md) : comparaison avec des dépôts GitHub proches (eedomus/HTTP, six ordres, triphasé, packaging DIN).
+- [État du projet KiCad natif](11_Etat-KiCad.md) : schéma ERC-clean et PCB placé/DRC-clean dans `hardware/kicad/`, référence actuelle pour la topologie électrique.
 
 ## Légende de statut
 
@@ -28,4 +29,6 @@ Cette documentation décrit l'intention et les décisions connues. Elle ne const
 
 ## État actuel
 
-Le projet est au stade de reprise du schéma. Une copie de travail EasyEDA `FilPilote_8Zones_DIN_R1_2026-11-06` a été créée dans l'espace utilisateur, à partir de l'export source, et une première feuille PCB `PCB_FilPilote_8Zones_DIN_R1_2026-11-06` a été générée/sauvegardée par conversion. Le PCB est encore un brouillon automatique avec ancien contrôleur et composants à corriger; aucun placement optimisé, routage, DRC ou Gerber n'est validé. Le projet source `FilPilote_8Zones_DIN_2` n'a pas été modifié.
+**Projet KiCad natif (référence actuelle, 2026-11-07) :** `hardware/kicad/FilPilote_8Zones.kicad_pro`. Schéma complet et vérifié ERC (0 erreur) intégrant toutes les décisions fermées (GPIO corrigés, étage tampon transistor, 4,7 kΩ + fusibles secteur, HLK-5M05, MOC3063M). PCB placé selon les principes de séparation secteur/logique et vérifié DRC (0 erreur réelle), mais **non routé** — le routage des pistes reste à faire dans l'éditeur graphique KiCad. Voir [11_État du projet KiCad](11_Etat-KiCad.md).
+
+**Copie EasyEDA R1 (antérieure, dépassée pour la topologie) :** `FilPilote_8Zones_DIN_R1_2026-11-06`, créée à partir de l'export source par conversion. Contient encore l'ancien contrôleur WT32-S1/MCP23017/MCP1700 et les valeurs non corrigées (360 Ω, direct-drive GPIO) ; voir [08_Revue du schéma source](08_Revue-schema-source.md). À reprendre depuis le projet KiCad si cette filière EasyEDA est poursuivie, ou abandonner au profit du projet KiCad natif. Le projet source `FilPilote_8Zones_DIN_2` n'a pas été modifié.

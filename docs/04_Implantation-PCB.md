@@ -5,7 +5,7 @@
 ## 1. Données mécaniques connues
 
 - Intégration visée dans un boîtier rail DIN annoncé six modules / 105 mm de largeur.
-- Une carte de 105 × 85 mm est évoquée comme exemple seulement; ses dimensions ne sont pas approuvées.
+- **Mise à jour (2026-11-07) :** le placement réel des 16 voies dans KiCad (voir [11_État du projet KiCad](11_Etat-KiCad.md)) montre qu'une carte de 105 × 85 mm est trop courte pour loger les composants traversants avec un dégagement correct. Largeur 105 mm conservée (seule contrainte mécanique confirmée) ; hauteur de travail portée à 180 mm, à confronter au boîtier réel une fois choisi.
 - RJ45 de la carte Waveshare ESP32-S3-POE-ETH, SKU 28771, à rendre accessible.
 - RJ45 accessible depuis l'extérieur du coffret, confirmé par l'utilisateur.
 - PCB embarquant une alimentation isolée secteur locale en plus de l'option PoE.
@@ -46,8 +46,8 @@ Ces principes ne remplacent pas un calcul thermique ni une revue de sécurité c
 
 ## 5. Livrables PCB attendus après levée des blocages
 
-- Projet CAO natif avec schéma et PCB synchronisés.
-- Rapports ERC et DRC datés, avec anomalies résiduelles justifiées.
+- Projet CAO natif avec schéma et PCB synchronisés. **Fait (2026-11-07)** pour le schéma et le placement, voir [11_État du projet KiCad](11_Etat-KiCad.md) ; routage restant à faire.
+- Rapports ERC et DRC datés, avec anomalies résiduelles justifiées. **Fait pour l'état actuel** (0 erreur réelle ERC/DRC, avertissements bénins documentés) ; à refaire après routage et empreintes définitives.
 - Dessin coté de la carte et vue d'implantation.
 - Gerbers ou format accepté par le fabricant, fichiers de perçage, nomenclature et fichier de placement si nécessaire.
 - Instructions d'assemblage, polarités, révisions et points de contrôle.

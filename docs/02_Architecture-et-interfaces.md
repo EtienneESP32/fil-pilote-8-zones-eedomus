@@ -4,9 +4,9 @@
 
 ## 1. Blocs fonctionnels
 
-1. **Entrée d'alimentation** : deux modes demandés : PoE via le Waveshare ESP32-S3-POE-ETH, ou alimentation secteur locale isolée sur le PCB via HLK-PM01 proposé. Prévoir un sélecteur matériel ou un power-path avec anti-retour dimensionné; le mode simultané n'est pas autorisé tant que le schéma fabricant et le circuit de partage ne le justifient pas.
+1. **Entrée d'alimentation** : deux modes : PoE via le Waveshare ESP32-S3-POE-ETH, ou alimentation secteur locale isolée sur le PCB via **Hi-Link HLK-5M05 (5 V / 1 A)**. **Point fermé (2026-11-06) :** sélecteur manuel SPDT entre les deux sources, un seul mode actif à la fois, aucun retour possible (pas de power-path électronique à concevoir).
 2. **Contrôleur** : Waveshare ESP32-S3-POE-ETH, SKU 28771, avec module PoE inclus, RJ45, Wi-Fi et Bluetooth. L'Ethernet utilise un W5500 sur SPI; vérifier le pinout avant d'allouer les GPIO applicatifs.
-3. **Sorties logiques** : le besoin est bien de 16 signaux, soit deux optocoupleurs par zone pour huit zones. La cible est la commande directe des LED d'opto par 16 GPIO, chacun avec sa résistance de limitation, si le courant garanti par opto et le budget de courant global sont compatibles avec l'ESP32-S3. Des étages drivers restent une solution de repli, pas une obligation de principe.
+3. **Sorties logiques** : 16 signaux, deux optocoupleurs par zone pour huit zones. **Point fermé (2026-11-06) :** commande GPIO → transistor tampon → LED d'opto, voir §3. Le direct-drive GPIO→LED est abandonné au profit d'un étage tampon, pour les raisons détaillées ci-dessous.
 4. **Commandes d'isolement** : deux voies optocoupleur par zone d'après le schéma fourni. Leur aptitude à générer les six ordres, notamment les ordres temporels, reste à vérifier et peut nécessiter une modification du circuit.
 5. **Connectique** : entrée secteur J1 et sorties FP1 à FP8 regroupées en J2 à J5.
 
@@ -31,14 +31,14 @@ Le MCP23017 et le bus I2C sont retirés de l'architecture. Prévoir des résista
 
 | Sujet | Proposition | Condition |
 |---|---|---|
-| Alimentation logique | Pas de régulateur 3,3 V séparé; utiliser le régulateur embarqué de la carte | Confirmer capacité disponible sur la broche 3V3. Le rail 3,3 V reste nécessaire. |
-| Entrée de la carte | PoE ou 5 V local depuis HLK-PM01 | Les deux modes doivent être disponibles; sélection avec anti-retour à concevoir. |
-| I2C | Non utilisé dans l'architecture directe ESP32 | MCP23017/I2C possible en repli si nécessaire. |
-| GPIO | 16 sorties logiques demandées | Établir le tableau pin-à-net après contrôle du schéma fabricant. |
+| Alimentation logique carte Waveshare | Régulateur embarqué de la carte, non sollicité par les LED d'opto | Le rail 3,3 V de la carte n'alimente que les GPIO en commande, pas le courant LED (voir ci-dessous). |
+| Entrée de la carte | PoE ou 5 V local depuis HLK-5M05, sélecteur manuel SPDT | Un seul mode actif à la fois ; pas de retour possible entre sources, aucune électronique de bascule à valider. |
+| I2C | Supprimé | MCP23017 retiré de l'architecture. |
+| GPIO | 16 sorties logiques, voir §2 | Chaque GPIO attaque un transistor tampon, pas directement la LED d'opto. |
 
-La commande directe GPIO -> résistance -> LED d'opto est électriquement possible. Elle devra être démontrée par calcul sur le courant de déclenchement maximal garanti de l'opto, la tension de sortie GPIO minimale sous charge, la tolérance de résistance et le pire cas où 16 voies sont actives. Exemple à ne pas reprendre tel quel : avec 3,3 V, une LED supposée à 1,2 V et 330 Ω, le courant est d'environ 6,4 mA; le MOC3041M peut demander jusqu'à 15 mA pour un déclenchement garanti. Un optotriac à courant de déclenchement plus faible (par exemple une variante MOC3063M à vérifier, tension répétitive et compatibilité comprises) peut permettre la commande directe avec un dimensionnement adapté. Si le courant cumulé dépasse le budget GPIO/alimentation, ajouter des drivers.
+**Point fermé (2026-11-06) — abandon du direct-drive GPIO, ajout d'un étage tampon :** le calcul du pire cas (mode Éco = 16 LED actives simultanément, candidat MOC3063M/200 Ω, 5,6 à 13,1 mA par voie selon [l'étude direct-drive](09_Commande-directe-opto.md)) donne jusqu'à ~210 mA cumulés. Prélever ce courant directement sur le régulateur 3,3 V de la carte Waveshare — déjà sollicité par l'ESP32-S3, le W5500 et le module PoE — n'est pas raisonnable sans connaître sa capacité exacte, non documentée pour ce SKU. Décision : chaque GPIO pilote un petit transistor NPN (BC547B ou équivalent, THT TO-92) via une résistance de base ~10 kΩ (courant GPIO < 1 mA) ; le transistor commute la LED d'opto (MOC3063M + 200 Ω 1 %) alimentée par un rail 3,3 V dédié (`3V3_OPTO`), issu d'un régulateur séparé (AMS1117-3,3, THT TO-220, 1 A) sur le rail `VSYS` 5 V commun (PoE ou HLK-5M05). Cela déplace tout le budget de courant des 16 voies hors de la carte contrôleur et améliore aussi la marge de déclenchement (régulateur dédié non chargé, chute de saturation du transistor ~0,1-0,3 V au lieu de la chute VOH du GPIO) : marge estimée ≈30 % sur IFT min contre ≈12 % en direct-drive.
 
-Ne jamais appliquer le 5 V sur la broche 3V3 ou les GPIO. Pour la commande directe, raccorder chaque LED d'opto via une résistance de limitation calculée; ajouter un driver actif seulement si le courant d'entrée garanti ou le budget global des 16 voies l'exige.
+Ne jamais appliquer le 5 V sur la broche 3V3 ou les GPIO.
 
 ## 4. Connectique proposée
 

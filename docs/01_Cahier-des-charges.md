@@ -56,7 +56,7 @@ Les codes et temporisations ci-dessus sont rapportés par l'implémentation `eps
 - **Point fermé (2026-11-06) :** la phase de commande unique `PHASE_PROT` est retenue pour les huit sorties, y compris pour des radiateurs répartis sur L1/L2/L3. Décision assumée par l'utilisateur, qui connaît son installation (neutre et protection différentielle communs). Un projet comparable décrit une architecture à phase multiple ; ce point a été signalé et tranché, il n'est plus traité comme bloquant.
 - Les distances d'isolement, les protections, les pistes, les connecteurs, le boîtier et le montage doivent être déterminés selon les exigences applicables et le contexte d'utilisation, puis revus par une personne compétente.
 - **Point fermé :** les 6 mm de la source dépassent le minimum IEC 60664-1 (~2 mm en isolation renforcée à 250 V, pollution degré 2) et sont conservés comme règle de conception.
-- **Point fermé :** la résistance 360 Ω côté secteur est remplacée par 4,7 kΩ + un fusible/PTC ~100 mA par voie (calcul dans [la nomenclature](03_Nomenclature.md)). La résistance 330 Ω côté LED reste ouverte, voir [l'étude direct-drive](09_Commande-directe-opto.md).
+- **Point fermé :** la résistance 360 Ω côté secteur est remplacée par 4,7 kΩ + un fusible/PTC ~100 mA par voie (calcul dans [la nomenclature](03_Nomenclature.md)). La résistance 330 Ω côté LED est remplacée par 200 Ω avec MOC3063M, piloté via un étage tampon transistor (voir [02_Architecture §3](02_Architecture-et-interfaces.md)).
 - Le comportement au démarrage et en défaut doit éviter toute commande involontaire des zones.
 - Le prototype doit être contrôlé avant tout raccordement secteur; les essais sous tension dangereuse relèvent d'un environnement et d'une personne qualifiés.
 

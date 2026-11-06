@@ -11,7 +11,7 @@ Ce plan est une trame documentaire. Les contrôles secteur et les mesures de sé
 - [ ] Exigences d'isolement et contexte d'installation déterminés et revus.
 - [ ] Boîtier, connecteurs et enveloppe mécanique identifiés.
 - [ ] `PHASE_PROT` unique sur L1/L2/L3 : architecture validée par décision utilisateur (fermé) ; câblage neutre/différentiel commun documenté à la mise en service, sans remise en cause de l'architecture.
-- [ ] Sélection PoE/HLK-PM01 testée sans réalimentation croisée; modes d'alimentation clairement repérés.
+- [ ] Sélecteur manuel PoE/HLK-5M05 testé (un seul mode actif, aucun retour croisé); modes d'alimentation clairement repérés sur la carte.
 
 ## 2. Vérifications schématiques et logiques
 

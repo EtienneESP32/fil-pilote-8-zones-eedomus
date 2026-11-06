@@ -1,6 +1,6 @@
 # Étude préliminaire : GPIO direct vers optocoupleur
 
-**Statut :** étude de faisabilité; valeurs de fabrication non gelées.
+**Statut : point fermé (2026-11-06).** Le direct-drive étudié ici est abandonné au profit d'un étage tampon transistor (voir [02_Architecture §3](02_Architecture-et-interfaces.md)) : le calcul ci-dessous reste la justification du choix MOC3063M + 200 Ω, mais le courant n'est plus tiré du GPIO ni du rail 3,3 V de la carte Waveshare — il vient d'un régulateur 3,3 V dédié (`3V3_OPTO`) commuté par un transistor NPN. Cela lève le risque de budget de courant sur 16 voies (pire cas ~210 mA, inacceptable à prélever sur un régulateur de carte non documenté) et améliore la marge de déclenchement (~30 % contre ~12 % en direct-drive, chute de saturation transistor plus faible et plus stable que la chute VOH d'un GPIO chargé).
 
 ## Conclusion
 
@@ -35,7 +35,7 @@ Ces chiffres sont une enveloppe préliminaire, pas une preuve de conformité : l
 
 1. Vérifier les valeurs `IFT,max`, `VF,max`, `VDRM` et les conditions de température du composant exact commandé.
 2. Vérifier le `VOH` garanti de la GPIO pour le courant choisi, ainsi que les limites par broche et le budget de courant total de l'ESP32-S3.
-3. Vérifier que le régulateur 3,3 V du Waveshare peut fournir la consommation de la carte plus le pire cas des 16 LED; le PoE/HLK-PM01 devra être dimensionné pour ce pire cas.
+3. **Fermé :** le régulateur 3,3 V du Waveshare n'est plus sollicité par les LED (régulateur `3V3_OPTO` dédié) ; le HLK-5M05 (1 A) est dimensionné pour le pire cas combiné, voir [03_Nomenclature](03_Nomenclature.md).
 4. Ajouter une résistance série par opto et définir un état inactif matériel pendant reset/boot. Éviter les GPIO de strapping ou les signaux qui togglent avant l'initialisation.
 5. Tester chaque canal, puis 16 canaux actifs simultanément, à basse tension et sans raccordement au secteur avant toute validation de puissance.
 6. Revalider la topologie optotriac/diodes et les six ordres fil pilote séparément; le choix d'un opto à IFT plus faible ne valide pas à lui seul la sortie secteur.

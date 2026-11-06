@@ -38,4 +38,4 @@ Les réponses doivent être rattachées à une révision du schéma/PCB et, lors
 ## Décisions de sécurité non déductibles
 
 - **Fermé (2026-11-06) :** distance d'isolement 6 mm (dépasse le minimum IEC 60664-1 à 250 V), résistance côté secteur (4,7 kΩ + fusible/PTC ~100 mA par voie), fusible d'entrée secteur (250 mA temporisé 250 V). Détail et calcul dans [03_Nomenclature](03_Nomenclature.md).
-- **Reste ouvert :** la résistance 330 Ω côté LED d'opto et le choix final MOC3041M/MOC3063M (courant de déclenchement garanti, budget GPIO au pire cas) — voir [09_Commande-directe-opto](09_Commande-directe-opto.md). Les largeurs de piste secteur et la conformité d'ensemble restent à vérifier une fois le placement PCB réalisé.
+- **Fermé (2026-11-06) :** MOC3063M + 200 Ω retenus côté LED, pilotés par un étage tampon transistor (et non plus en direct-drive GPIO) — voir [02_Architecture §3](02_Architecture-et-interfaces.md) et [09_Commande-directe-opto](09_Commande-directe-opto.md). Les largeurs de piste secteur et la conformité d'ensemble restent à vérifier une fois le placement PCB réalisé.
