@@ -17,14 +17,15 @@ $sb = New-Object System.Text.StringBuilder
 function W([string]$s) { [void]$sb.AppendLine($s) }
 
 # ---------- Dimensions de carte ----------
-# Reoriente le 2026-11-07 : un boitier DIN modulaire a une HAUTEUR fixee par la gamme du
-# fabricant (environ 80-130 mm usuel) et une LARGEUR qui varie avec le nombre de modules
-# (1 module = 17,5 mm). La carte 105x180mm ne tenait dans aucun boitier catalogue standard.
-# Reorientee ici en ~11 modules de large (192,5 mm catalogue) x ~108 mm de haut, gabarit
-# courant du commerce (ex. boitiers RS PRO ~178x90mm de la meme famille). Toujours indicatif,
-# a confronter a la reference reelle du boitier (point ouvert, voir docs/04).
+# Reoriente le 2026-11-07 puis recompacte le meme jour apres etude d'une reference reelle :
+# CamdenBoss CNMB (norme DIN 43880, quasi tous fabricants), section fixe 90mm externe /
+# 86,5mm de PCB utilisable, longueur qui scale avec le nombre de modules. CNMB/12 (212,1mm,
+# decoupe RJ45 et guide-fils 5,08mm disponibles en piece standard) convient a notre longueur.
+# Carte recompactee a 192 x 85 mm (sous les 86,5mm utilisables, marge ~1,5mm) pour tenir en
+# carte unique plutot qu'un empilement de 2 PCB. Toujours indicatif tant que la reference
+# exacte n'est pas commandee (voir docs/04).
 $BOARD_W = 192.0
-$BOARD_H = 108.0
+$BOARD_H = 86.0
 
 W '(kicad_pcb'
 W '	(version 20260206)'
@@ -131,7 +132,7 @@ function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [do
 # ---------- Colonne gauche : en-tete Waveshare (empreinte reelle verifiee 2026-11-07) ----------
 # Format Raspberry Pi Pico : 2x20 broches, pas 2,54 mm, rangees espacees de 17,78 mm.
 # GND/VSYS/VBUS/3V3/3V3_EN/RUN et les broches non utilisees (GPIO0/43/44/19/20/33-37/46) sont NC.
-Place-FP "CONN40_PICO" "JWS" "Waveshare_ESP32-S3-ETH_40pin" 8 8 0 @{
+Place-FP "CONN40_PICO" "JWS" "Waveshare_ESP32-S3-ETH_40pin" 8 3 0 @{
 	"2" = "VSYS"; "3" = "GND"
 	"6" = "GPIO21"; "7" = "GPIO17"; "9" = "GPIO16"; "10" = "GPIO18"; "12" = "GPIO15"
 	"14" = "GPIO3"; "15" = "GPIO2"; "16" = "GPIO1"
@@ -140,19 +141,19 @@ Place-FP "CONN40_PICO" "JWS" "Waveshare_ESP32-S3-ETH_40pin" 8 8 0 @{
 }
 
 # ---------- Colonne gauche (suite) : conditionnement alimentation, sous l en-tete ----------
-Place-FP "SW_SPDT_3" "SW1" "SPDT" 13 65 0 @{ "1" = "LOCAL_5V"; "2" = "VSYS"; "3" = "POE_5V_A_CONFIRMER" }
-Place-FP "TO220_3" "U1" "AMS1117-3.3" 13 72 0 @{ "1" = "VSYS"; "2" = "GND"; "3" = "3V3_OPTO" }
-Place-FP "CAP_Radial" "C1" "100uF" 13 79 0 @{ "1" = "VSYS"; "2" = "GND" }
-Place-FP "CAP_Radial" "C2" "100uF" 13 86 0 @{ "1" = "3V3_OPTO"; "2" = "GND" }
+Place-FP "SW_SPDT_3" "SW1" "SPDT" 13 56 0 @{ "1" = "LOCAL_5V"; "2" = "VSYS"; "3" = "POE_5V_A_CONFIRMER" }
+Place-FP "TO220_3" "U1" "AMS1117-3.3" 13 63 0 @{ "1" = "VSYS"; "2" = "GND"; "3" = "3V3_OPTO" }
+Place-FP "CAP_Radial" "C1" "100uF" 13 70 0 @{ "1" = "VSYS"; "2" = "GND" }
+Place-FP "CAP_Radial" "C2" "100uF" 13 77 0 @{ "1" = "3V3_OPTO"; "2" = "GND" }
 
 # ---------- Colonne droite : connectique secteur et sorties FP (bord de carte) ----------
-Place-FP "CONN2_508" "J1" "MAINS_IN" 182 10 0 @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
-Place-FP "F_Axial" "F0" "250mA_T" 182 20 0 @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
-Place-FP "PSU4" "PS1" "HLK-5M05" 182 30 0 @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
-Place-FP "CONN2_508" "J2" "FP1_FP2" 182 45 0 @{ "1" = "FP1"; "2" = "FP2" }
-Place-FP "CONN2_508" "J3" "FP3_FP4" 182 55 0 @{ "1" = "FP3"; "2" = "FP4" }
-Place-FP "CONN2_508" "J4" "FP5_FP6" 182 65 0 @{ "1" = "FP5"; "2" = "FP6" }
-Place-FP "CONN2_508" "J5" "FP7_FP8" 182 75 0 @{ "1" = "FP7"; "2" = "FP8" }
+Place-FP "CONN2_508" "J1" "MAINS_IN" 182 3 0 @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
+Place-FP "F_Axial" "F0" "250mA_T" 182 13 0 @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
+Place-FP "PSU4" "PS1" "HLK-5M05" 182 23 0 @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
+Place-FP "CONN2_508" "J2" "FP1_FP2" 182 38 0 @{ "1" = "FP1"; "2" = "FP2" }
+Place-FP "CONN2_508" "J3" "FP3_FP4" 182 48 0 @{ "1" = "FP3"; "2" = "FP4" }
+Place-FP "CONN2_508" "J4" "FP5_FP6" 182 58 0 @{ "1" = "FP5"; "2" = "FP6" }
+Place-FP "CONN2_508" "J5" "FP7_FP8" 182 68 0 @{ "1" = "FP7"; "2" = "FP8" }
 
 # ---------- 8 zones : 4 bandes horizontales (une par index GPIO 0-3) x 2 zones cote a cote ----------
 $zoneGpio = @{
@@ -170,10 +171,10 @@ $zoneGpio = @{
 # (pastilles perpendiculaires au sens d empilement -> pas de collision). $chOffset separe les
 # 2 canaux en Y. 4 bandes espacees de $bandPitch couvrent les 4 index GPIO (zone N et zone N+4
 # partagent la meme bande, cote a cote horizontalement).
-$chOffset = 12.0
+$chOffset = 11.0
 $step = 9.0
-$bandPitch = 24.0
-$bandY0 = 8.0
+$bandPitch = 21.0
+$bandY0 = 6.0
 $zoneLeftX0 = 35.0
 $zoneRightX0 = 100.0
 

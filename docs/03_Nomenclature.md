@@ -18,9 +18,10 @@ Cette liste est une estimation à partir du concept du DOCX, pas une liste d'ach
 | Fusible/PTC par voie FP | Fusible rapide ou PTC ~100 mA, 250 V, 1 par voie | 16 | Point fermé (2026-11-06) : défense en profondeur en série avec chaque résistance 4,7 kΩ/opto, voir calcul plus bas |
 | Réseau I2C / RESET expandeur | Non prévu | 0 | Retiré avec l'expandeur |
 | Découplage logique | Céramique 100 nF par circuit intégré + électrolytique sur `VSYS`/`3V3_OPTO` | À déterminer au placement | La carte contrôleur possède son propre découplage ; ajouter le découplage local des régulateurs ajoutés |
-| Bornier d'entrée secteur | 2 positions, pas 5,08 mm | 1 | Référence, tension/courant, fil accepté, protection au toucher et empreinte à choisir |
-| Bornier de sorties FP | 2 positions, pas 5,08 mm | 4 | Référence, tension/courant, fil accepté, encombrement et détrompage à choisir |
+| Bornier d'entrée secteur | 2 positions, pas 5,08 mm | 1 | Référence, tension/courant, fil accepté, protection au toucher et empreinte à choisir ; pas 5,08 mm confirmé compatible avec les guide-fils CNMB/x/TG508 du boîtier candidat (§ coffret) |
+| Bornier de sorties FP | 2 positions, pas 5,08 mm | 4 | Référence, tension/courant, fil accepté, encombrement et détrompage à choisir ; même pas que ci-dessus |
 | Supports de carte contrôleur | Selon format de la carte Waveshare | 1 jeu | Confirmer entraxes, nombre de broches, hauteur et méthode de montage |
+| Coffret rail DIN | CamdenBoss CNMB/12 (candidat, voir [04_Implantation-PCB §6](04_Implantation-PCB.md)) | 1 | Référence exacte et couvercle/parois à confirmer ; découpe RJ45 et guide-fils 5,08 mm disponibles en pièce standard dans cette gamme |
 | Fusible et porte-fusible, entrée secteur J1 | **250 mA temporisé (anti-surge), 250 V, 5x20 mm**, 1 jeu | 1 ensemble | Point fermé (2026-11-06) : dimensionné pour l'appel de courant du HLK-5M05 (~qq dizaines de mA en entrée pour 1 A/5 V en sortie) + courant cumulé des 16 voies FP (~quelques dizaines de mA) avec marge; à confirmer par mesure sur prototype avant gel définitif |
 | PCB | THT, dimensions provisoires non validées | 1 | Matériau, épaisseur cuivre, nombre de couches, règles de fabrication et exigences d'isolement à définir |
 | Interface eedomus | HTTP local envisagé | 1 firmware | Confirmer la méthode réellement utilisée par l'eedomus et définir commandes, retours et sécurisation réseau |
@@ -34,6 +35,6 @@ En remplaçant par **4,7 kΩ**, le même défaut franc ne produit plus que `230 
 ## Règles de gel de nomenclature
 
 - Ne pas figer les empreintes avant d'avoir choisi les références fabricant exactes et obtenu leurs dessins mécaniques.
-- Centraliser autant que possible les composants passifs, drivers, borniers et protections chez un distributeur unique; la carte Waveshare et le coffret peuvent rester des achats séparés si le même fournisseur ne les distribue pas.
+- **Fournisseur retenu (2026-11-07) :** RS Components pour les composants passifs, drivers, borniers, protections et le coffret CamdenBoss CNMB. Vérifier spécifiquement à la commande : HLK-5M05 (plus courant chez LCSC/Mouser/Reichelt) et la référence boîtier exacte du MOC3063M. Carte Waveshare ESP32-S3-POE-ETH commandée séparément sur Amazon (vendeur Waveshare direct).
 - Prévoir les quantités de rechange et consommables de montage dans la commande de production, pas dans la nomenclature fonctionnelle ci-dessus.
 - Joindre au dossier de fabrication les liens ou copies contrôlées des datasheets utilisées pour les décisions.

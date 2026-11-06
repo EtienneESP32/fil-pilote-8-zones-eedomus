@@ -13,7 +13,7 @@ Les réponses doivent être rattachées à une révision du schéma/PCB et, lors
 | Q5 | Alimentation locale intégrée en plus du PoE; sélectionner une seule source à la fois avec protection anti-retour. | La conception doit éviter de relier directement les deux sorties 5 V. | Confirmé; réalisation à ma charge |
 | Q6 | API HTTP eedomus acceptée; choix de l'authentification locale à faire dans la conception firmware. | Définir les commandes/retours et éviter une commande non autorisée sur le réseau. | HTTP confirmé |
 | Q7 | Coffret DIN 6 modules et RJ45 accessible depuis l'extérieur. | Il faut choisir un modèle coté compatible avec les modules, borniers et câbles. | Confirmé; référence à choisir |
-| Q8 | Aucun fournisseur imposé; regrouper les composants chez un distributeur autant que possible. | Limiter les commandes séparées. | Confirmé; choix de sourcing à ma charge |
+| Q8 | Fermé (2026-11-07) : RS Components retenu par l'utilisateur comme distributeur principal ; Waveshare ESP32-S3-POE-ETH commandé séparément sur Amazon. | Limiter les commandes séparées. | Fermé ; vérifier à la commande HLK-5M05 et référence boîtier MOC3063M (moins typiques chez RS) |
 
 ## Réponses déjà possibles à partir du document source
 
@@ -32,7 +32,7 @@ Les réponses doivent être rattachées à une révision du schéma/PCB et, lors
 - **Installation :** France, 230 V / 50 Hz, tableau triphasé; radiateurs répartis sur trois phases. Phase unique `PHASE_PROT` et protection commune : fermé, décision utilisateur assumée.
 - **Mécanique :** DIN 6 modules; RJ45 accessible de l'extérieur.
 - **Connectique :** huit sorties FP indépendantes, deux sorties par bornier double; confirmé par l'utilisateur.
-- **Approvisionnement :** aucun fournisseur ni référence composants choisi; objectif de regrouper les pièces chez un seul fournisseur quand possible.
+- **Approvisionnement :** RS Components retenu comme distributeur principal (composants, borniers, coffret) ; Waveshare ESP32-S3-POE-ETH sur Amazon. Voir [03_Nomenclature](03_Nomenclature.md).
 - **Incohérence certaine dans le tableau source :** GPB5/Z7_NEG est libellé Zone 6 dans la colonne de description; il doit être Zone 7 si le nom du net et l'ordre des canaux sont conservés.
 
 ## Décisions de sécurité non déductibles

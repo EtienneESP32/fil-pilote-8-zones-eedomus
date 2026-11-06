@@ -47,9 +47,15 @@ Table complète et à jour dans [02_Architecture-et-interfaces §2](02_Architect
 - Connectique : J1 (secteur), J2-J5 (FP1-FP8), en-tête Waveshare 40 broches réel (GND, VSYS, 16×GPIO câblés sur leurs broches physiques réelles ; les 21 autres broches — VBUS/3V3/3V3_EN/RUN/GPIO non retenus/réservés — sont non connectées).
 - Implantation : colonne gauche (en-tête Waveshare + alimentation), 8 zones au centre en 4 bandes horizontales de 2 zones chacune, connectique secteur/FP en bord de carte droit.
 
-## Révision du gabarit de carte
+## Révision du gabarit de carte et boîtier candidat
 
-Le placement réel des 16 voies THT a montré que 105 × 85 mm (gabarit indicatif de la source) ne suffit pas. Une première extension à 105 × 180 mm a ensuite été reconsidérée après une question de l'utilisateur : **la hauteur d'un boîtier rail DIN modulaire est fixée par la gamme du fabricant (environ 80-130 mm usuel), ce n'est pas une dimension libre — seule la largeur varie avec le nombre de modules (1 module = 17,5 mm)**. La carte a donc été réorientée en **192 × 108 mm, soit ~11 modules de large**, pour rester dans un gabarit de boîtier modulaire courant du commerce (ex. boîtiers RS PRO d'une largeur proche dans la même famille). Toujours indicatif : à confronter à la référence réelle du boîtier une fois choisie (point déjà listé comme ouvert dans [04_Implantation-PCB](04_Implantation-PCB.md)).
+Le placement réel des 16 voies THT a montré que 105 × 85 mm (gabarit indicatif de la source) ne suffit pas. Une première extension à 105 × 180 mm a été reconsidérée : la hauteur d'un boîtier rail DIN modulaire est fixée par la gamme du fabricant, pas une dimension libre — seule la largeur varie avec le nombre de modules (1 module = 17,5 mm). La carte a d'abord été réorientée en 192 × 108 mm (~11 modules de large).
+
+**Référence étudiée (2026-11-07) :** la gamme **CamdenBoss CNMB** (norme DIN 43880, quasi tous fabricants, disponible chez RS Components), datasheet officiel consulté. Section fixe **90 mm externe / 86,5 mm de PCB utilisable**, longueur qui scale avec le nombre de modules (`CNMB/12` = 212,1 mm, convient à notre longueur de 192 mm avec marge). Avantages concrets pour ce projet : **découpe RJ45 pré-percée disponible en pièce standard** (`CNMB/3/TGRJ45`, compatible tailles 3/6/9/12 — répond au point ouvert d'accès RJ45) et guide-fils/protège-bornes au pas **5,08 mm** (`CNMB/x/TG508`), qui correspond exactement au pas des borniers FP retenus dans la nomenclature.
+
+**Carte recompactée en conséquence :** la carte 192×108 mm dépassait les 86,5 mm utilisables dans le sens de la section. Recompactée à **192 × 86 mm** (pas des bandes de zones resserré, dégagement de bord recalculé en tenant compte du rayon réel des pastilles) pour tenir en carte unique sous ce seuil, plutôt qu'un empilement de 2 PCB (également supporté par ce boîtier : « carries up to 3 PCBs horizontally »). DRC revalidé à 0 erreur réelle après compaction.
+
+**Reste à faire avant de considérer ce boîtier comme validé :** commander/confirmer la référence exacte (`CNMB/12` ou variante avec parois/couvercle adaptés), vérifier la profondeur interne (58 mm catalogue) contre la hauteur réelle du module Waveshare monté sur son en-tête (pas encore mesurée), et confirmer la disponibilité chez RS Components comme souhaité par l'utilisateur.
 
 ## Ce qui n'est pas fait
 

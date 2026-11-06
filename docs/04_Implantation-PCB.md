@@ -5,7 +5,8 @@
 ## 1. Données mécaniques connues
 
 - Intégration visée dans un boîtier rail DIN annoncé six modules / 105 mm de largeur.
-- **Mise à jour (2026-11-07) :** le placement réel des 16 voies dans KiCad (voir [11_État du projet KiCad](11_Etat-KiCad.md)) montre qu'une carte de 105 × 85 mm est trop courte pour loger les composants traversants avec un dégagement correct. Largeur 105 mm conservée (seule contrainte mécanique confirmée) ; hauteur de travail portée à 180 mm, à confronter au boîtier réel une fois choisi.
+- **Mise à jour (2026-11-07) :** le placement réel des 16 voies dans KiCad (voir [11_État du projet KiCad](11_Etat-KiCad.md)) montre qu'une carte de 105 × 85 mm est trop courte pour loger les composants traversants avec un dégagement correct.
+- **Référence candidate identifiée (2026-11-07) :** gamme **CamdenBoss CNMB** (norme DIN 43880, section fixe 90 mm externe / 86,5 mm de PCB utilisable, longueur variable selon le nombre de modules), disponible chez RS Components. `CNMB/12` (212,1 mm) retenue comme candidate pour sa longueur et pour ses accessoires standard directement utiles : découpe RJ45 pré-percée (`CNMB/3/TGRJ45`) et guide-fils au pas 5,08 mm (`CNMB/x/TG508`), identique au pas des borniers FP. Carte de travail recompactée à **192 × 86 mm** (~11 modules de long, sous le seuil des 86,5 mm utilisables) pour tenir en une seule carte dans ce gabarit. Toujours indicatif : référence à commander/confirmer, profondeur interne (58 mm catalogue) à vérifier contre la hauteur réelle du module Waveshare monté.
 - RJ45 de la carte Waveshare ESP32-S3-POE-ETH, SKU 28771, à rendre accessible.
 - RJ45 accessible depuis l'extérieur du coffret, confirmé par l'utilisateur.
 - PCB embarquant une alimentation isolée secteur locale en plus de l'option PoE.
@@ -55,6 +56,8 @@ Ces principes ne remplacent pas un calcul thermique ni une revue de sécurité c
 
 ## 6. Choix du coffret et approvisionnement
 
-Le besoin retenu est un coffret rail DIN six modules, sans préférence de marque. L'exacte référence sera choisie par adéquation mécanique avec la carte Waveshare, le PCB et l'accès aux borniers/RJ45; ne pas figer le contour du PCB à partir de la seule largeur nominale 105 mm. Pour l'approvisionnement, regrouper les composants électroniques standards chez un distributeur unique autant que possible, avec achats séparés possibles pour le module Waveshare et le coffret.
+**Fournisseur retenu (2026-11-07) :** RS Components (ex-RadioSpares) pour les composants électroniques standards, borniers et le coffret — distributeur unique couvrant la majorité de la nomenclature avec fiches techniques tracées. Deux références à vérifier spécifiquement à la commande car moins typiques chez RS : le module **HLK-5M05** (plus courant chez LCSC/Mouser/Reichelt) et la référence exacte boîtier du **MOC3063M**. La carte **Waveshare ESP32-S3-POE-ETH** sera commandée séparément sur Amazon (vendeur Waveshare direct disponible).
+
+Le besoin retenu est un coffret rail DIN, largeur ajustée en nombre de modules selon la carte (candidate actuelle : ~11 modules, voir §1). Référence candidate : gamme **CamdenBoss CNMB** (`CNMB/12`), disponible chez RS Components — choisie pour sa découpe RJ45 standard et son pas de bornier 5,08 mm compatible. Référence exacte et variante de couvercle/parois à confirmer par adéquation mécanique avec la carte Waveshare, le PCB et l'accès aux borniers/RJ45 une fois celle-ci commandée.
 
 L'alimentation locale sur PCB ajoute une zone primaire secteur à proximité du module ESP32/PoE. L'implantation doit réserver les distances d'isolement et les cheminements requis pour les deux sources; le sélecteur d'alimentation ne doit pas créer de liaison galvanique ou de retour entre sorties PoE et 5 V du convertisseur.
