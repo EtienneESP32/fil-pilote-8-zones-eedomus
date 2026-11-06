@@ -1,0 +1,32 @@
+# Temporary and editor files
+.DS_Store
+Thumbs.db
+*.bak
+*.backup
+*.autosave
+*~
+
+# Credentials and local configuration
+secrets.yaml
+secrets.yml
+.env
+.env.*
+!.env.example
+
+# Generated manufacturing outputs are committed only after review/release
+# (Do not add Gerbers here; archive approved fabrication releases.)
+
+# Python/tool caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# KiCad local-only files (when migrated to KiCad)
+*.kicad_prl
+*-backups/
+fp-info-cache
+
+# EasyEDA local cache/export files
+*.tmp
+*.log
