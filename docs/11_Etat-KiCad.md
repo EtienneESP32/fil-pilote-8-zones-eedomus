@@ -57,6 +57,14 @@ Le placement réel des 16 voies THT a montré que 105 × 85 mm (gabarit indicati
 
 **Reste à faire avant de considérer ce boîtier comme validé :** commander/confirmer la référence exacte (`CNMB/12` ou variante avec parois/couvercle adaptés), vérifier la profondeur interne (58 mm catalogue) contre la hauteur réelle du module Waveshare monté sur son en-tête (pas encore mesurée), et confirmer la disponibilité chez RS Components comme souhaité par l'utilisateur.
 
+## Orientation des borniers de câblage externe (2026-11-07)
+
+**Ce qui était faux :** `J1` (secteur) et `J2`-`J5` (sorties FP) étaient posés à plat (rotation 0°), axe des 2 broches parallèle au bord de carte — sans rapport avec le sens de sortie réel d'un câble externe, signalé par l'utilisateur.
+
+**Correction :** rotation à 90°, axe des 2 broches perpendiculaire au bord droit de la carte (sortie fil vers l'extérieur, X croissant). Vérifié par inspection directe des coordonnées de pastilles générées (ex. `J1` : les deux broches partagent `x=187.0`, espacées en `y` de ±2,54 mm autour du centre — confirmant l'axe perpendiculaire au bord). `F0` (fusible) et `PS1` (module HLK-5M05) n'ont pas de câblage externe direct (traces PCB uniquement) : orientation inchangée. DRC revalidé à 0 erreur réelle.
+
+**Reste non traité :** le sens exact (quelle broche est « plus proche »/« plus loin » du bord) dépend de la référence réelle du bornier, pas encore choisie ; la position le long du bord (regroupement actuel près du coin) reste à confronter aux presse-étoupes/découpes réelles du boîtier une fois celui-ci commandé.
+
 ## Ce qui n'est pas fait
 
 - **Routage des pistes** : aucune piste cuivre n'est tracée (seulement le placement et le ratsnest). C'est l'étape suivante, qui nécessite l'éditeur interactif KiCad (non pilotable depuis cet environnement en ligne de commande) — à faire dans l'interface graphique KiCad installée sur cette machine.

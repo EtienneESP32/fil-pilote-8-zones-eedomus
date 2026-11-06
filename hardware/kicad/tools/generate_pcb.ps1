@@ -147,13 +147,17 @@ Place-FP "CAP_Radial" "C1" "100uF" 13 70 0 @{ "1" = "VSYS"; "2" = "GND" }
 Place-FP "CAP_Radial" "C2" "100uF" 13 77 0 @{ "1" = "3V3_OPTO"; "2" = "GND" }
 
 # ---------- Colonne droite : connectique secteur et sorties FP (bord de carte) ----------
-Place-FP "CONN2_508" "J1" "MAINS_IN" 182 3 0 @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
-Place-FP "F_Axial" "F0" "250mA_T" 182 13 0 @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
-Place-FP "PSU4" "PS1" "HLK-5M05" 182 23 0 @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
-Place-FP "CONN2_508" "J2" "FP1_FP2" 182 38 0 @{ "1" = "FP1"; "2" = "FP2" }
-Place-FP "CONN2_508" "J3" "FP3_FP4" 182 48 0 @{ "1" = "FP3"; "2" = "FP4" }
-Place-FP "CONN2_508" "J4" "FP5_FP6" 182 58 0 @{ "1" = "FP5"; "2" = "FP6" }
-Place-FP "CONN2_508" "J5" "FP7_FP8" 182 68 0 @{ "1" = "FP7"; "2" = "FP8" }
+# J1/J2-J5 recoivent du cablage externe : rotation 90 pour que l'axe des 2 broches soit
+# perpendiculaire au bord droit de la carte (sortie fil vers l'exterieur du boitier, X croissant),
+# au lieu d'un axe parallele au bord comme dans la premiere implantation (signale par l'utilisateur).
+# F0 et PS1 n'ont pas de cablage externe direct (fusible et module internes), orientation inchangee.
+Place-FP "CONN2_508" "J1" "MAINS_IN" 187 6 90 @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
+Place-FP "F_Axial" "F0" "250mA_T" 182 15 0 @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
+Place-FP "PSU4" "PS1" "HLK-5M05" 182 25 0 @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
+Place-FP "CONN2_508" "J2" "FP1_FP2" 187 40 90 @{ "1" = "FP1"; "2" = "FP2" }
+Place-FP "CONN2_508" "J3" "FP3_FP4" 187 50 90 @{ "1" = "FP3"; "2" = "FP4" }
+Place-FP "CONN2_508" "J4" "FP5_FP6" 187 60 90 @{ "1" = "FP5"; "2" = "FP6" }
+Place-FP "CONN2_508" "J5" "FP7_FP8" 187 70 90 @{ "1" = "FP7"; "2" = "FP8" }
 
 # ---------- 8 zones : 4 bandes horizontales (une par index GPIO 0-3) x 2 zones cote a cote ----------
 $zoneGpio = @{
