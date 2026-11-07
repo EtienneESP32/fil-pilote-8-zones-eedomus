@@ -216,7 +216,16 @@ $px = 16 * $G; $py = 16 * $G
 Place "CONN2" "J1" "MAINS_IN" "FP:TerminalBlock_2.54_2pin" $px $py @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
 Place "F2" "F0" "250mA_T_250V" "FP:Axial_THT" ($px + 16 * $G) $py @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
 Place "PSU4" "PS1" "HLK-5M05" "FP:Module_PSU4" ($px + 32 * $G) $py @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
-Place "SW3" "SW1" "SPDT_sel" "FP:Switch_SPDT_THT" ($px + 48 * $G) $py @{ "1" = "LOCAL_5V"; "2" = "VSYS"; "3" = "POE_5V_A_CONFIRMER" }
+# Point ferme (2026-11-07), schema fabricant reel verifie : POE_5V est le meme net que VBUS
+# (USB-C) sur la carte Waveshare, aucune broche "sortie PoE" n'est exposee sur l'en-tete 40
+# broches. VSYS (broche 2) est la seule entree d'alimentation externe accessible, deja
+# commutee en interne entre VBUS/PoE par un MOSFET (Q3, APM2307) cote Waveshare. Le
+# selecteur manuel SW1 est donc sans objet (rien a choisir entre deux broches externes) ;
+# remplace par une diode serie bon marche qui protege le HLK-5M05 d'un retour de tension si
+# le module PoE est quand meme installe en parallele. L'exclusion mutuelle PoE/local devient
+# un choix d'assemblage (installer le module PoE OU alimenter VSYS en local, pas les deux),
+# a documenter dans la notice, pas un circuit a construire.
+Place "D2" "DPWR" "1N4007" "FP:DO41_THT" ($px + 48 * $G) $py @{ "1" = "LOCAL_5V"; "2" = "VSYS" }
 Place "REG3" "U1" "AMS1117-3.3" "FP:TO220_3pin" ($px + 64 * $G) $py @{ "1" = "VSYS"; "2" = "GND"; "3" = "3V3_OPTO" }
 Place "CAP2" "C1" "100uF" "FP:CAP_THT_Radial" ($px + 64 * $G) ($py + 12 * $G) @{ "1" = "VSYS"; "2" = "GND" }
 Place "CAP2" "C2" "100uF" "FP:CAP_THT_Radial" ($px + 76 * $G) ($py + 12 * $G) @{ "1" = "3V3_OPTO"; "2" = "GND" }

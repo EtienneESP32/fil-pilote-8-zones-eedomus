@@ -141,7 +141,9 @@ Place-FP "CONN40_PICO" "JWS" "Waveshare_ESP32-S3-ETH_40pin" 8 3 0 @{
 }
 
 # ---------- Colonne gauche (suite) : conditionnement alimentation, sous l en-tete ----------
-Place-FP "SW_SPDT_3" "SW1" "SPDT" 13 56 0 @{ "1" = "LOCAL_5V"; "2" = "VSYS"; "3" = "POE_5V_A_CONFIRMER" }
+# SW1 (selecteur manuel) retire le 2026-11-07 : pas de broche "sortie PoE" accessible sur la
+# carte Waveshare (voir generate_schematic.ps1) ; remplace par une diode serie DPWR.
+Place-FP "D_Axial" "DPWR" "1N4007" 13 56 0 @{ "1" = "LOCAL_5V"; "2" = "VSYS" }
 Place-FP "TO220_3" "U1" "AMS1117-3.3" 13 63 0 @{ "1" = "VSYS"; "2" = "GND"; "3" = "3V3_OPTO" }
 Place-FP "CAP_Radial" "C1" "100uF" 13 70 0 @{ "1" = "VSYS"; "2" = "GND" }
 Place-FP "CAP_Radial" "C2" "100uF" 13 77 0 @{ "1" = "3V3_OPTO"; "2" = "GND" }

@@ -33,17 +33,17 @@ Le schéma et le PCB sont produits par deux scripts PowerShell (`tools/generate_
 
 Table complète et à jour dans [02_Architecture-et-interfaces §2](02_Architecture-et-interfaces.md).
 
-**Point nouvellement ouvert :** l'en-tête 40 broches ne documente aucune broche « sortie PoE » exploitable (seules `VBUS`/`VSYS`/`GND`/`3V3`/`3V3_EN`/`RUN` apparaissent côté alimentation). Le sélecteur `SW1` prévu entre alimentation locale et PoE a son entrée « PoE » câblée sur un réseau non raccordé (`POE_5V_A_CONFIRMER`, visible comme avertissement ERC volontaire). Il faut le schéma du module PoE Waveshare lui-même pour confirmer si une sortie externe existe ou si le PoE alimente `VSYS` en interne (auquel cas le principe du sélecteur externe serait à revoir).
+**Point fermé (2026-11-07), schéma fabricant réel consulté :** le schéma officiel ([ESP32-S3-ETH-Schematic.pdf](https://files.waveshare.com/wiki/ESP32-S3-ETH/ESP32-S3-ETH-Schematic.pdf)) montre que `POE_5V` est le même net que `VBUS` (USB-C) côté Waveshare — le module PoE s'enfiche sur un connecteur interne dédié, pas sur l'en-tête 40 broches. `VSYS` (broche 2) est la seule entrée externe accessible, déjà commutée en interne entre `VBUS`/PoE par un MOSFET (Q3, APM2307). Le sélecteur manuel `SW1` prévu initialement est donc **retiré** : il n'y a rien à sélectionner entre deux broches externes. Remplacé par une simple **diode série** (`DPWR`, 1N4007, anode HLK-5M05 / cathode `VSYS`) qui protège le HLK-5M05 d'un retour si le module PoE est malgré tout installé en parallèle. L'exclusion mutuelle PoE/local devient un choix d'assemblage à documenter dans la notice, pas un circuit électronique.
 
 ## Résultats de vérification (après correction)
 
-- **ERC (schéma) :** 0 erreur. 1 avertissement intentionnel (`POE_5V_A_CONFIRMER` non raccordé, voir ci-dessus). 248 avertissements bénins « bibliothèque FP introuvable », sans incidence électrique.
+- **ERC (schéma) :** 0 erreur, 0 avertissement résiduel hors bibliothèque. 248 avertissements bénins « bibliothèque FP introuvable », sans incidence électrique.
 - **DRC (PCB) :** 0 erreur réelle. 124 avertissements bénins (même cause bibliothèque). ~188 éléments non connectés — **attendu : aucune piste n'est routée**, le DRC ne vérifie ici que le placement, les chevauchements de courtyard et les règles de dégagement.
 
 ## Ce que ça couvre
 
 - Les 8 zones × 2 voies (POS/NEG), chacune : résistance de base → transistor tampon → résistance LED → MOC3063M → résistance secteur 4,7 kΩ → fusible/PTC → diode → sortie FPx, conforme aux décisions fermées du 2026-11-06.
-- Section alimentation : sélecteur PoE/local (entrée PoE non raccordée, voir point ouvert ci-dessus), HLK-5M05, AMS1117 dédié aux LED d'opto, découplage.
+- Section alimentation : diode anti-retour PoE/local (`DPWR`), HLK-5M05, AMS1117 dédié aux LED d'opto, découplage.
 - Connectique : J1 (secteur), J2-J5 (FP1-FP8), en-tête Waveshare 40 broches réel (GND, VSYS, 16×GPIO câblés sur leurs broches physiques réelles ; les 21 autres broches — VBUS/3V3/3V3_EN/RUN/GPIO non retenus/réservés — sont non connectées).
 - Implantation : colonne gauche (en-tête Waveshare + alimentation), 8 zones au centre en 4 bandes horizontales de 2 zones chacune, connectique secteur/FP en bord de carte droit.
 
@@ -70,7 +70,6 @@ Le placement réel des 16 voies THT a montré que 105 × 85 mm (gabarit indicati
 ## Ce qui n'est pas fait
 
 - **Routage des pistes** : aucune piste cuivre n'est tracée (seulement le placement et le ratsnest). C'est l'étape suivante, qui nécessite l'éditeur interactif KiCad (non pilotable depuis cet environnement en ligne de commande) — à faire dans l'interface graphique KiCad installée sur cette machine.
-- **Sortie PoE côté Waveshare** : non confirmée, voir point ouvert ci-dessus — à lever avant de considérer le sélecteur d'alimentation comme validé.
 - **Empreintes définitives des autres composants** : les empreintes hors connecteur Waveshare restent des gabarits génériques auto-cohérents (ex. `FP:DIP6`, `FP:TO92_3`), pas les empreintes réelles des références fabricant choisies. Elles sont correctes électriquement (mêmes numéros de broches que le schéma) mais leurs dimensions/pas exacts restent à confronter aux datasheets avant fabrication.
 - **Plans de masse, classes de nets, règles de largeur de piste secteur vs logique** : non définis.
 - **Table de bibliothèque locale** (`sym-lib-table`/`fp-lib-table`) : non créée ; à faire pour que KiCad propose nativement les symboles/empreintes en édition graphique (actuellement seulement en cache dans les fichiers, fonctionnel mais pas éditable comme bibliothèque séparée).

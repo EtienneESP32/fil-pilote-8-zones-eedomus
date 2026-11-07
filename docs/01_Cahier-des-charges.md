@@ -11,7 +11,7 @@ Définir une carte contrôleur pour huit zones de chauffage par fil pilote, comm
 - Huit sorties fil pilote indépendantes, une par zone.
 - Six ordres fil pilote GIFAM par zone; la table de codage électrique et temporel reste à concevoir et valider.
 - Ethernet filaire via RJ45; il faut 16 signaux de commande (2 optocoupleurs × 8 zones). L'ESP32-S3 pilotera directement les 16 drivers si 16 GPIO compatibles sont confirmés; sinon, conserver un expandeur d'E/S.
-- La carte doit pouvoir être alimentée soit par PoE, soit par une alimentation secteur isolée montée sur le PCB (HLK-PM01 envisagé), afin de fonctionner aussi sans injecteur PoE. Les deux sources ne doivent pas être mises en parallèle sans circuit de sélection/anti-retour validé.
+- La carte doit pouvoir être alimentée soit par PoE, soit par une alimentation secteur isolée montée sur le PCB. **Point fermé (2026-11-07) :** le schéma fabricant réel montre qu'il n'existe pas de broche « sortie PoE » externe à sélectionner (voir [02_Architecture §1](02_Architecture-et-interfaces.md)) ; l'exclusion mutuelle est un choix d'assemblage documenté, protégé par une simple diode série plutôt qu'un sélecteur.
 - Pas de régulateur 3,3 V séparé souhaité : utiliser le 3,3 V généré sur la carte contrôleur si sa sortie est documentée et suffisante pour les charges logiques. Le rail logique 3,3 V reste nécessaire; cette option est à vérifier pour la variante retenue.
 - Montage traversant demandé pour les composants de la carte; le module Waveshare complet est accepté même s'il comporte des composants CMS.
 - Borniers secteur et sorties fil pilote en bord de carte.
