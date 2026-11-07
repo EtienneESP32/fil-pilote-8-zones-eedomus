@@ -225,14 +225,14 @@ function Add-Strap([string]$netName, $a, $b) {
 	W "	(gr_text `"STRAP $netName ($netClass, $tag) : $($a.ref) <-> $($b.ref)`" (at $midX $midY 0) (layer `"Dwgs.User`") (uuid `"$(New-SeqGuid)`") (effects (font (size 1.0 1.0) (thickness 0.15))))"
 }
 
-function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [double]$y, [double]$rot, [hashtable]$netByPad, [double]$refOffsetY = -4) {
+function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [double]$y, [double]$rot, [hashtable]$netByPad, [double]$refOffsetX = 0, [double]$refOffsetY = -4) {
 	$pads = $Pads[$fpType]
 	$fpUuid = New-SeqGuid
 	W "	(footprint `"FP:$fpType`""
 	W '		(layer "F.Cu")'
 	W "		(uuid `"$fpUuid`")"
 	W "		(at $x $y $rot)"
-	W "		(property `"Reference`" `"$ref`" (at 0 $refOffsetY 0) (layer `"F.SilkS`") (uuid `"$(New-SeqGuid)`") (effects (font (size 0.8 0.8) (thickness 0.12))))"
+	W "		(property `"Reference`" `"$ref`" (at $refOffsetX $refOffsetY 0) (layer `"F.SilkS`") (uuid `"$(New-SeqGuid)`") (effects (font (size 0.8 0.8) (thickness 0.12))))"
 	W "		(property `"Value`" `"$value`" (at 0 4 0) (layer `"F.Fab`") (uuid `"$(New-SeqGuid)`") (effects (font (size 0.8 0.8) (thickness 0.12))))"
 	W '		(attr through_hole)'
 	foreach ($padNum in ($pads.Keys | Sort-Object { [int]$_ })) {
@@ -369,11 +369,16 @@ for ($z = 1; $z -le 8; $z++) {
 		$ocX = $x0 + 3 * $step
 		Place-FP "DIP6" "OC$suffix" "MOC3063M" $ocX $cy 0 @{ "1" = "LEDA_$suffix"; "2" = "LEDK_$suffix"; "4" = "MT1D_$suffix"; "6" = "FMT2_$suffix" }
 
-		# refOffsetY inverse (+4 au lieu de -4) : a rotation 90, l'offset par defaut se traduit en
-		# un decalage monde vers le composant PRECEDENT de la pile (ici OC, a gauche) - repere
-		# silkscreen "RSZxx" qui chevauchait la pastille 5 (NC) de l'opto desormais plus large
-		# (OC n'est plus tourne a 90, voir plus haut) ; averti par le DRC (silk_over_copper).
-		Place-FP "R_Axial" "RS$suffix" "4.7k" ($ocX + $step) $cy 90 @{ "1" = "PHASE_PROT"; "2" = "RSF_$suffix" } 4
+		# Chevauchement de repere silkscreen connu et non corrige (DRC "warning" uniquement, pas
+		# une erreur, aucune incidence electrique/fabrication) : le vide reel entre les pastilles
+		# RS des canaux P et N adjacents ne fait que ~1,78mm, et le repere "RSZxx" (police 0,8mm,
+		# taille minimale imposee par la regle DRC min_text_height) ne peut pas y tenir sans
+		# toucher un voisin, quelle que soit sa position - verifie par 3 tentatives reelles (vers
+		# OC, vers F, dans l'espace P/N lui-meme) qui deplacent le chevauchement sans jamais le
+		# faire disparaitre, et par un 4e essai a police reduite qui echangeait 16 avertissements
+		# silk contre 124 avertissements text_height (pire marche). A ajuster a la main en finition
+		# silkscreen (voir docs/12 §4) si souhaite - purement cosmetique.
+		Place-FP "R_Axial" "RS$suffix" "4.7k" ($ocX + $step) $cy 90 @{ "1" = "PHASE_PROT"; "2" = "RSF_$suffix" }
 		Place-FP "F_Axial" "F$suffix" "100mA_PTC" ($ocX + 2 * $step) $cy 90 @{ "1" = "RSF_$suffix"; "2" = "FMT2_$suffix" }
 
 		if ($ch -eq "P") {
