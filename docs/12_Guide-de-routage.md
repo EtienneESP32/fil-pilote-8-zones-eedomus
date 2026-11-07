@@ -1,15 +1,17 @@
 # Guide de routage PCB
 
-**Statut (révisé 2026-11-07) :** un routage automatisé partiel a été tenté par script (même méthode que le placement : génération en texte + vérification DRC). 48 connexions locales sont tracées (3 nets sûrs × 16 canaux, voir § 0). Le reste — l'essentiel du routage — reste à faire par l'utilisateur dans l'éditeur graphique KiCad (non pilotable depuis l'environnement CLI utilisé ici).
+**Statut (révisé 2026-11-07) :** un autorouteur A* dédié (`tools/generate_pcb.ps1`, fonctions `Find-Path`/`Emit-Path`) route automatiquement **90 des 188 connexions**, 0 erreur DRC réelle. Les 98 connexions restantes (nets bus longue distance que la fenêtre de recherche locale ne couvre pas, ou nets dont le chemin dépasse le budget d'itérations) restent à router à la main dans l'éditeur graphique KiCad (non pilotable depuis l'environnement CLI utilisé ici).
 
-## 0. Ce qui est déjà routé automatiquement, et pourquoi pas plus
+## 0. Comment fonctionne l'autoroutage par script, et ses limites
 
-Tentative de router par script les 6 connexions internes à chaque canal (`QB_*`, `LEDK_*`, `LEDA_*`, `RSF_*`, `FMT2_*`, `MT1D_*`). Résultat après vérification DRC systématique :
+Première tentative (ligne droite pure) : seules les connexions entre composants **directement voisins** (1 pas d'écart, ex. `QB_*`/`LEDA_*`) passaient sans toucher un composant intermédiaire ; tout le reste (`LEDK_*`, `FMT2_*`, `MT1D_*`, nets bus) créait des courts-circuits DRC réels en ligne droite. Remplacé par un vrai **pathfinding A*** :
 
-- **Routées avec succès (48 segments, 0 erreur DRC) :** `QB_*` et `LEDA_*` (+ `RSF_*`) — ces connexions relient deux composants **directement voisins** dans la pile du canal (1 pas d'écart), une piste droite ne croise rien.
-- **Abandonnées après test (`LEDK_*`, `FMT2_*`, `MT1D_*`) :** ces connexions relient des composants séparés de 2 ou 3 pas. Une piste droite entre les deux frôle ou traverse le(s) composant(s) intermédiaire(s) — confirmé par des courts-circuits DRC réels lors du premier essai (ex. `LEDK_Z1P` touchait une broche non connectée de l'optotriac `OCZ1P`). Une piste correcte demande un détour (tracé en L, visible et ajustable seulement avec un retour visuel) que le script ne peut pas calculer en aveugle — **à router à la main**, voir § 2.
+- **Modèle d'obstacles :** chaque broche de chaque composant (connectée ou non) est un obstacle individuel (boîte ~2,2×2,2 mm, rayon de pastille + marge de dégagement) — pas le composant entier. Un composant entier comme obstacle unique laissait une piste traverser librement les **autres** broches du même composant dès que ce composant était à une extrémité du chemin (confirmé par de vrais courts-circuits DRC sur des boîtiers à broches rapprochées comme le DIP-6 ou le TO-92, pas 1,27-2,54 mm) ; au niveau de la broche, seules les deux broches exactes visées par la piste en cours sont exclues du blocage (par coordonnée, pas par référence de composant), toutes les autres broches du même composant restent bloquantes.
+- **Déplacement 4 directions uniquement** (horizontal/vertical, jamais diagonal) : un déplacement diagonal produit, une fois simplifié, un segment dont le rectangle englobant (utilisé comme obstacle pour les pistes suivantes) est disproportionné par rapport à l'encombrement réel de la piste — constaté en pratique (une fenêtre de recherche se retrouvait bloquée à 74 % dès la 2e/3e piste routée avec déplacement 8 directions).
+- **Ordre de routage** : les nets les plus contraints (connexions locales à 1-2 pas, `QB_*`/`LEDA_*`/`RSF_*`, puis `LEDK_*`/`FMT2_*`/`MT1D_*`, puis `GPIO*`, puis `FP*`) sont routés **avant** les nets bus à forte connectivité (`GND`, `VSYS`, etc.). Router un bus en premier pouvait tracer une piste traversant la position exacte d'une broche qu'un net local tentait d'atteindre juste après — bug réel diagnostiqué et corrigé (voir historique de session).
+- **Fenêtre de recherche locale bornée** (marge 20 mm autour du segment direct start→end, résolution de grille 1 mm) plutôt qu'une recherche sur la carte entière, pour rester rapide. C'est la principale cause des 98 échecs restants : un chemin existant mais plus long que la fenêtre locale n'est pas trouvé.
 
-Cet épisode illustre directement la limite du « routage par script » évoquée précédemment : sans retour visuel, impossible de détecter un chevauchement avant qu'il soit signalé — d'où la vérification systématique par DRC après chaque tentative, et l'abandon net des 3 connexions à risque plutôt que de les forcer.
+Chaque régénération est vérifiée par DRC systématique (`kicad-cli pcb drc`) ; les connexions qui échouent sont listées en sortie du script sous « echecs (a router a la main) » et ne sont jamais forcées.
 
 ## 1. Avant de router
 
@@ -28,14 +30,17 @@ La clearance de 6 mm reprend la valeur déjà validée dans [04_Implantation-PCB
 
 ## 2. Ordre de routage recommandé (ce qu'il reste à faire)
 
-1. **`GND`** : net le plus partagé. Un plan de masse (zone de cuivre) côté logique est envisageable, mais il doit s'arrêter net à la frontière des 6 mm — jamais de cuivre de plan traversant vers le secteur.
+**Entièrement auto-routés par le script (rien à faire, sauf vérification visuelle) :** `QB_*`, `LEDA_*`, `RSF_*` — les 3 nets locaux à 1 pas d'écart, 16 canaux chacun.
+
+**Entièrement à router à la main :** `LEDK_*` et `MT1D_*` (16 canaux chacun), et la quasi-totalité de `FMT2_*` — ces nets relient des composants séparés de 2-3 pas, hors de portée de la fenêtre de recherche locale de l'autorouteur (voir § 0). Tracé en L autour du composant intermédiaire, simple à faire à l'œil dans l'éditeur.
+
+**Partiellement routés** (certains segments auto-routés, d'autres encore au ratsnest — vérifier au cas par cas dans l'éditeur, le script liste les échecs exacts sur sa sortie console à chaque régénération) :
+
+1. **`GND`** : net le plus partagé. Un plan de masse (zone de cuivre) côté logique est envisageable pour les segments restants, mais il doit s'arrêter net à la frontière des 6 mm — jamais de cuivre de plan traversant vers le secteur.
 2. **`VSYS` → `3V3_OPTO`** : HLK-5M05 (`PS1`) → diode `DPWR` → `VSYS` → régulateur `U1` (AMS1117) → `3V3_OPTO`, avec les découplages `C1`/`C2` au plus près des pattes du régulateur.
 3. **Bus `PHASE_PROT`** : tronc commun depuis `F0`, ramifié vers les 16 résistances secteur (`RSZxP`/`RSZxN`).
-4. **`LEDK_*`, `FMT2_*`, `MT1D_*`** (16 canaux chacun) : déjà au ratsnest, nécessitent un détour autour d'un composant voisin (voir § 0) — tracé en L plutôt qu'en ligne droite, simple à faire à l'œil dans l'éditeur.
-5. **`GPIO*`** : connexions `JWS → RB` de chaque canal, longue distance à travers la carte.
-6. **Sorties `FP1`-`FP8`** vers `J2`-`J5`.
-
-`QB_*`, `LEDA_*` et `RSF_*` sont déjà routées (voir § 0) — rien à faire sur ces 48 connexions, sauf vérification visuelle rapide.
+4. **`GPIO*`** : connexions `JWS → RB` de chaque canal, longue distance à travers la carte — la plupart des hops restent à router à la main.
+5. **Sorties `FP1`-`FP8`** vers `J2`-`J5`.
 
 ## 3. Pendant le routage
 
