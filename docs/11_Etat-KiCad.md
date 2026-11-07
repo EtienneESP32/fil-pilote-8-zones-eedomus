@@ -57,7 +57,7 @@ Le placement réel des 16 voies THT a montré que 105 × 85 mm (gabarit indicati
 
 **Boîtier retenu, décision finale (2026-11-07) :** base **CNMB/12/2** (accès bornier aux deux extrémités), couvercle **CNMB/12/PC** (transparent, choisi par l'utilisateur). Accessoires : `CNMB/3/TGRJ45` côté Waveshare (découpe RJ45), `CNMB/3/TG508` côté sorties FP (guide-fils 9 pôles 5,08 mm, couvre les 8 pôles de J2-J5). L'entrée secteur J1 est câblée en fixe par presse-étoupe plutôt qu'en bornier débrochable (évite un débranchement accidentel d'un conducteur 230 V) — voir [03_Nomenclature](03_Nomenclature.md).
 
-**Reste à faire :** vérifier la profondeur interne (58 mm catalogue) contre la hauteur réelle du module Waveshare monté sur son en-tête (pas encore mesurée).
+**Profondeur interne vérifiée (2026-11-07) :** empilement réel depuis le PCB porteur jusqu'au point le plus haut = support femelle 2,54 mm (8,5 mm, hauteur standard du commerce) + épaisseur PCB Waveshare (1,6 mm) + composant le plus haut de la carte Waveshare, la prise RJ45 à magnétiques intégrées référencée `HC-RJ45` sur le schéma réel (≈13,4 mm, valeur typique pour ce type de connecteur) ≈ **23,5 mm au total**. Côté boîtier, 58 mm de profondeur externe moins parois et plots de fixation (≈5 mm) laisse ≈49 mm de dégagement utile. **Marge ≈2× le besoin** : la profondeur n'est pas un facteur limitant, même avec des hauteurs de composants estimées prudemment (pas mesurées sur pièce réelle).
 
 ## Orientation des borniers de câblage externe (2026-11-07)
 
