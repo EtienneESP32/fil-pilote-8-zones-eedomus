@@ -183,6 +183,48 @@ function Add-Via([string]$netName, [double]$x, [double]$y) {
 	$script:Obstacles.Add(@{ x = $x; y = $y; minX = $x - 0.6; minY = $y - 0.6; maxX = $x + 0.6; maxY = $y + 0.6; class = (Get-NetClass $netName) })
 }
 
+# Strap (cavalier filaire soude au-dessus des composants) pour les connexions que l'autorouteur
+# ne peut pas fermer en cuivre PCB (2 couches saturees localement). Un strap n'est pas contraint
+# par la geometrie 2D du cuivre deja pose - il relie A a B directement, par-dessus - donc pas de
+# pathfinding necessaire, juste un guide visuel exact a l'emplacement reel des 2 broches.
+# Dessine sur Dwgs.User (repere, non fabrique) : PAS une piste cuivre reelle, pour ne jamais
+# risquer qu'un fabricant grave par erreur un "raccourci" entre 2 zones qui ne doivent pas se
+# toucher directement en cuivre. Le reseau logique (ratsnest) reste donc "non connecte" pour ce
+# net dans KiCad tant que le fil n'est pas soude a l'assemblage - c'est le comportement correct
+# et attendu, pas une tache oubliee.
+function Get-PointSegDist([double]$px, [double]$py, [double]$x1, [double]$y1, [double]$x2, [double]$y2) {
+	$dx = $x2 - $x1; $dy = $y2 - $y1
+	$len2 = $dx * $dx + $dy * $dy
+	if ($len2 -lt 1e-9) { return [Math]::Sqrt(($px - $x1) * ($px - $x1) + ($py - $y1) * ($py - $y1)) }
+	$t = (($px - $x1) * $dx + ($py - $y1) * $dy) / $len2
+	if ($t -lt 0) { $t = 0 }; if ($t -gt 1) { $t = 1 }
+	$cx = $x1 + $t * $dx; $cy = $y1 + $t * $dy
+	return [Math]::Sqrt(($px - $cx) * ($px - $cx) + ($py - $cy) * ($py - $cy))
+}
+
+$script:StrapCount = 0
+$script:StrapsNeedingInsulation = New-Object System.Collections.Generic.List[string]
+function Add-Strap([string]$netName, $a, $b) {
+	$script:StrapCount++
+	$midX = [Math]::Round(($a.x + $b.x) / 2, 2)
+	$midY = [Math]::Round(($a.y + $b.y) / 2, 2)
+	$netClass = Get-NetClass $netName
+	# Verifie reellement (pas suppose) si le trajet direct du strap passe a moins de 6mm d'une
+	# broche de l'autre classe - seul ce cas exige un fil ISOLE (le reste peut etre nu si besoin).
+	$minCrossDist = [double]::MaxValue
+	foreach ($obs in $script:Obstacles) {
+		if (-not $obs.ContainsKey('x') -or -not $obs.class -or $obs.class -eq $netClass) { continue }
+		$ocx = ($obs.minX + $obs.maxX) / 2; $ocy = ($obs.minY + $obs.maxY) / 2
+		$d = Get-PointSegDist $ocx $ocy $a.x $a.y $b.x $b.y
+		if ($d -lt $minCrossDist) { $minCrossDist = $d }
+	}
+	$needsInsulation = $minCrossDist -lt $script:CrossDomainClearance
+	$tag = if ($needsInsulation) { "FIL ISOLE OBLIGATOIRE" } else { "nu ou isole" }
+	if ($needsInsulation) { $script:StrapsNeedingInsulation.Add($netName) }
+	W "	(gr_line (start $($a.x) $($a.y)) (end $($b.x) $($b.y)) (stroke (width 0.2) (type dash)) (layer `"Dwgs.User`") (uuid `"$(New-SeqGuid)`"))"
+	W "	(gr_text `"STRAP $netName ($netClass, $tag) : $($a.ref) <-> $($b.ref)`" (at $midX $midY 0) (layer `"Dwgs.User`") (uuid `"$(New-SeqGuid)`") (effects (font (size 1.0 1.0) (thickness 0.15))))"
+}
+
 function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [double]$y, [double]$rot, [hashtable]$netByPad, [double]$refOffsetY = -4) {
 	$pads = $Pads[$fpType]
 	$fpUuid = New-SeqGuid
@@ -680,6 +722,7 @@ foreach ($fp in $failedPairs) {
 	$retryClass = Get-NetClass $fp.net
 	$path = Find-Path $a.x $a.y $b.x $b.y $excl $retryClass 0.5 $retryMargin
 	if ($null -eq $path) {
+		Add-Strap $fp.net $a $b
 		$failedHops.Add("$($fp.net) ($($a.ref) -> $($b.ref))")
 	} else {
 		Emit-Path $fp.net $path
@@ -687,9 +730,13 @@ foreach ($fp in $failedPairs) {
 	}
 }
 
-Write-Host "Connexions routees automatiquement : $routedHops ; echecs (a router a la main) : $($failedHops.Count)"
+Write-Host "Connexions routees automatiquement : $routedHops ; straps a souder (voir Dwgs.User) : $($script:StrapCount)"
+if ($script:StrapsNeedingInsulation.Count -gt 0) {
+	Write-Host "Straps necessitant un FIL ISOLE (trajet direct a moins de 6mm d'une broche de l'autre classe) :"
+	foreach ($sn in $script:StrapsNeedingInsulation) { Write-Host "  - $sn" }
+}
 if ($failedHops.Count -gt 0) {
-	Write-Host "Echecs :"
+	Write-Host "Straps :"
 	foreach ($fh in $failedHops) { Write-Host "  - $fh" }
 }
 

@@ -1,6 +1,6 @@
 # Guide de routage PCB
 
-**Statut (révisé 2026-11-07) :** un autorouteur A* **bicouche, en 2 passes, conscient des classes de net Secteur/Logique** (`tools/generate_pcb.ps1`, fonctions `Find-Path`/`Emit-Path`, F.Cu + B.Cu avec vias) route automatiquement **153 des 188 connexions**, 0 erreur DRC réelle — y compris la règle d'isolement 6 mm secteur/logique, désormais une vraie règle DRC vérifiée (voir § 1, et l'historique ci-dessous : elle n'existait nulle part avant ce jour). Les 35 connexions restantes (voir § 2) sont bloquées localement par la saturation des 2 couches, maintenant sous cette contrainte réelle, et restent à router à la main dans l'éditeur graphique KiCad (non pilotable depuis l'environnement CLI utilisé ici).
+**Statut (révisé 2026-11-07) :** un autorouteur A* **bicouche, en 2 passes, conscient des classes de net Secteur/Logique** (`tools/generate_pcb.ps1`, fonctions `Find-Path`/`Emit-Path`, F.Cu + B.Cu avec vias) route automatiquement **153 des 188 connexions**, 0 erreur DRC réelle — y compris la règle d'isolement 6 mm secteur/logique, désormais une vraie règle DRC vérifiée (voir § 1, et l'historique ci-dessous : elle n'existait nulle part avant ce jour). Les **35 connexions restantes sont déjà matérialisées dans le fichier `.kicad_pcb` lui-même** : une ligne pointillée exacte (pastille à pastille) et une étiquette texte sur la couche `Dwgs.User`, visibles directement à l'ouverture du PCB dans KiCad, pas seulement décrites ici. Voir § 2.
 
 **Important pour la suite :** le nombre de connexions auto-routées a baissé par rapport à une version intermédiaire de ce jour (172 → 153). Ce n'est pas une régression : cette version à 172 routait plus, mais sans jamais vérifier la séparation 6 mm secteur/logique (la règle n'était pas encore implémentée) — elle était électriquement non sûre, pas seulement incomplète. Voir [04_Implantation-PCB §3](04_Implantation-PCB.md) pour le détail de cette découverte et de sa correction (réorientation de l'optotriac).
 
@@ -38,20 +38,20 @@ La règle **Secteur ↔ Logique = 6 mm** n'est pas une clearance de classe (qui 
 
 **Entièrement auto-routés par le script (rien à faire, sauf vérification visuelle) :** `QB_*`, `LEDA_*`, `RSF_*`, `LEDK_*` et la quasi-totalité de `FMT2_*`/`GPIO*`/`FP*` — 153 connexions au total, vias posés pour passer sur l'autre couche dans les zones denses, tout en respectant la règle des 6 mm.
 
-**Reste à router à la main (35 connexions, listées exactement en sortie du script à chaque régénération) — straps/cavaliers filaires recommandés plutôt que des pistes PCB classiques, voir § 3 :**
+**Reste à router — 35 straps, générés automatiquement sur la couche `Dwgs.User` (`Add-Strap` dans `generate_pcb.ps1`) :**
 
-1. **`MT1D_*`** (13 des 16 canaux : `Z1P`, `Z2N/P`, `Z3N/P`, `Z4N/P`, `Z5P`, `Z6N/P`, `Z7N/P`, `Z8N/P`) : la famille la plus touchée par le durcissement de la règle 6 mm — `OC → D` passe maintenant plus loin des zones logique voisines qu'avant.
-2. **`GPIO3`, `38`, `39`, `40`, `41`, `42`, `47`, `48`** (`JWS → RB` zones 5-8) : connexions longue distance vers l'en-tête Waveshare, dans la moitié de carte la plus dense en fin de routage.
-3. **`FP1`, `FP2`, `FP3`, `FP4`** (`J2`/`J3 → D` du canal) : 4 des 8 sorties zone → bornier (`FP5`-`FP8` sont routées).
-4. **`3V3_OPTO`** (2 segments : `RLZ3N → RLZ4P`, `RLZ3N → RLZ7N`), **`GND`** (2 segments : `QZ1P → QZ5P`, `QZ6P → PS1`) et **`LOCAL_5V`** (`DPWR → PS1`) : segments résiduels des bus d'alimentation logique.
-5. **`PHASE_PROT`** (2 segments : `RSZ6P → RSZ6N`, `RSZ6P → RSZ2P`) : bus secteur, segments ponctuels.
+Chaque échec, après les 2 passes de pathfinding, obtient automatiquement : une ligne pointillée exacte entre les 2 pastilles réelles à relier, et une étiquette texte `STRAP <net> (<classe>, <nu ou isolé/FIL ISOLE OBLIGATOIRE>) : <ref A> <-> <ref B>`. La mention d'isolation n'est pas une précaution générique : le script calcule la distance réelle entre le trajet direct du strap et la broche la plus proche de l'autre classe (Secteur/Logique) et ne marque « FIL ISOLE OBLIGATOIRE » que si cette distance est réellement sous 6 mm.
 
-Pour chacun, le ratsnest indique déjà la paire de pastilles à relier (le script a tenté ce trajet avec une fenêtre de recherche large ET une grille fine, sans succès — voir § 0) ; un strap filaire isolé (cavalier soudé au-dessus des composants, voir § 3) contourne la saturation locale des 2 couches sans contrainte de géométrie 2D, et reste soumis aux mêmes 6 mm de séparation que n'importe quelle piste s'il s'agit d'un net Secteur proche d'un net Logique.
+1. **`MT1D_*`** (13 des 16 canaux) et **`FMT2_Z4P`/`FMT2_Z8P`** : restent côté secteur sur toute leur longueur (`OC → D`/`F`, pas de voisinage logique sur le trajet) — **fil nu ou isolé, peu importe**, confirmé par le calcul ci-dessus.
+2. **`GPIO3`, `38`-`42`, `47`, `48`** (`JWS → RB` zones 5-8), **`FP1`-`FP4`**, **`3V3_OPTO`**, **`GND`** (2 segments), **`LOCAL_5V`**, **`PHASE_PROT`** (2 segments) : leur trajet direct passe à moins de 6 mm d'une broche de l'autre classe à un moment donné (traversées longue distance qui longent la frange secteur/logique) — **fil isolé obligatoire** (gaine PVC standard, tension assignée ≥ 300 V, suffit largement pour ce cas et fournit sa propre barrière d'isolement indépendamment de la position).
+
+Le ratsnest indique déjà la paire de pastilles à relier, mais le guide visuel sur `Dwgs.User` donne le tracé exact à suivre (pas seulement les 2 points, la ligne elle-même) — ouvrir le PCB dans KiCad suffit pour voir les 35 repères.
 
 ## 3. Pendant le routage
 
 - Ne jamais router une piste à moins de 6 mm d'une piste/pastille de l'autre classe (Secteur vs Logique) — ce n'est plus seulement une convention, le DRC (F8) le signale désormais explicitement par la règle `isolement_secteur_logique_6mm`.
-- Pour les 35 connexions restantes, un **strap** (cavalier filaire isolé soudé au-dessus des composants, parfois appelé pont ou cavalier 0 Ω) est recommandé plutôt qu'une piste PCB classique : contrairement à une piste ou un via, il n'est pas contraint par la géométrie 2D du cuivre déjà posé — il relie directement 2 points par le dessus, ce qui correspond exactement à la situation ici (zones saturées sur les 2 couches, pas un problème de tracé impossible dans l'espace). Un strap reste soumis à la même règle de 6 mm s'il franchit la frontière secteur/logique.
+- Les 35 connexions restantes sont déjà matérialisées en **straps** (cavalier filaire soudé au-dessus des composants, parfois appelé pont ou cavalier 0 Ω) sur la couche `Dwgs.User` du PCB généré — voir § 2 pour le détail et la mention nu/isolé par connexion. Contrairement à une piste ou un via, un strap n'est pas contraint par la géométrie 2D du cuivre déjà posé : il relie directement 2 points par le dessus, ce qui correspond exactement à la situation ici (zones saturées sur les 2 couches, pas un trajet impossible dans l'espace).
+- Ces repères `Dwgs.User` sont volontairement **non fabriqués** (pas un calque Gerber envoyé au fabricant) : le ratsnest de ces 35 nets restera affiché « non connecté » dans KiCad jusqu'à ce que le fil soit réellement soudé à l'assemblage — c'est le comportement correct, pas une anomalie à corriger.
 - Lancer le DRC (F8) après chaque zone routée, pas seulement à la fin.
 
 ## 4. Finition
