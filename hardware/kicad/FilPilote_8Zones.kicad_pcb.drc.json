@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-11-07T23:14:44",
+    "date": "2026-11-07T23:38:27",
     "ignored_checks": [
         {
             "description": "Footprint has no courtyard defined",
@@ -37,20 +37,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Piste [GND] sur F.Cu, long. 3,0000 mm",
+                    "description": "Piste [GND] sur B.Cu, long. 10,4403 mm",
                     "pos": {
-                        "x": 44.0,
-                        "y": 66.46
+                        "x": 47.0,
+                        "y": 25.46
                     },
-                    "uuid": "2f4470f1-e15f-4fff-93aa-1eed383eeecf"
+                    "uuid": "d5e80956-bdcf-4b6d-a375-abe2bbc1fbb5"
                 },
                 {
-                    "description": "Piste [GND] sur F.Cu, long. 3,0000 mm",
+                    "description": "Piste [GND] sur B.Cu, long. 9,2195 mm",
                     "pos": {
-                        "x": 109.0,
-                        "y": 66.46
+                        "x": 106.0,
+                        "y": 14.0
                     },
-                    "uuid": "da77f34f-924c-4769-80af-d19b75dac605"
+                    "uuid": "61f774d6-a126-4468-8626-42ca608bcf6e"
                 }
             ],
             "severity": "error",
@@ -60,12 +60,12 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Piste [GND] sur F.Cu, long. 3,0000 mm",
+                    "description": "Piste [GND] sur B.Cu, long. 10,4403 mm",
                     "pos": {
-                        "x": 109.0,
-                        "y": 35.46
+                        "x": 112.0,
+                        "y": 25.46
                     },
-                    "uuid": "4eaaa6ea-9116-46fb-a069-abacd0dd3d31"
+                    "uuid": "c721da18-82a1-464d-84fc-4071680bac5e"
                 },
                 {
                     "description": "Pad métallisé 4 [GND] de PS1",
@@ -73,7 +73,7 @@
                         "x": 187.0,
                         "y": 24.5
                     },
-                    "uuid": "a695bdb9-4eaf-47ad-869d-78fd811529e7"
+                    "uuid": "eb6a174c-ea0d-4d0f-9e65-e5232ca09a3d"
                 }
             ],
             "severity": "error",
@@ -88,7 +88,7 @@
                         "x": 8.0,
                         "y": 36.02
                     },
-                    "uuid": "eaa88c0d-8d1e-4363-a9e3-723c5b534fe9"
+                    "uuid": "40f3a080-447d-4577-af59-5e7d941323ab"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO3] de RBZ5P",
@@ -96,7 +96,7 @@
                         "x": 100.0,
                         "y": 9.81
                     },
-                    "uuid": "12beee26-554a-4277-b9e5-a9f68521af99"
+                    "uuid": "f85de082-3423-49dd-bdae-539650caaf01"
                 }
             ],
             "severity": "error",
@@ -111,7 +111,7 @@
                         "x": 25.78,
                         "y": 43.64
                     },
-                    "uuid": "2526c975-c39d-4d96-8796-418ae0990317"
+                    "uuid": "39501d4c-0f85-43fc-84bf-3674737901e7"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO48] de RBZ8N",
@@ -119,7 +119,7 @@
                         "x": 100.0,
                         "y": 83.81
                     },
-                    "uuid": "ea8f0bfd-53a3-45c2-9a80-d1bbb39ebd6c"
+                    "uuid": "0793e9fc-c454-4bdf-8084-655812077988"
                 }
             ],
             "severity": "error",
@@ -134,7 +134,7 @@
                         "x": 25.78,
                         "y": 41.1
                     },
-                    "uuid": "173cf1e5-cb15-4f7a-b1be-88a8e1c4df51"
+                    "uuid": "66a689a3-09d8-4ac3-8b28-839723ae99fb"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO47] de RBZ8P",
@@ -142,7 +142,7 @@
                         "x": 100.0,
                         "y": 72.81
                     },
-                    "uuid": "5e35358e-1092-45c9-90ae-f0040947a932"
+                    "uuid": "01dfceb2-12e3-4436-8068-5ceae12e36bd"
                 }
             ],
             "severity": "error",
@@ -157,7 +157,7 @@
                         "x": 25.78,
                         "y": 30.94
                     },
-                    "uuid": "d7c37e93-117e-414d-891c-eef2b2d3e597"
+                    "uuid": "aa0f9d5d-edde-43ae-b43e-68788ae82562"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO42] de RBZ7N",
@@ -165,7 +165,7 @@
                         "x": 100.0,
                         "y": 62.81
                     },
-                    "uuid": "dfbf2a3a-2f92-4a0e-93a0-63fdc42a15c1"
+                    "uuid": "b2b045e1-23bc-4951-bcda-9f4c6c50b7de"
                 }
             ],
             "severity": "error",
@@ -180,7 +180,7 @@
                         "x": 25.78,
                         "y": 28.4
                     },
-                    "uuid": "13a5b005-7a97-4bbf-a998-46929d531c59"
+                    "uuid": "d6e0c545-b2c6-43c4-883e-55b3b3a94fce"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO41] de RBZ7P",
@@ -188,7 +188,7 @@
                         "x": 100.0,
                         "y": 51.81
                     },
-                    "uuid": "b6f927e1-e568-42a9-a81b-ea577040aa4e"
+                    "uuid": "bcd79e48-8957-42b7-a926-94eb1e9bdbde"
                 }
             ],
             "severity": "error",
@@ -203,7 +203,7 @@
                         "x": 25.78,
                         "y": 25.86
                     },
-                    "uuid": "e3cdaa01-95b2-4b26-a799-33cf1672eebb"
+                    "uuid": "8afeab53-8d06-43d2-a41a-3c183072625d"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO40] de RBZ6N",
@@ -211,7 +211,7 @@
                         "x": 100.0,
                         "y": 41.81
                     },
-                    "uuid": "2f79c97b-fe5a-4ea8-8cbc-74f6515bc5db"
+                    "uuid": "58cee14a-0ba2-469f-912a-61f3ea2d8635"
                 }
             ],
             "severity": "error",
@@ -226,7 +226,7 @@
                         "x": 25.78,
                         "y": 23.32
                     },
-                    "uuid": "728a70b5-1938-4ed1-8af0-47243edf70d1"
+                    "uuid": "a586b2e6-d771-413e-a8c4-3d0996afe4ef"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO39] de RBZ6P",
@@ -234,7 +234,7 @@
                         "x": 100.0,
                         "y": 30.81
                     },
-                    "uuid": "ee8b2ffd-5ae4-4c99-abf0-9b70cfa8fab6"
+                    "uuid": "071eab14-c242-4c45-ad4b-b018f71f2c5d"
                 }
             ],
             "severity": "error",
@@ -249,7 +249,7 @@
                         "x": 25.78,
                         "y": 18.24
                     },
-                    "uuid": "d0bc57ef-fb8a-4cdb-8d9c-d9c5603836b3"
+                    "uuid": "35e07cac-a8c1-424b-9e16-ad34e8f015ad"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO38] de RBZ5N",
@@ -257,7 +257,7 @@
                         "x": 100.0,
                         "y": 20.81
                     },
-                    "uuid": "1699c333-7b7a-4f99-87b6-12e70c6e48bf"
+                    "uuid": "925fdef6-f4f6-4e2b-b158-c9e11b2f06b7"
                 }
             ],
             "severity": "error",
@@ -272,7 +272,7 @@
                         "x": 9.19,
                         "y": 56.0
                     },
-                    "uuid": "5a297f90-8a3c-4295-890f-47f5af0560b4"
+                    "uuid": "9a4400cc-768a-42e0-b28b-18611b3e5bf6"
                 },
                 {
                     "description": "Pad métallisé 3 [LOCAL_5V] de PS1",
@@ -280,7 +280,7 @@
                         "x": 187.0,
                         "y": 29.5
                     },
-                    "uuid": "e406607d-1285-4f99-bc51-99f8db7e902c"
+                    "uuid": "f4ada879-ab77-49e0-b5c4-4b7d22a447f9"
                 }
             ],
             "severity": "error",
@@ -290,20 +290,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Piste [3V3_OPTO] sur B.Cu, long. 1,0000 mm",
-                    "pos": {
-                        "x": 48.0,
-                        "y": 71.81
-                    },
-                    "uuid": "952b8d53-dd6c-4b54-b8c2-2dff0589d4ce"
-                },
-                {
-                    "description": "Piste [3V3_OPTO] sur F.Cu, long. 3,0000 mm",
+                    "description": "Piste [3V3_OPTO] sur B.Cu, long. 11,4018 mm",
                     "pos": {
                         "x": 53.0,
-                        "y": 72.81
+                        "y": 51.81
                     },
-                    "uuid": "6eabe789-5fb5-4543-8ae2-18c5e7c15a8e"
+                    "uuid": "19009a25-8dad-4c52-80e5-9c258c85755b"
+                },
+                {
+                    "description": "Piste [3V3_OPTO] sur B.Cu, long. 9,4868 mm",
+                    "pos": {
+                        "x": 50.0,
+                        "y": 53.81
+                    },
+                    "uuid": "e9602ee6-557e-4654-a8c3-862cd58ba4a6"
                 }
             ],
             "severity": "error",
@@ -316,17 +316,17 @@
                     "description": "Piste [3V3_OPTO] sur B.Cu, long. 3,0000 mm",
                     "pos": {
                         "x": 115.0,
-                        "y": 20.0
+                        "y": 51.81
                     },
-                    "uuid": "620a32f7-a048-4ec1-ac6d-65124096c573"
+                    "uuid": "ff330c29-381a-43db-8c3b-aa6fc4b05a3d"
                 },
                 {
-                    "description": "Piste [3V3_OPTO] sur F.Cu, long. 2,0000 mm",
+                    "description": "Piste [3V3_OPTO] sur B.Cu, long. 11,4018 mm",
                     "pos": {
                         "x": 53.0,
-                        "y": 19.0
+                        "y": 51.81
                     },
-                    "uuid": "27caefe3-3c6c-4c5f-b8a1-9f01505fb571"
+                    "uuid": "19009a25-8dad-4c52-80e5-9c258c85755b"
                 }
             ],
             "severity": "error",
@@ -336,20 +336,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 3,0000 mm",
+                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 6,0000 mm",
                     "pos": {
-                        "x": 71.0,
-                        "y": 26.0
+                        "x": 74.0,
+                        "y": 16.0
                     },
-                    "uuid": "e4b07460-0821-46a3-a85a-e91155ff26ae"
+                    "uuid": "318ae6e7-4217-4a79-8a33-3825ee63a9ba"
                 },
                 {
-                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 2,5000 mm",
+                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 3,0060 mm",
                     "pos": {
-                        "x": 136.0,
-                        "y": 25.5
+                        "x": 139.0,
+                        "y": 10.0
                     },
-                    "uuid": "f44c7ede-2bc4-47fd-95ed-6efe66154986"
+                    "uuid": "eb71fbb9-81bb-406c-9e40-a742badd6a3a"
                 }
             ],
             "severity": "error",
@@ -359,20 +359,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 5,3100 mm",
+                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 4,1231 mm",
                     "pos": {
-                        "x": 136.0,
-                        "y": 30.81
+                        "x": 139.0,
+                        "y": 33.0
                     },
-                    "uuid": "48d5a0b6-3cd1-43e7-80e7-ee5e180ab2cf"
+                    "uuid": "75a33c28-c13b-47fd-93e7-4564a5ddd448"
                 },
                 {
-                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 3,0000 mm",
+                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 3,1623 mm",
                     "pos": {
                         "x": 136.0,
-                        "y": 40.81
+                        "y": 41.81
                     },
-                    "uuid": "bcc7471d-9aaf-40eb-9ce0-4b38da782151"
+                    "uuid": "14f21be6-d3b0-4172-939d-170719d9cb57"
                 }
             ],
             "severity": "error",
@@ -382,12 +382,12 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Piste [FP1] sur B.Cu, long. 4,8100 mm",
+                    "description": "Piste [FP1] sur B.Cu, long. 5,6689 mm",
                     "pos": {
                         "x": 89.0,
                         "y": 20.81
                     },
-                    "uuid": "dcbed0a3-0f6d-4731-b42e-3ece7bd48524"
+                    "uuid": "ea56121c-77e2-425d-a9da-4f699d1d7714"
                 },
                 {
                     "description": "Pad métallisé 1 [FP1] de J2",
@@ -395,7 +395,7 @@
                         "x": 187.0,
                         "y": 42.54
                     },
-                    "uuid": "a3cc45b1-6586-4753-9300-9531db3ff2eb"
+                    "uuid": "f05b4c08-dac6-46e5-927c-7bc5103519f4"
                 }
             ],
             "severity": "error",
@@ -405,20 +405,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
+                    "description": "Piste [FP2] sur B.Cu, long. 5,5086 mm",
+                    "pos": {
+                        "x": 89.0,
+                        "y": 41.81
+                    },
+                    "uuid": "d41174c3-5fd5-40ad-92bc-eb77e8b554f0"
+                },
+                {
                     "description": "Pad métallisé 2 [FP2] de J2",
                     "pos": {
                         "x": 187.0,
                         "y": 37.46
                     },
-                    "uuid": "b7dca141-a930-4a6b-b3b9-f3b93f8fc0c9"
-                },
-                {
-                    "description": "Piste [FP2] sur B.Cu, long. 3,0000 mm",
-                    "pos": {
-                        "x": 89.0,
-                        "y": 37.19
-                    },
-                    "uuid": "90d77872-05f8-4548-8b3b-5d879b384843"
+                    "uuid": "a20abf73-34f5-4c36-98c9-39b6ef834cf5"
                 }
             ],
             "severity": "error",
@@ -433,15 +433,15 @@
                         "x": 187.0,
                         "y": 52.54
                     },
-                    "uuid": "19dbcf27-d562-4d14-8e1b-5832c22a9120"
+                    "uuid": "0c0d90b9-8520-45b5-9adb-2cccc4573e97"
                 },
                 {
-                    "description": "Piste [FP3] sur F.Cu, long. 4,0000 mm",
+                    "description": "Piste [FP3] sur F.Cu, long. 5,0000 mm",
                     "pos": {
                         "x": 89.0,
                         "y": 44.19
                     },
-                    "uuid": "e6a6c767-0066-4deb-ad03-51b732a89544"
+                    "uuid": "70224100-372e-48d6-a29d-89aedd0f17b4"
                 }
             ],
             "severity": "error",
@@ -456,15 +456,15 @@
                         "x": 187.0,
                         "y": 47.46
                     },
-                    "uuid": "61fc1bf0-d9a2-4047-b398-50a6815e21ef"
+                    "uuid": "df0e4ce2-c3c7-46d5-95d8-4ef35be69d3d"
                 },
                 {
-                    "description": "Piste [FP4] sur F.Cu, long. 4,0000 mm",
+                    "description": "Piste [FP4] sur F.Cu, long. 5,0000 mm",
                     "pos": {
                         "x": 89.0,
                         "y": 65.19
                     },
-                    "uuid": "667fbe0a-6148-4c1d-b3b3-c312c6ce1bff"
+                    "uuid": "299a5e9f-2efa-4f17-a586-6000f083c433"
                 }
             ],
             "severity": "error",
@@ -479,7 +479,7 @@
                         "x": 65.81,
                         "y": 3.46
                     },
-                    "uuid": "54f90d1d-6ca7-42fd-9718-8159b1fba894"
+                    "uuid": "59435e91-24a9-4ad8-80ba-10b297cd77f0"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z1P] de DZ1P",
@@ -487,7 +487,30 @@
                         "x": 89.0,
                         "y": 9.81
                     },
-                    "uuid": "4794114d-2837-44c8-acba-9f699ebe3e17"
+                    "uuid": "759b2974-4b1d-4476-82eb-7b56c5b9c916"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z1N] de OCZ1N",
+                    "pos": {
+                        "x": 65.81,
+                        "y": 14.46
+                    },
+                    "uuid": "2bc4b5a8-2279-49a3-ba9f-5acac32a2b09"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z1N] de DZ1N",
+                    "pos": {
+                        "x": 89.0,
+                        "y": 13.19
+                    },
+                    "uuid": "103f1003-e6dc-4b05-af95-41ae2b74c9e7"
                 }
             ],
             "severity": "error",
@@ -502,7 +525,7 @@
                         "x": 65.81,
                         "y": 24.46
                     },
-                    "uuid": "57ff7e94-770b-4705-b658-2e27a62e2452"
+                    "uuid": "694ae5cc-fc68-4c89-9650-8013f0630b56"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z2P] de DZ2P",
@@ -510,7 +533,7 @@
                         "x": 89.0,
                         "y": 30.81
                     },
-                    "uuid": "58211e39-cf63-43b8-903d-132a1937e128"
+                    "uuid": "d6540a7f-60a3-4f69-8b0b-518d3ec5cb45"
                 }
             ],
             "severity": "error",
@@ -525,7 +548,7 @@
                         "x": 65.81,
                         "y": 35.46
                     },
-                    "uuid": "20352b7c-e8ec-449d-909f-e0779a2bf4ca"
+                    "uuid": "5b3fbdbd-921e-4818-88eb-3e33d428dbff"
                 },
                 {
                     "description": "Pad métallisé 2 [MT1D_Z2N] de DZ2N",
@@ -533,7 +556,7 @@
                         "x": 89.0,
                         "y": 34.19
                     },
-                    "uuid": "f3284004-f121-4018-9faf-27a3fa04168a"
+                    "uuid": "59a73e6e-5a54-4bf8-822f-861c61ef3178"
                 }
             ],
             "severity": "error",
@@ -548,7 +571,7 @@
                         "x": 65.81,
                         "y": 45.46
                     },
-                    "uuid": "7c18c3a1-5da5-479d-9d2a-eb76725c7e5e"
+                    "uuid": "415f2ab0-8e3e-45b6-a729-1254a507eb28"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z3P] de DZ3P",
@@ -556,7 +579,7 @@
                         "x": 89.0,
                         "y": 51.81
                     },
-                    "uuid": "cacc3454-55f1-498e-8800-8cac337d2ce1"
+                    "uuid": "a3a5a2fb-d521-4fd6-bd91-adc407e88e12"
                 }
             ],
             "severity": "error",
@@ -571,7 +594,7 @@
                         "x": 65.81,
                         "y": 56.46
                     },
-                    "uuid": "c4d69a74-1fac-44fc-90c2-c8720b00692e"
+                    "uuid": "6ca1c866-1b8a-40b8-91d8-877d3d32968b"
                 },
                 {
                     "description": "Pad métallisé 2 [MT1D_Z3N] de DZ3N",
@@ -579,7 +602,7 @@
                         "x": 89.0,
                         "y": 55.19
                     },
-                    "uuid": "e92c48aa-f654-4426-b1cf-bb27a683eddd"
+                    "uuid": "bdb7cab1-c4aa-441f-88d7-7229e72c5cd2"
                 }
             ],
             "severity": "error",
@@ -594,7 +617,7 @@
                         "x": 65.81,
                         "y": 66.46
                     },
-                    "uuid": "e11daa57-b263-4ef6-93ae-fb347e174907"
+                    "uuid": "c0cc8a3c-cae8-4b17-adeb-8140a702e682"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z4P] de DZ4P",
@@ -602,30 +625,7 @@
                         "x": 89.0,
                         "y": 72.81
                     },
-                    "uuid": "926afeb2-6d27-4f08-aefb-22770a0cd71b"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Pad métallisé 6 [FMT2_Z4P] de OCZ4P",
-                    "pos": {
-                        "x": 65.81,
-                        "y": 71.54
-                    },
-                    "uuid": "1edbfb6b-d75d-4a57-9f8a-55bd23261a53"
-                },
-                {
-                    "description": "Pad métallisé 2 [FMT2_Z4P] de FZ4P",
-                    "pos": {
-                        "x": 80.0,
-                        "y": 65.19
-                    },
-                    "uuid": "6f0f5055-e8e0-48f7-8139-b4277df5a4ea"
+                    "uuid": "fbd03724-e24c-4666-99af-d7a38769fd0d"
                 }
             ],
             "severity": "error",
@@ -640,7 +640,7 @@
                         "x": 65.81,
                         "y": 77.46
                     },
-                    "uuid": "a706b8ec-5146-427c-bc17-7ab72d759083"
+                    "uuid": "122a7a68-c2d8-437b-8ef2-31afae999859"
                 },
                 {
                     "description": "Pad métallisé 2 [MT1D_Z4N] de DZ4N",
@@ -648,7 +648,7 @@
                         "x": 89.0,
                         "y": 76.19
                     },
-                    "uuid": "6b279652-4409-4843-ab94-8cac2cb4cd89"
+                    "uuid": "70b9e57b-f8d6-47d1-be7c-3e731cd071fe"
                 }
             ],
             "severity": "error",
@@ -663,7 +663,7 @@
                         "x": 130.81,
                         "y": 3.46
                     },
-                    "uuid": "eed4379b-0119-4585-8c92-862506e6d819"
+                    "uuid": "3f8337da-7b15-4dac-b282-28ef4c09f92a"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z5P] de DZ5P",
@@ -671,7 +671,7 @@
                         "x": 154.0,
                         "y": 9.81
                     },
-                    "uuid": "c926c60d-17b4-4f0b-9495-ddff070c3b7f"
+                    "uuid": "5f5fabd4-20a3-4c1f-9d5f-ba835b804c19"
                 }
             ],
             "severity": "error",
@@ -686,7 +686,7 @@
                         "x": 130.81,
                         "y": 24.46
                     },
-                    "uuid": "f7d7966f-7a27-4cc8-8c46-5b37be0ed29c"
+                    "uuid": "9a069f75-3d10-466d-8589-e6865a9ce490"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z6P] de DZ6P",
@@ -694,7 +694,7 @@
                         "x": 154.0,
                         "y": 30.81
                     },
-                    "uuid": "63f7eb3b-d368-4116-9de1-a34b667b5df6"
+                    "uuid": "bdff4eca-6844-472c-932a-9df840db6fcd"
                 }
             ],
             "severity": "error",
@@ -709,7 +709,7 @@
                         "x": 130.81,
                         "y": 35.46
                     },
-                    "uuid": "af91cc88-4a8e-45d7-a797-48c0e8886ede"
+                    "uuid": "01acf455-1e55-4d4c-9c7d-2f41aa3da4e3"
                 },
                 {
                     "description": "Pad métallisé 2 [MT1D_Z6N] de DZ6N",
@@ -717,7 +717,7 @@
                         "x": 154.0,
                         "y": 34.19
                     },
-                    "uuid": "af903f58-3498-4854-a5f9-0e6dd6907fea"
+                    "uuid": "308eb30a-7f1c-4840-b84b-0b3ec19ca68c"
                 }
             ],
             "severity": "error",
@@ -732,7 +732,7 @@
                         "x": 130.81,
                         "y": 45.46
                     },
-                    "uuid": "16be210e-6b30-4bf9-8062-f3837074a267"
+                    "uuid": "3557950a-1674-458c-9582-497a46372039"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z7P] de DZ7P",
@@ -740,7 +740,7 @@
                         "x": 154.0,
                         "y": 51.81
                     },
-                    "uuid": "0e2de65a-e830-478d-b199-3de4f2eae750"
+                    "uuid": "4501a046-3aec-4f14-8e2b-e91d6fab86e2"
                 }
             ],
             "severity": "error",
@@ -755,7 +755,7 @@
                         "x": 130.81,
                         "y": 56.46
                     },
-                    "uuid": "124e58c7-7cee-4aa1-af68-0bc1d83b49a3"
+                    "uuid": "d4c281c0-34a3-4ba3-92ca-e76345d825ca"
                 },
                 {
                     "description": "Pad métallisé 2 [MT1D_Z7N] de DZ7N",
@@ -763,7 +763,7 @@
                         "x": 154.0,
                         "y": 55.19
                     },
-                    "uuid": "2a16813f-58b7-44ec-bdee-51aae4705918"
+                    "uuid": "b6b8fd6f-c415-4d61-ae6f-860f97f45033"
                 }
             ],
             "severity": "error",
@@ -778,7 +778,7 @@
                         "x": 130.81,
                         "y": 66.46
                     },
-                    "uuid": "7ba6546b-4545-47b7-a287-01c4a8bb01ee"
+                    "uuid": "b9af24e9-34cf-405a-b2ef-196e2c83b1dc"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z8P] de DZ8P",
@@ -786,30 +786,7 @@
                         "x": 154.0,
                         "y": 72.81
                     },
-                    "uuid": "70f3b607-431e-4950-a41e-239254ce7452"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Pad métallisé 6 [FMT2_Z8P] de OCZ8P",
-                    "pos": {
-                        "x": 130.81,
-                        "y": 71.54
-                    },
-                    "uuid": "8172fd13-9714-4666-bbc9-5da88ff4413f"
-                },
-                {
-                    "description": "Pad métallisé 2 [FMT2_Z8P] de FZ8P",
-                    "pos": {
-                        "x": 145.0,
-                        "y": 65.19
-                    },
-                    "uuid": "e5a70fa2-dd7d-4088-8ba7-516e01d31804"
+                    "uuid": "21a203f7-5284-4e94-9947-38216bc278fa"
                 }
             ],
             "severity": "error",
@@ -824,7 +801,7 @@
                         "x": 130.81,
                         "y": 77.46
                     },
-                    "uuid": "b37d0574-7e93-48ed-8d1e-2da7bee94efc"
+                    "uuid": "d02d71f7-14de-47c0-90f4-170831596455"
                 },
                 {
                     "description": "Pad métallisé 2 [MT1D_Z8N] de DZ8N",
@@ -832,7 +809,7 @@
                         "x": 154.0,
                         "y": 76.19
                     },
-                    "uuid": "eaa13bed-4dfe-4abe-aa69-2c2b7031aa95"
+                    "uuid": "0996481c-d963-4cf1-b411-6e6ba848de84"
                 }
             ],
             "severity": "error",
@@ -849,7 +826,7 @@
                         "x": 8.0,
                         "y": 3.0
                     },
-                    "uuid": "993c263f-77de-4381-a789-0194c6f26dd2"
+                    "uuid": "b3527ffd-ea2a-4627-aadc-48d1e6fcd1c7"
                 }
             ],
             "severity": "warning",
@@ -864,7 +841,7 @@
                         "x": 13.0,
                         "y": 56.0
                     },
-                    "uuid": "d7a8a40f-7404-45bc-b09f-42fb48c7424b"
+                    "uuid": "fce3ce48-6a0a-420f-8396-4f989a0bbc3c"
                 }
             ],
             "severity": "warning",
@@ -879,7 +856,7 @@
                         "x": 13.0,
                         "y": 63.0
                     },
-                    "uuid": "9778a47f-bf5e-4645-8e1d-3d265a9017fa"
+                    "uuid": "137113c8-16d4-458a-a630-aa52200fbb85"
                 }
             ],
             "severity": "warning",
@@ -894,7 +871,7 @@
                         "x": 13.0,
                         "y": 70.0
                     },
-                    "uuid": "18f4cbd5-3b91-4948-8120-a603bf09eafc"
+                    "uuid": "5935c361-5d9b-4b33-8d8d-91a536ed0b0d"
                 }
             ],
             "severity": "warning",
@@ -909,7 +886,7 @@
                         "x": 13.0,
                         "y": 77.0
                     },
-                    "uuid": "2ccd661a-ba31-482f-bb0a-d7d7693891c5"
+                    "uuid": "213696d8-bb83-4286-b8f9-3cb408f9a46c"
                 }
             ],
             "severity": "warning",
@@ -924,7 +901,7 @@
                         "x": 187.0,
                         "y": 6.0
                     },
-                    "uuid": "97cf8792-95e2-4ee2-8a02-0f32416ede4f"
+                    "uuid": "9282a97b-e6c1-488a-8d18-177905abc72a"
                 }
             ],
             "severity": "warning",
@@ -939,7 +916,7 @@
                         "x": 182.0,
                         "y": 15.0
                     },
-                    "uuid": "10464571-7161-4be5-b4b3-fcf1c197c7d8"
+                    "uuid": "f4ed3224-51da-41a5-97f2-d7ac88846299"
                 }
             ],
             "severity": "warning",
@@ -954,7 +931,7 @@
                         "x": 182.0,
                         "y": 27.0
                     },
-                    "uuid": "049a0666-ebb1-4f65-b78f-5716b43ec602"
+                    "uuid": "93b7d55e-0256-4932-903a-903b252b65a7"
                 }
             ],
             "severity": "warning",
@@ -969,7 +946,7 @@
                         "x": 187.0,
                         "y": 40.0
                     },
-                    "uuid": "c374449f-fc2c-4f91-9b8a-a87a52c1615f"
+                    "uuid": "fc8e67aa-3dbb-41b9-bc2b-92cd2c518e68"
                 }
             ],
             "severity": "warning",
@@ -984,7 +961,7 @@
                         "x": 187.0,
                         "y": 50.0
                     },
-                    "uuid": "216ba484-3b05-468f-a7e6-0fb40be2c6e1"
+                    "uuid": "1499df5d-0688-4c08-bf8a-e1bb0e3c82eb"
                 }
             ],
             "severity": "warning",
@@ -999,7 +976,7 @@
                         "x": 187.0,
                         "y": 60.0
                     },
-                    "uuid": "3332af7e-8851-423b-82e0-e1eac3134a0f"
+                    "uuid": "599ebb28-e98f-4a91-99d9-3b4ba6b09c40"
                 }
             ],
             "severity": "warning",
@@ -1014,7 +991,7 @@
                         "x": 187.0,
                         "y": 70.0
                     },
-                    "uuid": "9f8de4fe-8cc4-450e-b6ba-067356e516c7"
+                    "uuid": "e8867dc1-555a-4d99-94cf-a7af21b86e3e"
                 }
             ],
             "severity": "warning",
@@ -1029,7 +1006,7 @@
                         "x": 35.0,
                         "y": 6.0
                     },
-                    "uuid": "580c5900-0477-41b4-95b5-914d4ac9e30a"
+                    "uuid": "2660ea2f-0c79-47a8-8bff-7223b9d7970a"
                 }
             ],
             "severity": "warning",
@@ -1044,7 +1021,7 @@
                         "x": 44.0,
                         "y": 6.0
                     },
-                    "uuid": "14678660-111e-406b-bf15-ca7c5154a225"
+                    "uuid": "1312b33d-d1af-4632-bbd9-7b9ebb8fc053"
                 }
             ],
             "severity": "warning",
@@ -1059,7 +1036,7 @@
                         "x": 53.0,
                         "y": 6.0
                     },
-                    "uuid": "f995e9e9-f9bf-4bd6-bd80-f876020f17d4"
+                    "uuid": "b770930b-0b52-467f-806e-743f6c8085b7"
                 }
             ],
             "severity": "warning",
@@ -1074,7 +1051,7 @@
                         "x": 62.0,
                         "y": 6.0
                     },
-                    "uuid": "4391ee61-7ca7-4339-b8b7-4e66b0fa32af"
+                    "uuid": "6647931d-d3a0-407f-8d21-4f67bb308ca3"
                 }
             ],
             "severity": "warning",
@@ -1089,7 +1066,7 @@
                         "x": 71.0,
                         "y": 6.0
                     },
-                    "uuid": "139d79bb-bcfd-4c5c-b3e0-a1f316d68071"
+                    "uuid": "ce2cf11d-479f-44a0-aac8-cf49e62de414"
                 }
             ],
             "severity": "warning",
@@ -1104,7 +1081,7 @@
                         "x": 80.0,
                         "y": 6.0
                     },
-                    "uuid": "50d75454-3565-4899-8f7f-98f2adf86965"
+                    "uuid": "afdcfdab-226c-430a-968c-3ae32a0fc4ff"
                 }
             ],
             "severity": "warning",
@@ -1119,7 +1096,7 @@
                         "x": 89.0,
                         "y": 6.0
                     },
-                    "uuid": "9c2562c8-8201-475a-a550-b436c9d94531"
+                    "uuid": "1d1d4cdd-5268-475a-8e96-d721bcc57121"
                 }
             ],
             "severity": "warning",
@@ -1134,7 +1111,7 @@
                         "x": 35.0,
                         "y": 17.0
                     },
-                    "uuid": "9c6f2984-b658-4ed0-b199-9e053d353969"
+                    "uuid": "c6543b4d-eff3-4e96-8eac-4833f75e0487"
                 }
             ],
             "severity": "warning",
@@ -1149,7 +1126,7 @@
                         "x": 44.0,
                         "y": 17.0
                     },
-                    "uuid": "4c4ebbec-bfd8-4e86-8ecf-67be5b104233"
+                    "uuid": "3a667bdf-f8ef-41c9-8f4a-f45649e5f236"
                 }
             ],
             "severity": "warning",
@@ -1164,7 +1141,7 @@
                         "x": 53.0,
                         "y": 17.0
                     },
-                    "uuid": "d5c24cd2-9739-46c9-b6d7-ca94083b882a"
+                    "uuid": "a73fd7c7-df76-4f32-8564-955ec1b3df18"
                 }
             ],
             "severity": "warning",
@@ -1179,7 +1156,7 @@
                         "x": 62.0,
                         "y": 17.0
                     },
-                    "uuid": "591db239-98d4-40af-8b3c-f9b04ecbba2c"
+                    "uuid": "a301850e-7a02-4f17-9308-3fca46deaf2d"
                 }
             ],
             "severity": "warning",
@@ -1194,7 +1171,7 @@
                         "x": 71.0,
                         "y": 17.0
                     },
-                    "uuid": "4165e67c-cace-4541-a7fb-340ec5edabbe"
+                    "uuid": "da821ebc-b148-4e0d-838b-5c8469a2e04f"
                 }
             ],
             "severity": "warning",
@@ -1209,7 +1186,7 @@
                         "x": 80.0,
                         "y": 17.0
                     },
-                    "uuid": "4d450746-f7ce-4ada-ab47-919826e60035"
+                    "uuid": "952aa984-b9cc-40a4-bd2f-638086f5b835"
                 }
             ],
             "severity": "warning",
@@ -1224,7 +1201,7 @@
                         "x": 89.0,
                         "y": 17.0
                     },
-                    "uuid": "b3110ffd-8a66-4dec-865b-433da63d6b67"
+                    "uuid": "7fe5316c-c3e7-4156-a61d-f90353f1d6a4"
                 }
             ],
             "severity": "warning",
@@ -1239,7 +1216,7 @@
                         "x": 35.0,
                         "y": 27.0
                     },
-                    "uuid": "0747758a-b237-471b-b4f9-e3c069b636fe"
+                    "uuid": "38eab67a-9a5b-4874-aa4c-9e8eb6389c9d"
                 }
             ],
             "severity": "warning",
@@ -1254,7 +1231,7 @@
                         "x": 44.0,
                         "y": 27.0
                     },
-                    "uuid": "27d2d465-4a81-4b07-9490-98a6507668e0"
+                    "uuid": "aae70dc7-2051-455a-bb6a-103b2a6abf72"
                 }
             ],
             "severity": "warning",
@@ -1269,7 +1246,7 @@
                         "x": 53.0,
                         "y": 27.0
                     },
-                    "uuid": "111bfab8-51b1-4d02-abd8-dba5760e5a79"
+                    "uuid": "aae2a3f8-692c-40f6-a218-c5a0a0b5f5ac"
                 }
             ],
             "severity": "warning",
@@ -1284,7 +1261,7 @@
                         "x": 62.0,
                         "y": 27.0
                     },
-                    "uuid": "13d185da-34a5-4a0a-81a6-46104e91641f"
+                    "uuid": "9cdc8ce0-7ac0-4d0e-a182-52550daddbd0"
                 }
             ],
             "severity": "warning",
@@ -1299,7 +1276,7 @@
                         "x": 71.0,
                         "y": 27.0
                     },
-                    "uuid": "ef204b71-f0c1-4585-97b3-c33e55bb0bdd"
+                    "uuid": "0bf1f8cf-95d2-4e3d-800a-c00262285036"
                 }
             ],
             "severity": "warning",
@@ -1314,7 +1291,7 @@
                         "x": 80.0,
                         "y": 27.0
                     },
-                    "uuid": "474184f6-c365-4e8e-b538-17750ba4353c"
+                    "uuid": "d78f072e-586d-4c82-8838-acc7be68eb81"
                 }
             ],
             "severity": "warning",
@@ -1329,7 +1306,7 @@
                         "x": 89.0,
                         "y": 27.0
                     },
-                    "uuid": "b2cab55e-973b-4cd8-a8b9-55820f8dcd82"
+                    "uuid": "90fcf4d5-bc22-4a2d-973f-e9cd493fdebd"
                 }
             ],
             "severity": "warning",
@@ -1344,7 +1321,7 @@
                         "x": 35.0,
                         "y": 38.0
                     },
-                    "uuid": "c5a659f4-2c56-44f1-8ca3-8740cf772f7f"
+                    "uuid": "ca0827ec-1927-448f-9f60-5d9c12d07f5e"
                 }
             ],
             "severity": "warning",
@@ -1359,7 +1336,7 @@
                         "x": 44.0,
                         "y": 38.0
                     },
-                    "uuid": "d0cdb1fe-c863-4a4c-b713-48d9211974e1"
+                    "uuid": "3b2bb516-f04a-4a1c-8a02-4de1ecc81e9e"
                 }
             ],
             "severity": "warning",
@@ -1374,7 +1351,7 @@
                         "x": 53.0,
                         "y": 38.0
                     },
-                    "uuid": "c69f62f2-4629-4fde-8e07-2880728acc91"
+                    "uuid": "d5a61639-6e4d-44c5-bf3a-d63273da59ec"
                 }
             ],
             "severity": "warning",
@@ -1389,7 +1366,7 @@
                         "x": 62.0,
                         "y": 38.0
                     },
-                    "uuid": "bed85731-ffdf-4516-a70e-26ee4fea171e"
+                    "uuid": "c4a372dc-1540-4c9d-925a-2419618fdd15"
                 }
             ],
             "severity": "warning",
@@ -1404,7 +1381,7 @@
                         "x": 71.0,
                         "y": 38.0
                     },
-                    "uuid": "2098c34b-4a1a-440d-93ea-8c4535a4f872"
+                    "uuid": "16fa39a5-a50e-4758-94d8-e3806fb43545"
                 }
             ],
             "severity": "warning",
@@ -1419,7 +1396,7 @@
                         "x": 80.0,
                         "y": 38.0
                     },
-                    "uuid": "12e34860-f212-47fc-a8ee-c967422d14cc"
+                    "uuid": "41f9a402-95ea-4a35-9cd8-07ebbe52becd"
                 }
             ],
             "severity": "warning",
@@ -1434,7 +1411,7 @@
                         "x": 89.0,
                         "y": 38.0
                     },
-                    "uuid": "243bf0e2-1218-4802-85d1-70542d706362"
+                    "uuid": "b6ae3183-b8be-499b-96c0-ca175c7c4a05"
                 }
             ],
             "severity": "warning",
@@ -1449,7 +1426,7 @@
                         "x": 35.0,
                         "y": 48.0
                     },
-                    "uuid": "9d874fa6-cdb7-4778-923c-a2243048cc0c"
+                    "uuid": "f479914f-9a88-4622-afc2-33f40429b5b9"
                 }
             ],
             "severity": "warning",
@@ -1464,7 +1441,7 @@
                         "x": 44.0,
                         "y": 48.0
                     },
-                    "uuid": "db92788e-98e4-4b7b-97e1-eb945a66608b"
+                    "uuid": "3fe2efbe-531b-4976-96b1-0440c214a82b"
                 }
             ],
             "severity": "warning",
@@ -1479,7 +1456,7 @@
                         "x": 53.0,
                         "y": 48.0
                     },
-                    "uuid": "6aee0875-6d3a-4d72-a327-42fb686db3d2"
+                    "uuid": "84f818da-1b81-41d6-be9f-42809dd33a68"
                 }
             ],
             "severity": "warning",
@@ -1494,7 +1471,7 @@
                         "x": 62.0,
                         "y": 48.0
                     },
-                    "uuid": "141c533b-f4b5-4a0d-bb39-64915e2e001a"
+                    "uuid": "7d7de899-4c0c-4fa9-aa6e-e62874a32b45"
                 }
             ],
             "severity": "warning",
@@ -1509,7 +1486,7 @@
                         "x": 71.0,
                         "y": 48.0
                     },
-                    "uuid": "06b105aa-3008-4935-8e6e-e37ac398acde"
+                    "uuid": "9079d672-8ce0-4787-9b0a-76c766a6fafb"
                 }
             ],
             "severity": "warning",
@@ -1524,7 +1501,7 @@
                         "x": 80.0,
                         "y": 48.0
                     },
-                    "uuid": "bcfbafb4-94f5-40dc-a6af-aa4a27885ec9"
+                    "uuid": "ba327503-c8f1-4598-a7b5-8f986b24f2e2"
                 }
             ],
             "severity": "warning",
@@ -1539,7 +1516,7 @@
                         "x": 89.0,
                         "y": 48.0
                     },
-                    "uuid": "9fd843fa-c8d5-441e-bb40-adae916b97a9"
+                    "uuid": "c1155f7b-7df4-48fb-9169-546fcde9fea2"
                 }
             ],
             "severity": "warning",
@@ -1554,7 +1531,7 @@
                         "x": 35.0,
                         "y": 59.0
                     },
-                    "uuid": "6444d337-4865-4892-b267-98c140d56bdc"
+                    "uuid": "c374ccec-6b68-410c-ad48-164f9244d4eb"
                 }
             ],
             "severity": "warning",
@@ -1569,7 +1546,7 @@
                         "x": 44.0,
                         "y": 59.0
                     },
-                    "uuid": "209859bb-f795-4fbf-95a3-ff104c13b1a3"
+                    "uuid": "06022bca-4bb4-4637-b512-411a064d3af8"
                 }
             ],
             "severity": "warning",
@@ -1584,7 +1561,7 @@
                         "x": 53.0,
                         "y": 59.0
                     },
-                    "uuid": "644138d8-e448-4466-aeca-c6b97758fbb8"
+                    "uuid": "87242f01-aa35-484b-a067-ae6dd503afc3"
                 }
             ],
             "severity": "warning",
@@ -1599,7 +1576,7 @@
                         "x": 62.0,
                         "y": 59.0
                     },
-                    "uuid": "5c80fc96-dabc-4d2f-a829-bad24258b284"
+                    "uuid": "b3437e9c-474a-4efa-8c8d-b9e43572575d"
                 }
             ],
             "severity": "warning",
@@ -1614,7 +1591,7 @@
                         "x": 71.0,
                         "y": 59.0
                     },
-                    "uuid": "74a89bfe-181c-416a-b094-999a836ba113"
+                    "uuid": "911186ec-afa6-488b-beaf-85299c510953"
                 }
             ],
             "severity": "warning",
@@ -1629,7 +1606,7 @@
                         "x": 80.0,
                         "y": 59.0
                     },
-                    "uuid": "02487282-9dd1-4bb0-b6ea-fa06fef06abe"
+                    "uuid": "2064680c-110a-4159-8a1f-caf7cea82d39"
                 }
             ],
             "severity": "warning",
@@ -1644,7 +1621,7 @@
                         "x": 89.0,
                         "y": 59.0
                     },
-                    "uuid": "f473a9a6-d873-425b-bcd2-ea00e9fe64c5"
+                    "uuid": "07740df8-6c31-4dd7-a65d-015e5634b1a5"
                 }
             ],
             "severity": "warning",
@@ -1659,7 +1636,7 @@
                         "x": 35.0,
                         "y": 69.0
                     },
-                    "uuid": "650be7ef-0b4e-4702-b772-139072a8535e"
+                    "uuid": "6b922227-6a76-480e-bfb6-de10efd617fb"
                 }
             ],
             "severity": "warning",
@@ -1674,7 +1651,7 @@
                         "x": 44.0,
                         "y": 69.0
                     },
-                    "uuid": "2545941a-338e-4071-8733-48eb3b06dba1"
+                    "uuid": "d16c188b-7d27-4991-a724-ee213d87d4ac"
                 }
             ],
             "severity": "warning",
@@ -1689,7 +1666,7 @@
                         "x": 53.0,
                         "y": 69.0
                     },
-                    "uuid": "5c87ab52-c91a-4dc1-94e4-efc3c7015e4e"
+                    "uuid": "b17fda2b-0ccc-4e15-b7ba-57b23be018ed"
                 }
             ],
             "severity": "warning",
@@ -1704,7 +1681,7 @@
                         "x": 62.0,
                         "y": 69.0
                     },
-                    "uuid": "1482a6ee-214d-488c-94bf-6304e5db9d79"
+                    "uuid": "0af32058-f60b-4238-aafe-6d8f1d8b57d4"
                 }
             ],
             "severity": "warning",
@@ -1719,7 +1696,7 @@
                         "x": 71.0,
                         "y": 69.0
                     },
-                    "uuid": "28250774-495c-4df8-a228-9990f1bb2c51"
+                    "uuid": "5b73afa7-1adf-4309-bfee-73accd353038"
                 }
             ],
             "severity": "warning",
@@ -1734,7 +1711,7 @@
                         "x": 80.0,
                         "y": 69.0
                     },
-                    "uuid": "a8ea79f3-73d2-47c4-96ad-ce4ae435407c"
+                    "uuid": "50623749-ed47-45bb-b1a1-7545b98d6fe8"
                 }
             ],
             "severity": "warning",
@@ -1749,7 +1726,7 @@
                         "x": 89.0,
                         "y": 69.0
                     },
-                    "uuid": "d32087c0-8a99-4688-adb5-17204513e340"
+                    "uuid": "b73e4a97-4407-48e7-9729-19ec895d4d15"
                 }
             ],
             "severity": "warning",
@@ -1764,7 +1741,7 @@
                         "x": 35.0,
                         "y": 80.0
                     },
-                    "uuid": "def509d9-621d-4294-bb38-3033e6def561"
+                    "uuid": "522dd3cf-e191-460a-9888-50b3702981eb"
                 }
             ],
             "severity": "warning",
@@ -1779,7 +1756,7 @@
                         "x": 44.0,
                         "y": 80.0
                     },
-                    "uuid": "822b4820-44a6-46f7-9a77-ad284801e653"
+                    "uuid": "ca15b708-5071-4f0b-a42c-cd1291289659"
                 }
             ],
             "severity": "warning",
@@ -1794,7 +1771,7 @@
                         "x": 53.0,
                         "y": 80.0
                     },
-                    "uuid": "076a171b-e2df-48e4-9062-6c47afebfc21"
+                    "uuid": "fc9baf3c-7d03-4698-9a76-d6f8ced0303b"
                 }
             ],
             "severity": "warning",
@@ -1809,7 +1786,7 @@
                         "x": 62.0,
                         "y": 80.0
                     },
-                    "uuid": "d31e063a-e442-441d-9548-d21078e47961"
+                    "uuid": "ee487e81-c3fb-43d1-b8b4-b7e83a2beef0"
                 }
             ],
             "severity": "warning",
@@ -1824,7 +1801,7 @@
                         "x": 71.0,
                         "y": 80.0
                     },
-                    "uuid": "2c4d6ac7-3919-48a9-bbc2-5ba9924680c4"
+                    "uuid": "f4a8a6ea-4c62-41fc-90b8-3b3053252ba2"
                 }
             ],
             "severity": "warning",
@@ -1839,7 +1816,7 @@
                         "x": 80.0,
                         "y": 80.0
                     },
-                    "uuid": "9356109f-e045-41d0-9fc0-8ff4befef49d"
+                    "uuid": "a340d965-18df-448f-8a43-83407ec6fed2"
                 }
             ],
             "severity": "warning",
@@ -1854,7 +1831,7 @@
                         "x": 89.0,
                         "y": 80.0
                     },
-                    "uuid": "599cd452-1a3e-4b4d-866e-708918e65557"
+                    "uuid": "4a33d0ff-fb1c-4d2c-8b64-e1952f51ff1f"
                 }
             ],
             "severity": "warning",
@@ -1869,7 +1846,7 @@
                         "x": 100.0,
                         "y": 6.0
                     },
-                    "uuid": "1ab4bc28-607e-4cd3-b8e5-4355fa6005d5"
+                    "uuid": "da078d1f-1097-4428-8c20-13ccd8e44a6a"
                 }
             ],
             "severity": "warning",
@@ -1884,7 +1861,7 @@
                         "x": 109.0,
                         "y": 6.0
                     },
-                    "uuid": "d7d85438-8ddd-4519-bcb6-e8448446a6ca"
+                    "uuid": "a3576652-1d72-4791-80a1-bc7c5a1ce70b"
                 }
             ],
             "severity": "warning",
@@ -1899,7 +1876,7 @@
                         "x": 118.0,
                         "y": 6.0
                     },
-                    "uuid": "e9be2421-611a-425e-b9cf-51679c39d843"
+                    "uuid": "d69a308f-1567-401f-92a2-3aeaff169ef0"
                 }
             ],
             "severity": "warning",
@@ -1914,7 +1891,7 @@
                         "x": 127.0,
                         "y": 6.0
                     },
-                    "uuid": "a7ee971e-f95b-4058-8a73-2b37296a1386"
+                    "uuid": "60ca5a30-29e4-444b-9162-ccd00ef690c7"
                 }
             ],
             "severity": "warning",
@@ -1929,7 +1906,7 @@
                         "x": 136.0,
                         "y": 6.0
                     },
-                    "uuid": "d9afeefc-12e7-4796-bc40-0a386f68996f"
+                    "uuid": "335b2ca5-aa44-4441-a05e-92dac42628ff"
                 }
             ],
             "severity": "warning",
@@ -1944,7 +1921,7 @@
                         "x": 145.0,
                         "y": 6.0
                     },
-                    "uuid": "d0b772e0-85b1-491e-8977-6bc04148b1a6"
+                    "uuid": "f55f9f8a-7b96-461a-a689-854428ba1b23"
                 }
             ],
             "severity": "warning",
@@ -1959,7 +1936,7 @@
                         "x": 154.0,
                         "y": 6.0
                     },
-                    "uuid": "7b3559ca-e88b-4593-bec4-adab46da9e62"
+                    "uuid": "a9bb17fd-77c9-419c-851d-1feda33220d0"
                 }
             ],
             "severity": "warning",
@@ -1974,7 +1951,7 @@
                         "x": 100.0,
                         "y": 17.0
                     },
-                    "uuid": "66955ad5-90bc-4c16-bdfb-9c183eeb3181"
+                    "uuid": "aaaf9a78-3314-4164-825b-023c5d797c8b"
                 }
             ],
             "severity": "warning",
@@ -1989,7 +1966,7 @@
                         "x": 109.0,
                         "y": 17.0
                     },
-                    "uuid": "7e2df21a-b498-4481-a22f-a3264047b88e"
+                    "uuid": "340c2faf-3099-4ef7-9dc2-4e4419e38839"
                 }
             ],
             "severity": "warning",
@@ -2004,7 +1981,7 @@
                         "x": 118.0,
                         "y": 17.0
                     },
-                    "uuid": "2f27b6dc-0576-4ec6-a699-3109e6d62fba"
+                    "uuid": "0fc9b527-7ba3-4da7-ac5b-9d9f0a498c54"
                 }
             ],
             "severity": "warning",
@@ -2019,7 +1996,7 @@
                         "x": 127.0,
                         "y": 17.0
                     },
-                    "uuid": "8711b2d3-1874-4b4b-8c02-83578da429a9"
+                    "uuid": "494a4409-e82a-41e1-a351-6c97d520c309"
                 }
             ],
             "severity": "warning",
@@ -2034,7 +2011,7 @@
                         "x": 136.0,
                         "y": 17.0
                     },
-                    "uuid": "919947b3-176f-4bfb-94ba-1a4b9d3b928c"
+                    "uuid": "c64411b1-18ec-45bc-8dea-0ed1bfcd93e3"
                 }
             ],
             "severity": "warning",
@@ -2049,7 +2026,7 @@
                         "x": 145.0,
                         "y": 17.0
                     },
-                    "uuid": "c0689ef7-3f63-49e3-92f8-ab49c8bbe30f"
+                    "uuid": "c67323c1-bc0a-4459-beeb-1dd025923329"
                 }
             ],
             "severity": "warning",
@@ -2064,7 +2041,7 @@
                         "x": 154.0,
                         "y": 17.0
                     },
-                    "uuid": "f2a530c4-4e27-402c-bdd7-5a8747b26602"
+                    "uuid": "ce62b312-db09-45e6-b743-095acc1dc628"
                 }
             ],
             "severity": "warning",
@@ -2079,7 +2056,7 @@
                         "x": 100.0,
                         "y": 27.0
                     },
-                    "uuid": "bae29a5a-c4ad-49fd-845b-311341570fd5"
+                    "uuid": "fb5a3aed-3b0b-4571-bbc2-482b6966383b"
                 }
             ],
             "severity": "warning",
@@ -2094,7 +2071,7 @@
                         "x": 109.0,
                         "y": 27.0
                     },
-                    "uuid": "a992cef8-d928-4005-bbd5-e6abde3a8f93"
+                    "uuid": "57a7d633-9504-4454-b040-e3a3a35a1f6d"
                 }
             ],
             "severity": "warning",
@@ -2109,7 +2086,7 @@
                         "x": 118.0,
                         "y": 27.0
                     },
-                    "uuid": "e0138d79-7527-46a8-bb7f-f74189e03c38"
+                    "uuid": "8b18fcd1-8759-418c-88ba-c7a558d3e187"
                 }
             ],
             "severity": "warning",
@@ -2124,7 +2101,7 @@
                         "x": 127.0,
                         "y": 27.0
                     },
-                    "uuid": "771c1f26-ceda-442c-a518-cf33fe623ad8"
+                    "uuid": "eb9637eb-0d9e-4a69-b426-7717fcbad6e9"
                 }
             ],
             "severity": "warning",
@@ -2139,7 +2116,7 @@
                         "x": 136.0,
                         "y": 27.0
                     },
-                    "uuid": "2b032660-c3ac-4a96-816b-3e4d7dcba90e"
+                    "uuid": "b7949242-ebbe-42a2-a281-9b9c5d6d3ac0"
                 }
             ],
             "severity": "warning",
@@ -2154,7 +2131,7 @@
                         "x": 145.0,
                         "y": 27.0
                     },
-                    "uuid": "b5d21088-a662-4074-8800-41696eb547a3"
+                    "uuid": "2a3b22f9-4eec-4a4f-966c-4dbaa52ce75b"
                 }
             ],
             "severity": "warning",
@@ -2169,7 +2146,7 @@
                         "x": 154.0,
                         "y": 27.0
                     },
-                    "uuid": "d2dcdb62-82d6-457a-bd42-b3660c3ae994"
+                    "uuid": "2e2d7336-8ed2-4fdd-bb5e-8fad75f28700"
                 }
             ],
             "severity": "warning",
@@ -2184,7 +2161,7 @@
                         "x": 100.0,
                         "y": 38.0
                     },
-                    "uuid": "7e302883-4daa-47e1-bff6-eb9660daf4c3"
+                    "uuid": "c75b0734-560b-47e9-8162-ba62fad76f5c"
                 }
             ],
             "severity": "warning",
@@ -2199,7 +2176,7 @@
                         "x": 109.0,
                         "y": 38.0
                     },
-                    "uuid": "8f1b106a-da60-47e8-890f-a1bd2ad35718"
+                    "uuid": "5790a2ff-f471-4b47-bf58-af8f8a49fc8c"
                 }
             ],
             "severity": "warning",
@@ -2214,7 +2191,7 @@
                         "x": 118.0,
                         "y": 38.0
                     },
-                    "uuid": "d13bb5cd-a82e-4c9b-8e0c-cac85e9a479e"
+                    "uuid": "576a8b7d-f57b-4e7b-b66d-3e1235e309b2"
                 }
             ],
             "severity": "warning",
@@ -2229,7 +2206,7 @@
                         "x": 127.0,
                         "y": 38.0
                     },
-                    "uuid": "b0591650-5703-4164-bb9c-e49607567d34"
+                    "uuid": "06845ef9-71d9-4f4b-8d00-e12f89a8cd3d"
                 }
             ],
             "severity": "warning",
@@ -2244,7 +2221,7 @@
                         "x": 136.0,
                         "y": 38.0
                     },
-                    "uuid": "9439ac0a-42b1-453f-9a32-f4d17048a47c"
+                    "uuid": "6904e644-5cef-4877-8e00-e8c510c20298"
                 }
             ],
             "severity": "warning",
@@ -2259,7 +2236,7 @@
                         "x": 145.0,
                         "y": 38.0
                     },
-                    "uuid": "5b0d91d1-7386-40e0-9176-a49901e1ec9a"
+                    "uuid": "5db9a7c0-674d-4eac-80a1-bf39e59ff5c6"
                 }
             ],
             "severity": "warning",
@@ -2274,7 +2251,7 @@
                         "x": 154.0,
                         "y": 38.0
                     },
-                    "uuid": "fa3f3902-6fc9-434e-8a29-5408c03ed246"
+                    "uuid": "4749a631-10f3-42d2-98a7-4d61e0fab853"
                 }
             ],
             "severity": "warning",
@@ -2289,7 +2266,7 @@
                         "x": 100.0,
                         "y": 48.0
                     },
-                    "uuid": "d915564f-409c-4e18-b229-f52309521650"
+                    "uuid": "b3c7784f-c736-46af-bc1f-05380da7911e"
                 }
             ],
             "severity": "warning",
@@ -2304,7 +2281,7 @@
                         "x": 109.0,
                         "y": 48.0
                     },
-                    "uuid": "33b79255-b920-46b3-b404-0d28e8d1629a"
+                    "uuid": "3a46008b-8d4c-4aad-a504-0d1e1e667246"
                 }
             ],
             "severity": "warning",
@@ -2319,7 +2296,7 @@
                         "x": 118.0,
                         "y": 48.0
                     },
-                    "uuid": "e6efdb2b-08ed-4bd4-b2c6-8a180a2a986f"
+                    "uuid": "a4bb408a-333c-48d5-afeb-d054de3c7023"
                 }
             ],
             "severity": "warning",
@@ -2334,7 +2311,7 @@
                         "x": 127.0,
                         "y": 48.0
                     },
-                    "uuid": "3e1165fb-4cf8-48ed-955b-980704cd9692"
+                    "uuid": "e6c1057c-3acd-46b0-b8c5-963bd31b954f"
                 }
             ],
             "severity": "warning",
@@ -2349,7 +2326,7 @@
                         "x": 136.0,
                         "y": 48.0
                     },
-                    "uuid": "c2d68770-07b1-4881-b162-9968bd922b57"
+                    "uuid": "89c766b9-6800-4284-8dc2-d059db59fce8"
                 }
             ],
             "severity": "warning",
@@ -2364,7 +2341,7 @@
                         "x": 145.0,
                         "y": 48.0
                     },
-                    "uuid": "2da7f264-bb5f-42ac-bab9-a8841191ffc0"
+                    "uuid": "bdbc8c57-12b7-4e8c-a956-3bc89cd2abe2"
                 }
             ],
             "severity": "warning",
@@ -2379,7 +2356,7 @@
                         "x": 154.0,
                         "y": 48.0
                     },
-                    "uuid": "636f6256-7049-4fa7-9f53-3b07cec7ba69"
+                    "uuid": "de087dc1-46d4-45d0-90b7-33e15e751800"
                 }
             ],
             "severity": "warning",
@@ -2394,7 +2371,7 @@
                         "x": 100.0,
                         "y": 59.0
                     },
-                    "uuid": "72c1d419-dc3f-4704-8e11-97139de8f3c3"
+                    "uuid": "93aa4ebf-75a8-4bc6-82a5-7ab7178a3ec2"
                 }
             ],
             "severity": "warning",
@@ -2409,7 +2386,7 @@
                         "x": 109.0,
                         "y": 59.0
                     },
-                    "uuid": "322b4c11-538a-4e52-b48f-449df6880e7b"
+                    "uuid": "485e24e8-ea9d-42ac-b3e9-6d13f0f991ba"
                 }
             ],
             "severity": "warning",
@@ -2424,7 +2401,7 @@
                         "x": 118.0,
                         "y": 59.0
                     },
-                    "uuid": "a6b473b6-b590-4bcc-b0d4-1341914bc424"
+                    "uuid": "6f8c9940-2199-40b7-a6d2-6ddaeb74f96b"
                 }
             ],
             "severity": "warning",
@@ -2439,7 +2416,7 @@
                         "x": 127.0,
                         "y": 59.0
                     },
-                    "uuid": "cd290fe8-d21e-45d4-a488-a093804d3100"
+                    "uuid": "2506c5bf-eb9a-4125-8d5f-4080aa37df49"
                 }
             ],
             "severity": "warning",
@@ -2454,7 +2431,7 @@
                         "x": 136.0,
                         "y": 59.0
                     },
-                    "uuid": "b3488d17-c91c-402c-8210-0a045954b357"
+                    "uuid": "c54b5f4f-a1a2-4a13-9cd9-72084436e043"
                 }
             ],
             "severity": "warning",
@@ -2469,7 +2446,7 @@
                         "x": 145.0,
                         "y": 59.0
                     },
-                    "uuid": "0fcbbb31-1dc5-45b8-8831-8b556dcb1edf"
+                    "uuid": "4872a4b6-5035-4912-8b05-939669d99530"
                 }
             ],
             "severity": "warning",
@@ -2484,7 +2461,7 @@
                         "x": 154.0,
                         "y": 59.0
                     },
-                    "uuid": "cad62b1d-40ff-4324-9c17-74d20f264711"
+                    "uuid": "5d7d8c6c-5156-4b3f-afe5-f76edcfb3138"
                 }
             ],
             "severity": "warning",
@@ -2499,7 +2476,7 @@
                         "x": 100.0,
                         "y": 69.0
                     },
-                    "uuid": "acc42a9c-d30c-4725-a48b-d0066e769e78"
+                    "uuid": "2741502f-4df4-4316-8055-9c35aa614d21"
                 }
             ],
             "severity": "warning",
@@ -2514,7 +2491,7 @@
                         "x": 109.0,
                         "y": 69.0
                     },
-                    "uuid": "17d0f5ad-6ecb-45bf-8b33-b988128e1bcd"
+                    "uuid": "d67c22eb-4309-42cd-9dfc-433476a48ce8"
                 }
             ],
             "severity": "warning",
@@ -2529,7 +2506,7 @@
                         "x": 118.0,
                         "y": 69.0
                     },
-                    "uuid": "075feec0-954b-43d9-9750-2b494b59a6bc"
+                    "uuid": "091e7be7-404b-4ed5-8eaa-1ec5fb96c529"
                 }
             ],
             "severity": "warning",
@@ -2544,7 +2521,7 @@
                         "x": 127.0,
                         "y": 69.0
                     },
-                    "uuid": "31d7a2d2-fbab-44ca-942b-ff22325b091e"
+                    "uuid": "46396540-e264-4ecb-bca8-07d737c9c41d"
                 }
             ],
             "severity": "warning",
@@ -2559,7 +2536,7 @@
                         "x": 136.0,
                         "y": 69.0
                     },
-                    "uuid": "741659ce-06bd-4462-9556-8bfa6d350890"
+                    "uuid": "92dd4d04-0b3f-4728-b9b5-c40a14337de5"
                 }
             ],
             "severity": "warning",
@@ -2574,7 +2551,7 @@
                         "x": 145.0,
                         "y": 69.0
                     },
-                    "uuid": "44742072-3dcc-4c51-b956-a185b81d9af2"
+                    "uuid": "f9f00673-13c3-4919-85f0-2f5ec3d1e714"
                 }
             ],
             "severity": "warning",
@@ -2589,7 +2566,7 @@
                         "x": 154.0,
                         "y": 69.0
                     },
-                    "uuid": "9147708f-e613-4245-8b28-b6bd4ebffb77"
+                    "uuid": "1738ebe3-a180-414c-8798-e1a8b0ec6184"
                 }
             ],
             "severity": "warning",
@@ -2604,7 +2581,7 @@
                         "x": 100.0,
                         "y": 80.0
                     },
-                    "uuid": "dc3961db-b383-4544-84f9-b3114a64e1a6"
+                    "uuid": "7da41a5f-8b2e-40e1-ae49-aa3754d2a091"
                 }
             ],
             "severity": "warning",
@@ -2619,7 +2596,7 @@
                         "x": 109.0,
                         "y": 80.0
                     },
-                    "uuid": "335ee63c-a710-42e4-af0e-456c28ed6bf2"
+                    "uuid": "a65d4bbe-77d6-4af7-b487-56a68b82c4dc"
                 }
             ],
             "severity": "warning",
@@ -2634,7 +2611,7 @@
                         "x": 118.0,
                         "y": 80.0
                     },
-                    "uuid": "49539bc1-efd7-4a65-958b-6806e5e62bc3"
+                    "uuid": "54d10c74-89bd-4085-886b-a2e53d8c4e96"
                 }
             ],
             "severity": "warning",
@@ -2649,7 +2626,7 @@
                         "x": 127.0,
                         "y": 80.0
                     },
-                    "uuid": "4b2b72e7-820c-4bfa-a2e7-de7f0f779dfb"
+                    "uuid": "b4784668-5a50-4d11-829e-f87964f268bf"
                 }
             ],
             "severity": "warning",
@@ -2664,7 +2641,7 @@
                         "x": 136.0,
                         "y": 80.0
                     },
-                    "uuid": "ae350f91-03a5-4d7a-b445-c78d6172b113"
+                    "uuid": "c8aa8a25-eaaa-40c1-bab4-ce2dcca0c967"
                 }
             ],
             "severity": "warning",
@@ -2679,7 +2656,7 @@
                         "x": 145.0,
                         "y": 80.0
                     },
-                    "uuid": "0bccad5d-fdd2-4e6a-8177-5a0b26b71d46"
+                    "uuid": "a2c29e3c-cb33-4a80-a7da-64be0d6201b1"
                 }
             ],
             "severity": "warning",
@@ -2694,7 +2671,7 @@
                         "x": 154.0,
                         "y": 80.0
                     },
-                    "uuid": "69b50f9a-dec5-4dad-887e-7876215f9b0e"
+                    "uuid": "136b7bdf-f2e8-44c6-9854-b19186383e61"
                 }
             ],
             "severity": "warning",
@@ -2709,7 +2686,7 @@
                         "x": 67.0,
                         "y": 38.0
                     },
-                    "uuid": "ecbbb4b3-9d4e-4b64-b91d-25c6c26c34d2"
+                    "uuid": "dce596c3-d261-49a0-ae2d-35810f6510c5"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ2N",
@@ -2717,7 +2694,7 @@
                         "x": 65.81,
                         "y": 38.0
                     },
-                    "uuid": "af00e6d6-1040-451c-a6a5-3dccbc16d89b"
+                    "uuid": "471553d8-a274-42cf-afed-f9fbd40f1230"
                 }
             ],
             "severity": "warning",
@@ -2732,7 +2709,7 @@
                         "x": 67.0,
                         "y": 48.0
                     },
-                    "uuid": "9b3a8fea-73cf-4e60-9ead-fb8bbdafb058"
+                    "uuid": "7f8a91ce-5ffb-4fbe-b46d-107b2904f6c2"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ3P",
@@ -2740,7 +2717,7 @@
                         "x": 65.81,
                         "y": 48.0
                     },
-                    "uuid": "3c235769-7b1d-4f0d-a797-9a8976d7c93d"
+                    "uuid": "68833c97-261a-4cda-8098-0581f36a5603"
                 }
             ],
             "severity": "warning",
@@ -2755,7 +2732,7 @@
                         "x": 67.0,
                         "y": 59.0
                     },
-                    "uuid": "4eaa4e82-b322-4c03-ab34-dd013ea0ff64"
+                    "uuid": "1582b392-3922-4af4-bbc7-0f96832a03e5"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ3N",
@@ -2763,7 +2740,7 @@
                         "x": 65.81,
                         "y": 59.0
                     },
-                    "uuid": "f5a568bc-7ea6-47fb-a4ba-e38246a99134"
+                    "uuid": "c82cdc00-ff4e-469c-82c8-f7f80b729aa1"
                 }
             ],
             "severity": "warning",
@@ -2778,7 +2755,7 @@
                         "x": 67.0,
                         "y": 69.0
                     },
-                    "uuid": "829b1ffa-e4d0-4c28-bd1d-0cc0f68cbeb1"
+                    "uuid": "25cdd0e1-069e-402c-920d-9904c477e714"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ4P",
@@ -2786,7 +2763,7 @@
                         "x": 65.81,
                         "y": 69.0
                     },
-                    "uuid": "0f594afa-989b-465e-b080-f6ba964f5639"
+                    "uuid": "8d827c68-c306-4052-a66c-017271ab2631"
                 }
             ],
             "severity": "warning",
@@ -2801,7 +2778,7 @@
                         "x": 67.0,
                         "y": 80.0
                     },
-                    "uuid": "b0498ce9-cb7f-44eb-829e-7d4a33978d99"
+                    "uuid": "f5b81a68-e008-49e3-98d2-6bbc5bc0d475"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ4N",
@@ -2809,7 +2786,7 @@
                         "x": 65.81,
                         "y": 80.0
                     },
-                    "uuid": "ab057547-a921-484a-8fa8-41d4c59f183d"
+                    "uuid": "ade2536c-a4f4-4e6f-b18d-209bb5c1be31"
                 }
             ],
             "severity": "warning",
@@ -2824,7 +2801,7 @@
                         "x": 132.0,
                         "y": 6.0
                     },
-                    "uuid": "95874997-b672-4b21-9305-a81eac194a7e"
+                    "uuid": "3ec2e6c0-ddb4-4789-85c9-e7767f800e48"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ5P",
@@ -2832,7 +2809,7 @@
                         "x": 130.81,
                         "y": 6.0
                     },
-                    "uuid": "92e56bdf-11b0-43bd-97af-cf25b752c5dd"
+                    "uuid": "30dedc58-97ed-4084-b3bb-274a8f4b36aa"
                 }
             ],
             "severity": "warning",
@@ -2847,7 +2824,7 @@
                         "x": 132.0,
                         "y": 27.0
                     },
-                    "uuid": "eac99ae4-0115-45c1-8b1c-6ca1d3d3ac3c"
+                    "uuid": "5f017984-7e17-4046-ba5b-ef10a2cec22e"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ6P",
@@ -2855,7 +2832,7 @@
                         "x": 130.81,
                         "y": 27.0
                     },
-                    "uuid": "71ab6be0-b34e-47b1-8eee-1743305b2f23"
+                    "uuid": "d67f97af-0f0a-4a1b-8e7f-6ab375e66ad1"
                 }
             ],
             "severity": "warning",
@@ -2870,7 +2847,7 @@
                         "x": 132.0,
                         "y": 38.0
                     },
-                    "uuid": "a5415488-9673-4c1c-8985-dde6e66bfc90"
+                    "uuid": "610fcbaf-9446-4650-8edb-505281632b2e"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ6N",
@@ -2878,7 +2855,7 @@
                         "x": 130.81,
                         "y": 38.0
                     },
-                    "uuid": "27631016-f11b-4892-9770-8e3f02a3f5fe"
+                    "uuid": "76ed730e-78b3-4965-b87c-619e97edb250"
                 }
             ],
             "severity": "warning",
@@ -2893,7 +2870,7 @@
                         "x": 132.0,
                         "y": 59.0
                     },
-                    "uuid": "b8a329d6-d5b2-4af7-8ad1-0df65c053c0a"
+                    "uuid": "0dfae541-c24e-476b-8ada-657dfd2e1e34"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ7N",
@@ -2901,7 +2878,7 @@
                         "x": 130.81,
                         "y": 59.0
                     },
-                    "uuid": "c124fb69-3666-4e03-a5e4-d8f5bda1b9a1"
+                    "uuid": "9dc9d69d-f52b-4d16-857f-22cb2090f5b7"
                 }
             ],
             "severity": "warning",
@@ -2916,7 +2893,7 @@
                         "x": 132.0,
                         "y": 69.0
                     },
-                    "uuid": "2c8776d7-0862-4931-bc81-2d8a60eb5b57"
+                    "uuid": "045147ca-30a1-4c8a-b4c5-56df3871abca"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ8P",
@@ -2924,7 +2901,7 @@
                         "x": 130.81,
                         "y": 69.0
                     },
-                    "uuid": "5ea37824-6332-4983-96d9-5f932dae5b7c"
+                    "uuid": "577f0a95-74fd-413d-90ac-3a333cfaa18d"
                 }
             ],
             "severity": "warning",
@@ -2939,7 +2916,7 @@
                         "x": 132.0,
                         "y": 80.0
                     },
-                    "uuid": "10075413-ea9e-4ab8-8e57-f2f9bcdf2895"
+                    "uuid": "af3c2670-6acb-4150-bbc2-24bd532c8701"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ8N",
@@ -2947,7 +2924,7 @@
                         "x": 130.81,
                         "y": 80.0
                     },
-                    "uuid": "86de8dd8-cd25-497a-92d4-b90c9c018186"
+                    "uuid": "3db55c81-2771-4c2b-bc0b-2165302941b1"
                 }
             ],
             "severity": "warning",
@@ -2962,7 +2939,7 @@
                         "x": 67.0,
                         "y": 6.0
                     },
-                    "uuid": "998922cc-b8ab-411d-ae37-106892b7847a"
+                    "uuid": "f4f143e6-3aea-45b7-a0ea-ebacdf59e720"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ1P",
@@ -2970,7 +2947,7 @@
                         "x": 65.81,
                         "y": 6.0
                     },
-                    "uuid": "f772288e-bfe9-4a80-90c2-dd53c6608a93"
+                    "uuid": "d7ae4c31-0cbf-459a-8a8b-611933e7fce3"
                 }
             ],
             "severity": "warning",
@@ -2985,7 +2962,7 @@
                         "x": 67.0,
                         "y": 17.0
                     },
-                    "uuid": "48935c62-337f-45e5-b66a-9f198516afa1"
+                    "uuid": "702113f1-4240-4a76-8b78-2f1f751b5f9c"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ1N",
@@ -2993,7 +2970,7 @@
                         "x": 65.81,
                         "y": 17.0
                     },
-                    "uuid": "6324e4ad-ecfd-4080-a79a-deb7e29236e6"
+                    "uuid": "f17daf5e-7cf9-42c2-9f19-dd014522b32e"
                 }
             ],
             "severity": "warning",
@@ -3008,7 +2985,7 @@
                         "x": 67.0,
                         "y": 27.0
                     },
-                    "uuid": "7a472044-0b19-4268-9a14-2a8e6ade2fc6"
+                    "uuid": "2ce96e7d-d8c7-429a-a4ff-351e863b0a87"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ2P",
@@ -3016,7 +2993,7 @@
                         "x": 65.81,
                         "y": 27.0
                     },
-                    "uuid": "58dced6c-ee7d-4713-92e3-aed71b6d8f5e"
+                    "uuid": "6cc25415-4ac2-42d0-b416-99c66b2297c7"
                 }
             ],
             "severity": "warning",
@@ -3031,7 +3008,7 @@
                         "x": 132.0,
                         "y": 17.0
                     },
-                    "uuid": "44a398f5-29e2-492b-bc21-c9c4407c2907"
+                    "uuid": "76ccffc0-f568-488e-a2c0-debea8aca251"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ5N",
@@ -3039,7 +3016,7 @@
                         "x": 130.81,
                         "y": 17.0
                     },
-                    "uuid": "4b671819-6474-444d-bb89-688abf57e30e"
+                    "uuid": "f1dc8afd-b9b4-4ac6-beb0-bd64be724212"
                 }
             ],
             "severity": "warning",
@@ -3054,7 +3031,7 @@
                         "x": 132.0,
                         "y": 48.0
                     },
-                    "uuid": "0468ce2e-e315-4145-aa47-6495e2df3233"
+                    "uuid": "ab032820-b05a-4b4f-8384-deae508f016d"
                 },
                 {
                     "description": "Pad métallisé 5 [<no net>] de OCZ7P",
@@ -3062,7 +3039,7 @@
                         "x": 130.81,
                         "y": 48.0
                     },
-                    "uuid": "c913e695-012a-49ae-a4ec-a8a0d4963865"
+                    "uuid": "c5cb0f28-1ff3-4df9-bf48-3c45e206163a"
                 }
             ],
             "severity": "warning",

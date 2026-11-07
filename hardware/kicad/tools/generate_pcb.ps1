@@ -423,6 +423,15 @@ for ($b = 0; $b -le 4; $b++) {
 $script:LayerNames = @("F.Cu", "B.Cu")
 $script:ViaCost = 5.0
 
+# Marge requise face a un obstacle selon sa classe vs celle du net en cours (factorise : utilisee
+# par Find-Path - grille - et Test-LineSafe - continu, pour le lissage de chemin - afin que les 2
+# imposent exactement la meme regle de securite).
+function Get-ObstacleBuffer($obs, [string]$netClass) {
+	if ($obs.class -and $obs.class -ne $netClass) { return $script:CrossDomainClearance }
+	if ($obs.class -eq "Secteur" -and $netClass -eq "Secteur") { return 0.55 }
+	return 0.3
+}
+
 function Find-Path {
 	param(
 		[double]$startX, [double]$startY, [double]$endX, [double]$endY,
@@ -460,17 +469,7 @@ function Find-Path {
 			}
 		}
 		if ($isExcluded) { continue }
-		# Marge normale (0,3mm) sauf : (a) a la frontiere entre classes differentes (Secteur vs
-		# Logique), ou la vraie regle DRC (6mm, voir Get-NetClass ci-dessus) s'applique ; (b)
-		# entre 2 nets Secteur, ou la classe de net reelle (FilPilote_8Zones.kicad_pro) exige
-		# 0,5mm et pas seulement 0,3 - 4 vraies violations DRC (0,36-0,43mm reel) trouvees avant
-		# ce correctif, le pathfinder visait un seuil plus bas que ce que le DRC verifie vraiment.
-		$buf = 0.3
-		if ($obs.class -and $obs.class -ne $netClass) {
-			$buf = $script:CrossDomainClearance
-		} elseif ($obs.class -eq "Secteur" -and $netClass -eq "Secteur") {
-			$buf = 0.55
-		}
+		$buf = Get-ObstacleBuffer $obs $netClass
 		$ox0 = $obs.minX - $buf; $ox1 = $obs.maxX + $buf
 		$oy0 = $obs.minY - $buf; $oy1 = $obs.maxY + $buf
 		if ($ox1 -lt $minX -or $ox0 -gt $maxX -or $oy1 -lt $minY -or $oy0 -gt $maxY) { continue }
@@ -599,6 +598,78 @@ function Simplify-Run($points) {
 	return $result
 }
 
+# Verifie qu'un segment DIRECT (pas forcement horizontal/vertical) de (x1,y1) a (x2,y2), sur une
+# couche donnee, ne s'approche d'aucun obstacle de cette meme couche plus que la marge requise
+# (meme regle que Find-Path, via Get-ObstacleBuffer). Echantillonnage fin le long du segment :
+# plus simple et plus sur a implementer correctement qu'une distance point-segment-rectangle
+# exacte, largement assez precis a la resolution utilisee ici (0,5mm), et de toute facon
+# revalide ensuite par un vrai DRC KiCad. Prend une liste d'obstacles DEJA filtree (voir
+# Smooth-Run) plutot que $script:Obstacles en entier - appelee potentiellement des centaines de
+# fois par net, rescanner la liste globale (qui grandit tout au long de la generation) a chaque
+# appel aurait rendu la generation de plus en plus lente net apres net.
+function Test-LineSafe([double]$x1, [double]$y1, [double]$x2, [double]$y2, [string]$netClass, [object[]]$excludePoints, $candidates, [double]$res = 0.5) {
+	$len = [Math]::Sqrt(($x2 - $x1) * ($x2 - $x1) + ($y2 - $y1) * ($y2 - $y1))
+	$steps = [Math]::Max(1, [int][Math]::Ceiling($len / $res))
+	foreach ($obs in $candidates) {
+		$isExcluded = $false
+		if ($excludePoints -and $obs.ContainsKey('x')) {
+			foreach ($ep in $excludePoints) {
+				if ([Math]::Abs($obs.x - $ep[0]) -lt 0.01 -and [Math]::Abs($obs.y - $ep[1]) -lt 0.01) { $isExcluded = $true; break }
+			}
+		}
+		if ($isExcluded) { continue }
+		$buf = Get-ObstacleBuffer $obs $netClass
+		$ox0 = $obs.minX - $buf; $ox1 = $obs.maxX + $buf
+		$oy0 = $obs.minY - $buf; $oy1 = $obs.maxY + $buf
+		for ($s = 0; $s -le $steps; $s++) {
+			$t = $s / $steps
+			$px = $x1 + $t * ($x2 - $x1); $py = $y1 + $t * ($y2 - $y1)
+			$dx = [Math]::Max(0.0, [Math]::Max($ox0 - $px, $px - $ox1))
+			$dy = [Math]::Max(0.0, [Math]::Max($oy0 - $py, $py - $oy1))
+			if ($dx -eq 0 -and $dy -eq 0) { return $false }
+		}
+	}
+	return $true
+}
+
+# Lissage par "string pulling" : depuis chaque point, saute directement au point le plus eloigne
+# possible dans la suite du chemin tant que la ligne directe reste sure (Test-LineSafe). Remplace
+# les escaliers horizontaux/verticaux du pathfinder en grille par des segments directs, y compris
+# diagonaux, quand l'espace le permet reellement - jamais suppose, chaque raccourci est verifie
+# contre les obstacles reels avant d'etre retenu.
+function Smooth-Run($points, [string]$layer, [string]$netClass, [object[]]$excludePoints) {
+	if ($points.Count -le 2) { return $points }
+	# Filtre une seule fois (pas a chaque appel de Test-LineSafe) : couche compatible, et boite
+	# englobante de tout le tron-on + marge de securite maximale (6mm, le pire cas) - large mais
+	# fixe, calcule une seule fois par tron-on plutot que par segment candidat.
+	$xs = $points | ForEach-Object { $_[0] }; $ys = $points | ForEach-Object { $_[1] }
+	$pMinX = ($xs | Measure-Object -Minimum).Minimum - $script:CrossDomainClearance
+	$pMaxX = ($xs | Measure-Object -Maximum).Maximum + $script:CrossDomainClearance
+	$pMinY = ($ys | Measure-Object -Minimum).Minimum - $script:CrossDomainClearance
+	$pMaxY = ($ys | Measure-Object -Maximum).Maximum + $script:CrossDomainClearance
+	$candidates = New-Object System.Collections.Generic.List[object]
+	foreach ($obs in $script:Obstacles) {
+		if ($obs.ContainsKey('layer') -and $obs.layer -ne $layer) { continue }
+		if ($obs.maxX -lt $pMinX -or $obs.minX -gt $pMaxX -or $obs.maxY -lt $pMinY -or $obs.minY -gt $pMaxY) { continue }
+		$candidates.Add($obs)
+	}
+	$result = New-Object System.Collections.Generic.List[object]
+	$result.Add($points[0])
+	$i = 0
+	while ($i -lt $points.Count - 1) {
+		$bestJ = $i + 1
+		for ($j = $points.Count - 1; $j -gt $i + 1; $j--) {
+			if (Test-LineSafe $points[$i][0] $points[$i][1] $points[$j][0] $points[$j][1] $netClass $excludePoints $candidates) {
+				$bestJ = $j
+				break
+			}
+		}
+		$result.Add($points[$bestJ])
+		$i = $bestJ
+	}
+	return $result
+}
+
 # Decoupe un chemin (x,y,layer) en tron-ons de couche constante : un changement de couche entre
 # 2 points consecutifs (meme x,y, layer different) devient une frontiere de via.
 function Split-PathByLayer($path) {
@@ -624,19 +695,46 @@ function Split-PathByLayer($path) {
 	return ,$runs
 }
 
-function Emit-Path([string]$netName, $path, [double]$width = 0.3) {
+# Enregistre l'obstacle d'un segment de piste pour le routage futur. Horizontal/vertical : un
+# seul rectangle fin (comme avant). Diagonal (permis depuis le lissage Smooth-Run) : une serie de
+# petits carres espaces de 0,5mm le long du segment plutot qu'un seul rectangle englobant - sinon
+# le rectangle d'un segment diagonal long couvrirait une zone enorme sans rapport avec le cuivre
+# reel, exactement le bug deja rencontre avec le deplacement diagonal du pathfinder lui-meme.
+function Register-TrackObstacle([string]$netClass, [string]$layer, $p1, $p2) {
+	$isAxisAligned = ([Math]::Abs($p1[0] - $p2[0]) -lt 0.001) -or ([Math]::Abs($p1[1] - $p2[1]) -lt 0.001)
+	if ($isAxisAligned) {
+		$segMinX = [Math]::Min($p1[0], $p2[0]); $segMaxX = [Math]::Max($p1[0], $p2[0])
+		$segMinY = [Math]::Min($p1[1], $p2[1]); $segMaxY = [Math]::Max($p1[1], $p2[1])
+		$script:Obstacles.Add(@{ ref = "__track__"; layer = $layer; minX = $segMinX; minY = $segMinY; maxX = $segMaxX; maxY = $segMaxY; class = $netClass })
+	} else {
+		$len = [Math]::Sqrt(($p2[0] - $p1[0]) * ($p2[0] - $p1[0]) + ($p2[1] - $p1[1]) * ($p2[1] - $p1[1]))
+		$steps = [Math]::Max(1, [int][Math]::Ceiling($len / 0.5))
+		for ($s = 0; $s -le $steps; $s++) {
+			$t = $s / $steps
+			$px = $p1[0] + $t * ($p2[0] - $p1[0]); $py = $p1[1] + $t * ($p2[1] - $p1[1])
+			$script:Obstacles.Add(@{ ref = "__track__"; layer = $layer; minX = $px - 0.15; minY = $py - 0.15; maxX = $px + 0.15; maxY = $py + 0.15; class = $netClass })
+		}
+	}
+}
+
+function Emit-Path([string]$netName, $path, [object[]]$excludePoints, [double]$width = 0.3) {
+	$netClass = Get-NetClass $netName
 	$runs = Split-PathByLayer $path
 	for ($ri = 0; $ri -lt $runs.Count; $ri++) {
 		$run = $runs[$ri]
 		$simplified = Simplify-Run $run.points
-		for ($i = 0; $i -lt $simplified.Count - 1; $i++) {
-			$p1 = $simplified[$i]; $p2 = $simplified[$i + 1]
+		# Exclusion locale au tron-on, en plus de l'exclusion globale (broches de depart/arrivee
+		# du net) : quand ce tron-on commence/finit sur un via (pas une vraie broche), ce via a
+		# deja ete enregistre comme obstacle par le tron-on precedent (Add-Via, juste en dessous)
+		# - sans cette exclusion, Smooth-Run se bloquerait lui-meme des le premier point, puisque
+		# TOUT segment partant de ce point "touche" l'obstacle qui s'y trouve exactement.
+		$runBounds = @(@($run.points[0][0], $run.points[0][1]), @($run.points[$run.points.Count - 1][0], $run.points[$run.points.Count - 1][1]))
+		$localExcl = if ($excludePoints) { @($excludePoints) + $runBounds } else { $runBounds }
+		$smoothed = Smooth-Run $simplified $run.layer $netClass $localExcl
+		for ($i = 0; $i -lt $smoothed.Count - 1; $i++) {
+			$p1 = $smoothed[$i]; $p2 = $smoothed[$i + 1]
 			Route $netName $p1[0] $p1[1] $p2[0] $p2[1] $run.layer $width
-			# Les segments ne sont plus que horizontaux/verticaux (voir note ci-dessus) : le
-			# rectangle englobant est donc toujours fin et exact, pas une fausse grande zone.
-			$segMinX = [Math]::Min($p1[0], $p2[0]); $segMaxX = [Math]::Max($p1[0], $p2[0])
-			$segMinY = [Math]::Min($p1[1], $p2[1]); $segMaxY = [Math]::Max($p1[1], $p2[1])
-			$script:Obstacles.Add(@{ ref = "__track__"; layer = $run.layer; minX = $segMinX; minY = $segMinY; maxX = $segMaxX; maxY = $segMaxY; class = (Get-NetClass $netName) })
+			Register-TrackObstacle $netClass $run.layer $p1 $p2
 		}
 		if ($ri -lt $runs.Count - 1) {
 			$lastPt = $run.points[$run.points.Count - 1]
@@ -700,7 +798,7 @@ foreach ($netName in $orderedNets) {
 		if ($null -eq $path) {
 			$failedPairs.Add(@{ net = $netName; a = $a; b = $b })
 		} else {
-			Emit-Path $netName $path
+			Emit-Path $netName $path $excl
 			$routedHops++
 		}
 		$connected.Add($b)
@@ -730,7 +828,7 @@ foreach ($fp in $failedPairs) {
 		Add-Strap $fp.net $a $b
 		$failedHops.Add("$($fp.net) ($($a.ref) -> $($b.ref))")
 	} else {
-		Emit-Path $fp.net $path
+		Emit-Path $fp.net $path $excl
 		$routedHops++
 	}
 }
