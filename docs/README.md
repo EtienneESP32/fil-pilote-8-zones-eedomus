@@ -19,6 +19,7 @@ Cette documentation décrit l'intention et les décisions connues. Elle ne const
 - [Commande directe des optos](09_Commande-directe-opto.md) : calcul ayant conduit au choix MOC3063M/200 Ω, piloté via un étage tampon transistor (direct-drive GPIO abandonné).
 - [Projets similaires](10_Projets-similaires.md) : comparaison avec des dépôts GitHub proches (eedomus/HTTP, six ordres, triphasé, packaging DIN).
 - [État du projet KiCad natif](11_Etat-KiCad.md) : schéma ERC-clean et PCB placé/DRC-clean dans `hardware/kicad/`, référence actuelle pour la topologie électrique.
+- [Guide de routage PCB](12_Guide-de-routage.md) : procédure et règles à suivre dans l'éditeur graphique KiCad (classes de net, ordre de routage, clearance secteur/logique).
 
 ## Légende de statut
 
