@@ -155,9 +155,14 @@ $script:NetPads = @{}
 # Registre global des obstacles (rectangles englobants, coordonnees monde) pour le pathfinding.
 $script:Obstacles = New-Object System.Collections.Generic.List[object]
 
-# Piste simple en point a point entre deux broches, sur B.Cu (composants THT sur F.Cu).
-function Route([string]$netName, [double]$x1, [double]$y1, [double]$x2, [double]$y2, [double]$width = 0.3) {
-	W "	(segment (start $x1 $y1) (end $x2 $y2) (width $width) (layer `"B.Cu`") (net `"$netName`") (uuid `"$(New-SeqGuid)`"))"
+# Piste simple en point a point entre deux broches (composants THT, pastilles sur les 2 faces).
+function Route([string]$netName, [double]$x1, [double]$y1, [double]$x2, [double]$y2, [string]$layer = "B.Cu", [double]$width = 0.3) {
+	W "	(segment (start $x1 $y1) (end $x2 $y2) (width $width) (layer `"$layer`") (net `"$netName`") (uuid `"$(New-SeqGuid)`"))"
+}
+
+function Add-Via([string]$netName, [double]$x, [double]$y) {
+	W "	(via (at $x $y) (size 0.6) (drill 0.3) (layers `"F.Cu`" `"B.Cu`") (net `"$netName`") (uuid `"$(New-SeqGuid)`"))"
+	$script:Obstacles.Add(@{ x = $x; y = $y; minX = $x - 0.6; minY = $y - 0.6; maxX = $x + 0.6; maxY = $y + 0.6 })
 }
 
 function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [double]$y, [double]$rot, [hashtable]$netByPad) {
@@ -304,9 +309,9 @@ for ($b = 0; $b -le 4; $b++) {
 }
 
 # ======================================================================
-# ROUTAGE AUTOMATIQUE GENERIQUE PAR PATHFINDING (2026-11-07, corrige)
+# ROUTAGE AUTOMATIQUE GENERIQUE PAR PATHFINDING (2026-11-07, corrige, puis bicouche)
 # Recherche de chemin (A*) sur grille, en evitant les rectangles d'encombrement de tous les
-# composants (sauf ceux proprietaires des 2 broches a relier).
+# composants (sauf les 2 broches exactes a relier).
 #
 # Bug trouve et corrige : la toute premiere version autorisait les deplacements diagonaux.
 # Une piste diagonale longue, une fois simplifiee, donne un seul segment dont le rectangle
@@ -316,7 +321,20 @@ for ($b = 0; $b -le 4; $b++) {
 # bloquee a 74% des la 2e ou 3e piste routee). Corrige en limitant les deplacements a 4
 # directions (horizontal/vertical uniquement) : tout segment simplifie reste parfaitement
 # aligne sur un axe, donc son rectangle englobant reste fin et exact.
+#
+# Bug trouve et corrige (2e session) : meme avec le modele d'obstacle par broche, les familles
+# LEDK_*/FMT2_*/MT1D_* echouaient en bloc (16/16 canaux) alors que LEDA_*/QB_*/RSF_* (routees
+# en priorite) empruntaient deja des chemins tout aussi longs et tortueux avec succes. Cause
+# reelle : tout le routage se faisait sur une seule couche (B.Cu) sans via - les ~48 premieres
+# pistes routees saturaient les couloirs disponibles cote logique, ne laissant plus de passage
+# pour les nets routes ensuite (verifie : les segments routes en priorite 0 pour un canal
+# traversent exactement la zone ou les pistes de priorite 1 du meme canal doivent passer).
+# Corrige en recherchant sur 2 couches (F.Cu/B.Cu) avec un via autorise (cout de detour) pour
+# changer de couche a tout point de la grille - double la capacite de routage disponible.
 # ======================================================================
+
+$script:LayerNames = @("F.Cu", "B.Cu")
+$script:ViaCost = 5.0
 
 function Find-Path {
 	param(
@@ -341,7 +359,10 @@ function Find-Path {
 	if ($cols -lt 2) { $cols = 2 }
 	if ($rows -lt 2) { $rows = 2 }
 
-	$blocked = New-Object 'bool[,]' $cols, $rows
+	# Une grille d'obstacles par couche : un obstacle sans cle 'layer' (broche THT, traverse les
+	# 2 faces) bloque les 2 couches ; un obstacle avec 'layer' (segment deja route) ne bloque que
+	# la couche sur laquelle il a ete trace.
+	$blocked = @((New-Object 'bool[,]' $cols, $rows), (New-Object 'bool[,]' $cols, $rows))
 
 	foreach ($obs in $script:Obstacles) {
 		$isExcluded = $false
@@ -358,8 +379,11 @@ function Find-Path {
 		$ix1 = [Math]::Min($cols - 1, [int][Math]::Ceiling(($ox1 - $minX) / $res))
 		$iy0 = [Math]::Max(0, [int][Math]::Floor(($oy0 - $minY) / $res))
 		$iy1 = [Math]::Min($rows - 1, [int][Math]::Ceiling(($oy1 - $minY) / $res))
-		for ($ix = $ix0; $ix -le $ix1; $ix++) {
-			for ($iy = $iy0; $iy -le $iy1; $iy++) { $blocked[$ix, $iy] = $true }
+		$layersToBlock = if ($obs.ContainsKey('layer')) { @([Array]::IndexOf($script:LayerNames, $obs.layer)) } else { @(0, 1) }
+		foreach ($li in $layersToBlock) {
+			for ($ix = $ix0; $ix -le $ix1; $ix++) {
+				for ($iy = $iy0; $iy -le $iy1; $iy++) { $blocked[$li][$ix, $iy] = $true }
+			}
 		}
 	}
 
@@ -371,59 +395,78 @@ function Find-Path {
 	if ($sy -lt 0) { $sy = 0 }; if ($sy -gt $rows - 1) { $sy = $rows - 1 }
 	if ($ex -lt 0) { $ex = 0 }; if ($ex -gt $cols - 1) { $ex = $cols - 1 }
 	if ($ey -lt 0) { $ey = 0 }; if ($ey -gt $rows - 1) { $ey = $rows - 1 }
-	$blocked[$sx, $sy] = $false
-	$blocked[$ex, $ey] = $false
+	$blocked[0][$sx, $sy] = $false; $blocked[1][$sx, $sy] = $false
+	$blocked[0][$ex, $ey] = $false; $blocked[1][$ex, $ey] = $false
 
 	$cameFrom = @{}
 	$gScore = @{}
-	$startKey = "$sx,$sy"
-	$gScore[$startKey] = 0.0
+	# Une broche traversante est accessible depuis les 2 couches sans surcout : on demarre la
+	# recherche simultanement sur F.Cu et B.Cu.
 	$heap = [MinHeap]::new()
 	$dxs = $ex - $sx; $dys = $ey - $sy
-	$hStart = [Math]::Sqrt($dxs * $dxs + $dys * $dys)
-	$heap.Push($hStart, @($sx, $sy))
+	$hStart = [Math]::Abs($dxs) + [Math]::Abs($dys)
+	foreach ($l0 in @(0, 1)) {
+		$k0 = "$sx,$sy,$l0"
+		$gScore[$k0] = 0.0
+		$heap.Push($hStart, @($sx, $sy, $l0))
+	}
 	$visited = @{}
 	# 4 directions seulement (voir note ci-dessus) : horizontal/vertical, jamais diagonal.
 	$dirs = @(@(1, 0), @(-1, 0), @(0, 1), @(0, -1))
-	$found = $false
-	$maxIter = 300000
+	$foundLayer = -1
+	$maxIter = 400000
 	$iter = 0
 	while (-not $heap.IsEmpty() -and $iter -lt $maxIter) {
 		$iter++
 		$cur = $heap.Pop()
-		$cx = $cur[0]; $cy = $cur[1]
-		$curKey = "$cx,$cy"
+		$cx = $cur[0]; $cy = $cur[1]; $cl = $cur[2]
+		$curKey = "$cx,$cy,$cl"
 		if ($visited.ContainsKey($curKey)) { continue }
 		$visited[$curKey] = $true
-		if ($cx -eq $ex -and $cy -eq $ey) { $found = $true; break }
+		if ($cx -eq $ex -and $cy -eq $ey) { $foundLayer = $cl; break }
+		$curG = $gScore[$curKey]
 		foreach ($d in $dirs) {
 			$nx = $cx + $d[0]; $ny = $cy + $d[1]
 			if ($nx -lt 0 -or $nx -ge $cols -or $ny -lt 0 -or $ny -ge $rows) { continue }
-			if ($blocked[$nx, $ny]) { continue }
-			$nKey = "$nx,$ny"
+			if ($blocked[$cl][$nx, $ny]) { continue }
+			$nKey = "$nx,$ny,$cl"
 			if ($visited.ContainsKey($nKey)) { continue }
-			$curG = $gScore[$curKey]
 			$newG = $curG + 1.0
 			if (-not $gScore.ContainsKey($nKey) -or $newG -lt $gScore[$nKey]) {
 				$gScore[$nKey] = $newG
 				$cameFrom[$nKey] = $curKey
 				$ndx = $ex - $nx; $ndy = $ey - $ny
 				$h = [Math]::Abs($ndx) + [Math]::Abs($ndy)
-				$prio = $newG + $h
-				$heap.Push($prio, @($nx, $ny))
+				$heap.Push($newG + $h, @($nx, $ny, $cl))
+			}
+		}
+		# Changement de couche (via) sur place : autorise seulement si l'autre couche est libre
+		# a cet endroit precis (un via occupe du cuivre sur les 2 faces).
+		$ol = 1 - $cl
+		if (-not $blocked[$ol][$cx, $cy]) {
+			$oKey = "$cx,$cy,$ol"
+			if (-not $visited.ContainsKey($oKey)) {
+				$newG = $curG + $script:ViaCost
+				if (-not $gScore.ContainsKey($oKey) -or $newG -lt $gScore[$oKey]) {
+					$gScore[$oKey] = $newG
+					$cameFrom[$oKey] = $curKey
+					$ndx = $ex - $cx; $ndy = $ey - $cy
+					$h = [Math]::Abs($ndx) + [Math]::Abs($ndy)
+					$heap.Push($newG + $h, @($cx, $cy, $ol))
+				}
 			}
 		}
 	}
 
-	if (-not $found) { return $null }
+	if ($foundLayer -lt 0) { return $null }
 
 	$path = New-Object System.Collections.Generic.List[object]
-	$curKey = "$ex,$ey"
-	$path.Add(@($ex, $ey))
-	while ($curKey -ne $startKey) {
+	$curKey = "$ex,$ey,$foundLayer"
+	$path.Add(@($ex, $ey, $foundLayer))
+	while ($gScore[$curKey] -ne 0.0) {
 		$curKey = $cameFrom[$curKey]
 		$parts = $curKey -split ','
-		$path.Add(@([int]$parts[0], [int]$parts[1]))
+		$path.Add(@([int]$parts[0], [int]$parts[1], [int]$parts[2]))
 	}
 	$path.Reverse()
 
@@ -431,40 +474,75 @@ function Find-Path {
 	foreach ($p in $path) {
 		$wx = $minX + $p[0] * $res
 		$wy = $minY + $p[1] * $res
-		$worldPath.Add(@($wx, $wy))
+		$worldPath.Add(@($wx, $wy, $script:LayerNames[$p[2]]))
 	}
-	$worldPath[0] = @($startX, $startY)
-	$worldPath[$worldPath.Count - 1] = @($endX, $endY)
+	$startLayer = $worldPath[0][2]
+	$endLayer = $worldPath[$worldPath.Count - 1][2]
+	$worldPath[0] = @($startX, $startY, $startLayer)
+	$worldPath[$worldPath.Count - 1] = @($endX, $endY, $endLayer)
 	return $worldPath
 }
 
-function Simplify-Path($path) {
-	if ($path.Count -le 2) { return $path }
+function Simplify-Run($points) {
+	if ($points.Count -le 2) { return $points }
 	$result = New-Object System.Collections.Generic.List[object]
-	$result.Add($path[0])
-	for ($i = 1; $i -lt $path.Count - 1; $i++) {
+	$result.Add($points[0])
+	for ($i = 1; $i -lt $points.Count - 1; $i++) {
 		$prev = $result[$result.Count - 1]
-		$cur = $path[$i]
-		$next = $path[$i + 1]
+		$cur = $points[$i]
+		$next = $points[$i + 1]
 		$dx1 = $cur[0] - $prev[0]; $dy1 = $cur[1] - $prev[1]
 		$dx2 = $next[0] - $cur[0]; $dy2 = $next[1] - $cur[1]
 		$cross = $dx1 * $dy2 - $dy1 * $dx2
 		if ([Math]::Abs($cross) -gt 0.001) { $result.Add($cur) }
 	}
-	$result.Add($path[$path.Count - 1])
+	$result.Add($points[$points.Count - 1])
 	return $result
 }
 
+# Decoupe un chemin (x,y,layer) en tron-ons de couche constante : un changement de couche entre
+# 2 points consecutifs (meme x,y, layer different) devient une frontiere de via.
+function Split-PathByLayer($path) {
+	$runs = New-Object System.Collections.Generic.List[object]
+	$curPoints = New-Object System.Collections.Generic.List[object]
+	$curLayer = $path[0][2]
+	$curPoints.Add($path[0])
+	for ($i = 1; $i -lt $path.Count; $i++) {
+		$p = $path[$i]
+		if ($p[2] -ne $curLayer) {
+			$runs.Add(@{ layer = $curLayer; points = $curPoints })
+			$curPoints = New-Object System.Collections.Generic.List[object]
+			$curLayer = $p[2]
+		}
+		$curPoints.Add($p)
+	}
+	$runs.Add(@{ layer = $curLayer; points = $curPoints })
+	# Operateur virgule obligatoire : sans lui, PowerShell deballe silencieusement une liste a
+	# un seul element (cas le plus frequent : aucun changement de couche) en son unique element
+	# nu, ici un Hashtable - rendant $runs.Count/$runs[$i] incoherents cote appelant (bug reel
+	# rencontre : $runs.Count renvoyait le nombre de CLES du hashtable au lieu du nombre de
+	# troncons, et $runs[$i] une recherche de cle plutot qu'un acces positionnel).
+	return ,$runs
+}
+
 function Emit-Path([string]$netName, $path, [double]$width = 0.3) {
-	$simplified = Simplify-Path $path
-	for ($i = 0; $i -lt $simplified.Count - 1; $i++) {
-		$p1 = $simplified[$i]; $p2 = $simplified[$i + 1]
-		Route $netName $p1[0] $p1[1] $p2[0] $p2[1] $width
-		# Les segments ne sont plus que horizontaux/verticaux (voir note ci-dessus) : le
-		# rectangle englobant est donc toujours fin et exact, pas une fausse grande zone.
-		$segMinX = [Math]::Min($p1[0], $p2[0]); $segMaxX = [Math]::Max($p1[0], $p2[0])
-		$segMinY = [Math]::Min($p1[1], $p2[1]); $segMaxY = [Math]::Max($p1[1], $p2[1])
-		$script:Obstacles.Add(@{ ref = "__track__"; minX = $segMinX; minY = $segMinY; maxX = $segMaxX; maxY = $segMaxY })
+	$runs = Split-PathByLayer $path
+	for ($ri = 0; $ri -lt $runs.Count; $ri++) {
+		$run = $runs[$ri]
+		$simplified = Simplify-Run $run.points
+		for ($i = 0; $i -lt $simplified.Count - 1; $i++) {
+			$p1 = $simplified[$i]; $p2 = $simplified[$i + 1]
+			Route $netName $p1[0] $p1[1] $p2[0] $p2[1] $run.layer $width
+			# Les segments ne sont plus que horizontaux/verticaux (voir note ci-dessus) : le
+			# rectangle englobant est donc toujours fin et exact, pas une fausse grande zone.
+			$segMinX = [Math]::Min($p1[0], $p2[0]); $segMaxX = [Math]::Max($p1[0], $p2[0])
+			$segMinY = [Math]::Min($p1[1], $p2[1]); $segMaxY = [Math]::Max($p1[1], $p2[1])
+			$script:Obstacles.Add(@{ ref = "__track__"; layer = $run.layer; minX = $segMinX; minY = $segMinY; maxX = $segMaxX; maxY = $segMaxY })
+		}
+		if ($ri -lt $runs.Count - 1) {
+			$lastPt = $run.points[$run.points.Count - 1]
+			Add-Via $netName $lastPt[0] $lastPt[1]
+		}
 	}
 }
 
