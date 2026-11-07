@@ -38,7 +38,7 @@ Table complète et à jour dans [02_Architecture-et-interfaces §2](02_Architect
 ## Résultats de vérification (après correction)
 
 - **ERC (schéma) :** 0 erreur, 0 avertissement résiduel hors bibliothèque. 248 avertissements bénins « bibliothèque FP introuvable », sans incidence électrique.
-- **DRC (PCB) :** 0 erreur réelle. 124 avertissements bénins (même cause bibliothèque). **157 des 188 connexions routées automatiquement par un autorouteur A* bicouche** (F.Cu/B.Cu avec vias, script, voir [12_Guide-de-routage §0](12_Guide-de-routage.md)), 31 éléments non connectés restants à router à la main dans l'éditeur graphique.
+- **DRC (PCB) :** 0 erreur réelle. 124 avertissements bénins (même cause bibliothèque). **172 des 188 connexions routées automatiquement par un autorouteur A* bicouche** (F.Cu/B.Cu avec vias, 2 passes — fenêtre normale puis grille fine/fenêtre large sur les échecs seuls, script, voir [12_Guide-de-routage §0](12_Guide-de-routage.md)), 16 éléments non connectés restants à router à la main dans l'éditeur graphique.
 
 ## Ce que ça couvre
 
@@ -69,7 +69,7 @@ Le placement réel des 16 voies THT a montré que 105 × 85 mm (gabarit indicati
 
 ## Ce qui n'est pas fait
 
-- **Routage des pistes** : un autorouteur A* bicouche (F.Cu/B.Cu, vias autorisés) par script a tracé 157 des 188 connexions (voir [12_Guide-de-routage §0](12_Guide-de-routage.md)). Les 31 restantes (surtout des liaisons longue distance `GPIO*`/bus vers l'en-tête Waveshare, où le reste du board est déjà dense) sont à router à la main dans l'éditeur graphique KiCad (non pilotable depuis cet environnement en ligne de commande).
+- **Routage des pistes** : un autorouteur A* bicouche (F.Cu/B.Cu, vias autorisés, 2 passes) par script a tracé 172 des 188 connexions (voir [12_Guide-de-routage §0](12_Guide-de-routage.md)). Les 16 restantes (6 `GPIO*` vers les zones 6-8, 3 `FP*`, et quelques segments résiduels de bus) sont bloquées localement par la saturation des 2 couches dans leur zone — confirmé en testant une fenêtre de recherche jusqu'à 110 mm sans récupérer une seule connexion de plus. À router à la main dans l'éditeur graphique KiCad (non pilotable depuis cet environnement en ligne de commande).
 - **Empreintes définitives des autres composants** : les empreintes hors connecteur Waveshare restent des gabarits génériques auto-cohérents (ex. `FP:DIP6`, `FP:TO92_3`), pas les empreintes réelles des références fabricant choisies. Elles sont correctes électriquement (mêmes numéros de broches que le schéma) mais leurs dimensions/pas exacts restent à confronter aux datasheets avant fabrication.
 - **Plans de masse, classes de nets, règles de largeur de piste secteur vs logique** : non définis.
 - **Table de bibliothèque locale** (`sym-lib-table`/`fp-lib-table`) : non créée ; à faire pour que KiCad propose nativement les symboles/empreintes en édition graphique (actuellement seulement en cache dans les fichiers, fonctionnel mais pas éditable comme bibliothèque séparée).

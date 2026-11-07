@@ -552,6 +552,12 @@ function Emit-Path([string]$netName, $path, [double]$width = 0.3) {
 # une piste tout droit entre les deux transistors d'une meme zone - laquelle passait exactement
 # par la broche que QB devait ensuite atteindre. Premier arrive, premier sert : les connexions
 # locales doivent reserver leur chemin direct avant que les bus ne s'installent autour.
+# A l'interieur du palier 1, le tri alphabetique secondaire fait passer TOUS les FMT2_*/LEDK_*
+# (32 nets) avant le moindre MT1D_* : teste un tri par canal (zone 1 : FMT2/LEDK/MT1D, puis zone
+# 2, etc.) pour repartir la saturation plus equitablement - resultat net NEGATIF (154 vs 157
+# routees : MT1D_* s'ameliorait mais PHASE_PROT/3V3_OPTO se degradaient plus que ca ne compensait).
+# Garde l'ordre alphabetique simple ; la 2e passe (plus bas, grille fine + fenetre large sur les
+# seuls echecs) recupere plus efficacement les nets starves sans perturber ce qui marchait deja.
 function Get-NetPriority([string]$name) {
 	if ($name -match '^(QB_|LEDA_|RSF_)') { return 0 }
 	if ($name -match '^(LEDK_|FMT2_|MT1D_)') { return 1 }
@@ -563,6 +569,7 @@ function Get-NetPriority([string]$name) {
 Write-Host "Routage automatique : $($script:NetPads.Keys.Count) nets au total"
 $routedHops = 0
 $failedHops = New-Object System.Collections.Generic.List[string]
+$failedPairs = New-Object System.Collections.Generic.List[object]
 $orderedNets = $script:NetPads.Keys | Sort-Object { Get-NetPriority $_ }, { $_ }
 foreach ($netName in $orderedNets) {
 	$pts = $script:NetPads[$netName]
@@ -591,7 +598,7 @@ foreach ($netName in $orderedNets) {
 		$excl = @($aPt, $bPt)
 		$path = Find-Path $a.x $a.y $b.x $b.y $excl
 		if ($null -eq $path) {
-			$failedHops.Add("$netName ($($a.ref) -> $($b.ref))")
+			$failedPairs.Add(@{ net = $netName; a = $a; b = $b })
 		} else {
 			Emit-Path $netName $path
 			$routedHops++
@@ -600,6 +607,32 @@ foreach ($netName in $orderedNets) {
 		$remaining.RemoveAt($bestRemIdx)
 	}
 }
+
+# Deuxieme passe : les echecs du premier passage ne se disputent plus l'espace avec les nets
+# deja routes (ceux-la sont fixes). On retente chaque echec avec une fenetre plus large et une
+# grille plus fine (0,5 mm, pour trouver les interstices sub-millimetriques entre obstacles que
+# la grille a 1 mm du premier passage arrondissait a "bloque") : contrairement a un elargissement
+# global de la marge en premiere passe (teste et rejete, voir doc/12 - ca degradait les nets
+# encore en file d'attente en leur faisant consommer plus de place), ici il ne reste plus personne
+# derriere pour en subir les consequences. Un 2e palier a 110 mm a ete teste sur les echecs de
+# cette passe : 0 connexion recuperee en plus - confirmation que ces echecs restants sont bloques
+# localement (topologie/saturation), pas par une fenetre de recherche trop etroite ; retire pour
+# ne pas doubler le temps de generation sans gain.
+$retryMargin = 60.0
+foreach ($fp in $failedPairs) {
+	$a = $fp.a; $b = $fp.b
+	$aPt = @($a.x, $a.y)
+	$bPt = @($b.x, $b.y)
+	$excl = @($aPt, $bPt)
+	$path = Find-Path $a.x $a.y $b.x $b.y $excl 0.5 $retryMargin
+	if ($null -eq $path) {
+		$failedHops.Add("$($fp.net) ($($a.ref) -> $($b.ref))")
+	} else {
+		Emit-Path $fp.net $path
+		$routedHops++
+	}
+}
+
 Write-Host "Connexions routees automatiquement : $routedHops ; echecs (a router a la main) : $($failedHops.Count)"
 if ($failedHops.Count -gt 0) {
 	Write-Host "Echecs :"
