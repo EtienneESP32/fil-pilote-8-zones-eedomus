@@ -1,0 +1,15 @@
+(version 1)
+
+# Regle de securite (2026-11-07) : isolement secteur/logique.
+# Point ferme le 2026-11-06 (voir docs/04_Implantation-PCB.md) : 6 mm de creepage/clearance
+# entre le cote secteur (230 V, classe de net "Secteur") et le cote logique basse tension
+# (classe "Logique"), marge sur le minimum IEC 60664-1 (~1-2 mm pour cette tension/categorie).
+# Cette regle n'existait nulle part avant ce fichier - seule la separation physique des
+# composants par construction l'assurait, sans verification DRC reelle. Les classes de net
+# elles-memes gardent leur propre clearance normale (0,2 mm Logique, 0,5 mm Secteur) : cette
+# regle ne s'applique qu'A LA FRONTIERE entre les deux domaines, jamais a l'interieur de l'un
+# ou de l'autre (sinon le routage secteur-secteur/logique-logique, ou les composants sont
+# espaces de quelques mm seulement, deviendrait geometriquement impossible).
+(rule "isolement_secteur_logique_6mm"
+	(condition "(A.NetClass == 'Secteur' && B.NetClass == 'Logique') || (A.NetClass == 'Logique' && B.NetClass == 'Secteur')")
+	(constraint clearance (min 6mm)))

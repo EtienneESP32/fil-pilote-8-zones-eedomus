@@ -155,6 +155,24 @@ $script:NetPads = @{}
 # Registre global des obstacles (rectangles englobants, coordonnees monde) pour le pathfinding.
 $script:Obstacles = New-Object System.Collections.Generic.List[object]
 
+# Classe de net (reflete exactement les classes/patterns definis dans FilPilote_8Zones.kicad_pro
+# et la regle FilPilote_8Zones.kicad_dru). Point trouve le 2026-11-07 : le DRC par defaut
+# n'appliquait que la clearance generique (0,2 mm) partout, y compris entre PHASE_PROT (secteur,
+# 230V) et GPIO (logique) - la separation de 6 mm documentee depuis le 2026-11-06 n'etait jamais
+# verifiee. Activer la regle reelle a revele 499 vraies violations : des detours de pistes
+# Logique (LEDA_*/LEDK_*) passant a 3,8-5,7mm de broches/pistes Secteur voisines (RS/F/D,
+# PHASE_PROT) du meme canal ou du canal adjacent. Le pathfinder doit donc connaitre la classe de
+# chaque obstacle et du net en cours pour imposer 6mm entre classes differentes (et seulement
+# entre classes differentes : 0,3mm suffit entre 2 nets de la MEME classe, sinon le routage
+# secteur-secteur/logique-logique entre composants espaces de quelques mm devient impossible).
+function Get-NetClass([string]$name) {
+	if ($name -match '^(RSF_|FMT2_|MT1D_)') { return "Secteur" }
+	if ($name -match '^(PHASE_PROT|MAINS_L|MAINS_N|FP[1-8])$') { return "Secteur" }
+	return "Logique"
+}
+
+$script:CrossDomainClearance = 6.0
+
 # Piste simple en point a point entre deux broches (composants THT, pastilles sur les 2 faces).
 function Route([string]$netName, [double]$x1, [double]$y1, [double]$x2, [double]$y2, [string]$layer = "B.Cu", [double]$width = 0.3) {
 	W "	(segment (start $x1 $y1) (end $x2 $y2) (width $width) (layer `"$layer`") (net `"$netName`") (uuid `"$(New-SeqGuid)`"))"
@@ -162,17 +180,17 @@ function Route([string]$netName, [double]$x1, [double]$y1, [double]$x2, [double]
 
 function Add-Via([string]$netName, [double]$x, [double]$y) {
 	W "	(via (at $x $y) (size 0.6) (drill 0.3) (layers `"F.Cu`" `"B.Cu`") (net `"$netName`") (uuid `"$(New-SeqGuid)`"))"
-	$script:Obstacles.Add(@{ x = $x; y = $y; minX = $x - 0.6; minY = $y - 0.6; maxX = $x + 0.6; maxY = $y + 0.6 })
+	$script:Obstacles.Add(@{ x = $x; y = $y; minX = $x - 0.6; minY = $y - 0.6; maxX = $x + 0.6; maxY = $y + 0.6; class = (Get-NetClass $netName) })
 }
 
-function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [double]$y, [double]$rot, [hashtable]$netByPad) {
+function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [double]$y, [double]$rot, [hashtable]$netByPad, [double]$refOffsetY = -4) {
 	$pads = $Pads[$fpType]
 	$fpUuid = New-SeqGuid
 	W "	(footprint `"FP:$fpType`""
 	W '		(layer "F.Cu")'
 	W "		(uuid `"$fpUuid`")"
 	W "		(at $x $y $rot)"
-	W "		(property `"Reference`" `"$ref`" (at 0 -4 0) (layer `"F.SilkS`") (uuid `"$(New-SeqGuid)`") (effects (font (size 0.8 0.8) (thickness 0.12))))"
+	W "		(property `"Reference`" `"$ref`" (at 0 $refOffsetY 0) (layer `"F.SilkS`") (uuid `"$(New-SeqGuid)`") (effects (font (size 0.8 0.8) (thickness 0.12))))"
 	W "		(property `"Value`" `"$value`" (at 0 4 0) (layer `"F.Fab`") (uuid `"$(New-SeqGuid)`") (effects (font (size 0.8 0.8) (thickness 0.12))))"
 	W '		(attr through_hole)'
 	foreach ($padNum in ($pads.Keys | Sort-Object { [int]$_ })) {
@@ -197,7 +215,8 @@ function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [do
 		# meme composant reste bloquant comme il se doit. Le corps du composant lui-meme n'est
 		# plus modelise comme obstacle : le routage sur B.Cu sous un composant THT monte sur
 		# F.Cu est electriquement normal.
-		$script:Obstacles.Add(@{ x = $wx; y = $wy; minX = $wx - 1.1; minY = $wy - 1.1; maxX = $wx + 1.1; maxY = $wy + 1.1 })
+		$padClass = if ($net) { Get-NetClass $net } else { $null }
+		$script:Obstacles.Add(@{ x = $wx; y = $wy; minX = $wx - 1.1; minY = $wy - 1.1; maxX = $wx + 1.1; maxY = $wy + 1.1; class = $padClass })
 	}
 	# Courtyard (rectangle englobant les pastilles + marge 1mm), pour le DRC uniquement (plus utilise pour le pathfinding).
 	$xs = $pads.Values | ForEach-Object { $_[0] }
@@ -242,8 +261,12 @@ Place-FP "CAP_Radial" "C2" "100uF" 13 77 0 @{ "1" = "3V3_OPTO"; "2" = "GND" }
 # au lieu d'un axe parallele au bord comme dans la premiere implantation (signale par l'utilisateur).
 # F0 et PS1 n'ont pas de cablage externe direct (fusible et module internes), orientation inchangee.
 Place-FP "CONN2_508" "J1" "MAINS_IN" 187 6 90 @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
+# PS1 decale de 25->27mm (2026-11-07) : a 25mm, le pad GND (logique) de PS1 n'etait qu'a
+# 5,9938mm du pad PHASE_PROT (secteur) de F0 - sous la barre des 6mm par 0,006mm seulement,
+# trouve par le DRC apres activation de la regle isolement_secteur_logique_6mm. +2mm redonne une
+# vraie marge au lieu d'un seuil tangent a l'arrondi pres.
 Place-FP "F_Axial" "F0" "250mA_T" 182 15 0 @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
-Place-FP "PSU4" "PS1" "HLK-5M05" 182 25 0 @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
+Place-FP "PSU4" "PS1" "HLK-5M05" 182 27 0 @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
 Place-FP "CONN2_508" "J2" "FP1_FP2" 187 40 90 @{ "1" = "FP1"; "2" = "FP2" }
 Place-FP "CONN2_508" "J3" "FP3_FP4" 187 50 90 @{ "1" = "FP3"; "2" = "FP4" }
 Place-FP "CONN2_508" "J4" "FP5_FP6" 187 60 90 @{ "1" = "FP5"; "2" = "FP6" }
@@ -287,11 +310,28 @@ for ($z = 1; $z -le 8; $z++) {
 		Place-FP "TO92_3" "Q$suffix" "BC547B" ($x0 + $step) $cy 90 @{ "1" = "QB_$suffix"; "2" = "LEDK_$suffix"; "3" = "GND" }
 		Place-FP "R_Axial" "RL$suffix" "200_1pct" ($x0 + 2 * $step) $cy 90 @{ "1" = "3V3_OPTO"; "2" = "LEDA_$suffix" }
 
-		# Optotriac : transition logique (pattes LED, cote gauche de la pile) / secteur (pattes triac, cote droit)
+		# Optotriac : transition logique (pattes LED, cote gauche) / secteur (pattes triac, cote droit).
+		# Point ferme (2026-11-07) : contrairement a tous les autres composants de la pile, l'opto
+		# N'EST PAS tourne a 90. Rotation a 0 = orientation naturelle du boitier DIP-6 (ses 2
+		# rangees de 3 broches, logique/secteur, sont deja separees de 7,62mm sur l'axe X - le
+		# MEME axe que le sens d'empilement du canal). En le tournant comme les autres composants
+		# (comme avant), cette separation logique/secteur se retrouvait sur l'axe Y, parallele a
+		# l'empilement des CANAUX (2 par bande) et des BANDES (4 par carte) - ce qui mettait les
+		# broches logique d'un canal a quelques mm a peine des broches secteur du canal/bande
+		# voisine. Confirme par le vrai DRC apres activation de la regle 6mm (voir
+		# FilPilote_8Zones.kicad_dru) : 234 violations reelles, dont 52 sous le minimum
+		# reglementaire IEC 60664-1 (~2mm), pire cas 0,78mm. Non tourne, la separation
+		# logique/secteur de CHAQUE opto est sur X, ecartee de celle de tout autre opto peu
+		# importe sa position en Y (bande/canal) - le probleme disparait par construction, sans
+		# agrandir la carte.
 		$ocX = $x0 + 3 * $step
-		Place-FP "DIP6" "OC$suffix" "MOC3063M" $ocX $cy 90 @{ "1" = "LEDA_$suffix"; "2" = "LEDK_$suffix"; "4" = "MT1D_$suffix"; "6" = "FMT2_$suffix" }
+		Place-FP "DIP6" "OC$suffix" "MOC3063M" $ocX $cy 0 @{ "1" = "LEDA_$suffix"; "2" = "LEDK_$suffix"; "4" = "MT1D_$suffix"; "6" = "FMT2_$suffix" }
 
-		Place-FP "R_Axial" "RS$suffix" "4.7k" ($ocX + $step) $cy 90 @{ "1" = "PHASE_PROT"; "2" = "RSF_$suffix" }
+		# refOffsetY inverse (+4 au lieu de -4) : a rotation 90, l'offset par defaut se traduit en
+		# un decalage monde vers le composant PRECEDENT de la pile (ici OC, a gauche) - repere
+		# silkscreen "RSZxx" qui chevauchait la pastille 5 (NC) de l'opto desormais plus large
+		# (OC n'est plus tourne a 90, voir plus haut) ; averti par le DRC (silk_over_copper).
+		Place-FP "R_Axial" "RS$suffix" "4.7k" ($ocX + $step) $cy 90 @{ "1" = "PHASE_PROT"; "2" = "RSF_$suffix" } 4
 		Place-FP "F_Axial" "F$suffix" "100mA_PTC" ($ocX + 2 * $step) $cy 90 @{ "1" = "RSF_$suffix"; "2" = "FMT2_$suffix" }
 
 		if ($ch -eq "P") {
@@ -340,6 +380,7 @@ function Find-Path {
 	param(
 		[double]$startX, [double]$startY, [double]$endX, [double]$endY,
 		[object[]]$excludePoints,
+		[string]$netClass = "Logique",
 		[double]$res = 1.0,
 		[double]$margin = 20.0
 	)
@@ -372,8 +413,19 @@ function Find-Path {
 			}
 		}
 		if ($isExcluded) { continue }
-		$ox0 = $obs.minX - 0.3; $ox1 = $obs.maxX + 0.3
-		$oy0 = $obs.minY - 0.3; $oy1 = $obs.maxY + 0.3
+		# Marge normale (0,3mm) sauf : (a) a la frontiere entre classes differentes (Secteur vs
+		# Logique), ou la vraie regle DRC (6mm, voir Get-NetClass ci-dessus) s'applique ; (b)
+		# entre 2 nets Secteur, ou la classe de net reelle (FilPilote_8Zones.kicad_pro) exige
+		# 0,5mm et pas seulement 0,3 - 4 vraies violations DRC (0,36-0,43mm reel) trouvees avant
+		# ce correctif, le pathfinder visait un seuil plus bas que ce que le DRC verifie vraiment.
+		$buf = 0.3
+		if ($obs.class -and $obs.class -ne $netClass) {
+			$buf = $script:CrossDomainClearance
+		} elseif ($obs.class -eq "Secteur" -and $netClass -eq "Secteur") {
+			$buf = 0.55
+		}
+		$ox0 = $obs.minX - $buf; $ox1 = $obs.maxX + $buf
+		$oy0 = $obs.minY - $buf; $oy1 = $obs.maxY + $buf
 		if ($ox1 -lt $minX -or $ox0 -gt $maxX -or $oy1 -lt $minY -or $oy0 -gt $maxY) { continue }
 		$ix0 = [Math]::Max(0, [int][Math]::Floor(($ox0 - $minX) / $res))
 		$ix1 = [Math]::Min($cols - 1, [int][Math]::Ceiling(($ox1 - $minX) / $res))
@@ -537,7 +589,7 @@ function Emit-Path([string]$netName, $path, [double]$width = 0.3) {
 			# rectangle englobant est donc toujours fin et exact, pas une fausse grande zone.
 			$segMinX = [Math]::Min($p1[0], $p2[0]); $segMaxX = [Math]::Max($p1[0], $p2[0])
 			$segMinY = [Math]::Min($p1[1], $p2[1]); $segMaxY = [Math]::Max($p1[1], $p2[1])
-			$script:Obstacles.Add(@{ ref = "__track__"; layer = $run.layer; minX = $segMinX; minY = $segMinY; maxX = $segMaxX; maxY = $segMaxY })
+			$script:Obstacles.Add(@{ ref = "__track__"; layer = $run.layer; minX = $segMinX; minY = $segMinY; maxX = $segMaxX; maxY = $segMaxY; class = (Get-NetClass $netName) })
 		}
 		if ($ri -lt $runs.Count - 1) {
 			$lastPt = $run.points[$run.points.Count - 1]
@@ -574,6 +626,7 @@ $orderedNets = $script:NetPads.Keys | Sort-Object { Get-NetPriority $_ }, { $_ }
 foreach ($netName in $orderedNets) {
 	$pts = $script:NetPads[$netName]
 	if ($pts.Count -lt 2) { continue }
+	$netClass = Get-NetClass $netName
 
 	$connected = New-Object System.Collections.Generic.List[object]
 	$connected.Add($pts[0])
@@ -596,7 +649,7 @@ foreach ($netName in $orderedNets) {
 		$aPt = @($a.x, $a.y)
 		$bPt = @($b.x, $b.y)
 		$excl = @($aPt, $bPt)
-		$path = Find-Path $a.x $a.y $b.x $b.y $excl
+		$path = Find-Path $a.x $a.y $b.x $b.y $excl $netClass
 		if ($null -eq $path) {
 			$failedPairs.Add(@{ net = $netName; a = $a; b = $b })
 		} else {
@@ -624,7 +677,8 @@ foreach ($fp in $failedPairs) {
 	$aPt = @($a.x, $a.y)
 	$bPt = @($b.x, $b.y)
 	$excl = @($aPt, $bPt)
-	$path = Find-Path $a.x $a.y $b.x $b.y $excl 0.5 $retryMargin
+	$retryClass = Get-NetClass $fp.net
+	$path = Find-Path $a.x $a.y $b.x $b.y $excl $retryClass 0.5 $retryMargin
 	if ($null -eq $path) {
 		$failedHops.Add("$($fp.net) ($($a.ref) -> $($b.ref))")
 	} else {
