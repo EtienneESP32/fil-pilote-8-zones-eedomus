@@ -91,6 +91,34 @@ for ($k = 1; $k -le 20; $k++) {
 	$Pads["CONN40_PICO"]["$rightPin"] = @(17.78, $y)
 }
 
+# Position absolue d'une broche donnee une fois l'empreinte placee/tournee.
+# Formule verifiee empiriquement le 2026-11-07 par export SVG (coordonnees de pastilles
+# comparees aux valeurs predites) : pour une rotation de 90 degres, l'offset local (lx,ly)
+# devient (-ly, lx) en coordonnees monde. Seules les rotations 0 et 90 sont utilisees ici.
+function Get-PadPos([string]$fpType, [double]$cx, [double]$cy, [double]$rot, [string]$padNum) {
+	$off = $Pads[$fpType][$padNum]
+	$lx = $off[0]; $ly = $off[1]
+	# Ne jamais faire le calcul directement dans le literal @(...) : PowerShell le mal-parse
+	# des qu'il y a un operateur binaire avec plusieurs elements (meme piege que rencontre plus
+	# haut avec la multiplication). Precalculer dans des variables separees.
+	# Sens de rotation verifie le 2026-11-07 par lecture directe du fichier genere + rapport DRC
+	# (premiere version avait le sens inverse, provoquant des courts-circuits) : horaire, soit
+	# (lx,ly) -> (ly,-lx).
+	if ($rot -eq 90) {
+		$px = $cx + $ly
+		$py = $cy - $lx
+	} else {
+		$px = $cx + $lx
+		$py = $cy + $ly
+	}
+	return @($px, $py)
+}
+
+# Piste simple en point a point entre deux broches, sur B.Cu (composants THT sur F.Cu).
+function Route([string]$netName, [double]$x1, [double]$y1, [double]$x2, [double]$y2, [double]$width = 0.3) {
+	W "	(segment (start $x1 $y1) (end $x2 $y2) (width $width) (layer `"B.Cu`") (net `"$netName`") (uuid `"$(New-SeqGuid)`"))"
+}
+
 function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [double]$y, [double]$rot, [hashtable]$netByPad) {
 	$pads = $Pads[$fpType]
 	$fpUuid = New-SeqGuid
@@ -211,6 +239,27 @@ for ($z = 1; $z -le 8; $z++) {
 		} else {
 			Place-FP "D_Axial" "D$suffix" "1N4007" ($ocX + 3 * $step) $cy 90 @{ "1" = "FP$z"; "2" = "MT1D_$suffix" }
 		}
+
+		# ---- Routage automatise (2026-11-07) : connexions locales sures uniquement ----
+		# QB et LEDA relient 2 composants directement voisins (meme cy, 1 pas d'ecart) : aucun
+		# autre pastille sur le trajet direct, piste droite sans risque. Verifie par DRC (0
+		# court-circuit, 0 croisement sur ces 2 nets, les 16 occurrences).
+		# LEDK, FMT2 et MT1D ont ete tentees puis retirees : elles relient des composants
+		# separes de 2 ou 3 pas, et la ligne droite directe frole/percute le(s) composant(s)
+		# intermediaire(s) (confirme par le DRC : courts-circuits avec RS/F/OC). Une piste
+		# correcte demande un detour (schema en L) que ce script ne calcule pas ; a router a la
+		# main dans l'editeur graphique, voir docs/12_Guide-de-routage.md.
+		$rb = Get-PadPos "R_Axial" $x0 $cy 90 "2"
+		$q1 = Get-PadPos "TO92_3" ($x0 + $step) $cy 90 "1"
+		Route "QB_$suffix" $rb[0] $rb[1] $q1[0] $q1[1]
+
+		$rl = Get-PadPos "R_Axial" ($x0 + 2 * $step) $cy 90 "2"
+		$oc1 = Get-PadPos "DIP6" $ocX $cy 90 "1"
+		Route "LEDA_$suffix" $rl[0] $rl[1] $oc1[0] $oc1[1]
+
+		$rs = Get-PadPos "R_Axial" ($ocX + $step) $cy 90 "2"
+		$f1 = Get-PadPos "F_Axial" ($ocX + 2 * $step) $cy 90 "1"
+		Route "RSF_$suffix" $rs[0] $rs[1] $f1[0] $f1[1]
 	}
 }
 

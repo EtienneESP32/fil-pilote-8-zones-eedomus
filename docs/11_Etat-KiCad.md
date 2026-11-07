@@ -38,7 +38,7 @@ Table complète et à jour dans [02_Architecture-et-interfaces §2](02_Architect
 ## Résultats de vérification (après correction)
 
 - **ERC (schéma) :** 0 erreur, 0 avertissement résiduel hors bibliothèque. 248 avertissements bénins « bibliothèque FP introuvable », sans incidence électrique.
-- **DRC (PCB) :** 0 erreur réelle. 124 avertissements bénins (même cause bibliothèque). ~188 éléments non connectés — **attendu : aucune piste n'est routée**, le DRC ne vérifie ici que le placement, les chevauchements de courtyard et les règles de dégagement.
+- **DRC (PCB) :** 0 erreur réelle. 124 avertissements bénins (même cause bibliothèque). 140 éléments non connectés (sur 188 initialement) — **48 connexions routées automatiquement par script** (voir [12_Guide-de-routage §0](12_Guide-de-routage.md)), le reste à router à la main dans l'éditeur graphique.
 
 ## Ce que ça couvre
 

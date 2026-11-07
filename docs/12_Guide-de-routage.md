@@ -1,6 +1,15 @@
 # Guide de routage PCB
 
-**Statut :** procédure à suivre par l'utilisateur dans l'éditeur graphique KiCad (non pilotable depuis l'environnement CLI utilisé pour générer le schéma/placement, voir [11_État du projet KiCad](11_Etat-KiCad.md)). Le placement et le ratsnest sont prêts ; aucune piste n'est tracée.
+**Statut (révisé 2026-11-07) :** un routage automatisé partiel a été tenté par script (même méthode que le placement : génération en texte + vérification DRC). 48 connexions locales sont tracées (3 nets sûrs × 16 canaux, voir § 0). Le reste — l'essentiel du routage — reste à faire par l'utilisateur dans l'éditeur graphique KiCad (non pilotable depuis l'environnement CLI utilisé ici).
+
+## 0. Ce qui est déjà routé automatiquement, et pourquoi pas plus
+
+Tentative de router par script les 6 connexions internes à chaque canal (`QB_*`, `LEDK_*`, `LEDA_*`, `RSF_*`, `FMT2_*`, `MT1D_*`). Résultat après vérification DRC systématique :
+
+- **Routées avec succès (48 segments, 0 erreur DRC) :** `QB_*` et `LEDA_*` (+ `RSF_*`) — ces connexions relient deux composants **directement voisins** dans la pile du canal (1 pas d'écart), une piste droite ne croise rien.
+- **Abandonnées après test (`LEDK_*`, `FMT2_*`, `MT1D_*`) :** ces connexions relient des composants séparés de 2 ou 3 pas. Une piste droite entre les deux frôle ou traverse le(s) composant(s) intermédiaire(s) — confirmé par des courts-circuits DRC réels lors du premier essai (ex. `LEDK_Z1P` touchait une broche non connectée de l'optotriac `OCZ1P`). Une piste correcte demande un détour (tracé en L, visible et ajustable seulement avec un retour visuel) que le script ne peut pas calculer en aveugle — **à router à la main**, voir § 2.
+
+Cet épisode illustre directement la limite du « routage par script » évoquée précédemment : sans retour visuel, impossible de détecter un chevauchement avant qu'il soit signalé — d'où la vérification systématique par DRC après chaque tentative, et l'abandon net des 3 connexions à risque plutôt que de les forcer.
 
 ## 1. Avant de router
 
@@ -17,14 +26,16 @@ La clearance de 6 mm reprend la valeur déjà validée dans [04_Implantation-PCB
 
 4. Repérer les lignes en pointillés sur la couche `Dwgs.User` (autour de chaque rangée d'optotriacs) : elles marquent la bande de 6 mm qui doit rester vierge de cuivre. Les optotriacs (MOC3063M, DIP-6) sont le seul pont autorisé entre logique et secteur, par construction du composant — aucune piste ne doit la traverser ailleurs.
 
-## 2. Ordre de routage recommandé
+## 2. Ordre de routage recommandé (ce qu'il reste à faire)
 
 1. **`GND`** : net le plus partagé. Un plan de masse (zone de cuivre) côté logique est envisageable, mais il doit s'arrêter net à la frontière des 6 mm — jamais de cuivre de plan traversant vers le secteur.
 2. **`VSYS` → `3V3_OPTO`** : HLK-5M05 (`PS1`) → diode `DPWR` → `VSYS` → régulateur `U1` (AMS1117) → `3V3_OPTO`, avec les découplages `C1`/`C2` au plus près des pattes du régulateur.
 3. **Bus `PHASE_PROT`** : tronc commun depuis `F0`, ramifié vers les 16 résistances secteur (`RSZxP`/`RSZxN`).
-4. **Les 16 voies, zone par zone**, dans l'ordre : `GPIO (JWS) → RB → Q → RL → OC → RS/F → D → FPx`. Motif identique pour les 8 zones × 2 canaux — une fois la première voie routée, les 15 suivantes reprennent le même schéma.
-5. **Sorties `FP1`-`FP8`** vers `J2`-`J5`.
-6. **Connexions restantes** de l'en-tête `JWS` vers chaque zone, si pas déjà faites à l'étape 4.
+4. **`LEDK_*`, `FMT2_*`, `MT1D_*`** (16 canaux chacun) : déjà au ratsnest, nécessitent un détour autour d'un composant voisin (voir § 0) — tracé en L plutôt qu'en ligne droite, simple à faire à l'œil dans l'éditeur.
+5. **`GPIO*`** : connexions `JWS → RB` de chaque canal, longue distance à travers la carte.
+6. **Sorties `FP1`-`FP8`** vers `J2`-`J5`.
+
+`QB_*`, `LEDA_*` et `RSF_*` sont déjà routées (voir § 0) — rien à faire sur ces 48 connexions, sauf vérification visuelle rapide.
 
 ## 3. Pendant le routage
 
