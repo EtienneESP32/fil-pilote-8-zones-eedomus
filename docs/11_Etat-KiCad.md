@@ -55,7 +55,9 @@ Le placement réel des 16 voies THT a montré que 105 × 85 mm (gabarit indicati
 
 **Carte recompactée en conséquence :** la carte 192×108 mm dépassait les 86,5 mm utilisables dans le sens de la section. Recompactée à **192 × 86 mm** (pas des bandes de zones resserré, dégagement de bord recalculé en tenant compte du rayon réel des pastilles) pour tenir en carte unique sous ce seuil, plutôt qu'un empilement de 2 PCB (également supporté par ce boîtier : « carries up to 3 PCBs horizontally »). DRC revalidé à 0 erreur réelle après compaction.
 
-**Reste à faire avant de considérer ce boîtier comme validé :** commander/confirmer la référence exacte (`CNMB/12` ou variante avec parois/couvercle adaptés), vérifier la profondeur interne (58 mm catalogue) contre la hauteur réelle du module Waveshare monté sur son en-tête (pas encore mesurée), et confirmer la disponibilité chez RS Components comme souhaité par l'utilisateur.
+**Boîtier retenu, décision finale (2026-11-07) :** base **CNMB/12/2** (accès bornier aux deux extrémités), couvercle **CNMB/12/PC** (transparent, choisi par l'utilisateur). Accessoires : `CNMB/3/TGRJ45` côté Waveshare (découpe RJ45), `CNMB/3/TG508` côté sorties FP (guide-fils 9 pôles 5,08 mm, couvre les 8 pôles de J2-J5). L'entrée secteur J1 est câblée en fixe par presse-étoupe plutôt qu'en bornier débrochable (évite un débranchement accidentel d'un conducteur 230 V) — voir [03_Nomenclature](03_Nomenclature.md).
+
+**Reste à faire :** vérifier la profondeur interne (58 mm catalogue) contre la hauteur réelle du module Waveshare monté sur son en-tête (pas encore mesurée).
 
 ## Orientation des borniers de câblage externe (2026-11-07)
 
