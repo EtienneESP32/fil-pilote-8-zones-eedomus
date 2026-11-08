@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-11-08T01:26:09",
+    "date": "2026-11-08T15:36:12",
     "ignored_checks": [
         {
             "description": "Footprint has no courtyard defined",
@@ -37,20 +37,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Piste [GND] sur F.Cu, long. 2,1213 mm",
+                    "description": "Piste [GND] sur B.Cu, long. 5,1350 mm",
                     "pos": {
-                        "x": 107.5,
-                        "y": 45.46
+                        "x": 44.0,
+                        "y": 46.865
                     },
-                    "uuid": "b587a41c-e2bb-4b31-9144-779352e3d438"
+                    "uuid": "320cf4a9-6b3b-4bb5-80e2-901326029ffe"
                 },
                 {
-                    "description": "Piste [GND] sur F.Cu, long. 0,5000 mm",
+                    "description": "Piste [GND] sur F.Cu, long. 4,5000 mm",
                     "pos": {
-                        "x": 47.0,
-                        "y": 45.96
+                        "x": 104.0,
+                        "y": 47.46
                     },
-                    "uuid": "c0852bf3-4b66-4b3e-aaa3-e31de39c07ec"
+                    "uuid": "e684ba74-ffa3-400c-a276-d2a42dc1aeb0"
                 }
             ],
             "severity": "error",
@@ -60,20 +60,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Piste [GND] sur B.Cu, long. 5,7752 mm",
+                    "description": "Piste [GND] sur B.Cu, long. 1,7100 mm",
                     "pos": {
-                        "x": 112.0,
-                        "y": 14.724818
+                        "x": 107.0,
+                        "y": 22.75
                     },
-                    "uuid": "cd587fd5-2b38-42d8-83a0-610cdf29c284"
+                    "uuid": "c0f54083-10b8-4fe8-aa33-77d83f648ba0"
                 },
                 {
                     "description": "Pad métallisé 4 [GND] de PS1",
                     "pos": {
-                        "x": 187.0,
+                        "x": 167.0,
                         "y": 24.5
                     },
-                    "uuid": "b8428b71-c732-4b99-b017-825112f633aa"
+                    "uuid": "8649e8de-88ed-4794-878d-139a44023998"
                 }
             ],
             "severity": "error",
@@ -88,7 +88,7 @@
                         "x": 8.0,
                         "y": 36.02
                     },
-                    "uuid": "f29ce479-5889-4084-9c78-6981479620de"
+                    "uuid": "e8d34037-4f5c-42db-bc07-2f1270b46b5c"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO3] de RBZ5P",
@@ -96,7 +96,7 @@
                         "x": 100.0,
                         "y": 9.81
                     },
-                    "uuid": "0701edf2-60f6-49b5-a5d7-42d767416d01"
+                    "uuid": "4ac00663-0947-41f0-9f38-afbd306cee66"
                 }
             ],
             "severity": "error",
@@ -111,7 +111,7 @@
                         "x": 25.78,
                         "y": 43.64
                     },
-                    "uuid": "88d0e367-9338-4a2f-a55c-ff0427bda4bd"
+                    "uuid": "d9f41175-4edb-4de0-848d-00ff8291e2d4"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO48] de RBZ8N",
@@ -119,7 +119,7 @@
                         "x": 100.0,
                         "y": 83.81
                     },
-                    "uuid": "26ba5c50-6eff-4ae1-b5f2-faff6786959f"
+                    "uuid": "52cc8c82-c249-48c2-81f9-517afed61c1a"
                 }
             ],
             "severity": "error",
@@ -134,7 +134,7 @@
                         "x": 25.78,
                         "y": 41.1
                     },
-                    "uuid": "0569b880-3177-4ce7-8fc6-33fd014032eb"
+                    "uuid": "c41513fd-346a-4abc-a68c-41b7cba0201d"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO47] de RBZ8P",
@@ -142,7 +142,7 @@
                         "x": 100.0,
                         "y": 72.81
                     },
-                    "uuid": "0d7cfe08-97cf-4380-a152-a8049061bab8"
+                    "uuid": "520d1828-354d-4557-8c7b-1bbe0e9889fc"
                 }
             ],
             "severity": "error",
@@ -157,7 +157,7 @@
                         "x": 25.78,
                         "y": 30.94
                     },
-                    "uuid": "a2723e8f-fc46-44d6-bf3f-a50db1e7d6e4"
+                    "uuid": "dd82149b-bc6e-45e9-bed8-b8a44bb7e500"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO42] de RBZ7N",
@@ -165,7 +165,7 @@
                         "x": 100.0,
                         "y": 62.81
                     },
-                    "uuid": "38a75ea6-d58f-497a-a35a-4734bb7f44ee"
+                    "uuid": "5179ee27-7965-4848-9fdf-1abf4df71108"
                 }
             ],
             "severity": "error",
@@ -180,7 +180,7 @@
                         "x": 25.78,
                         "y": 28.4
                     },
-                    "uuid": "63034cb6-a5c4-4a89-bb27-79c44e63ac87"
+                    "uuid": "bd78f4f2-030c-4d40-b1b0-c708cc84a1fd"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO41] de RBZ7P",
@@ -188,7 +188,7 @@
                         "x": 100.0,
                         "y": 51.81
                     },
-                    "uuid": "073faece-807d-4914-99c5-405be9548d5c"
+                    "uuid": "2f535aca-4276-4e84-af88-de11ba027da1"
                 }
             ],
             "severity": "error",
@@ -203,7 +203,7 @@
                         "x": 25.78,
                         "y": 25.86
                     },
-                    "uuid": "c049e02e-e84d-4daf-9505-204d74240b16"
+                    "uuid": "3a3c9da7-21ef-450c-a7e6-b893c2da7306"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO40] de RBZ6N",
@@ -211,7 +211,7 @@
                         "x": 100.0,
                         "y": 41.81
                     },
-                    "uuid": "837b4b69-7445-4ee6-a2dd-7e4603ff4bcc"
+                    "uuid": "56ddda29-7009-4a59-80cc-f50cc2c2ae0f"
                 }
             ],
             "severity": "error",
@@ -226,7 +226,7 @@
                         "x": 25.78,
                         "y": 23.32
                     },
-                    "uuid": "a2fc1f26-88e0-4324-8a99-54eb5a166d7b"
+                    "uuid": "00db9ba3-f9a2-4c47-b3e9-e02fd7a6af4c"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO39] de RBZ6P",
@@ -234,7 +234,7 @@
                         "x": 100.0,
                         "y": 30.81
                     },
-                    "uuid": "f61ee5f7-1e7b-4fa9-af83-5fba5386141f"
+                    "uuid": "99cacca3-1d6c-4f42-b21a-72b79e442361"
                 }
             ],
             "severity": "error",
@@ -249,7 +249,7 @@
                         "x": 25.78,
                         "y": 18.24
                     },
-                    "uuid": "8c1e8e6c-362c-4e13-92b5-b7868b116da3"
+                    "uuid": "6daf3066-f0be-4cc7-b338-4b16819d27c5"
                 },
                 {
                     "description": "Pad métallisé 1 [GPIO38] de RBZ5N",
@@ -257,7 +257,7 @@
                         "x": 100.0,
                         "y": 20.81
                     },
-                    "uuid": "9380a47f-0da5-485f-9bac-60fdcdd4810d"
+                    "uuid": "cce457bf-b5aa-455e-8d4a-6381277479a5"
                 }
             ],
             "severity": "error",
@@ -272,15 +272,15 @@
                         "x": 9.19,
                         "y": 56.0
                     },
-                    "uuid": "e1ed2fa0-6131-4591-82b0-fe7281a89c95"
+                    "uuid": "aefe1684-4a67-4181-b154-4868397c99f0"
                 },
                 {
                     "description": "Pad métallisé 3 [LOCAL_5V] de PS1",
                     "pos": {
-                        "x": 187.0,
+                        "x": 167.0,
                         "y": 29.5
                     },
-                    "uuid": "f5637e94-8e2d-4081-9dc7-16708e85e25f"
+                    "uuid": "9d7e579c-4c8f-401a-ace5-1a9d520b373b"
                 }
             ],
             "severity": "error",
@@ -290,43 +290,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Piste [3V3_OPTO] sur B.Cu, long. 0,8750 mm",
+                    "description": "Piste [3V3_OPTO] sur F.Cu, long. 3,0000 mm",
                     "pos": {
-                        "x": 48.25,
-                        "y": 54.81
-                    },
-                    "uuid": "a240855e-12f9-49a6-b1bd-6789b80def88"
-                },
-                {
-                    "description": "Piste [3V3_OPTO] sur B.Cu, long. 3,5000 mm",
-                    "pos": {
-                        "x": 53.0,
-                        "y": 51.81
-                    },
-                    "uuid": "b65441f2-00ea-432b-be58-868dbe689150"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Piste [3V3_OPTO] sur B.Cu, long. 0,5000 mm",
-                    "pos": {
-                        "x": 114.0,
+                        "x": 48.0,
                         "y": 60.81
                     },
-                    "uuid": "a9acebb2-9ef1-4fcd-9280-820580e535df"
+                    "uuid": "7ff35068-50af-4f60-882a-a1fb0059d928"
                 },
                 {
-                    "description": "Piste [3V3_OPTO] sur B.Cu, long. 1,1490 mm",
+                    "description": "Piste [3V3_OPTO] sur B.Cu, long. 1,2248 mm",
                     "pos": {
-                        "x": 52.1875,
-                        "y": 58.81
+                        "x": 16.0,
+                        "y": 64.550364
                     },
-                    "uuid": "3fe0d8a2-8b01-4d18-86df-e362ae6c927b"
+                    "uuid": "1b738f52-5c1c-4555-8821-95602ff304a8"
                 }
             ],
             "severity": "error",
@@ -336,20 +313,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Pad métallisé 1 [PHASE_PROT] de RSZ4N",
+                    "description": "Piste [3V3_OPTO] sur F.Cu, long. 3,0950 mm",
                     "pos": {
-                        "x": 71.0,
-                        "y": 83.81
+                        "x": 113.095,
+                        "y": 19.0
                     },
-                    "uuid": "088cce76-bcdb-4f4f-b74f-91c02320f973"
+                    "uuid": "e1ee076c-a9bd-4332-98b5-b064a487073c"
                 },
                 {
-                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 1,5000 mm",
+                    "description": "Piste [3V3_OPTO] sur F.Cu, long. 1,2799 mm",
                     "pos": {
-                        "x": 72.5,
-                        "y": 72.81
+                        "x": 49.0,
+                        "y": 19.905
                     },
-                    "uuid": "e2144419-158c-4800-85f3-5c4bc1243a24"
+                    "uuid": "b6f4271e-62f4-4572-a2ec-22d19a805392"
                 }
             ],
             "severity": "error",
@@ -359,20 +336,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 8,2500 mm",
+                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 3,7500 mm",
                     "pos": {
-                        "x": 74.0,
-                        "y": 42.06
+                        "x": 68.0,
+                        "y": 63.06
                     },
-                    "uuid": "c53f02ad-3fc9-4758-91af-19c3c2096291"
+                    "uuid": "a2aac485-410d-44b5-b976-329eeae967fa"
                 },
                 {
-                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 1,3470 mm",
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 1,7500 mm",
                     "pos": {
-                        "x": 134.4525,
-                        "y": 53.0
+                        "x": 130.0,
+                        "y": 61.06
                     },
-                    "uuid": "18201ef9-eac8-4681-877c-6740ad117352"
+                    "uuid": "be1b63ee-3965-4045-ae3b-a11c188dbf11"
                 }
             ],
             "severity": "error",
@@ -382,43 +359,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 1,5000 mm",
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 1,7678 mm",
                     "pos": {
-                        "x": 137.5,
-                        "y": 72.81
+                        "x": 131.75,
+                        "y": 40.81
                     },
-                    "uuid": "6474a673-764a-49ff-88d8-73b27f46ef62"
+                    "uuid": "ded344e5-d494-4eb2-94c4-e27c941b6dac"
                 },
                 {
-                    "description": "Pad métallisé 1 [PHASE_PROT] de RSZ8N",
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 1,4142 mm",
                     "pos": {
-                        "x": 136.0,
-                        "y": 83.81
+                        "x": 134.0,
+                        "y": 36.0
                     },
-                    "uuid": "ba607832-7950-4d69-9237-88151c857d96"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 0,7071 mm",
-                    "pos": {
-                        "x": 136.0,
-                        "y": 41.31
-                    },
-                    "uuid": "f62b258f-7175-47fb-a1f7-db3fec52e973"
-                },
-                {
-                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 0,5235 mm",
-                    "pos": {
-                        "x": 136.5,
-                        "y": 30.655
-                    },
-                    "uuid": "65aa6740-8621-4942-8c2a-c6a44fb20202"
+                    "uuid": "1d42b959-a64a-4fe9-8f95-33a11b421c72"
                 }
             ],
             "severity": "error",
@@ -430,18 +384,18 @@
                 {
                     "description": "Piste [FP1] sur B.Cu, long. 3,3100 mm",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 20.81
                     },
-                    "uuid": "e707477c-15e4-4b6b-9994-57135159cc0c"
+                    "uuid": "5eb79251-d082-4b53-84c9-5bdbae14f2ba"
                 },
                 {
                     "description": "Pad métallisé 1 [FP1] de J2",
                     "pos": {
-                        "x": 187.0,
+                        "x": 167.0,
                         "y": 42.54
                     },
-                    "uuid": "83aa44b6-8613-40aa-b500-f6bb5c967ba0"
+                    "uuid": "36270ccb-8109-44d0-8139-f408fdf44a2b"
                 }
             ],
             "severity": "error",
@@ -451,20 +405,20 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Pad métallisé 2 [FP2] de J2",
-                    "pos": {
-                        "x": 187.0,
-                        "y": 37.46
-                    },
-                    "uuid": "794777dc-f758-4d97-b0bb-d5c0d84a98fa"
-                },
-                {
                     "description": "Piste [FP2] sur B.Cu, long. 2,1213 mm",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 38.69
                     },
-                    "uuid": "e9aaee9c-8e37-45de-b50f-3b3c47f4e545"
+                    "uuid": "f12148b7-33f5-4f82-9862-6174cff5aa9b"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP2] de J2",
+                    "pos": {
+                        "x": 167.0,
+                        "y": 37.46
+                    },
+                    "uuid": "6f26a82a-8c35-4947-aff8-1610b08af221"
                 }
             ],
             "severity": "error",
@@ -476,18 +430,18 @@
                 {
                     "description": "Pad métallisé 1 [FP3] de J3",
                     "pos": {
-                        "x": 187.0,
+                        "x": 167.0,
                         "y": 52.54
                     },
-                    "uuid": "2aebda8e-e35b-4a9c-8812-7ab31a8b655e"
+                    "uuid": "235036e7-3f21-4ab4-88e5-ac1811af245d"
                 },
                 {
-                    "description": "Piste [FP3] sur F.Cu, long. 2,1213 mm",
+                    "description": "Piste [FP3] sur B.Cu, long. 2,1213 mm",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 46.69
                     },
-                    "uuid": "48a05fc5-1d26-4b13-96be-1eb2cb2b2f3e"
+                    "uuid": "a3e8df19-829d-4e91-b19f-a2aa1447f012"
                 }
             ],
             "severity": "error",
@@ -499,18 +453,18 @@
                 {
                     "description": "Pad métallisé 2 [FP4] de J3",
                     "pos": {
-                        "x": 187.0,
+                        "x": 167.0,
                         "y": 47.46
                     },
-                    "uuid": "792c6d5e-03ec-456f-b4d2-b4f10c7b4dc8"
+                    "uuid": "6bec45d8-a48a-4fab-a4fa-621038ed6183"
                 },
                 {
                     "description": "Piste [FP4] sur F.Cu, long. 2,5000 mm",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 65.19
                     },
-                    "uuid": "e96146ee-c176-428b-ab73-ead740fc66ee"
+                    "uuid": "9b71708f-f735-4d00-90cc-faf8658b8a17"
                 }
             ],
             "severity": "error",
@@ -522,18 +476,87 @@
                 {
                     "description": "Pad métallisé 4 [MT1D_Z1P] de OCZ1P",
                     "pos": {
-                        "x": 65.81,
+                        "x": 60.81,
                         "y": 3.46
                     },
-                    "uuid": "4fb5fd5e-8c1e-45ce-a84a-4077590a5877"
+                    "uuid": "2e19a04e-6c15-49dc-a3c6-3a72b60752d2"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z1P] de DZ1P",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 9.81
                     },
-                    "uuid": "16849601-09e8-4bcf-8682-26b60ff13d28"
+                    "uuid": "f0c22d47-1f4c-4fe1-bb6a-36f9044f9e88"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [FMT2_Z1P] de OCZ1P",
+                    "pos": {
+                        "x": 60.81,
+                        "y": 8.54
+                    },
+                    "uuid": "0d06c5a7-39ac-45e5-9222-870421f05cc9"
+                },
+                {
+                    "description": "Pad métallisé 2 [FMT2_Z1P] de FZ1P",
+                    "pos": {
+                        "x": 72.0,
+                        "y": 2.19
+                    },
+                    "uuid": "3930c94e-911e-4ac8-ac80-9d0fed08e869"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z1N] de OCZ1N",
+                    "pos": {
+                        "x": 60.81,
+                        "y": 14.46
+                    },
+                    "uuid": "d420316c-953d-4bc4-9618-613fad2cfcd9"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z1N] de DZ1N",
+                    "pos": {
+                        "x": 79.0,
+                        "y": 13.19
+                    },
+                    "uuid": "5e551888-868f-49ba-b270-e205293696e5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [FMT2_Z1N] de OCZ1N",
+                    "pos": {
+                        "x": 60.81,
+                        "y": 19.54
+                    },
+                    "uuid": "f56a8c24-805b-4b4d-81b5-b4a09ec3afa3"
+                },
+                {
+                    "description": "Pad métallisé 2 [FMT2_Z1N] de FZ1N",
+                    "pos": {
+                        "x": 72.0,
+                        "y": 13.19
+                    },
+                    "uuid": "e63e8806-3eda-4d39-ba93-2f6e390c91af"
                 }
             ],
             "severity": "error",
@@ -545,18 +568,87 @@
                 {
                     "description": "Pad métallisé 4 [MT1D_Z2P] de OCZ2P",
                     "pos": {
-                        "x": 65.81,
+                        "x": 60.81,
                         "y": 24.46
                     },
-                    "uuid": "3c139600-1469-4d10-8e16-895c66f09807"
+                    "uuid": "9a11f313-81fe-422a-8d58-c756b4223ad4"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z2P] de DZ2P",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 30.81
                     },
-                    "uuid": "0030a241-84e1-4815-b5a2-800c14025c74"
+                    "uuid": "f4dca9e2-a3ac-48f2-ab87-dc49a7294e92"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [FMT2_Z2P] de OCZ2P",
+                    "pos": {
+                        "x": 60.81,
+                        "y": 29.54
+                    },
+                    "uuid": "bd2fb3b1-3205-4bb0-8d0c-236ca94ff532"
+                },
+                {
+                    "description": "Pad métallisé 2 [FMT2_Z2P] de FZ2P",
+                    "pos": {
+                        "x": 72.0,
+                        "y": 23.19
+                    },
+                    "uuid": "5d72a073-ad54-497d-960d-4c5985315296"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z2N] de OCZ2N",
+                    "pos": {
+                        "x": 60.81,
+                        "y": 35.46
+                    },
+                    "uuid": "2911d52c-3cd2-4b70-9d76-a9d59579a7c9"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z2N] de DZ2N",
+                    "pos": {
+                        "x": 79.0,
+                        "y": 34.19
+                    },
+                    "uuid": "ea00981d-bcfe-4c1d-b3c3-a00af9d3aa2c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [FMT2_Z2N] de OCZ2N",
+                    "pos": {
+                        "x": 60.81,
+                        "y": 40.54
+                    },
+                    "uuid": "6eede68d-d021-4a88-b6ee-520796283adc"
+                },
+                {
+                    "description": "Pad métallisé 2 [FMT2_Z2N] de FZ2N",
+                    "pos": {
+                        "x": 72.0,
+                        "y": 34.19
+                    },
+                    "uuid": "f8e4c2f2-a999-4ccd-ac89-5df28cab4fec"
                 }
             ],
             "severity": "error",
@@ -568,18 +660,41 @@
                 {
                     "description": "Pad métallisé 4 [MT1D_Z3P] de OCZ3P",
                     "pos": {
-                        "x": 65.81,
+                        "x": 60.81,
                         "y": 45.46
                     },
-                    "uuid": "cb5aac8b-5d31-4fcc-909e-ad3bab06a02e"
+                    "uuid": "35f97530-d67b-43eb-82a4-29e26e1a2770"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z3P] de DZ3P",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 51.81
                     },
-                    "uuid": "ad0241db-77bf-4447-9079-2f561c110259"
+                    "uuid": "eda23e9c-fb1c-4be9-ac03-265ec640523a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [FMT2_Z3P] de OCZ3P",
+                    "pos": {
+                        "x": 60.81,
+                        "y": 50.54
+                    },
+                    "uuid": "4e8b210c-d6fb-427c-bb0a-8c8b1a64f743"
+                },
+                {
+                    "description": "Pad métallisé 2 [FMT2_Z3P] de FZ3P",
+                    "pos": {
+                        "x": 72.0,
+                        "y": 44.19
+                    },
+                    "uuid": "9f1e8f86-2b56-4df0-b7d7-fb4a8a94b445"
                 }
             ],
             "severity": "error",
@@ -591,18 +706,41 @@
                 {
                     "description": "Pad métallisé 4 [MT1D_Z3N] de OCZ3N",
                     "pos": {
-                        "x": 65.81,
+                        "x": 60.81,
                         "y": 56.46
                     },
-                    "uuid": "e2dbb80a-7d53-4d83-ba9b-a3a8091fbbbf"
+                    "uuid": "e9735f74-8059-477e-ae1d-5caa751b6c85"
                 },
                 {
                     "description": "Pad métallisé 2 [MT1D_Z3N] de DZ3N",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 55.19
                     },
-                    "uuid": "94fd25a7-ccd6-493c-a347-256ea89fa9fa"
+                    "uuid": "4e820655-899c-4abb-a086-ba27379c1043"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [FMT2_Z3N] de OCZ3N",
+                    "pos": {
+                        "x": 60.81,
+                        "y": 61.54
+                    },
+                    "uuid": "214bf950-6726-42a5-b674-e0f1d5c62ede"
+                },
+                {
+                    "description": "Pad métallisé 2 [FMT2_Z3N] de FZ3N",
+                    "pos": {
+                        "x": 72.0,
+                        "y": 55.19
+                    },
+                    "uuid": "c3fb3096-99ad-469f-94f5-5499b53df305"
                 }
             ],
             "severity": "error",
@@ -614,18 +752,41 @@
                 {
                     "description": "Pad métallisé 4 [MT1D_Z4P] de OCZ4P",
                     "pos": {
-                        "x": 65.81,
+                        "x": 60.81,
                         "y": 66.46
                     },
-                    "uuid": "4cbe9fb1-c947-49e4-92a5-df55542b9f24"
+                    "uuid": "6a800c42-9226-4cb4-9887-f109d79de023"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z4P] de DZ4P",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 72.81
                     },
-                    "uuid": "af93c6c2-b36c-439f-8f0b-39c221b2d62e"
+                    "uuid": "622c1a2c-f9e2-4f02-b9e3-e65dd2c9a0ee"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [FMT2_Z4P] de OCZ4P",
+                    "pos": {
+                        "x": 60.81,
+                        "y": 71.54
+                    },
+                    "uuid": "a0161405-b04d-4b08-93e7-71610028b713"
+                },
+                {
+                    "description": "Pad métallisé 2 [FMT2_Z4P] de FZ4P",
+                    "pos": {
+                        "x": 72.0,
+                        "y": 65.19
+                    },
+                    "uuid": "2d646689-f796-4def-aa77-cfb14420901e"
                 }
             ],
             "severity": "error",
@@ -637,18 +798,18 @@
                 {
                     "description": "Pad métallisé 4 [MT1D_Z4N] de OCZ4N",
                     "pos": {
-                        "x": 65.81,
+                        "x": 60.81,
                         "y": 77.46
                     },
-                    "uuid": "f1c29e9f-0ac2-406c-8613-023d6b07defc"
+                    "uuid": "2712ca93-8b61-428f-aa86-a74050e3e556"
                 },
                 {
                     "description": "Pad métallisé 2 [MT1D_Z4N] de DZ4N",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 76.19
                     },
-                    "uuid": "793e0d45-1e5e-4c27-a3df-86da5b085726"
+                    "uuid": "a7b819dc-98d4-4e35-bab3-ffafb41134a5"
                 }
             ],
             "severity": "error",
@@ -658,20 +819,66 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Pad métallisé 4 [MT1D_Z5P] de OCZ5P",
+                    "description": "Pad métallisé 6 [FMT2_Z4N] de OCZ4N",
                     "pos": {
-                        "x": 130.81,
-                        "y": 3.46
+                        "x": 60.81,
+                        "y": 82.54
                     },
-                    "uuid": "64fd3a0b-a4fe-4219-9d58-91183c3cc6b7"
+                    "uuid": "0d6b1208-fdc0-4801-81d9-85e317d614df"
                 },
                 {
-                    "description": "Pad métallisé 1 [MT1D_Z5P] de DZ5P",
+                    "description": "Pad métallisé 2 [FMT2_Z4N] de FZ4N",
                     "pos": {
-                        "x": 154.0,
-                        "y": 9.81
+                        "x": 72.0,
+                        "y": 76.19
                     },
-                    "uuid": "42c59169-496d-4129-a4a8-ba2782ec1e81"
+                    "uuid": "1c410e6a-b4ba-4fbf-b823-28724190297d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z5N] de OCZ5N",
+                    "pos": {
+                        "x": 125.81,
+                        "y": 14.46
+                    },
+                    "uuid": "0f72db95-2930-4827-a676-6f3f158c54e1"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z5N] de DZ5N",
+                    "pos": {
+                        "x": 144.0,
+                        "y": 13.19
+                    },
+                    "uuid": "90aa8e21-4a09-464e-b2ed-040419578e66"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [FMT2_Z5N] de OCZ5N",
+                    "pos": {
+                        "x": 125.81,
+                        "y": 19.54
+                    },
+                    "uuid": "7f045eb1-41c5-4875-874d-7b8137c60e0a"
+                },
+                {
+                    "description": "Pad métallisé 2 [FMT2_Z5N] de FZ5N",
+                    "pos": {
+                        "x": 137.0,
+                        "y": 13.19
+                    },
+                    "uuid": "fa6bfb7d-7324-488a-ba27-bf8a0b00294d"
                 }
             ],
             "severity": "error",
@@ -683,41 +890,18 @@
                 {
                     "description": "Pad métallisé 4 [MT1D_Z6P] de OCZ6P",
                     "pos": {
-                        "x": 130.81,
+                        "x": 125.81,
                         "y": 24.46
                     },
-                    "uuid": "9a0a0b77-6439-49f7-a1c2-57cb430c1701"
+                    "uuid": "eb01bba9-036e-4198-84cf-6ae857fc9181"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z6P] de DZ6P",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 30.81
                     },
-                    "uuid": "68222681-9ce1-43ce-96ae-333ce42df3ca"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Pad métallisé 4 [MT1D_Z6N] de OCZ6N",
-                    "pos": {
-                        "x": 130.81,
-                        "y": 35.46
-                    },
-                    "uuid": "b02350eb-2b84-4cdc-ad21-ecdf4b955fe0"
-                },
-                {
-                    "description": "Pad métallisé 2 [MT1D_Z6N] de DZ6N",
-                    "pos": {
-                        "x": 154.0,
-                        "y": 34.19
-                    },
-                    "uuid": "8af39ec4-fa7e-42a7-b763-955834bb038d"
+                    "uuid": "dde7aeff-0801-4010-bd6e-0477ec570bb8"
                 }
             ],
             "severity": "error",
@@ -729,18 +913,41 @@
                 {
                     "description": "Pad métallisé 4 [MT1D_Z7P] de OCZ7P",
                     "pos": {
-                        "x": 130.81,
+                        "x": 125.81,
                         "y": 45.46
                     },
-                    "uuid": "dd40b22d-209c-4043-bb81-a61cc4cbe23f"
+                    "uuid": "e3f12b96-ce68-4829-b544-ca64a4246e1e"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z7P] de DZ7P",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 51.81
                     },
-                    "uuid": "c2cd5572-cfdb-428b-9dfc-99941695623a"
+                    "uuid": "53341d71-7627-4a73-ab2e-7f387317c4e7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [FMT2_Z7P] de OCZ7P",
+                    "pos": {
+                        "x": 125.81,
+                        "y": 50.54
+                    },
+                    "uuid": "cf5904bc-3ae2-46e3-be0b-62dd81e9a8fa"
+                },
+                {
+                    "description": "Pad métallisé 2 [FMT2_Z7P] de FZ7P",
+                    "pos": {
+                        "x": 137.0,
+                        "y": 44.19
+                    },
+                    "uuid": "2ac4ce37-f4b4-49d3-92f9-58fc2a1bcaa2"
                 }
             ],
             "severity": "error",
@@ -752,18 +959,18 @@
                 {
                     "description": "Pad métallisé 4 [MT1D_Z7N] de OCZ7N",
                     "pos": {
-                        "x": 130.81,
+                        "x": 125.81,
                         "y": 56.46
                     },
-                    "uuid": "d591228c-83a7-4453-9a93-d08aa4c1dc9e"
+                    "uuid": "4c30d0c6-3d7a-46a8-acd7-671e75c72210"
                 },
                 {
                     "description": "Pad métallisé 2 [MT1D_Z7N] de DZ7N",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 55.19
                     },
-                    "uuid": "9a68a167-88b3-4386-b649-3725ea21dd10"
+                    "uuid": "e9c3d000-649b-4abb-a89e-39a982fba627"
                 }
             ],
             "severity": "error",
@@ -775,18 +982,41 @@
                 {
                     "description": "Pad métallisé 4 [MT1D_Z8P] de OCZ8P",
                     "pos": {
-                        "x": 130.81,
+                        "x": 125.81,
                         "y": 66.46
                     },
-                    "uuid": "bf043857-872b-4477-b761-17102b83e07f"
+                    "uuid": "44462fe6-eba6-4277-bfba-d3dc1677fc7c"
                 },
                 {
                     "description": "Pad métallisé 1 [MT1D_Z8P] de DZ8P",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 72.81
                     },
-                    "uuid": "6f6fb8e2-062d-4303-a6b9-6f82263b6467"
+                    "uuid": "96e60466-8777-4ab6-86b7-0614b13e0ef1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [FMT2_Z8P] de OCZ8P",
+                    "pos": {
+                        "x": 125.81,
+                        "y": 71.54
+                    },
+                    "uuid": "7bc962a5-10d2-46c0-872b-07d21c6862fc"
+                },
+                {
+                    "description": "Pad métallisé 2 [FMT2_Z8P] de FZ8P",
+                    "pos": {
+                        "x": 137.0,
+                        "y": 65.19
+                    },
+                    "uuid": "87f109ae-d873-4f7a-a5ee-f74e2596333c"
                 }
             ],
             "severity": "error",
@@ -798,18 +1028,18 @@
                 {
                     "description": "Pad métallisé 4 [MT1D_Z8N] de OCZ8N",
                     "pos": {
-                        "x": 130.81,
+                        "x": 125.81,
                         "y": 77.46
                     },
-                    "uuid": "acc7b350-b5e3-4865-8838-3cdb495bea15"
+                    "uuid": "4e53d7e4-577b-426d-b60f-d396f2147d50"
                 },
                 {
                     "description": "Pad métallisé 2 [MT1D_Z8N] de DZ8N",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 76.19
                     },
-                    "uuid": "1a7d181b-5265-4503-928f-21e8c2d0cdd2"
+                    "uuid": "3021dc66-25f8-417d-b6c3-eebf39fb5bd7"
                 }
             ],
             "severity": "error",
@@ -817,52 +1047,6 @@
         }
     ],
     "violations": [
-        {
-            "description": "Trou percé trop près d'un autre trou (configuration des contraintes du PCB min 0,2500 mm; réel 0,1157 mm)",
-            "items": [
-                {
-                    "description": "Via [FMT2_Z3P] sur F.Cu - B.Cu",
-                    "pos": {
-                        "x": 79.31,
-                        "y": 44.0
-                    },
-                    "uuid": "85a95d30-ec4e-4359-832d-d6e7de91893d"
-                },
-                {
-                    "description": "Pad métallisé 2 [FMT2_Z3P] de FZ3P",
-                    "pos": {
-                        "x": 80.0,
-                        "y": 44.19
-                    },
-                    "uuid": "bad7065b-b7eb-4c57-9ec3-befa6b3a7ac6"
-                }
-            ],
-            "severity": "warning",
-            "type": "hole_to_hole"
-        },
-        {
-            "description": "Trou percé trop près d'un autre trou (configuration des contraintes du PCB min 0,2500 mm; réel 0,1157 mm)",
-            "items": [
-                {
-                    "description": "Via [FMT2_Z3P] sur F.Cu - B.Cu",
-                    "pos": {
-                        "x": 79.31,
-                        "y": 44.0
-                    },
-                    "uuid": "85a95d30-ec4e-4359-832d-d6e7de91893d"
-                },
-                {
-                    "description": "Pad métallisé 2 [FMT2_Z3P] de FZ3P",
-                    "pos": {
-                        "x": 80.0,
-                        "y": 44.19
-                    },
-                    "uuid": "bad7065b-b7eb-4c57-9ec3-befa6b3a7ac6"
-                }
-            ],
-            "severity": "warning",
-            "type": "hole_to_hole"
-        },
         {
             "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
             "items": [
@@ -872,7 +1056,7 @@
                         "x": 8.0,
                         "y": 3.0
                     },
-                    "uuid": "c22c34ae-a924-41c1-a078-a0a88da578a0"
+                    "uuid": "dc9f6a88-287f-4655-a6c6-e716636d6361"
                 }
             ],
             "severity": "warning",
@@ -887,7 +1071,7 @@
                         "x": 13.0,
                         "y": 56.0
                     },
-                    "uuid": "15484d1a-8bdf-4d77-872d-747bd8dddbb8"
+                    "uuid": "f1c6e5d2-7a79-4538-a31b-0625d1db450e"
                 }
             ],
             "severity": "warning",
@@ -902,7 +1086,7 @@
                         "x": 13.0,
                         "y": 63.0
                     },
-                    "uuid": "a892a4a5-3a58-4f3e-b23d-4635673a94cd"
+                    "uuid": "4cd80d6f-0660-4863-9b81-cb565bbf881d"
                 }
             ],
             "severity": "warning",
@@ -917,7 +1101,7 @@
                         "x": 13.0,
                         "y": 70.0
                     },
-                    "uuid": "4e837efa-f243-4d8a-ab4f-eeb67056dcc9"
+                    "uuid": "71b8c85f-d027-4c11-b4df-0a365a368320"
                 }
             ],
             "severity": "warning",
@@ -932,7 +1116,7 @@
                         "x": 13.0,
                         "y": 77.0
                     },
-                    "uuid": "8e6032c6-1f09-413d-966d-9c4d0f0539dd"
+                    "uuid": "b0f6ab2c-09ff-4609-8d02-1a9dd3465227"
                 }
             ],
             "severity": "warning",
@@ -944,10 +1128,10 @@
                 {
                     "description": "Empreinte J1",
                     "pos": {
-                        "x": 187.0,
+                        "x": 167.0,
                         "y": 6.0
                     },
-                    "uuid": "e67133ef-9469-4c25-ac34-b3d7ed893029"
+                    "uuid": "4bb43e1f-1787-4f4d-a38b-3608f198336f"
                 }
             ],
             "severity": "warning",
@@ -959,10 +1143,10 @@
                 {
                     "description": "Empreinte F0",
                     "pos": {
-                        "x": 182.0,
+                        "x": 162.0,
                         "y": 15.0
                     },
-                    "uuid": "eb12f0de-bbda-44ad-8c69-3a3b0038c9ae"
+                    "uuid": "e87dca8d-162e-4739-b430-636ca3412293"
                 }
             ],
             "severity": "warning",
@@ -974,10 +1158,10 @@
                 {
                     "description": "Empreinte PS1",
                     "pos": {
-                        "x": 182.0,
+                        "x": 162.0,
                         "y": 27.0
                     },
-                    "uuid": "e7d78af8-de6f-4af4-a7a7-3eafb50e9c9b"
+                    "uuid": "dc6a99c7-c5f8-4b40-888d-102e05f62df2"
                 }
             ],
             "severity": "warning",
@@ -989,10 +1173,10 @@
                 {
                     "description": "Empreinte J2",
                     "pos": {
-                        "x": 187.0,
+                        "x": 167.0,
                         "y": 40.0
                     },
-                    "uuid": "55bce9f2-d9f7-4054-8517-643099eaa989"
+                    "uuid": "c3f20b2e-986c-447c-8b3f-be711b76cf78"
                 }
             ],
             "severity": "warning",
@@ -1004,10 +1188,10 @@
                 {
                     "description": "Empreinte J3",
                     "pos": {
-                        "x": 187.0,
+                        "x": 167.0,
                         "y": 50.0
                     },
-                    "uuid": "b0d2dc53-d1ab-43a2-a343-48d8cc353257"
+                    "uuid": "dd55286f-8b97-43fd-9f42-9fa7bad1ca9a"
                 }
             ],
             "severity": "warning",
@@ -1019,10 +1203,10 @@
                 {
                     "description": "Empreinte J4",
                     "pos": {
-                        "x": 187.0,
+                        "x": 167.0,
                         "y": 60.0
                     },
-                    "uuid": "84c19dcd-3acc-48e7-99d1-a6e6158dee20"
+                    "uuid": "b71f3ef5-5e4e-4b48-ae19-bdfcf18fd342"
                 }
             ],
             "severity": "warning",
@@ -1034,10 +1218,10 @@
                 {
                     "description": "Empreinte J5",
                     "pos": {
-                        "x": 187.0,
+                        "x": 167.0,
                         "y": 70.0
                     },
-                    "uuid": "91165e10-04f0-4578-b915-dd4a15b53cfc"
+                    "uuid": "07b85f58-0f74-4289-8396-7fbba1a6869f"
                 }
             ],
             "severity": "warning",
@@ -1052,7 +1236,7 @@
                         "x": 35.0,
                         "y": 6.0
                     },
-                    "uuid": "7ae8937b-23e4-4082-8595-630fcf211c88"
+                    "uuid": "c582af99-44c4-4128-b40a-c49e8d230d29"
                 }
             ],
             "severity": "warning",
@@ -1064,10 +1248,10 @@
                 {
                     "description": "Empreinte QZ1P",
                     "pos": {
-                        "x": 44.0,
+                        "x": 42.0,
                         "y": 6.0
                     },
-                    "uuid": "cec35c33-acbf-4e99-a1c3-eec7ef136c8b"
+                    "uuid": "778fa6e5-fc18-4636-ad6e-a7bfe87e0455"
                 }
             ],
             "severity": "warning",
@@ -1079,10 +1263,10 @@
                 {
                     "description": "Empreinte RLZ1P",
                     "pos": {
-                        "x": 53.0,
+                        "x": 49.0,
                         "y": 6.0
                     },
-                    "uuid": "aa3cb951-5531-4319-a7ac-117115b2fe83"
+                    "uuid": "44da0d9e-4212-4c7b-8284-d563abecf752"
                 }
             ],
             "severity": "warning",
@@ -1094,10 +1278,10 @@
                 {
                     "description": "Empreinte OCZ1P",
                     "pos": {
-                        "x": 62.0,
+                        "x": 57.0,
                         "y": 6.0
                     },
-                    "uuid": "6cb185e7-d32d-425a-ac5e-d712c280e688"
+                    "uuid": "ae437200-9e4b-4b41-897d-643b3fb821ad"
                 }
             ],
             "severity": "warning",
@@ -1109,10 +1293,10 @@
                 {
                     "description": "Empreinte RSZ1P",
                     "pos": {
-                        "x": 71.0,
+                        "x": 65.0,
                         "y": 6.0
                     },
-                    "uuid": "a4272231-3d26-45d2-ace7-0a16106a0c24"
+                    "uuid": "706e35d1-eccf-4094-ac00-6fbcb9404e92"
                 }
             ],
             "severity": "warning",
@@ -1124,10 +1308,10 @@
                 {
                     "description": "Empreinte FZ1P",
                     "pos": {
-                        "x": 80.0,
+                        "x": 72.0,
                         "y": 6.0
                     },
-                    "uuid": "0659f416-01ed-451d-8a4d-4cafa5e04401"
+                    "uuid": "a5323ac0-dd86-4323-8b70-7fcac176da48"
                 }
             ],
             "severity": "warning",
@@ -1139,10 +1323,10 @@
                 {
                     "description": "Empreinte DZ1P",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 6.0
                     },
-                    "uuid": "b0976f5c-728c-49d6-aa4b-6b370cff879a"
+                    "uuid": "2ed3457e-0122-484b-9eaa-52f4cd48b66d"
                 }
             ],
             "severity": "warning",
@@ -1157,7 +1341,7 @@
                         "x": 35.0,
                         "y": 17.0
                     },
-                    "uuid": "76f1cb79-f482-4e95-be98-cb0f2a920062"
+                    "uuid": "23d0db22-b393-44a9-b6a4-406db66a5f7d"
                 }
             ],
             "severity": "warning",
@@ -1169,10 +1353,10 @@
                 {
                     "description": "Empreinte QZ1N",
                     "pos": {
-                        "x": 44.0,
+                        "x": 42.0,
                         "y": 17.0
                     },
-                    "uuid": "86f58d07-62ef-4b6d-bcff-fe0b6600d332"
+                    "uuid": "5c4e53ef-6957-4a6b-a107-7d78cb4979bf"
                 }
             ],
             "severity": "warning",
@@ -1184,10 +1368,10 @@
                 {
                     "description": "Empreinte RLZ1N",
                     "pos": {
-                        "x": 53.0,
+                        "x": 49.0,
                         "y": 17.0
                     },
-                    "uuid": "0d30226c-b3fc-4aa5-8af8-69561fed273f"
+                    "uuid": "a3da27a8-aca6-4857-8c3f-969703a2b4bc"
                 }
             ],
             "severity": "warning",
@@ -1199,10 +1383,10 @@
                 {
                     "description": "Empreinte OCZ1N",
                     "pos": {
-                        "x": 62.0,
+                        "x": 57.0,
                         "y": 17.0
                     },
-                    "uuid": "6821a247-cede-4442-bbc2-e7a0cc760851"
+                    "uuid": "341d88fe-8168-49aa-8e94-63ded5277fcf"
                 }
             ],
             "severity": "warning",
@@ -1214,10 +1398,10 @@
                 {
                     "description": "Empreinte RSZ1N",
                     "pos": {
-                        "x": 71.0,
+                        "x": 65.0,
                         "y": 17.0
                     },
-                    "uuid": "d85babc5-2860-4fb0-90cc-0ae9335aba48"
+                    "uuid": "eeee22a6-93c0-462d-9a16-d110fc7c51c0"
                 }
             ],
             "severity": "warning",
@@ -1229,10 +1413,10 @@
                 {
                     "description": "Empreinte FZ1N",
                     "pos": {
-                        "x": 80.0,
+                        "x": 72.0,
                         "y": 17.0
                     },
-                    "uuid": "2a340340-f0b0-45f8-a62a-36ac87a19e7e"
+                    "uuid": "0fa787b3-832f-4223-a328-5bd3f6e2ac81"
                 }
             ],
             "severity": "warning",
@@ -1244,10 +1428,10 @@
                 {
                     "description": "Empreinte DZ1N",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 17.0
                     },
-                    "uuid": "86a8ff45-dd79-4fef-ada5-ae115cce33f7"
+                    "uuid": "9c6359a1-c7d4-48a9-8b8a-87d68037a6bb"
                 }
             ],
             "severity": "warning",
@@ -1262,7 +1446,7 @@
                         "x": 35.0,
                         "y": 27.0
                     },
-                    "uuid": "5ed7d0fe-2f95-4a5b-a322-0cb7bb8d4c25"
+                    "uuid": "11e96431-f5e7-4125-ba84-8b1ced96d31b"
                 }
             ],
             "severity": "warning",
@@ -1274,10 +1458,10 @@
                 {
                     "description": "Empreinte QZ2P",
                     "pos": {
-                        "x": 44.0,
+                        "x": 42.0,
                         "y": 27.0
                     },
-                    "uuid": "e00a0a66-a571-4e05-af98-194de680b12c"
+                    "uuid": "97f33831-e974-44ee-8b04-69d322390663"
                 }
             ],
             "severity": "warning",
@@ -1289,10 +1473,10 @@
                 {
                     "description": "Empreinte RLZ2P",
                     "pos": {
-                        "x": 53.0,
+                        "x": 49.0,
                         "y": 27.0
                     },
-                    "uuid": "e5b61f25-43fe-4c10-bb54-d933e0b0cc46"
+                    "uuid": "385fb6aa-e94c-434c-b6ff-083ecd774a4c"
                 }
             ],
             "severity": "warning",
@@ -1304,10 +1488,10 @@
                 {
                     "description": "Empreinte OCZ2P",
                     "pos": {
-                        "x": 62.0,
+                        "x": 57.0,
                         "y": 27.0
                     },
-                    "uuid": "bc78ed10-6f1e-465f-8325-ba11af10b223"
+                    "uuid": "398995fc-c2f5-487e-90fd-3708462bffaa"
                 }
             ],
             "severity": "warning",
@@ -1319,10 +1503,10 @@
                 {
                     "description": "Empreinte RSZ2P",
                     "pos": {
-                        "x": 71.0,
+                        "x": 65.0,
                         "y": 27.0
                     },
-                    "uuid": "d66f7e6b-c481-494d-b30b-695d66e552f5"
+                    "uuid": "0658c421-93bc-479a-9e8d-3f78b50747a5"
                 }
             ],
             "severity": "warning",
@@ -1334,10 +1518,10 @@
                 {
                     "description": "Empreinte FZ2P",
                     "pos": {
-                        "x": 80.0,
+                        "x": 72.0,
                         "y": 27.0
                     },
-                    "uuid": "532434f2-a9aa-4067-9664-97fc8ad1aba5"
+                    "uuid": "fdecbf3f-8aff-4f61-98b1-9baf6dda8678"
                 }
             ],
             "severity": "warning",
@@ -1349,10 +1533,10 @@
                 {
                     "description": "Empreinte DZ2P",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 27.0
                     },
-                    "uuid": "2d547386-9ab6-4029-9c48-8ea3cb1bda0d"
+                    "uuid": "18796fcc-dc78-4a4f-8e06-87e7e0a24bd6"
                 }
             ],
             "severity": "warning",
@@ -1367,7 +1551,7 @@
                         "x": 35.0,
                         "y": 38.0
                     },
-                    "uuid": "22271db8-f538-4029-ae8d-ed0db83b2726"
+                    "uuid": "bfb06c93-e38f-44c9-90fb-b90eec3c6e35"
                 }
             ],
             "severity": "warning",
@@ -1379,10 +1563,10 @@
                 {
                     "description": "Empreinte QZ2N",
                     "pos": {
-                        "x": 44.0,
+                        "x": 42.0,
                         "y": 38.0
                     },
-                    "uuid": "456d0fdf-f05e-46d5-8232-db85dfb7cc24"
+                    "uuid": "c005d013-195c-4e89-8502-69f527249985"
                 }
             ],
             "severity": "warning",
@@ -1394,10 +1578,10 @@
                 {
                     "description": "Empreinte RLZ2N",
                     "pos": {
-                        "x": 53.0,
+                        "x": 49.0,
                         "y": 38.0
                     },
-                    "uuid": "9afc63a0-9772-49e3-8c4b-addf51d7abdf"
+                    "uuid": "e09372ca-04eb-48e4-8966-f3a84421a59b"
                 }
             ],
             "severity": "warning",
@@ -1409,10 +1593,10 @@
                 {
                     "description": "Empreinte OCZ2N",
                     "pos": {
-                        "x": 62.0,
+                        "x": 57.0,
                         "y": 38.0
                     },
-                    "uuid": "fc78f527-a214-4546-bf11-b574d00dea56"
+                    "uuid": "5780bec8-d97d-44db-8ce3-f63292b39bfc"
                 }
             ],
             "severity": "warning",
@@ -1424,10 +1608,10 @@
                 {
                     "description": "Empreinte RSZ2N",
                     "pos": {
-                        "x": 71.0,
+                        "x": 65.0,
                         "y": 38.0
                     },
-                    "uuid": "5faeb79c-f175-48a9-9f66-74b69ffc1ee2"
+                    "uuid": "ead19ade-bc2e-4126-bd8b-5790c5c7783a"
                 }
             ],
             "severity": "warning",
@@ -1439,10 +1623,10 @@
                 {
                     "description": "Empreinte FZ2N",
                     "pos": {
-                        "x": 80.0,
+                        "x": 72.0,
                         "y": 38.0
                     },
-                    "uuid": "bc0dc190-ece4-4745-9fd4-968021b9728a"
+                    "uuid": "b1e53416-5fd0-4c23-b523-dcdb3dc08cc4"
                 }
             ],
             "severity": "warning",
@@ -1454,10 +1638,10 @@
                 {
                     "description": "Empreinte DZ2N",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 38.0
                     },
-                    "uuid": "6636630a-cb1f-48d2-bd30-f6a81fe19043"
+                    "uuid": "90bfcc86-155e-4956-9d0b-2d45a51e2af9"
                 }
             ],
             "severity": "warning",
@@ -1472,7 +1656,7 @@
                         "x": 35.0,
                         "y": 48.0
                     },
-                    "uuid": "86740497-8c71-4eb1-bebd-f7fb8cabb42c"
+                    "uuid": "f8858ed6-f1e1-48ee-ac10-24baf5546439"
                 }
             ],
             "severity": "warning",
@@ -1484,10 +1668,10 @@
                 {
                     "description": "Empreinte QZ3P",
                     "pos": {
-                        "x": 44.0,
+                        "x": 42.0,
                         "y": 48.0
                     },
-                    "uuid": "f709ac96-f2aa-4e90-bceb-cbc8b0f3978d"
+                    "uuid": "68152006-c4a0-4c99-b378-8183e6ae8273"
                 }
             ],
             "severity": "warning",
@@ -1499,10 +1683,10 @@
                 {
                     "description": "Empreinte RLZ3P",
                     "pos": {
-                        "x": 53.0,
+                        "x": 49.0,
                         "y": 48.0
                     },
-                    "uuid": "3d6d25fa-c5c6-4084-a4e0-a08c378f3618"
+                    "uuid": "1a13ad88-eb1d-4f27-883e-38c164db2742"
                 }
             ],
             "severity": "warning",
@@ -1514,10 +1698,10 @@
                 {
                     "description": "Empreinte OCZ3P",
                     "pos": {
-                        "x": 62.0,
+                        "x": 57.0,
                         "y": 48.0
                     },
-                    "uuid": "c28a7a2f-1817-4f0f-a8ec-61809b652f2d"
+                    "uuid": "5937a4ab-a8a4-4c31-bda2-b77dd7715c15"
                 }
             ],
             "severity": "warning",
@@ -1529,10 +1713,10 @@
                 {
                     "description": "Empreinte RSZ3P",
                     "pos": {
-                        "x": 71.0,
+                        "x": 65.0,
                         "y": 48.0
                     },
-                    "uuid": "91b90591-ca40-4c42-a1c4-6ab3d54fda39"
+                    "uuid": "49fe3767-0049-4de0-823e-607ceff6c543"
                 }
             ],
             "severity": "warning",
@@ -1544,10 +1728,10 @@
                 {
                     "description": "Empreinte FZ3P",
                     "pos": {
-                        "x": 80.0,
+                        "x": 72.0,
                         "y": 48.0
                     },
-                    "uuid": "3d336288-c7e8-4b74-8598-845c8f76a61e"
+                    "uuid": "426d764f-8cc0-45dc-9b39-37f5d376b807"
                 }
             ],
             "severity": "warning",
@@ -1559,10 +1743,10 @@
                 {
                     "description": "Empreinte DZ3P",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 48.0
                     },
-                    "uuid": "825ec5ad-2574-41fa-a185-124d1271e28f"
+                    "uuid": "6ae180d3-284e-401f-8efe-6bd81da56b6e"
                 }
             ],
             "severity": "warning",
@@ -1577,7 +1761,7 @@
                         "x": 35.0,
                         "y": 59.0
                     },
-                    "uuid": "08a4b86f-aa31-4296-a00d-6317bc8bd641"
+                    "uuid": "6b93e358-525a-449d-8bc5-834e56c6ea9d"
                 }
             ],
             "severity": "warning",
@@ -1589,10 +1773,10 @@
                 {
                     "description": "Empreinte QZ3N",
                     "pos": {
-                        "x": 44.0,
+                        "x": 42.0,
                         "y": 59.0
                     },
-                    "uuid": "c5110ca1-f0c2-4db9-bcac-5fd92c6761c5"
+                    "uuid": "d517102b-4769-4952-8472-322770686b1a"
                 }
             ],
             "severity": "warning",
@@ -1604,10 +1788,10 @@
                 {
                     "description": "Empreinte RLZ3N",
                     "pos": {
-                        "x": 53.0,
+                        "x": 49.0,
                         "y": 59.0
                     },
-                    "uuid": "ce15870a-3a25-4bde-afd7-5e0251515117"
+                    "uuid": "c21109ed-afc9-45ec-987d-617ea720148a"
                 }
             ],
             "severity": "warning",
@@ -1619,10 +1803,10 @@
                 {
                     "description": "Empreinte OCZ3N",
                     "pos": {
-                        "x": 62.0,
+                        "x": 57.0,
                         "y": 59.0
                     },
-                    "uuid": "086ea535-c270-4941-9276-a0045ece9090"
+                    "uuid": "1b96e02d-cb44-4daa-a8dc-ef0f8fb44bc8"
                 }
             ],
             "severity": "warning",
@@ -1634,10 +1818,10 @@
                 {
                     "description": "Empreinte RSZ3N",
                     "pos": {
-                        "x": 71.0,
+                        "x": 65.0,
                         "y": 59.0
                     },
-                    "uuid": "dbcd7054-d940-47f5-8939-ee4f4f4219bd"
+                    "uuid": "d811b6e9-ac68-44fa-b85a-dc197199eae7"
                 }
             ],
             "severity": "warning",
@@ -1649,10 +1833,10 @@
                 {
                     "description": "Empreinte FZ3N",
                     "pos": {
-                        "x": 80.0,
+                        "x": 72.0,
                         "y": 59.0
                     },
-                    "uuid": "4ac62e6b-b849-46e0-98a5-c496219d65b4"
+                    "uuid": "a713abbf-b0c1-4444-a981-6f488660d7a3"
                 }
             ],
             "severity": "warning",
@@ -1664,10 +1848,10 @@
                 {
                     "description": "Empreinte DZ3N",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 59.0
                     },
-                    "uuid": "25c8e307-eaf6-49c5-8115-d6ba2890f48f"
+                    "uuid": "bb3e15f2-1a9f-4a14-a835-5e0af1a5967c"
                 }
             ],
             "severity": "warning",
@@ -1682,7 +1866,7 @@
                         "x": 35.0,
                         "y": 69.0
                     },
-                    "uuid": "7f4f30b3-1894-4ba2-8c65-196fad638656"
+                    "uuid": "89feac56-b551-4657-958d-25729712ad3f"
                 }
             ],
             "severity": "warning",
@@ -1694,10 +1878,10 @@
                 {
                     "description": "Empreinte QZ4P",
                     "pos": {
-                        "x": 44.0,
+                        "x": 42.0,
                         "y": 69.0
                     },
-                    "uuid": "b85e1f06-83f6-4d56-96ac-9ec0aa40261c"
+                    "uuid": "76027a8d-1977-4b4f-ae1e-3eb56a1220a7"
                 }
             ],
             "severity": "warning",
@@ -1709,10 +1893,10 @@
                 {
                     "description": "Empreinte RLZ4P",
                     "pos": {
-                        "x": 53.0,
+                        "x": 49.0,
                         "y": 69.0
                     },
-                    "uuid": "a54de088-0145-47d5-a749-1bc6fc463d8f"
+                    "uuid": "ab7fa30d-de2a-4704-8aff-f67225a3356d"
                 }
             ],
             "severity": "warning",
@@ -1724,10 +1908,10 @@
                 {
                     "description": "Empreinte OCZ4P",
                     "pos": {
-                        "x": 62.0,
+                        "x": 57.0,
                         "y": 69.0
                     },
-                    "uuid": "2f3ff9ea-f0df-4974-abe3-9276ec4927c8"
+                    "uuid": "d21abb21-d740-4325-a4da-688d6110615e"
                 }
             ],
             "severity": "warning",
@@ -1739,10 +1923,10 @@
                 {
                     "description": "Empreinte RSZ4P",
                     "pos": {
-                        "x": 71.0,
+                        "x": 65.0,
                         "y": 69.0
                     },
-                    "uuid": "ce560cde-1405-4450-9924-be67ac5aebdd"
+                    "uuid": "34f67c67-57f3-4008-a56d-7135b605a73c"
                 }
             ],
             "severity": "warning",
@@ -1754,10 +1938,10 @@
                 {
                     "description": "Empreinte FZ4P",
                     "pos": {
-                        "x": 80.0,
+                        "x": 72.0,
                         "y": 69.0
                     },
-                    "uuid": "179ce71d-b5d5-4c4e-81e3-67eacf136237"
+                    "uuid": "059193af-a51b-4138-bee5-5de430650dbf"
                 }
             ],
             "severity": "warning",
@@ -1769,10 +1953,10 @@
                 {
                     "description": "Empreinte DZ4P",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 69.0
                     },
-                    "uuid": "dc5daa0a-bdc2-47cd-8b72-62f195f59570"
+                    "uuid": "6e2a8c4c-68d0-487c-96e8-fbb5072fe98b"
                 }
             ],
             "severity": "warning",
@@ -1787,7 +1971,7 @@
                         "x": 35.0,
                         "y": 80.0
                     },
-                    "uuid": "8c84e910-980b-496c-9585-e550a4d53a85"
+                    "uuid": "6900ab31-170d-42e7-9fa7-9402ead57318"
                 }
             ],
             "severity": "warning",
@@ -1799,10 +1983,10 @@
                 {
                     "description": "Empreinte QZ4N",
                     "pos": {
-                        "x": 44.0,
+                        "x": 42.0,
                         "y": 80.0
                     },
-                    "uuid": "00eec767-f10b-4917-841d-b654462a3aff"
+                    "uuid": "4bffa26b-ae6d-4159-8f20-76ef0b9f534f"
                 }
             ],
             "severity": "warning",
@@ -1814,10 +1998,10 @@
                 {
                     "description": "Empreinte RLZ4N",
                     "pos": {
-                        "x": 53.0,
+                        "x": 49.0,
                         "y": 80.0
                     },
-                    "uuid": "bdeee391-617d-428a-a9b8-0421a111ad2c"
+                    "uuid": "4993e91e-6bc8-496a-983b-717d85f28e29"
                 }
             ],
             "severity": "warning",
@@ -1829,10 +2013,10 @@
                 {
                     "description": "Empreinte OCZ4N",
                     "pos": {
-                        "x": 62.0,
+                        "x": 57.0,
                         "y": 80.0
                     },
-                    "uuid": "c62d2b9b-f405-4fe0-8b1c-3597dc4d56c8"
+                    "uuid": "ced90ce0-afd1-4759-b2ff-245560a7a25d"
                 }
             ],
             "severity": "warning",
@@ -1844,10 +2028,10 @@
                 {
                     "description": "Empreinte RSZ4N",
                     "pos": {
-                        "x": 71.0,
+                        "x": 65.0,
                         "y": 80.0
                     },
-                    "uuid": "f1010587-67ea-482f-9b13-f38b20f41879"
+                    "uuid": "a0b5771f-257a-4e6d-85bb-878edff71a45"
                 }
             ],
             "severity": "warning",
@@ -1859,10 +2043,10 @@
                 {
                     "description": "Empreinte FZ4N",
                     "pos": {
-                        "x": 80.0,
+                        "x": 72.0,
                         "y": 80.0
                     },
-                    "uuid": "e40b1f2d-9677-4a0a-af1c-d7747146c5a1"
+                    "uuid": "7a04ff4a-4544-4e38-8671-e9e180f60445"
                 }
             ],
             "severity": "warning",
@@ -1874,10 +2058,10 @@
                 {
                     "description": "Empreinte DZ4N",
                     "pos": {
-                        "x": 89.0,
+                        "x": 79.0,
                         "y": 80.0
                     },
-                    "uuid": "31e2fa45-ece7-4015-96b2-c98a1ac4aa84"
+                    "uuid": "8d41ac93-bd61-4c5a-9840-72ba8061c262"
                 }
             ],
             "severity": "warning",
@@ -1892,7 +2076,7 @@
                         "x": 100.0,
                         "y": 6.0
                     },
-                    "uuid": "f6664d31-18aa-48b6-97ef-3c84e5bee7f4"
+                    "uuid": "9a878ed8-1b4a-4816-90d2-b44337fae88b"
                 }
             ],
             "severity": "warning",
@@ -1904,10 +2088,10 @@
                 {
                     "description": "Empreinte QZ5P",
                     "pos": {
-                        "x": 109.0,
+                        "x": 107.0,
                         "y": 6.0
                     },
-                    "uuid": "cf2dc175-d2c3-4e50-ac59-276882ea5043"
+                    "uuid": "e22d0d3f-3794-44cb-aeeb-d9c920e3442d"
                 }
             ],
             "severity": "warning",
@@ -1919,10 +2103,10 @@
                 {
                     "description": "Empreinte RLZ5P",
                     "pos": {
-                        "x": 118.0,
+                        "x": 114.0,
                         "y": 6.0
                     },
-                    "uuid": "ea70cf30-e961-453a-a4be-521e98309707"
+                    "uuid": "348bd37c-972a-49d2-b9ef-2959b69d34b0"
                 }
             ],
             "severity": "warning",
@@ -1934,10 +2118,10 @@
                 {
                     "description": "Empreinte OCZ5P",
                     "pos": {
-                        "x": 127.0,
+                        "x": 122.0,
                         "y": 6.0
                     },
-                    "uuid": "87c0ffff-6b6e-4e84-875f-4b6a96ea6999"
+                    "uuid": "44e19b31-7764-414a-9bdc-df6f6d9cf3e7"
                 }
             ],
             "severity": "warning",
@@ -1949,10 +2133,10 @@
                 {
                     "description": "Empreinte RSZ5P",
                     "pos": {
-                        "x": 136.0,
+                        "x": 130.0,
                         "y": 6.0
                     },
-                    "uuid": "55aa5511-b79d-41ba-bb60-76bb771fdaf0"
+                    "uuid": "2f16c722-836e-41b8-871c-978fa61076b2"
                 }
             ],
             "severity": "warning",
@@ -1964,10 +2148,10 @@
                 {
                     "description": "Empreinte FZ5P",
                     "pos": {
-                        "x": 145.0,
+                        "x": 137.0,
                         "y": 6.0
                     },
-                    "uuid": "5e467ed3-7dc9-4036-a029-ad796c1f1bcc"
+                    "uuid": "891eff19-339c-43ea-8265-df3c1fe4b97d"
                 }
             ],
             "severity": "warning",
@@ -1979,10 +2163,10 @@
                 {
                     "description": "Empreinte DZ5P",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 6.0
                     },
-                    "uuid": "60567ae6-6922-4ba9-816e-59efbfca35fd"
+                    "uuid": "47398f1b-e6bb-41a4-8787-4caab992b951"
                 }
             ],
             "severity": "warning",
@@ -1997,7 +2181,7 @@
                         "x": 100.0,
                         "y": 17.0
                     },
-                    "uuid": "936b46e8-83e0-4657-bc81-83bfbfec0260"
+                    "uuid": "8d2bf42d-3129-4c12-b43f-4215186f0da6"
                 }
             ],
             "severity": "warning",
@@ -2009,10 +2193,10 @@
                 {
                     "description": "Empreinte QZ5N",
                     "pos": {
-                        "x": 109.0,
+                        "x": 107.0,
                         "y": 17.0
                     },
-                    "uuid": "ee96e162-98fd-4161-8318-dc33a37a72aa"
+                    "uuid": "c96de3df-9b5f-4c66-983c-58836bb4f3d9"
                 }
             ],
             "severity": "warning",
@@ -2024,10 +2208,10 @@
                 {
                     "description": "Empreinte RLZ5N",
                     "pos": {
-                        "x": 118.0,
+                        "x": 114.0,
                         "y": 17.0
                     },
-                    "uuid": "2c3200f4-92cd-4354-a3e8-7fe67bedb957"
+                    "uuid": "fe465020-27cd-4584-9402-edf99404b841"
                 }
             ],
             "severity": "warning",
@@ -2039,10 +2223,10 @@
                 {
                     "description": "Empreinte OCZ5N",
                     "pos": {
-                        "x": 127.0,
+                        "x": 122.0,
                         "y": 17.0
                     },
-                    "uuid": "243310fd-6242-4c2a-a4b9-26a7a7bd6b8b"
+                    "uuid": "6b4b38d8-5073-4e60-8861-e18137d3b382"
                 }
             ],
             "severity": "warning",
@@ -2054,10 +2238,10 @@
                 {
                     "description": "Empreinte RSZ5N",
                     "pos": {
-                        "x": 136.0,
+                        "x": 130.0,
                         "y": 17.0
                     },
-                    "uuid": "9b8ef212-b879-4669-a6f9-e1bfa9caf635"
+                    "uuid": "5a1d7be5-91a3-43dc-be40-8efee9957393"
                 }
             ],
             "severity": "warning",
@@ -2069,10 +2253,10 @@
                 {
                     "description": "Empreinte FZ5N",
                     "pos": {
-                        "x": 145.0,
+                        "x": 137.0,
                         "y": 17.0
                     },
-                    "uuid": "72b698bf-c27d-4292-b0e4-4f21d7b0118c"
+                    "uuid": "4d36d244-3779-431a-af32-94d8373dafff"
                 }
             ],
             "severity": "warning",
@@ -2084,10 +2268,10 @@
                 {
                     "description": "Empreinte DZ5N",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 17.0
                     },
-                    "uuid": "61a35870-cd43-49e8-953d-aecfeb173740"
+                    "uuid": "725135b9-6f12-4157-bfc8-36e4cd214783"
                 }
             ],
             "severity": "warning",
@@ -2102,7 +2286,7 @@
                         "x": 100.0,
                         "y": 27.0
                     },
-                    "uuid": "851e705c-dfdd-408b-9780-15db36a3ed5d"
+                    "uuid": "7333bf95-b71e-4910-b890-f5437a3f0aa3"
                 }
             ],
             "severity": "warning",
@@ -2114,10 +2298,10 @@
                 {
                     "description": "Empreinte QZ6P",
                     "pos": {
-                        "x": 109.0,
+                        "x": 107.0,
                         "y": 27.0
                     },
-                    "uuid": "99367e4a-1c43-40ce-be21-050d49265373"
+                    "uuid": "b3ca88bf-e1bc-488e-aa26-d059bae5ea6d"
                 }
             ],
             "severity": "warning",
@@ -2129,10 +2313,10 @@
                 {
                     "description": "Empreinte RLZ6P",
                     "pos": {
-                        "x": 118.0,
+                        "x": 114.0,
                         "y": 27.0
                     },
-                    "uuid": "b003ed9c-5838-499d-ba9d-7b58fab78ed3"
+                    "uuid": "59c7e0ef-3885-4717-a0db-415306f627cf"
                 }
             ],
             "severity": "warning",
@@ -2144,10 +2328,10 @@
                 {
                     "description": "Empreinte OCZ6P",
                     "pos": {
-                        "x": 127.0,
+                        "x": 122.0,
                         "y": 27.0
                     },
-                    "uuid": "7cf48da0-08da-4f79-be60-75983c6a4ac5"
+                    "uuid": "3d3530b0-498e-4c0e-8667-59d78dd8270e"
                 }
             ],
             "severity": "warning",
@@ -2159,10 +2343,10 @@
                 {
                     "description": "Empreinte RSZ6P",
                     "pos": {
-                        "x": 136.0,
+                        "x": 130.0,
                         "y": 27.0
                     },
-                    "uuid": "229cb782-8c48-41a0-83aa-184619864efb"
+                    "uuid": "329c4639-480a-471e-a537-115a41e6cc25"
                 }
             ],
             "severity": "warning",
@@ -2174,10 +2358,10 @@
                 {
                     "description": "Empreinte FZ6P",
                     "pos": {
-                        "x": 145.0,
+                        "x": 137.0,
                         "y": 27.0
                     },
-                    "uuid": "00ec6818-0f54-4f68-b41e-446368fe55b4"
+                    "uuid": "f9fd1e4d-3fae-40ab-8997-e882314ca842"
                 }
             ],
             "severity": "warning",
@@ -2189,10 +2373,10 @@
                 {
                     "description": "Empreinte DZ6P",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 27.0
                     },
-                    "uuid": "c0c37be5-da3b-4307-a3be-f9a8cb6d3275"
+                    "uuid": "b302ad9b-ef64-4f43-8f89-c4975b219406"
                 }
             ],
             "severity": "warning",
@@ -2207,7 +2391,7 @@
                         "x": 100.0,
                         "y": 38.0
                     },
-                    "uuid": "74b9f2ef-3433-4876-9992-d3aa2d65acc4"
+                    "uuid": "2465dd91-791e-44fb-9afa-8ddebbd801e6"
                 }
             ],
             "severity": "warning",
@@ -2219,10 +2403,10 @@
                 {
                     "description": "Empreinte QZ6N",
                     "pos": {
-                        "x": 109.0,
+                        "x": 107.0,
                         "y": 38.0
                     },
-                    "uuid": "a5687ec0-f8cd-495e-9db8-8e1fe33ec3e9"
+                    "uuid": "0398d0fc-5db5-4a83-9263-116303b1a419"
                 }
             ],
             "severity": "warning",
@@ -2234,10 +2418,10 @@
                 {
                     "description": "Empreinte RLZ6N",
                     "pos": {
-                        "x": 118.0,
+                        "x": 114.0,
                         "y": 38.0
                     },
-                    "uuid": "86d22aa4-7111-4f36-ae6f-5e613e39a28c"
+                    "uuid": "7c1e2afa-31b1-4241-8842-93bfffe31f6a"
                 }
             ],
             "severity": "warning",
@@ -2249,10 +2433,10 @@
                 {
                     "description": "Empreinte OCZ6N",
                     "pos": {
-                        "x": 127.0,
+                        "x": 122.0,
                         "y": 38.0
                     },
-                    "uuid": "f00a3506-7d2d-4c9a-9d0a-85166ba93d9c"
+                    "uuid": "9544ef6b-daa7-4802-b0c9-124c81857ffc"
                 }
             ],
             "severity": "warning",
@@ -2264,10 +2448,10 @@
                 {
                     "description": "Empreinte RSZ6N",
                     "pos": {
-                        "x": 136.0,
+                        "x": 130.0,
                         "y": 38.0
                     },
-                    "uuid": "a1ee4ba0-38c3-4448-bd4e-6863e7471844"
+                    "uuid": "e8c38954-60c5-4ae1-ac3e-fc903737f1ce"
                 }
             ],
             "severity": "warning",
@@ -2279,10 +2463,10 @@
                 {
                     "description": "Empreinte FZ6N",
                     "pos": {
-                        "x": 145.0,
+                        "x": 137.0,
                         "y": 38.0
                     },
-                    "uuid": "3905c4d0-2d71-4b33-bd72-4ca6f3def1d4"
+                    "uuid": "6acd4805-91a6-46b3-ba7c-83354cc66753"
                 }
             ],
             "severity": "warning",
@@ -2294,10 +2478,10 @@
                 {
                     "description": "Empreinte DZ6N",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 38.0
                     },
-                    "uuid": "4676f9b3-5e23-4ac6-aa20-0b182ff926de"
+                    "uuid": "77a73af0-bf3e-47e2-89d9-38a050242ce7"
                 }
             ],
             "severity": "warning",
@@ -2312,7 +2496,7 @@
                         "x": 100.0,
                         "y": 48.0
                     },
-                    "uuid": "4595f4db-ffd1-482e-a6a7-052adb3378b4"
+                    "uuid": "011e8f9e-ed61-4fad-8280-d6d46132c449"
                 }
             ],
             "severity": "warning",
@@ -2324,10 +2508,10 @@
                 {
                     "description": "Empreinte QZ7P",
                     "pos": {
-                        "x": 109.0,
+                        "x": 107.0,
                         "y": 48.0
                     },
-                    "uuid": "57ac924e-d29f-459f-a3cf-f6f74244debf"
+                    "uuid": "671f06bf-5c0f-407f-9d63-710fb8d2e4fe"
                 }
             ],
             "severity": "warning",
@@ -2339,10 +2523,10 @@
                 {
                     "description": "Empreinte RLZ7P",
                     "pos": {
-                        "x": 118.0,
+                        "x": 114.0,
                         "y": 48.0
                     },
-                    "uuid": "5aea11b9-039f-4b03-8b17-37d55babe719"
+                    "uuid": "1644b1e6-33c5-416b-9f3f-101c39e2b68e"
                 }
             ],
             "severity": "warning",
@@ -2354,10 +2538,10 @@
                 {
                     "description": "Empreinte OCZ7P",
                     "pos": {
-                        "x": 127.0,
+                        "x": 122.0,
                         "y": 48.0
                     },
-                    "uuid": "cd1e5574-5056-4529-ba7c-b41d64dddca5"
+                    "uuid": "c1af558f-d854-4e11-906d-687124ffda9e"
                 }
             ],
             "severity": "warning",
@@ -2369,10 +2553,10 @@
                 {
                     "description": "Empreinte RSZ7P",
                     "pos": {
-                        "x": 136.0,
+                        "x": 130.0,
                         "y": 48.0
                     },
-                    "uuid": "56bbd88e-b401-4ee1-94c8-3b5a76e6c076"
+                    "uuid": "405ca91b-d3f5-4d86-9dd9-8fc244bb42ad"
                 }
             ],
             "severity": "warning",
@@ -2384,10 +2568,10 @@
                 {
                     "description": "Empreinte FZ7P",
                     "pos": {
-                        "x": 145.0,
+                        "x": 137.0,
                         "y": 48.0
                     },
-                    "uuid": "85c21b01-728f-4bf9-b651-cd1ca366f5b5"
+                    "uuid": "47932e4f-c9c4-40ed-bd5b-3d529faa50b6"
                 }
             ],
             "severity": "warning",
@@ -2399,10 +2583,10 @@
                 {
                     "description": "Empreinte DZ7P",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 48.0
                     },
-                    "uuid": "0e94426f-806a-4576-b094-cd75720995c3"
+                    "uuid": "b66acedd-3ff9-48d5-8ecc-9a304836adbd"
                 }
             ],
             "severity": "warning",
@@ -2417,7 +2601,7 @@
                         "x": 100.0,
                         "y": 59.0
                     },
-                    "uuid": "2d245979-53c1-4ce5-ac08-608a5e64d999"
+                    "uuid": "91ed7a09-69d2-4466-b60d-754ffb06afdc"
                 }
             ],
             "severity": "warning",
@@ -2429,10 +2613,10 @@
                 {
                     "description": "Empreinte QZ7N",
                     "pos": {
-                        "x": 109.0,
+                        "x": 107.0,
                         "y": 59.0
                     },
-                    "uuid": "6823404b-34be-4ce3-be9f-09d494d918f3"
+                    "uuid": "565eb0ec-33bf-4b3c-b89b-e2516c693d7e"
                 }
             ],
             "severity": "warning",
@@ -2444,10 +2628,10 @@
                 {
                     "description": "Empreinte RLZ7N",
                     "pos": {
-                        "x": 118.0,
+                        "x": 114.0,
                         "y": 59.0
                     },
-                    "uuid": "1dc7fc6e-e79c-4dae-a361-f9c5107df4da"
+                    "uuid": "b9adb126-b8a4-48e4-b8f0-d083267e6f88"
                 }
             ],
             "severity": "warning",
@@ -2459,10 +2643,10 @@
                 {
                     "description": "Empreinte OCZ7N",
                     "pos": {
-                        "x": 127.0,
+                        "x": 122.0,
                         "y": 59.0
                     },
-                    "uuid": "888093cf-84ad-414e-afc4-a1f1f2096edb"
+                    "uuid": "9180c6e7-0b0a-4d24-b833-540de662505d"
                 }
             ],
             "severity": "warning",
@@ -2474,10 +2658,10 @@
                 {
                     "description": "Empreinte RSZ7N",
                     "pos": {
-                        "x": 136.0,
+                        "x": 130.0,
                         "y": 59.0
                     },
-                    "uuid": "00b562ee-6d0f-46ee-9103-5ffed4bc5878"
+                    "uuid": "c2a29464-70ab-4044-8991-c10f3937ba34"
                 }
             ],
             "severity": "warning",
@@ -2489,10 +2673,10 @@
                 {
                     "description": "Empreinte FZ7N",
                     "pos": {
-                        "x": 145.0,
+                        "x": 137.0,
                         "y": 59.0
                     },
-                    "uuid": "70172722-fd7f-46fb-b56d-a0687af3d497"
+                    "uuid": "3782bf72-94b9-4804-aace-cd439190e2d1"
                 }
             ],
             "severity": "warning",
@@ -2504,10 +2688,10 @@
                 {
                     "description": "Empreinte DZ7N",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 59.0
                     },
-                    "uuid": "88a50ebc-3324-4038-8508-17ea0333d5eb"
+                    "uuid": "84a7c73d-ce40-4b3b-ac10-39fec0ff866a"
                 }
             ],
             "severity": "warning",
@@ -2522,7 +2706,7 @@
                         "x": 100.0,
                         "y": 69.0
                     },
-                    "uuid": "c3710923-c173-474d-8dc7-6d856cb94879"
+                    "uuid": "9c47e0c2-f9a6-4e2d-ad53-822721e5c56d"
                 }
             ],
             "severity": "warning",
@@ -2534,10 +2718,10 @@
                 {
                     "description": "Empreinte QZ8P",
                     "pos": {
-                        "x": 109.0,
+                        "x": 107.0,
                         "y": 69.0
                     },
-                    "uuid": "ed8f20f6-e47d-4162-9fda-9dd74910c4bd"
+                    "uuid": "7000a913-7ebf-4441-a890-9d6d75abfc40"
                 }
             ],
             "severity": "warning",
@@ -2549,10 +2733,10 @@
                 {
                     "description": "Empreinte RLZ8P",
                     "pos": {
-                        "x": 118.0,
+                        "x": 114.0,
                         "y": 69.0
                     },
-                    "uuid": "5f4778c5-8b31-4a5f-996c-5eeb942aec8d"
+                    "uuid": "2bac79ef-bad1-4c8b-b917-f8b3228c8438"
                 }
             ],
             "severity": "warning",
@@ -2564,10 +2748,10 @@
                 {
                     "description": "Empreinte OCZ8P",
                     "pos": {
-                        "x": 127.0,
+                        "x": 122.0,
                         "y": 69.0
                     },
-                    "uuid": "cdefc027-83c0-4b59-b6e5-561d86eceab9"
+                    "uuid": "8cdd43e2-c5a9-4abd-b377-762b70886cc9"
                 }
             ],
             "severity": "warning",
@@ -2579,10 +2763,10 @@
                 {
                     "description": "Empreinte RSZ8P",
                     "pos": {
-                        "x": 136.0,
+                        "x": 130.0,
                         "y": 69.0
                     },
-                    "uuid": "6580fcb5-3118-4ea3-865e-bff7ba7b6e46"
+                    "uuid": "0e8eedda-bf4e-4e0e-bba5-0e405b7b61db"
                 }
             ],
             "severity": "warning",
@@ -2594,10 +2778,10 @@
                 {
                     "description": "Empreinte FZ8P",
                     "pos": {
-                        "x": 145.0,
+                        "x": 137.0,
                         "y": 69.0
                     },
-                    "uuid": "7c596aa1-d760-4f2b-a541-dacf239c73d6"
+                    "uuid": "789339e4-579f-418b-a367-6f7cefc5a09d"
                 }
             ],
             "severity": "warning",
@@ -2609,10 +2793,10 @@
                 {
                     "description": "Empreinte DZ8P",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 69.0
                     },
-                    "uuid": "4b2fc419-3166-46c0-ba55-cdcf79fe4b48"
+                    "uuid": "2385ceec-e288-4a4b-ac97-b90e8ef324fa"
                 }
             ],
             "severity": "warning",
@@ -2627,7 +2811,7 @@
                         "x": 100.0,
                         "y": 80.0
                     },
-                    "uuid": "760e9c90-6bc7-4f51-a3a7-b6f87d7f8acc"
+                    "uuid": "1d4f5e9b-33ff-4cba-890d-20085bc2f8cc"
                 }
             ],
             "severity": "warning",
@@ -2639,10 +2823,10 @@
                 {
                     "description": "Empreinte QZ8N",
                     "pos": {
-                        "x": 109.0,
+                        "x": 107.0,
                         "y": 80.0
                     },
-                    "uuid": "4e065304-3f3c-4450-a785-57470b02c2c6"
+                    "uuid": "3351c14e-0c3b-48c7-8b9d-5378def085cc"
                 }
             ],
             "severity": "warning",
@@ -2654,10 +2838,10 @@
                 {
                     "description": "Empreinte RLZ8N",
                     "pos": {
-                        "x": 118.0,
+                        "x": 114.0,
                         "y": 80.0
                     },
-                    "uuid": "7abc8224-55f8-48e4-9c4d-9c15b6074c5a"
+                    "uuid": "1701b32b-926d-4efd-be5c-57a24266d600"
                 }
             ],
             "severity": "warning",
@@ -2669,10 +2853,10 @@
                 {
                     "description": "Empreinte OCZ8N",
                     "pos": {
-                        "x": 127.0,
+                        "x": 122.0,
                         "y": 80.0
                     },
-                    "uuid": "c8f5a452-15cc-4430-8063-a1ea9abba81a"
+                    "uuid": "17257605-3627-4fd0-9cf6-5c9c62442796"
                 }
             ],
             "severity": "warning",
@@ -2684,10 +2868,10 @@
                 {
                     "description": "Empreinte RSZ8N",
                     "pos": {
-                        "x": 136.0,
+                        "x": 130.0,
                         "y": 80.0
                     },
-                    "uuid": "bc97b717-5d3e-43c7-a22e-7f74af9fd99f"
+                    "uuid": "47752b42-c49a-4dfb-8fd0-7d8ca8249992"
                 }
             ],
             "severity": "warning",
@@ -2699,10 +2883,10 @@
                 {
                     "description": "Empreinte FZ8N",
                     "pos": {
-                        "x": 145.0,
+                        "x": 137.0,
                         "y": 80.0
                     },
-                    "uuid": "238bcd6a-4dc4-47b7-9ff6-2f816d76f659"
+                    "uuid": "eb731e33-9a9a-4c2d-8160-a0f2282d899d"
                 }
             ],
             "severity": "warning",
@@ -2714,382 +2898,14 @@
                 {
                     "description": "Empreinte DZ8N",
                     "pos": {
-                        "x": 154.0,
+                        "x": 144.0,
                         "y": 80.0
                     },
-                    "uuid": "eff04496-f3e2-4670-aac4-c0cf431aa5e0"
+                    "uuid": "dd855264-32b4-46bd-8ddc-a3e380459c88"
                 }
             ],
             "severity": "warning",
             "type": "lib_footprint_issues"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ2N",
-                    "pos": {
-                        "x": 67.0,
-                        "y": 38.0
-                    },
-                    "uuid": "821d0872-4898-41b9-99c8-25ff48159f8b"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ2N",
-                    "pos": {
-                        "x": 65.81,
-                        "y": 38.0
-                    },
-                    "uuid": "002f6c30-3770-43a3-b26f-b9ef855cbf23"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ3P",
-                    "pos": {
-                        "x": 67.0,
-                        "y": 48.0
-                    },
-                    "uuid": "3a534491-2fe9-4064-8f53-bcf0ed19659c"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ3P",
-                    "pos": {
-                        "x": 65.81,
-                        "y": 48.0
-                    },
-                    "uuid": "defa55bf-2c75-4a15-8c57-21288cc08a33"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ3N",
-                    "pos": {
-                        "x": 67.0,
-                        "y": 59.0
-                    },
-                    "uuid": "4d05dc9e-e17e-4edc-9454-aaf29d9eb118"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ3N",
-                    "pos": {
-                        "x": 65.81,
-                        "y": 59.0
-                    },
-                    "uuid": "2a14dff3-dd69-4f72-b7ed-37f7b8a6fe6f"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ4P",
-                    "pos": {
-                        "x": 67.0,
-                        "y": 69.0
-                    },
-                    "uuid": "224af1b9-ea64-4b36-81c8-12ce08ce7b49"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ4P",
-                    "pos": {
-                        "x": 65.81,
-                        "y": 69.0
-                    },
-                    "uuid": "e6a46acb-4ad3-48c5-a212-20398c0295ca"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ4N",
-                    "pos": {
-                        "x": 67.0,
-                        "y": 80.0
-                    },
-                    "uuid": "d35d3b2a-e38e-4dfa-9f98-ff353c397fcc"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ4N",
-                    "pos": {
-                        "x": 65.81,
-                        "y": 80.0
-                    },
-                    "uuid": "fdb89530-a53d-4be9-af05-3dec0220d190"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ5P",
-                    "pos": {
-                        "x": 132.0,
-                        "y": 6.0
-                    },
-                    "uuid": "617d3e6a-4e40-4ccb-8295-44bc392988c5"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ5P",
-                    "pos": {
-                        "x": 130.81,
-                        "y": 6.0
-                    },
-                    "uuid": "b1c746dc-9bdc-42f4-9531-b02b9ac7f44f"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ6P",
-                    "pos": {
-                        "x": 132.0,
-                        "y": 27.0
-                    },
-                    "uuid": "b7a04614-3b31-4114-ba72-2c88e39dcfc4"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ6P",
-                    "pos": {
-                        "x": 130.81,
-                        "y": 27.0
-                    },
-                    "uuid": "497dee8b-2309-47d4-9db3-a735d3ac9476"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ6N",
-                    "pos": {
-                        "x": 132.0,
-                        "y": 38.0
-                    },
-                    "uuid": "1c11dc61-9fc4-4c5c-83d1-516e09acec80"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ6N",
-                    "pos": {
-                        "x": 130.81,
-                        "y": 38.0
-                    },
-                    "uuid": "72b42828-e923-48bf-9e1c-a4640ac0e84a"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ7N",
-                    "pos": {
-                        "x": 132.0,
-                        "y": 59.0
-                    },
-                    "uuid": "4246dd47-f00a-440b-b6f6-8e6b1c6c12a3"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ7N",
-                    "pos": {
-                        "x": 130.81,
-                        "y": 59.0
-                    },
-                    "uuid": "d2a6d623-63d8-451f-8283-69bc8afaa17a"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ8P",
-                    "pos": {
-                        "x": 132.0,
-                        "y": 69.0
-                    },
-                    "uuid": "fd78fb43-8ca6-49eb-9a60-05dc1acf7460"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ8P",
-                    "pos": {
-                        "x": 130.81,
-                        "y": 69.0
-                    },
-                    "uuid": "89c9de01-a027-4ee2-a4c7-ce061f7b2f2f"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ8N",
-                    "pos": {
-                        "x": 132.0,
-                        "y": 80.0
-                    },
-                    "uuid": "601a4804-539d-46f5-b408-b55786484b57"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ8N",
-                    "pos": {
-                        "x": 130.81,
-                        "y": 80.0
-                    },
-                    "uuid": "db0d2f69-e4a9-438f-a42c-194a93e6a9e3"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ1P",
-                    "pos": {
-                        "x": 67.0,
-                        "y": 6.0
-                    },
-                    "uuid": "45a7555c-f6d5-459a-aeb8-08f867582693"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ1P",
-                    "pos": {
-                        "x": 65.81,
-                        "y": 6.0
-                    },
-                    "uuid": "011f5902-8408-4735-b74a-aaea10bf6da3"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ1N",
-                    "pos": {
-                        "x": 67.0,
-                        "y": 17.0
-                    },
-                    "uuid": "f0cc3fed-3fcc-43db-8e5e-b63f13769047"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ1N",
-                    "pos": {
-                        "x": 65.81,
-                        "y": 17.0
-                    },
-                    "uuid": "aeb1cee7-1402-46cd-bbb5-8183ab8768a2"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ2P",
-                    "pos": {
-                        "x": 67.0,
-                        "y": 27.0
-                    },
-                    "uuid": "228f32c4-5489-4ec1-9b3a-efe740934a29"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ2P",
-                    "pos": {
-                        "x": 65.81,
-                        "y": 27.0
-                    },
-                    "uuid": "f93fc4c7-1114-42ff-82d4-c6fa5194ba39"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ5N",
-                    "pos": {
-                        "x": 132.0,
-                        "y": 17.0
-                    },
-                    "uuid": "a641deb8-d9a5-4aea-b872-abc15735f453"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ5N",
-                    "pos": {
-                        "x": 130.81,
-                        "y": 17.0
-                    },
-                    "uuid": "c5d5ed79-46e9-4a12-a650-d838b7188207"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Champ référence de RSZ7P",
-                    "pos": {
-                        "x": 132.0,
-                        "y": 48.0
-                    },
-                    "uuid": "4cde7667-87d4-4d44-a565-44793e2d4166"
-                },
-                {
-                    "description": "Pad métallisé 5 [<no net>] de OCZ7P",
-                    "pos": {
-                        "x": 130.81,
-                        "y": 48.0
-                    },
-                    "uuid": "b4e64659-b1a7-440a-bb38-79916ecf071b"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
         }
     ]
 }
