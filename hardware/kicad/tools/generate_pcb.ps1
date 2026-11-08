@@ -60,18 +60,43 @@ class MinHeap {
 # Carte recompactee a 192 x 85 mm (sous les 86,5mm utilisables, marge ~1,5mm) pour tenir en
 # carte unique plutot qu'un empilement de 2 PCB. Toujours indicatif tant que la reference
 # exacte n'est pas commandee (voir docs/04).
-# Longueur reduite 192->176mm puis 176->167mm (2026-11-08) : pas de canal resserre
-# ($gapThin/$gapOC) + colonne secteur/FP rapprochee, puis vide central entre les 2 colonnes de
-# canaux resserre (zoneRightX0, voir plus bas) - tout demande directement par l'utilisateur. Un
-# resserrement plus agressif du PAS (155mm) a ete teste et abandonne : 0 erreur DRC mais 67 straps
-# a souder au lieu de 34 (quasiment le double) - compromis juge trop couteux, pas retente ici
-# (ce resserrement-ci ne touche que l'ESPACEMENT ENTRE colonnes, pas le pas interne des canaux,
-# donc pas le meme risque sur le routage). BOARD_H inchangee : fixee par la section EXTERNE fixe
-# du boitier CNMB (90mm quel que soit le nombre de modules), pas reductible par ce genre de
-# compaction du PCB - seule la longueur (nombre de modules) en beneficie. Un board a 167mm reste a
-# reconfirmer aupres du fabricant (modele CNMB exact) avant commande, meme demarche que pour le
-# CNMB/12 initial (voir docs/04).
-$BOARD_W = 167.0
+# Longueur reduite 192->176->167->154mm (2026-11-08) : pas de canal resserre ($gapThin/$gapOC) +
+# colonne secteur/FP rapprochee, puis vide central entre les 2 colonnes de canaux resserre
+# (zoneRightX0), puis re-resserrement des 3 vides inter-colonnes (JWS/zone gauche, centre,
+# zone droite/secteur) pour rentrer sous la limite CNMB/9 (156mm utiles, voir ci-dessous) - tout
+# demande directement par l'utilisateur. Un resserrement plus agressif du PAS (155mm, via
+# $gapThin/$gapOC) a ete teste et abandonne : 0 erreur DRC mais 67 straps a souder au lieu de 34
+# (quasiment le double) - compromis juge trop couteux. Le resserrement a 154mm NE touche PAS
+# $gapThin/$gapOC (pas interne des canaux, cause du cout en straps ci-dessus), seulement les vides
+# ENTRE colonnes - risque different : le pathfinder applique deja la meme regle de securite au
+# routage qu'au DRC final (Get-ObstacleBuffer), donc un vide trop juste pour une piste donnee se
+# traduit par un strap de plus, pas par une violation DRC. BOARD_H inchangee : fixee par la
+# section EXTERNE fixe du boitier CNMB (90mm quel que soit le nombre de modules), pas reductible
+# par ce genre de compaction du PCB - seule la longueur (nombre de modules) en beneficie.
+#
+# Correction d'implantation E/S (2026-11-08, demande utilisateur) : d'apres le datasheet reel du
+# boitier CNMB, les decoupes de cablage (accessoires guide-fils/TGRJ45 etc.) n'existent qu'aux 2
+# extremites OPPOSEES de l'axe qui scale avec le nombre de modules (notre axe X / BOARD_W), jamais
+# sur les 2 grands cotes fixes (notre axe Y / BOARD_H, section 86,5mm fixe quel que soit le
+# modele). J1/J2-J5 (sortent vers +X, bord droit) sont deja sur un cote valide. Le module Waveshare
+# (JWS), lui, a son connecteur RJ45 regroupe avec l'USB-C a UNE SEULE extremite courte du module
+# (72,8 x 21mm, confirme par le schema de cotes officiel Waveshare) - extremite qui, avec JWS
+# monte a la verticale (rot=0, axe long du module sur Y) comme actuellement, sort vers le bord
+# HAUT (Y=0) de la carte : un cote FIXE du boitier, sans decoupe standard. Tourner JWS de 90 pour
+# faire sortir le RJ45 vers un bord valide (X=0 ou X=BOARD_W) couterait les 72,8mm de longueur du
+# module directement sur la largeur de carte - incompatible avec un objectif CNMB/9 (ni meme
+# CNMB/12 une fois les colonnes de canaux comptees a cote). Solution retenue avec l'utilisateur :
+# JWS reste monte tel quel (compact, 21mm de large) ; le port RJ45 du module est relie par un
+# court cordon Ethernet interne a une prise RJ45 panel-mount fixee sur le bord GAUCHE (X=0,
+# oppose a J1-J5) - donc AUCUNE piste cuivre ni empreinte supplementaire a generer ici, c'est une
+# liaison par cable, pas par circuit imprime (voir docs/04 pour le detail mecanique). Le port
+# USB-C du module reste utilise uniquement en interne (programmation avant fermeture du boitier).
+#
+# CNMB/9 : longueur de PCB utilisable reelle 156mm (datasheet officiel CamdenBoss, confirme
+# 2026-11-08 - la gamme CNMB n'a que les tailles /6,/9,/12 utiles ici, pas de /8/10/11). 154mm
+# laisse 2mm de marge. A reconfirmer aupres du fabricant (modele CNMB exact) avant commande, meme
+# demarche que precedemment (voir docs/04).
+$BOARD_W = 154.0
 $BOARD_H = 86.0
 
 W '(kicad_pcb'
@@ -489,21 +514,25 @@ Place-FP "CAP_Radial" "C2" "100uF" 13 77 0 @{ "1" = "3V3_OPTO"; "2" = "GND" }
 # perpendiculaire au bord droit de la carte (sortie fil vers l'exterieur du boitier, X croissant),
 # au lieu d'un axe parallele au bord comme dans la premiere implantation (signale par l'utilisateur).
 # F0 et PS1 n'ont pas de cablage externe direct (fusible et module internes), orientation inchangee.
-# Colonne secteur/FP recalee suite au resserrement zoneRightX0 100->91 (2026-11-08, voir plus
-# haut) : la colonne droite de canaux finit maintenant a 135mm (91+44) au lieu de 144mm. Colonne
-# secteur rapprochee d'autant (158/153, au lieu de 167/162) pour garder le meme vide d'environ
-# 12mm plutot que de laisser le resserrement central agrandir ce cote-la par inadvertance.
-Place-FP "CONN2_508" "J1" "MAINS_IN" 158 6 90 @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
+# Colonne secteur/FP recalee suite au resserrement zoneRightX0 91->84 (2026-11-08, voir plus
+# haut) et au resserrement du vide restant avant cette colonne (18->12mm, meme demande
+# utilisateur : "reduire l'espace de reserve avec le 230V"). F0/PS1 a 140 (dernier pad D de la
+# colonne droite a 84+44+0,8=128,8 ; pad gauche de F0/PS1, classe Secteur egalement vu le net
+# PHASE_PROT/MAINS_N, a 140-3,81-0,8=135,39 -> 6,59mm de marge, Secteur-Secteur donc 0,55mm
+# suffirait en theorie : marge large). J1-J5 a 145 (meme ecart +5 que F0/PS1 qu'avant). Bord de
+# carte a 154 (meme marge de 9mm entre pad J et bord qu'avant), sous la limite CNMB/9 (156mm
+# utiles) avec 2mm de securite - voir note BOARD_W en tete de fichier.
+Place-FP "CONN2_508" "J1" "MAINS_IN" 145 6 90 @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
 # PS1 decale de 25->27mm (2026-11-07) : a 25mm, le pad GND (logique) de PS1 n'etait qu'a
 # 5,9938mm du pad PHASE_PROT (secteur) de F0 - sous la barre des 6mm par 0,006mm seulement,
 # trouve par le DRC apres activation de la regle isolement_secteur_logique_6mm. +2mm redonne une
-# vraie marge au lieu d'un seuil tangent a l'arrondi pres.
-Place-FP "F_Axial" "F0" "250mA_T" 153 15 0 @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
-Place-FP "PSU4" "PS1" "HLK-5M05" 153 27 0 @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
-Place-FP "CONN2_508" "J2" "FP1_FP2" 158 40 90 @{ "1" = "FP1"; "2" = "FP2" }
-Place-FP "CONN2_508" "J3" "FP3_FP4" 158 50 90 @{ "1" = "FP3"; "2" = "FP4" }
-Place-FP "CONN2_508" "J4" "FP5_FP6" 158 60 90 @{ "1" = "FP5"; "2" = "FP6" }
-Place-FP "CONN2_508" "J5" "FP7_FP8" 158 70 90 @{ "1" = "FP7"; "2" = "FP8" }
+# vraie marge au lieu d'un seuil tangent a l'arrondi pres. Offset Y inchange par le resserrement X.
+Place-FP "F_Axial" "F0" "250mA_T" 140 15 0 @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
+Place-FP "PSU4" "PS1" "HLK-5M05" 140 27 0 @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
+Place-FP "CONN2_508" "J2" "FP1_FP2" 145 40 90 @{ "1" = "FP1"; "2" = "FP2" }
+Place-FP "CONN2_508" "J3" "FP3_FP4" 145 50 90 @{ "1" = "FP3"; "2" = "FP4" }
+Place-FP "CONN2_508" "J4" "FP5_FP6" 145 60 90 @{ "1" = "FP5"; "2" = "FP6" }
+Place-FP "CONN2_508" "J5" "FP7_FP8" 145 70 90 @{ "1" = "FP7"; "2" = "FP8" }
 
 # ---------- 8 zones : 4 bandes horizontales (une par index GPIO 0-3) x 2 zones cote a cote ----------
 $zoneGpio = @{
@@ -544,13 +573,21 @@ $offD = $offF + $gapThin
 $chOffset = 11.0
 $bandPitch = 21.0
 $bandY0 = 6.0
-$zoneLeftX0 = 35.0
-# zoneRightX0 resserre 100->91 (2026-11-08, demande utilisateur) : espace vide repere par
-# l'utilisateur entre la fin de la colonne gauche de canaux (diodes, a 35+offD=79mm) et le debut
-# de la colonne droite (resistances RB, a 100mm) - 21mm de cuivre inutilise. Ramene a ~12mm
-# (79 a 91), coherent avec la marge gardee ailleurs (couloir de routage colonne secteur/FP),
-# pas a zero.
-$zoneRightX0 = 91.0
+# zoneLeftX0 resserre 35->32 (2026-11-08, demande utilisateur "trop de place entre colonnes") :
+# dernier pad JWS (rangee droite de l'en-tete) a 8+17,78+0,8(rayon pastille)=26,58mm. A 32mm, le
+# 1er pad RB (classe Logique, meme X que le centre du composant - rotation 90 met ses pattes en
+# Y, pas en X) est a 32-0,8=31,2mm : 4,62mm de vraie marge, suffisant pour laisser passer les
+# pistes GPIO qui sortent de cette colonne vers les canaux (meme classe Logique-Logique, 0,3mm
+# suffirait en theorie, mais il faut de la place pour le COULOIR de routage, pas juste la regle
+# DRC).
+$zoneLeftX0 = 32.0
+# zoneRightX0 resserre a nouveau 91->84 (2026-11-08, meme demande) : vide entre la derniere diode
+# de la colonne gauche (D, pad a zoneLeftX0+44=76, +0,8 rayon=76,8) et le 1er pad RB de la colonne
+# droite (84-0,8=83,2) = 6,4mm de vraie marge, au-dessus du minimum reglementaire Secteur/Logique
+# de 6mm (D est cote FP$z/MT1D_, classe Secteur ; RB est classe Logique) - le pathfinder respecte
+# cette meme regle au routage (Get-ObstacleBuffer), donc au pire une piste qui ne trouve pas sa
+# place devient un strap (pas une violation DRC relle).
+$zoneRightX0 = 84.0
 
 for ($z = 1; $z -le 8; $z++) {
 	$bandIdx = ($z - 1) % 4
@@ -563,20 +600,17 @@ for ($z = 1; $z -le 8; $z++) {
 		$gpioNet = $zoneGpio[$z][$ch]
 		$suffix = "Z${z}${ch}"
 
-		# Reperes verticaux, colles au composant (2026-11-08, demande utilisateur) : auparavant le
-		# texte restait horizontal (verifie par export SVG que son angle n'herite PAS de la
-		# rotation du composant, contrairement a une pastille) mais decale de 4mm VERS un voisin -
-		# cause des chevauchements. Le texte est maintenant tourne a 90 (se lit le long de l'axe du
-		# composant, comme ses 2 broches empilees en Y) et colle a 1,8mm seulement (juste assez pour
-		# degager le rayon de pastille 0,8mm + marge), au lieu de tendre la main vers un voisin.
-		# Toujours cote "gauche" (-Y local -> -X monde) pour RB/Q/RL - a l'oppose de l'opto, comme
-		# avant, simplement avec moins d'amplitude.
-		# Value (ex. "1N4007", "10k") tournee et collee pareil (2026-11-08, demande utilisateur) :
-		# meme cote que le repere (pas celui de l'opto), juste un peu plus loin (2,8 au lieu de
-		# 1,8mm) pour ne pas se superposer au repere lui-meme.
-		Place-FP "R_Axial" "RB$suffix" "10k" ($x0 + $offRB) $cy 90 @{ "1" = $gpioNet; "2" = "QB_$suffix" } 0 -1.8 90 0 -2.8 90
+		# Reperes des composants axiaux 2 broches (RB/RL ici, RS/F/D plus bas) deplaces DANS
+		# l'empreinte (2026-11-08, demande utilisateur, meme principe que OC/DIP6 deja fait) : un
+		# R_Axial/D_Axial/F_Axial n'a pas de pastille au centre local (0,0) - seulement a ±3,81mm -
+		# donc y placer le repere ne touche aucune pastille, contrairement a TO92_3 (Q, 3 broches
+		# dont une au centre) qui garde son decalage lateral existant pour cette raison. Repere
+		# centre, Value juste a cote (1,2mm, comme OC) - texte tourne a 90 pour se lire le long de
+		# l'axe du composant (verifie par export SVG que l'angle du texte n'herite PAS de la
+		# rotation du composant, contrairement a une pastille).
+		Place-FP "R_Axial" "RB$suffix" "10k" ($x0 + $offRB) $cy 90 @{ "1" = $gpioNet; "2" = "QB_$suffix" } 0 0 90 0 -1.2 90
 		Place-FP "TO92_3" "Q$suffix" "BC547B" ($x0 + $offQ) $cy 90 @{ "1" = "QB_$suffix"; "2" = "LEDK_$suffix"; "3" = "GND" } 0 -1.8 90 0 -2.8 90
-		Place-FP "R_Axial" "RL$suffix" "200_1pct" ($x0 + $offRL) $cy 90 @{ "1" = "3V3_OPTO"; "2" = "LEDA_$suffix" } 0 -1.8 90 0 -2.8 90
+		Place-FP "R_Axial" "RL$suffix" "200_1pct" ($x0 + $offRL) $cy 90 @{ "1" = "3V3_OPTO"; "2" = "LEDA_$suffix" } 0 0 90 0 -1.2 90
 
 		# Optotriac : transition logique (pattes LED, cote gauche) / secteur (pattes triac, cote droit).
 		# Point ferme (2026-11-07) : contrairement a tous les autres composants de la pile, l'opto
@@ -601,16 +635,18 @@ for ($z = 1; $z -le 8; $z++) {
 		# toujours dans le meme espace vide, sans chevaucher le repere.
 		Place-FP "DIP6" "OC$suffix" "MOC3063M" $ocX $cy 0 @{ "1" = "LEDA_$suffix"; "2" = "LEDK_$suffix"; "4" = "MT1D_$suffix"; "6" = "FMT2_$suffix" } 0 0 0 0 -1.2 0
 
-		# RS/F/D : meme traitement vertical colle que RB/Q/RL, mais du cote DROIT (+1,8 au lieu de
-		# -1,8) pour s'eloigner de l'opto plutot que de pointer dessus (cause des 16 vrais
-		# chevauchements DRC trouves avant ce point, silk_over_copper, un par canal). Value a +2,8.
-		Place-FP "R_Axial" "RS$suffix" "4.7k" ($ocX + $gapOC) $cy 90 @{ "1" = "PHASE_PROT"; "2" = "RSF_$suffix" } 0 1.8 90 0 2.8 90
-		Place-FP "F_Axial" "F$suffix" "100mA_PTC" ($ocX + $gapOC + $gapThin) $cy 90 @{ "1" = "RSF_$suffix"; "2" = "FMT2_$suffix" } 0 1.8 90 0 2.8 90
+		# RS/F/D : reperes deplaces DANS l'empreinte (2026-11-08, meme principe que RB/RL ci-dessus)
+		# au lieu du decalage lateral +1,8/+2,8 precedent - meme logique (pas de pastille au centre
+		# local d'un composant axial 2 broches), simplement plus besoin de "cote droit vs gauche"
+		# puisque le repere ne deborde plus hors du corps du composant (donc plus de risque de
+		# chevauchement avec l'opto voisin, qui motivait a l'origine ce choix de cote).
+		Place-FP "R_Axial" "RS$suffix" "4.7k" ($ocX + $gapOC) $cy 90 @{ "1" = "PHASE_PROT"; "2" = "RSF_$suffix" } 0 0 90 0 -1.2 90
+		Place-FP "F_Axial" "F$suffix" "100mA_PTC" ($ocX + $gapOC + $gapThin) $cy 90 @{ "1" = "RSF_$suffix"; "2" = "FMT2_$suffix" } 0 0 90 0 -1.2 90
 
 		if ($ch -eq "P") {
-			Place-FP "D_Axial" "D$suffix" "1N4007" ($ocX + $gapOC + 2 * $gapThin) $cy 90 @{ "1" = "MT1D_$suffix"; "2" = "FP$z" } 0 1.8 90 0 2.8 90
+			Place-FP "D_Axial" "D$suffix" "1N4007" ($ocX + $gapOC + 2 * $gapThin) $cy 90 @{ "1" = "MT1D_$suffix"; "2" = "FP$z" } 0 0 90 0 -1.2 90
 		} else {
-			Place-FP "D_Axial" "D$suffix" "1N4007" ($ocX + $gapOC + 2 * $gapThin) $cy 90 @{ "1" = "FP$z"; "2" = "MT1D_$suffix" } 0 1.8 90 0 2.8 90
+			Place-FP "D_Axial" "D$suffix" "1N4007" ($ocX + $gapOC + 2 * $gapThin) $cy 90 @{ "1" = "FP$z"; "2" = "MT1D_$suffix" } 0 0 90 0 -1.2 90
 		}
 
 	}
