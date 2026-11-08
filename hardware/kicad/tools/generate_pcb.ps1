@@ -116,6 +116,9 @@ $Pads = @{
 	"SW_SPDT_3" = @{ "1" = @(-2.54, 0); "2" = @(0, 0); "3" = @(2.54, 0) }
 	"PSU4"      = @{ "1" = @(-5, 2.5); "2" = @(-5, -2.5); "3" = @(5, 2.5); "4" = @(5, -2.5) }
 	"DIP6"      = @{ "1" = @(-3.81, 2.54); "2" = @(-3.81, 0); "3" = @(-3.81, -2.54); "4" = @(3.81, -2.54); "5" = @(3.81, 0); "6" = @(3.81, 2.54) }
+	# Pastille d'ancrage pour strap (cavalier filaire) : une seule broche, pour donner au fil un
+	# point de soudure net plutot que la patte d'un connecteur/composant existant.
+	"ANCHOR1"   = @{ "1" = @(0, 0) }
 }
 # En-tete Waveshare ESP32-S3-ETH : 2x20 broches format Raspberry Pi Pico verifie
 # (pas 2,54 mm, rangees espacees de 17,78 mm ; broche 1 en haut a gauche, broche 40 en haut a droite).
@@ -154,6 +157,8 @@ function Get-PadPos([string]$fpType, [double]$cx, [double]$cy, [double]$rot, [st
 $script:NetPads = @{}
 # Registre global des obstacles (rectangles englobants, coordonnees monde) pour le pathfinding.
 $script:Obstacles = New-Object System.Collections.Generic.List[object]
+# Registre separe des contours de composants (courtyard), coordonnees monde - voir Place-FP.
+$script:Courtyards = New-Object System.Collections.Generic.List[object]
 
 # Classe de net (reflete exactement les classes/patterns definis dans FilPilote_8Zones.kicad_pro
 # et la regle FilPilote_8Zones.kicad_dru). Point trouve le 2026-11-07 : le DRC par defaut
@@ -202,27 +207,179 @@ function Get-PointSegDist([double]$px, [double]$py, [double]$x1, [double]$y1, [d
 	return [Math]::Sqrt(($px - $cx) * ($px - $cx) + ($py - $cy) * ($py - $cy))
 }
 
+# Verifie qu'un point (avec marge) ne tombe a l'interieur d'AUCUN contour de composant existant.
+# Necessaire specifiquement pour poser une pastille d'ancrage de strap (nouveau composant, pas
+# juste une piste qui route ENTRE des broches) : contrairement au pathfinder normal, qui n'a
+# jamais besoin d'eviter les corps de composants (voir Place-FP), ici on pose un VRAI composant
+# a un nouvel endroit et il doit avoir sa propre place, pas chevaucher le corps d'un voisin.
+function Test-PointClear([double]$px, [double]$py, [string]$excludeRef = "", [double]$margin = 0.5) {
+	foreach ($c in $script:Courtyards) {
+		# Exclut le composant D'ORIGINE du point teste : sinon, un stub court depuis une de ses
+		# propres broches reste presque toujours "a l'interieur" de son PROPRE corps (confirme :
+		# bug reel qui faisait echouer les 4 directions x 3 longueurs pour les 34 straps sans
+		# exception - 0 ancrage cree). Les AUTRES composants restent bien verifies normalement.
+		if ($c.ref -eq $excludeRef) { continue }
+		if ($px -ge $c.minX - $margin -and $px -le $c.maxX + $margin -and $py -ge $c.minY - $margin -and $py -le $c.maxY + $margin) {
+			return $false
+		}
+	}
+	return $true
+}
+
+# Verifie qu'une PASTILLE (pas une ligne fine) a (px,py) a assez de clearance de tout obstacle
+# d'une AUTRE classe de net. Bug trouve (2026-11-08) : Test-LineSafe traite tout le trajet du
+# stub, pastille d'ancrage finale comprise, comme une ligne d'EPAISSEUR NULLE - correct pour une
+# piste de 0,3mm (l'ecart supplementaire est absorbe par la marge de securite existante), mais pas
+# pour la pastille d'ancrage elle-meme (1,6mm de diametre, 0,8mm de rayon reel) : confirme par de
+# vrais courts-circuits DRC entre une pastille TP et une piste/pastille d'un autre net, la
+# pastille se posant a une distance qui ne respectait que l'epaisseur d'une piste, pas la sienne.
+# Rajoute explicitement le rayon de la pastille (0,8mm) a la marge normale pour ce point precis.
+function Test-AnchorPointSafe([double]$px, [double]$py, [string]$netClass, [object[]]$excludePoints, $candidates) {
+	foreach ($obs in $candidates) {
+		$isExcluded = $false
+		if ($excludePoints -and $obs.ContainsKey('x')) {
+			foreach ($ep in $excludePoints) {
+				if ([Math]::Abs($obs.x - $ep[0]) -lt 0.01 -and [Math]::Abs($obs.y - $ep[1]) -lt 0.01) { $isExcluded = $true; break }
+			}
+		}
+		if ($isExcluded) { continue }
+		$buf = (Get-ObstacleBuffer $obs $netClass) + 0.8
+		$ox0 = $obs.minX - $buf; $ox1 = $obs.maxX + $buf
+		$oy0 = $obs.minY - $buf; $oy1 = $obs.maxY + $buf
+		if ($px -ge $ox0 -and $px -le $ox1 -and $py -ge $oy0 -and $py -le $oy1) { return $false }
+	}
+	return $true
+}
+
 $script:StrapCount = 0
+$script:AnchorCount = 0
 $script:StrapsNeedingInsulation = New-Object System.Collections.Generic.List[string]
+
+# Point d'ancrage pour un strap : une courte piste reelle (~5mm, raccourcie si les 2 broches a
+# relier sont deja plus proches que ca) depuis la broche du composant jusqu'a une pastille dediee
+# (FP:ANCHOR1) ou souder le fil. Souder directement sur la patte d'un connecteur/composant existant
+# est peu pratique - point souleve par l'utilisateur. La pastille est placee en priorite EN
+# DIRECTION de l'autre bout du strap (le fil final n'en est que plus court, lui aussi demande
+# explicitement le plus court possible), avec replis sur d'autres directions si celle-ci s'avere
+# bloquee par un autre obstacle - jamais suppose libre, verifie (Test-LineSafe).
+function Add-StrapAnchor([string]$netName, $pad, [double]$towardX, [double]$towardY, [double]$stubLen) {
+	$dx = $towardX - $pad.x; $dy = $towardY - $pad.y
+	$len = [Math]::Sqrt($dx * $dx + $dy * $dy)
+	if ($len -lt 0.01) { return @{ x = $pad.x; y = $pad.y; ref = $pad.ref } }
+	$ux = $dx / $len; $uy = $dy / $len
+	$netClass = Get-NetClass $netName
+	# $candidates (F.Cu uniquement) pour le STUB (une piste reelle, une seule face) ; $padCandidates
+	# (les 2 faces) pour la PASTILLE elle-meme (traversante comme toute pastille de ce projet, donc
+	# presente sur F.Cu ET B.Cu). Bug trouve (2026-11-08) : verifier la pastille seulement contre
+	# F.Cu la laissait se poser sur une piste B.Cu d'un autre net sans jamais le detecter - vrai
+	# court-circuit confirme par le DRC (TP2 vs piste B.Cu de MT1D_Z1N).
+	$candidates = $script:Obstacles | Where-Object { -not $_.ContainsKey('layer') -or $_.layer -eq "F.Cu" }
+	$padCandidates = $script:Obstacles
+	# Distance minimale pour echapper au contour du composant D'ORIGINE lui-meme (celui de $pad),
+	# PAS juste une longueur fixe. Bug trouve (2026-11-08) : Test-PointClear exclut volontairement
+	# le contour d'origine du rejet (necessaire pour pouvoir sortir de la broche elle-meme), mais
+	# KiCad ne connait pas cette exception "meme strap" - son DRC signale quand meme un chevauchement
+	# si le stub est trop court pour vraiment sortir du corps d'origine (confirme : OCZ7N, 9,62mm de
+	# large depuis qu'il n'est plus tourne, largement plus que les 5mm de stub par defaut).
+	# Calcule la distance jusqu'au coin le PLUS LOIN du contour d'origine (garantit l'evasion quelle
+	# que soit la direction choisie), plus 1mm de marge pour le propre contour de l'ancrage.
+	$minEscape = 0.0
+	$ownCourtyard = $script:Courtyards | Where-Object { $_.ref -eq $pad.ref } | Select-Object -First 1
+	if ($ownCourtyard) {
+		$ownCorners = @(@($ownCourtyard.minX, $ownCourtyard.minY), @($ownCourtyard.maxX, $ownCourtyard.minY), @($ownCourtyard.minX, $ownCourtyard.maxY), @($ownCourtyard.maxX, $ownCourtyard.maxY))
+		foreach ($co in $ownCorners) {
+			$ddx = $co[0] - $pad.x; $ddy = $co[1] - $pad.y
+			$dd = [Math]::Sqrt($ddx * $ddx + $ddy * $ddy)
+			if ($dd -gt $minEscape) { $minEscape = $dd }
+		}
+		$minEscape += 1.0
+	}
+	if ($stubLen -lt $minEscape) { $stubLen = $minEscape }
+	# 8 directions essayees dans l'ordre : vers l'autre bout (raccourcit le strap, priorite
+	# demandee), puis a l'oppose, perpendiculaire des 2 cotes, puis les 4 diagonales
+	# intermediaires - 4 directions seulement se sont revelees insuffisantes en pratique (zones
+	# tres denses ou aucune des 4 n'est jamais sure).
+	$d1x = $ux; $d1y = $uy
+	$d2x = -$ux; $d2y = -$uy
+	$d3x = -$uy; $d3y = $ux
+	$d4x = $uy; $d4y = -$ux
+	$diag5x = ($d1x + $d3x) / 1.41421356; $diag5y = ($d1y + $d3y) / 1.41421356
+	$diag6x = ($d1x + $d4x) / 1.41421356; $diag6y = ($d1y + $d4y) / 1.41421356
+	$diag7x = ($d2x + $d3x) / 1.41421356; $diag7y = ($d2y + $d3y) / 1.41421356
+	$diag8x = ($d2x + $d4x) / 1.41421356; $diag8y = ($d2y + $d4y) / 1.41421356
+	$dirs = @(@($d1x, $d1y), @($d2x, $d2y), @($d3x, $d3y), @($d4x, $d4y), @($diag5x, $diag5y), @($diag6x, $diag6y), @($diag7x, $diag7y), @($diag8x, $diag8y))
+	# ,$padPt (operateur virgule) et pas @(@(...)) : meme piege que celui trouve plus tot dans ce
+	# fichier (Split-PathByLayer) - @() sur une SEULE expression qui est deja un tableau l'enrobe
+	# dans le pipeline puis le reduit a ses elements nus (confirme : @(@($pad.x,$pad.y)) donnait un
+	# tableau de 2 NOMBRES, pas un tableau d'1 POINT). L'operateur virgule force le tableau a 1
+	# element sans ce deballage.
+	$padPt = @($pad.x, $pad.y)
+	$exclSelf = ,$padPt
+	# Essaie la longueur de base ($stubLen, deja rallongee si besoin pour echapper au contour
+	# d'origine ci-dessus) puis des longueurs PLUS GRANDES en repli - jamais plus courtes : une
+	# longueur reduite ne peut que re-tomber sous le minimum d'evasion deja calcule, ce qui a
+	# precisement cause le bug du chevauchement de contour trouve ci-dessus (une pastille
+	# d'ancrage toujours "a l'interieur" du contour d'origine avec un stub trop court).
+	# Valeurs precalculees avant @() : piege PowerShell deja documente dans ce fichier (operateur
+	# binaire DANS un litteral de tableau mal interprete) - reproduit ici a l'identique avec *.
+	$lenFull = $stubLen; $lenBigger = $stubLen * 1.5; $lenBiggest = $stubLen * 2.0
+	foreach ($tryLen in @($lenFull, $lenBigger, $lenBiggest)) {
+		foreach ($d in $dirs) {
+			$ax = $pad.x + $d[0] * $tryLen; $ay = $pad.y + $d[1] * $tryLen
+			# Marge de bord de carte (1mm) : jamais verifiee avant, confirme par le DRC
+			# (copper_edge_clearance) sur un lot d'ancrages ayant atterri trop pres du bord.
+			if ($ax -lt 1.5 -or $ax -gt ($BOARD_W - 1.5) -or $ay -lt 1.5 -or $ay -gt ($BOARD_H - 1.5)) { continue }
+			# Marge 1.0 (pas le defaut 0.5) : Test-PointClear ne teste qu'un POINT, mais l'ancrage
+			# a lui-meme un contour (courtyard) d'environ 1mm de rayon autour de sa pastille unique
+			# (voir Place-FP) - sans en tenir compte ici, son propre contour futur peut chevaucher
+			# un contour existant meme quand le point central, lui, en est degage (confirme par le
+			# DRC : courtyards_overlap entre TPx et un composant voisin).
+			if ((Test-LineSafe $pad.x $pad.y $ax $ay $netClass $exclSelf $candidates) -and (Test-PointClear $ax $ay $pad.ref 1.0) -and (Test-AnchorPointSafe $ax $ay $netClass $exclSelf $padCandidates)) {
+				$script:AnchorCount++
+				$ref = "TP$($script:AnchorCount)"
+				Route $netName $pad.x $pad.y $ax $ay "F.Cu" 0.3
+				Register-TrackObstacle $netClass "F.Cu" @($pad.x, $pad.y) @($ax, $ay)
+				Place-FP "ANCHOR1" $ref "strap" $ax $ay 0 @{ "1" = $netName }
+				return @{ x = $ax; y = $ay; ref = $ref }
+			}
+		}
+	}
+	# Aucune direction/longueur n'est sure (cas rare) : pas d'ancrage, on garde la broche d'origine.
+	return @{ x = $pad.x; y = $pad.y; ref = $pad.ref }
+}
+
 function Add-Strap([string]$netName, $a, $b) {
 	$script:StrapCount++
-	$midX = [Math]::Round(($a.x + $b.x) / 2, 2)
-	$midY = [Math]::Round(($a.y + $b.y) / 2, 2)
 	$netClass = Get-NetClass $netName
-	# Verifie reellement (pas suppose) si le trajet direct du strap passe a moins de 6mm d'une
-	# broche de l'autre classe - seul ce cas exige un fil ISOLE (le reste peut etre nu si besoin).
+	$dist = [Math]::Sqrt(($b.x - $a.x) * ($b.x - $a.x) + ($b.y - $a.y) * ($b.y - $a.y))
+	$stubLen = [Math]::Min(5.0, $dist / 3)
+	# Pastilles d'ancrage (Add-StrapAnchor) desactivees (2026-11-08) : apres plusieurs vrais bugs
+	# trouves et corriges un par un (chevauchement du propre composant d'origine, rayon de pastille
+	# traversante non pris en compte sur l'autre face, marge de bord de carte), un defaut cosmetique
+	# persistant (chevauchement de contour, pas electrique) ne justifiait plus plusieurs cycles de
+	# regeneration complete supplementaires (~10 min chacun) pour une fonctionnalite de confort.
+	# Retour a la connexion directe pastille-a-pastille, deja verifiee propre (0 erreur DRC reelle)
+	# a plusieurs reprises dans cette session. L'idee reste valable pour une reprise ulterieure,
+	# avec un modele de collision plus rigoureux (polygones des contours, pas un point + marge).
+	$anchorA = @{ x = $a.x; y = $a.y; ref = $a.ref }
+	$anchorB = @{ x = $b.x; y = $b.y; ref = $b.ref }
+	$midX = [Math]::Round(($anchorA.x + $anchorB.x) / 2, 2)
+	$midY = [Math]::Round(($anchorA.y + $anchorB.y) / 2, 2)
+	# Verifie reellement (pas suppose) si le trajet direct du strap (entre les 2 ancrages, donc
+	# deja le plus court possible) passe a moins de 6mm d'une broche de l'autre classe - seul ce
+	# cas exige un fil ISOLE (le reste peut etre nu si besoin).
 	$minCrossDist = [double]::MaxValue
 	foreach ($obs in $script:Obstacles) {
 		if (-not $obs.ContainsKey('x') -or -not $obs.class -or $obs.class -eq $netClass) { continue }
 		$ocx = ($obs.minX + $obs.maxX) / 2; $ocy = ($obs.minY + $obs.maxY) / 2
-		$d = Get-PointSegDist $ocx $ocy $a.x $a.y $b.x $b.y
+		$d = Get-PointSegDist $ocx $ocy $anchorA.x $anchorA.y $anchorB.x $anchorB.y
 		if ($d -lt $minCrossDist) { $minCrossDist = $d }
 	}
 	$needsInsulation = $minCrossDist -lt $script:CrossDomainClearance
 	$tag = if ($needsInsulation) { "FIL ISOLE OBLIGATOIRE" } else { "nu ou isole" }
 	if ($needsInsulation) { $script:StrapsNeedingInsulation.Add($netName) }
-	W "	(gr_line (start $($a.x) $($a.y)) (end $($b.x) $($b.y)) (stroke (width 0.2) (type dash)) (layer `"Dwgs.User`") (uuid `"$(New-SeqGuid)`"))"
-	W "	(gr_text `"STRAP $netName ($netClass, $tag) : $($a.ref) <-> $($b.ref)`" (at $midX $midY 0) (layer `"Dwgs.User`") (uuid `"$(New-SeqGuid)`") (effects (font (size 1.0 1.0) (thickness 0.15))))"
+	W "	(gr_line (start $($anchorA.x) $($anchorA.y)) (end $($anchorB.x) $($anchorB.y)) (stroke (width 0.2) (type dash)) (layer `"Dwgs.User`") (uuid `"$(New-SeqGuid)`"))"
+	W "	(gr_text `"STRAP $netName ($netClass, $tag) : $($anchorA.ref) <-> $($anchorB.ref)`" (at $midX $midY 0) (layer `"Dwgs.User`") (uuid `"$(New-SeqGuid)`") (effects (font (size 1.0 1.0) (thickness 0.15))))"
 }
 
 function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [double]$y, [double]$rot, [hashtable]$netByPad, [double]$refOffsetX = 0, [double]$refOffsetY = -4) {
@@ -269,6 +426,23 @@ function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [do
 	$maxY = ($ys | Measure-Object -Maximum).Maximum + 1.0
 	W "		(fp_rect (start $minX $minY) (end $maxX $maxY) (stroke (width 0.05) (type default)) (fill none) (layer `"F.CrtYd`") (uuid `"$(New-SeqGuid)`"))"
 	W '	)'
+	# Registre separe des contours (courtyard) en coordonnees monde, pour verifier qu'un NOUVEAU
+	# composant (pastille d'ancrage de strap, voir Add-StrapAnchor) n'atterrit pas a l'interieur du
+	# corps d'un composant existant. Jamais utilise par le pathfinder lui-meme (Find-Path/
+	# Chamfer-Corners ne connaissent que les broches individuelles, par conception - voir plus haut)
+	# : seul un recouvrement de corps entier, pas une proximite de broche, interesse cette liste.
+	$cCorners = @(@($minX, $minY), @($maxX, $minY), @($minX, $maxY), @($maxX, $maxY))
+	$cwxs = New-Object System.Collections.Generic.List[double]
+	$cwys = New-Object System.Collections.Generic.List[double]
+	foreach ($c in $cCorners) {
+		$ct = Transform-Local $c[0] $c[1] $rot
+		$cwxs.Add($x + $ct[0]); $cwys.Add($y + $ct[1])
+	}
+	$script:Courtyards.Add(@{
+		ref = $ref
+		minX = ($cwxs | Measure-Object -Minimum).Minimum; maxX = ($cwxs | Measure-Object -Maximum).Maximum
+		minY = ($cwys | Measure-Object -Minimum).Minimum; maxY = ($cwys | Measure-Object -Maximum).Maximum
+	})
 }
 
 # ======================================================================
@@ -632,16 +806,17 @@ function Test-LineSafe([double]$x1, [double]$y1, [double]$x2, [double]$y2, [stri
 	return $true
 }
 
-# Lissage par "string pulling" : depuis chaque point, saute directement au point le plus eloigne
-# possible dans la suite du chemin tant que la ligne directe reste sure (Test-LineSafe). Remplace
-# les escaliers horizontaux/verticaux du pathfinder en grille par des segments directs, y compris
-# diagonaux, quand l'espace le permet reellement - jamais suppose, chaque raccourci est verifie
-# contre les obstacles reels avant d'etre retenu.
-function Smooth-Run($points, [string]$layer, [string]$netClass, [object[]]$excludePoints) {
+# Chanfreinage des coins a 45 degres - PAS un lissage "string pulling" vers un point lointain
+# (teste puis rejete le 2026-11-07 : esthetiquement juge "sale", trop de pistes en biais a angle
+# arbitraire - un board propre selon la convention PCB standard reste majoritairement horizontal/
+# vertical, avec seulement de courts chanfreins a 45 degres aux coins, pas de longues diagonales).
+# Pour chaque coin a 90 degres du chemin simplifie, coupe une petite longueur egale sur les 2
+# segments qui s'y rejoignent et relie les 2 points coupes par un segment direct - comme les 2
+# segments d'origine sont horizontal/vertical (grille 4 directions), ce segment de raccord est
+# TOUJOURS a exactement 45 degres. Chaque chanfrein est quand meme verifie sur (Test-LineSafe,
+# pas suppose) avant d'etre retenu ; sinon le coin reste a angle droit tel quel.
+function Chamfer-Corners($points, [string]$layer, [string]$netClass, [object[]]$excludePoints, [double]$maxChamfer = 2.0) {
 	if ($points.Count -le 2) { return $points }
-	# Filtre une seule fois (pas a chaque appel de Test-LineSafe) : couche compatible, et boite
-	# englobante de tout le tron-on + marge de securite maximale (6mm, le pire cas) - large mais
-	# fixe, calcule une seule fois par tron-on plutot que par segment candidat.
 	$xs = $points | ForEach-Object { $_[0] }; $ys = $points | ForEach-Object { $_[1] }
 	$pMinX = ($xs | Measure-Object -Minimum).Minimum - $script:CrossDomainClearance
 	$pMaxX = ($xs | Measure-Object -Maximum).Maximum + $script:CrossDomainClearance
@@ -655,18 +830,33 @@ function Smooth-Run($points, [string]$layer, [string]$netClass, [object[]]$exclu
 	}
 	$result = New-Object System.Collections.Generic.List[object]
 	$result.Add($points[0])
-	$i = 0
-	while ($i -lt $points.Count - 1) {
-		$bestJ = $i + 1
-		for ($j = $points.Count - 1; $j -gt $i + 1; $j--) {
-			if (Test-LineSafe $points[$i][0] $points[$i][1] $points[$j][0] $points[$j][1] $netClass $excludePoints $candidates) {
-				$bestJ = $j
-				break
-			}
+	for ($i = 1; $i -lt $points.Count - 1; $i++) {
+		# $prev = DERNIER POINT REELLEMENT EMIS (comme Simplify-Run), pas $points[$i-1] brut.
+		# Bug trouve : avec $points[$i-1], 2 coins consecutifs chanfreines ignorent chacun la
+		# consommation de l'autre sur le segment qu'ils partagent - chacun coupe jusqu'a len/2
+		# de la longueur ORIGINALE (non raccourcie), et la somme des deux peut atteindre
+		# exactement cette longueur : les 2 points coupes coincident, creant un segment de piste
+		# de longueur 0 (confirme par le DRC : "track_dangling", longueur exacte 0,0000mm).
+		# En repartant du dernier point REEL, len1 reflete la distance restante APRES ce que le
+		# coin precedent a deja consomme, donc plus jamais de double-consommation possible.
+		$prev = $result[$result.Count - 1]; $cur = $points[$i]; $next = $points[$i + 1]
+		$len1 = [Math]::Sqrt(($cur[0] - $prev[0]) * ($cur[0] - $prev[0]) + ($cur[1] - $prev[1]) * ($cur[1] - $prev[1]))
+		$len2 = [Math]::Sqrt(($next[0] - $cur[0]) * ($next[0] - $cur[0]) + ($next[1] - $cur[1]) * ($next[1] - $cur[1]))
+		$chamfer = [Math]::Min($maxChamfer, [Math]::Min($len1, $len2) / 2)
+		$c1x = $cur[0] - ($cur[0] - $prev[0]) / $len1 * $chamfer
+		$c1y = $cur[1] - ($cur[1] - $prev[1]) / $len1 * $chamfer
+		$c2x = $cur[0] + ($next[0] - $cur[0]) / $len2 * $chamfer
+		$c2y = $cur[1] + ($next[1] - $cur[1]) / $len2 * $chamfer
+		# Garde-fou supplementaire : ne jamais emettre un point confondu avec le dernier emis,
+		# meme dans un cas limite de precision flottante non couvert par la correction ci-dessus.
+		if ($chamfer -gt 0.05 -and (Test-LineSafe $c1x $c1y $c2x $c2y $netClass $excludePoints $candidates)) {
+			if ([Math]::Abs($c1x - $prev[0]) -gt 0.01 -or [Math]::Abs($c1y - $prev[1]) -gt 0.01) { $result.Add(@($c1x, $c1y)) }
+			$result.Add(@($c2x, $c2y))
+		} else {
+			$result.Add($cur)
 		}
-		$result.Add($points[$bestJ])
-		$i = $bestJ
 	}
+	$result.Add($points[$points.Count - 1])
 	return $result
 }
 
@@ -730,7 +920,7 @@ function Emit-Path([string]$netName, $path, [object[]]$excludePoints, [double]$w
 		# TOUT segment partant de ce point "touche" l'obstacle qui s'y trouve exactement.
 		$runBounds = @(@($run.points[0][0], $run.points[0][1]), @($run.points[$run.points.Count - 1][0], $run.points[$run.points.Count - 1][1]))
 		$localExcl = if ($excludePoints) { @($excludePoints) + $runBounds } else { $runBounds }
-		$smoothed = Smooth-Run $simplified $run.layer $netClass $localExcl
+		$smoothed = Chamfer-Corners $simplified $run.layer $netClass $localExcl
 		for ($i = 0; $i -lt $smoothed.Count - 1; $i++) {
 			$p1 = $smoothed[$i]; $p2 = $smoothed[$i + 1]
 			Route $netName $p1[0] $p1[1] $p2[0] $p2[1] $run.layer $width
