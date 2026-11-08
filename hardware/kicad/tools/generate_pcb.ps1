@@ -60,16 +60,18 @@ class MinHeap {
 # Carte recompactee a 192 x 85 mm (sous les 86,5mm utilisables, marge ~1,5mm) pour tenir en
 # carte unique plutot qu'un empilement de 2 PCB. Toujours indicatif tant que la reference
 # exacte n'est pas commandee (voir docs/04).
-# Longueur reduite 192->176mm (2026-11-08) : pas de canal resserre ($gapThin/$gapOC, voir plus
-# bas) + colonne secteur/FP rapprochee (voir Place-FP J1/F0/PS1/J2-J5) - demande directe de
-# l'utilisateur ("gagner de la place"). Un resserrement plus agressif (155mm) a ete teste et
-# abandonne : 0 erreur DRC mais 67 straps a souder au lieu de 34 (quasiment le double) pour 21mm
-# de plus - compromis juge trop couteux. BOARD_H inchangee : fixee par la section EXTERNE fixe
+# Longueur reduite 192->176mm puis 176->167mm (2026-11-08) : pas de canal resserre
+# ($gapThin/$gapOC) + colonne secteur/FP rapprochee, puis vide central entre les 2 colonnes de
+# canaux resserre (zoneRightX0, voir plus bas) - tout demande directement par l'utilisateur. Un
+# resserrement plus agressif du PAS (155mm) a ete teste et abandonne : 0 erreur DRC mais 67 straps
+# a souder au lieu de 34 (quasiment le double) - compromis juge trop couteux, pas retente ici
+# (ce resserrement-ci ne touche que l'ESPACEMENT ENTRE colonnes, pas le pas interne des canaux,
+# donc pas le meme risque sur le routage). BOARD_H inchangee : fixee par la section EXTERNE fixe
 # du boitier CNMB (90mm quel que soit le nombre de modules), pas reductible par ce genre de
-# compaction du PCB - seule la longueur (nombre de modules) en beneficie. Un board a 176mm reste a
+# compaction du PCB - seule la longueur (nombre de modules) en beneficie. Un board a 167mm reste a
 # reconfirmer aupres du fabricant (modele CNMB exact) avant commande, meme demarche que pour le
 # CNMB/12 initial (voir docs/04).
-$BOARD_W = 176.0
+$BOARD_W = 167.0
 $BOARD_H = 86.0
 
 W '(kicad_pcb'
@@ -271,7 +273,7 @@ $script:StrapsNeedingInsulation = New-Object System.Collections.Generic.List[str
 # DIRECTION de l'autre bout du strap (le fil final n'en est que plus court, lui aussi demande
 # explicitement le plus court possible), avec replis sur d'autres directions si celle-ci s'avere
 # bloquee par un autre obstacle - jamais suppose libre, verifie (Test-LineSafe).
-function Add-StrapAnchor([string]$netName, $pad, [double]$towardX, [double]$towardY, [double]$stubLen) {
+function Add-StrapAnchor([string]$netName, $pad, [double]$towardX, [double]$towardY, [double]$stubLen, [string]$anchorRef) {
 	$dx = $towardX - $pad.x; $dy = $towardY - $pad.y
 	$len = [Math]::Sqrt($dx * $dx + $dy * $dy)
 	if ($len -lt 0.01) { return @{ x = $pad.x; y = $pad.y; ref = $pad.ref } }
@@ -345,11 +347,10 @@ function Add-StrapAnchor([string]$netName, $pad, [double]$towardX, [double]$towa
 			# DRC : courtyards_overlap entre TPx et un composant voisin).
 			if ((Test-LineSafe $pad.x $pad.y $ax $ay $netClass $exclSelf $candidates) -and (Test-PointClear $ax $ay $pad.ref 1.0) -and (Test-AnchorPointSafe $ax $ay $netClass $exclSelf $padCandidates)) {
 				$script:AnchorCount++
-				$ref = "TP$($script:AnchorCount)"
 				Route $netName $pad.x $pad.y $ax $ay "F.Cu" 0.3
 				Register-TrackObstacle $netClass "F.Cu" @($pad.x, $pad.y) @($ax, $ay)
-				Place-FP "ANCHOR1" $ref "strap" $ax $ay 0 @{ "1" = $netName }
-				return @{ x = $ax; y = $ay; ref = $ref }
+				Place-FP "ANCHOR1" $anchorRef "strap" $ax $ay 0 @{ "1" = $netName }
+				return @{ x = $ax; y = $ay; ref = $anchorRef }
 			}
 		}
 	}
@@ -362,16 +363,19 @@ function Add-Strap([string]$netName, $a, $b) {
 	$netClass = Get-NetClass $netName
 	$dist = [Math]::Sqrt(($b.x - $a.x) * ($b.x - $a.x) + ($b.y - $a.y) * ($b.y - $a.y))
 	$stubLen = [Math]::Min(5.0, $dist / 3)
-	# Pastilles d'ancrage (Add-StrapAnchor) desactivees (2026-11-08) : apres plusieurs vrais bugs
-	# trouves et corriges un par un (chevauchement du propre composant d'origine, rayon de pastille
-	# traversante non pris en compte sur l'autre face, marge de bord de carte), un defaut cosmetique
-	# persistant (chevauchement de contour, pas electrique) ne justifiait plus plusieurs cycles de
-	# regeneration complete supplementaires (~10 min chacun) pour une fonctionnalite de confort.
-	# Retour a la connexion directe pastille-a-pastille, deja verifiee propre (0 erreur DRC reelle)
-	# a plusieurs reprises dans cette session. L'idee reste valable pour une reprise ulterieure,
-	# avec un modele de collision plus rigoureux (polygones des contours, pas un point + marge).
-	$anchorA = @{ x = $a.x; y = $a.y; ref = $a.ref }
-	$anchorB = @{ x = $b.x; y = $b.y; ref = $b.ref }
+	# Pastilles d'ancrage reactivees (2026-11-08) : desactivees une 1ere fois le meme jour apres
+	# plusieurs vrais bugs trouves et corriges un par un (chevauchement du propre composant
+	# d'origine faute de distance d'evasion suffisante, rayon de pastille traversante jamais
+	# verifie sur l'autre face, marge de bord de carte absente) - la DERNIERE correction (distance
+	# d'evasion basee sur le contour reel d'origine, voir Add-StrapAnchor) n'avait jamais ete
+	# verifiee par un DRC complet avant l'abandon, faute de temps a ce moment-la. Retentee ici a
+	# la demande de l'utilisateur, qui demande aussi un numerotage pairable : les 2 extremites
+	# d'un MEME strap partagent desormais le meme numero, suffixe A/B (ex. S5A et S5B), au lieu de
+	# 2 numeros globaux sans rapport visible entre eux (TP2 et TP39, par exemple) - bien plus
+	# pratique pour retrouver les 2 bouts d'un meme fil lors du soudage.
+	$strapIdx = $script:StrapCount
+	$anchorA = Add-StrapAnchor $netName $a $b.x $b.y $stubLen "S${strapIdx}A"
+	$anchorB = Add-StrapAnchor $netName $b $a.x $a.y $stubLen "S${strapIdx}B"
 	$midX = [Math]::Round(($anchorA.x + $anchorB.x) / 2, 2)
 	$midY = [Math]::Round(($anchorA.y + $anchorB.y) / 2, 2)
 	# Verifie reellement (pas suppose) si le trajet direct du strap (entre les 2 ancrages, donc
@@ -391,7 +395,7 @@ function Add-Strap([string]$netName, $a, $b) {
 	W "	(gr_text `"STRAP $netName ($netClass, $tag) : $($anchorA.ref) <-> $($anchorB.ref)`" (at $midX $midY 0) (layer `"Dwgs.User`") (uuid `"$(New-SeqGuid)`") (effects (font (size 1.0 1.0) (thickness 0.15))))"
 }
 
-function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [double]$y, [double]$rot, [hashtable]$netByPad, [double]$refOffsetX = 0, [double]$refOffsetY = -4, [double]$refAngle = 0) {
+function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [double]$y, [double]$rot, [hashtable]$netByPad, [double]$refOffsetX = 0, [double]$refOffsetY = -4, [double]$refAngle = 0, [double]$valueOffsetX = 0, [double]$valueOffsetY = 4, [double]$valueAngle = 0) {
 	$pads = $Pads[$fpType]
 	$fpUuid = New-SeqGuid
 	W "	(footprint `"FP:$fpType`""
@@ -399,7 +403,7 @@ function Place-FP([string]$fpType, [string]$ref, [string]$value, [double]$x, [do
 	W "		(uuid `"$fpUuid`")"
 	W "		(at $x $y $rot)"
 	W "		(property `"Reference`" `"$ref`" (at $refOffsetX $refOffsetY $refAngle) (layer `"F.SilkS`") (uuid `"$(New-SeqGuid)`") (effects (font (size 0.8 0.8) (thickness 0.12))))"
-	W "		(property `"Value`" `"$value`" (at 0 4 0) (layer `"F.Fab`") (uuid `"$(New-SeqGuid)`") (effects (font (size 0.8 0.8) (thickness 0.12))))"
+	W "		(property `"Value`" `"$value`" (at $valueOffsetX $valueOffsetY $valueAngle) (layer `"F.Fab`") (uuid `"$(New-SeqGuid)`") (effects (font (size 0.8 0.8) (thickness 0.12))))"
 	W '		(attr through_hole)'
 	foreach ($padNum in ($pads.Keys | Sort-Object { [int]$_ })) {
 		$off = $pads[$padNum]
@@ -485,22 +489,21 @@ Place-FP "CAP_Radial" "C2" "100uF" 13 77 0 @{ "1" = "3V3_OPTO"; "2" = "GND" }
 # perpendiculaire au bord droit de la carte (sortie fil vers l'exterieur du boitier, X croissant),
 # au lieu d'un axe parallele au bord comme dans la premiere implantation (signale par l'utilisateur).
 # F0 et PS1 n'ont pas de cablage externe direct (fusible et module internes), orientation inchangee.
-# Colonne secteur/FP decalee de 20mm vers la gauche (2026-11-08) : signale par l'utilisateur, le
-# vide entre la fin des canaux (colonne droite) et cette colonne de connectique faisait ~21mm de
-# cuivre inutilise a l'origine. Un decalage plus agressif (141/146, avec zoneRightX0 85) a ete
-# teste puis abandonne (voir gapThin/gapOC plus haut - 67 straps au lieu de 34, juge trop couteux).
-# Revenu a 162/167, coherent avec gapThin=7/gapOC=8 et zoneRightX0=100.
-Place-FP "CONN2_508" "J1" "MAINS_IN" 167 6 90 @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
+# Colonne secteur/FP recalee suite au resserrement zoneRightX0 100->91 (2026-11-08, voir plus
+# haut) : la colonne droite de canaux finit maintenant a 135mm (91+44) au lieu de 144mm. Colonne
+# secteur rapprochee d'autant (158/153, au lieu de 167/162) pour garder le meme vide d'environ
+# 12mm plutot que de laisser le resserrement central agrandir ce cote-la par inadvertance.
+Place-FP "CONN2_508" "J1" "MAINS_IN" 158 6 90 @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
 # PS1 decale de 25->27mm (2026-11-07) : a 25mm, le pad GND (logique) de PS1 n'etait qu'a
 # 5,9938mm du pad PHASE_PROT (secteur) de F0 - sous la barre des 6mm par 0,006mm seulement,
 # trouve par le DRC apres activation de la regle isolement_secteur_logique_6mm. +2mm redonne une
 # vraie marge au lieu d'un seuil tangent a l'arrondi pres.
-Place-FP "F_Axial" "F0" "250mA_T" 162 15 0 @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
-Place-FP "PSU4" "PS1" "HLK-5M05" 162 27 0 @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
-Place-FP "CONN2_508" "J2" "FP1_FP2" 167 40 90 @{ "1" = "FP1"; "2" = "FP2" }
-Place-FP "CONN2_508" "J3" "FP3_FP4" 167 50 90 @{ "1" = "FP3"; "2" = "FP4" }
-Place-FP "CONN2_508" "J4" "FP5_FP6" 167 60 90 @{ "1" = "FP5"; "2" = "FP6" }
-Place-FP "CONN2_508" "J5" "FP7_FP8" 167 70 90 @{ "1" = "FP7"; "2" = "FP8" }
+Place-FP "F_Axial" "F0" "250mA_T" 153 15 0 @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
+Place-FP "PSU4" "PS1" "HLK-5M05" 153 27 0 @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
+Place-FP "CONN2_508" "J2" "FP1_FP2" 158 40 90 @{ "1" = "FP1"; "2" = "FP2" }
+Place-FP "CONN2_508" "J3" "FP3_FP4" 158 50 90 @{ "1" = "FP3"; "2" = "FP4" }
+Place-FP "CONN2_508" "J4" "FP5_FP6" 158 60 90 @{ "1" = "FP5"; "2" = "FP6" }
+Place-FP "CONN2_508" "J5" "FP7_FP8" 158 70 90 @{ "1" = "FP7"; "2" = "FP8" }
 
 # ---------- 8 zones : 4 bandes horizontales (une par index GPIO 0-3) x 2 zones cote a cote ----------
 $zoneGpio = @{
@@ -542,9 +545,12 @@ $chOffset = 11.0
 $bandPitch = 21.0
 $bandY0 = 6.0
 $zoneLeftX0 = 35.0
-# zoneRightX0 : 85 teste avec le 2e resserrement (abandonne, voir gapThin/gapOC plus haut), revenu
-# a 100 avec 7/8mm.
-$zoneRightX0 = 100.0
+# zoneRightX0 resserre 100->91 (2026-11-08, demande utilisateur) : espace vide repere par
+# l'utilisateur entre la fin de la colonne gauche de canaux (diodes, a 35+offD=79mm) et le debut
+# de la colonne droite (resistances RB, a 100mm) - 21mm de cuivre inutilise. Ramene a ~12mm
+# (79 a 91), coherent avec la marge gardee ailleurs (couloir de routage colonne secteur/FP),
+# pas a zero.
+$zoneRightX0 = 91.0
 
 for ($z = 1; $z -le 8; $z++) {
 	$bandIdx = ($z - 1) % 4
@@ -565,9 +571,12 @@ for ($z = 1; $z -le 8; $z++) {
 		# degager le rayon de pastille 0,8mm + marge), au lieu de tendre la main vers un voisin.
 		# Toujours cote "gauche" (-Y local -> -X monde) pour RB/Q/RL - a l'oppose de l'opto, comme
 		# avant, simplement avec moins d'amplitude.
-		Place-FP "R_Axial" "RB$suffix" "10k" ($x0 + $offRB) $cy 90 @{ "1" = $gpioNet; "2" = "QB_$suffix" } 0 -1.8 90
-		Place-FP "TO92_3" "Q$suffix" "BC547B" ($x0 + $offQ) $cy 90 @{ "1" = "QB_$suffix"; "2" = "LEDK_$suffix"; "3" = "GND" } 0 -1.8 90
-		Place-FP "R_Axial" "RL$suffix" "200_1pct" ($x0 + $offRL) $cy 90 @{ "1" = "3V3_OPTO"; "2" = "LEDA_$suffix" } 0 -1.8 90
+		# Value (ex. "1N4007", "10k") tournee et collee pareil (2026-11-08, demande utilisateur) :
+		# meme cote que le repere (pas celui de l'opto), juste un peu plus loin (2,8 au lieu de
+		# 1,8mm) pour ne pas se superposer au repere lui-meme.
+		Place-FP "R_Axial" "RB$suffix" "10k" ($x0 + $offRB) $cy 90 @{ "1" = $gpioNet; "2" = "QB_$suffix" } 0 -1.8 90 0 -2.8 90
+		Place-FP "TO92_3" "Q$suffix" "BC547B" ($x0 + $offQ) $cy 90 @{ "1" = "QB_$suffix"; "2" = "LEDK_$suffix"; "3" = "GND" } 0 -1.8 90 0 -2.8 90
+		Place-FP "R_Axial" "RL$suffix" "200_1pct" ($x0 + $offRL) $cy 90 @{ "1" = "3V3_OPTO"; "2" = "LEDA_$suffix" } 0 -1.8 90 0 -2.8 90
 
 		# Optotriac : transition logique (pattes LED, cote gauche) / secteur (pattes triac, cote droit).
 		# Point ferme (2026-11-07) : contrairement a tous les autres composants de la pile, l'opto
@@ -588,19 +597,20 @@ for ($z = 1; $z -le 8; $z++) {
 		# espace vide en son centre (local 0,0), entre les 2 rangees de 3 broches (aucune pastille
 		# entre y=+2,54 et y=-2,54 sur l'axe x=0) - largement assez pour "OCZxP" (~2,75mm) a la
 		# taille de police standard (0,8mm), sans toucher aucune pastille ni deborder a l'exterieur
-		# du corps du composant.
-		Place-FP "DIP6" "OC$suffix" "MOC3063M" $ocX $cy 0 @{ "1" = "LEDA_$suffix"; "2" = "LEDK_$suffix"; "4" = "MT1D_$suffix"; "6" = "FMT2_$suffix" } 0 0 0
+		# du corps du composant. Value ("MOC3063M") empilee juste en dessous (y=-1,2 au lieu de 0),
+		# toujours dans le meme espace vide, sans chevaucher le repere.
+		Place-FP "DIP6" "OC$suffix" "MOC3063M" $ocX $cy 0 @{ "1" = "LEDA_$suffix"; "2" = "LEDK_$suffix"; "4" = "MT1D_$suffix"; "6" = "FMT2_$suffix" } 0 0 0 0 -1.2 0
 
 		# RS/F/D : meme traitement vertical colle que RB/Q/RL, mais du cote DROIT (+1,8 au lieu de
 		# -1,8) pour s'eloigner de l'opto plutot que de pointer dessus (cause des 16 vrais
-		# chevauchements DRC trouves avant ce point, silk_over_copper, un par canal).
-		Place-FP "R_Axial" "RS$suffix" "4.7k" ($ocX + $gapOC) $cy 90 @{ "1" = "PHASE_PROT"; "2" = "RSF_$suffix" } 0 1.8 90
-		Place-FP "F_Axial" "F$suffix" "100mA_PTC" ($ocX + $gapOC + $gapThin) $cy 90 @{ "1" = "RSF_$suffix"; "2" = "FMT2_$suffix" } 0 1.8 90
+		# chevauchements DRC trouves avant ce point, silk_over_copper, un par canal). Value a +2,8.
+		Place-FP "R_Axial" "RS$suffix" "4.7k" ($ocX + $gapOC) $cy 90 @{ "1" = "PHASE_PROT"; "2" = "RSF_$suffix" } 0 1.8 90 0 2.8 90
+		Place-FP "F_Axial" "F$suffix" "100mA_PTC" ($ocX + $gapOC + $gapThin) $cy 90 @{ "1" = "RSF_$suffix"; "2" = "FMT2_$suffix" } 0 1.8 90 0 2.8 90
 
 		if ($ch -eq "P") {
-			Place-FP "D_Axial" "D$suffix" "1N4007" ($ocX + $gapOC + 2 * $gapThin) $cy 90 @{ "1" = "MT1D_$suffix"; "2" = "FP$z" } 0 1.8 90
+			Place-FP "D_Axial" "D$suffix" "1N4007" ($ocX + $gapOC + 2 * $gapThin) $cy 90 @{ "1" = "MT1D_$suffix"; "2" = "FP$z" } 0 1.8 90 0 2.8 90
 		} else {
-			Place-FP "D_Axial" "D$suffix" "1N4007" ($ocX + $gapOC + 2 * $gapThin) $cy 90 @{ "1" = "FP$z"; "2" = "MT1D_$suffix" } 0 1.8 90
+			Place-FP "D_Axial" "D$suffix" "1N4007" ($ocX + $gapOC + 2 * $gapThin) $cy 90 @{ "1" = "FP$z"; "2" = "MT1D_$suffix" } 0 1.8 90 0 2.8 90
 		}
 
 	}
