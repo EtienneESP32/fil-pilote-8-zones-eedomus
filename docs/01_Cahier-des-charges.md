@@ -4,14 +4,14 @@
 
 ## 1. But
 
-Définir une carte contrôleur pour huit zones de chauffage par fil pilote, commandée localement par Ethernet/eedomus et destinée à être intégrée dans un coffret rail DIN. Le candidat retenu pour l'étude est le Waveshare ESP32-S3-POE-ETH, SKU 28771, sans kit caméra. Home Assistant n'est pas requis. Il utilise un W5500 Ethernet sur SPI; la disponibilité des GPIO reste à vérifier sur le pinout.
+Définir une carte contrôleur pour huit zones de chauffage par fil pilote, commandée localement par Ethernet/eedomus et destinée à être intégrée dans un coffret rail DIN. La carte retenue est Waveshare ESP32-S3-ETH-M (SKU 34882, broches soudées, sans module PoE, sans caméra). Home Assistant n'est pas requis. Il utilise un W5500 Ethernet sur SPI; la disponibilité des GPIO reste à vérifier sur le pinout.
 
 ## 2. Périmètre envisagé
 
 - Huit sorties fil pilote indépendantes, une par zone.
 - Six ordres fil pilote GIFAM par zone; la table de codage électrique et temporel reste à concevoir et valider.
 - Ethernet filaire via RJ45; il faut 16 signaux de commande (2 optocoupleurs × 8 zones). L'ESP32-S3 pilotera directement les 16 drivers si 16 GPIO compatibles sont confirmés; sinon, conserver un expandeur d'E/S.
-- La carte doit pouvoir être alimentée soit par PoE, soit par une alimentation secteur isolée montée sur le PCB. **Point fermé (2026-11-07) :** le schéma fabricant réel montre qu'il n'existe pas de broche « sortie PoE » externe à sélectionner (voir [02_Architecture §1](02_Architecture-et-interfaces.md)) ; l'exclusion mutuelle est un choix d'assemblage documenté, protégé par une simple diode série plutôt qu'un sélecteur.
+- **Décision utilisateur (2026-11-24) : PoE abandonné, secteur local seul.** Historique : La carte doit pouvoir être alimentée soit par PoE, soit par une alimentation secteur isolée montée sur le PCB. **Point fermé (2026-11-07) :** le schéma fabricant réel montre qu'il n'existe pas de broche « sortie PoE » externe à sélectionner (voir [02_Architecture §1](02_Architecture-et-interfaces.md)) ; l'exclusion mutuelle est un choix d'assemblage documenté, protégé par une simple diode série plutôt qu'un sélecteur.
 - Pas de régulateur 3,3 V séparé souhaité : utiliser le 3,3 V généré sur la carte contrôleur si sa sortie est documentée et suffisante pour les charges logiques. Le rail logique 3,3 V reste nécessaire; cette option est à vérifier pour la variante retenue.
 - Montage traversant demandé pour les composants de la carte; le module Waveshare complet est accepté même s'il comporte des composants CMS.
 - Borniers secteur et sorties fil pilote en bord de carte.
@@ -25,11 +25,11 @@ Définir une carte contrôleur pour huit zones de chauffage par fil pilote, comm
 | ID | Exigence source | Statut / commentaire |
 |---|---|---|
 | SYS-01 | Huit zones de fil pilote | Source; interface radiateur à documenter. |
-| SYS-02 | Waveshare ESP32-S3-POE-ETH, SKU 28771, avec PoE, RJ45, Wi-Fi et Bluetooth | Candidat retenu pour l'étude; vérifier la variante effectivement commandée et les ressources GPIO du pinout. |
+| SYS-02 | Waveshare ESP32-S3-ETH-M (SKU 34882, broches soudées, sans module PoE, sans caméra), RJ45, Wi-Fi et Bluetooth LE | **Décision utilisateur (2026-11-24)** ; vérifier la variante effectivement commandée et les ressources GPIO du pinout. |
 | SYS-03 | 16 signaux logiques au total pour commander les 16 entrées d'opto | Une affectation provisoire de 16 GPIO directs est proposée dans l'architecture; la vérifier au schéma fabricant avant retrait définitif du MCP23017. |
 | SYS-04 | Aucun bus I2C requis dans l'architecture préférée | À reconsidérer seulement si le pinout ou l'architecture impose un expandeur. |
 | SYS-05 | Huit sorties FP indépendantes sur quatre borniers deux positions | Confirmé par l'utilisateur; référence et encombrement du bornier à choisir. |
-| SYS-06 | Alimentation PoE ou alimentation secteur locale intégrée au PCB | Les deux modes sont requis; prévoir sélection ou power-path anti-retour. Dimensionnement et protections à valider. |
+| SYS-06 | Alimentation PoE ou alimentation secteur locale intégrée au PCB | **Décision utilisateur (2026-11-24) : PoE abandonné, alimentation secteur locale seule (IRM-05-5).** Historique : les deux modes étaient requis; prévoir sélection ou power-path anti-retour. Dimensionnement et protections à valider. |
 | SYS-07 | Enveloppe rail DIN six modules, largeur annoncée 105 mm | Source; ce n'est pas le dessin coté du volume utile. |
 | SYS-08 | Composants de la carte en THT; carte contrôleur complète acceptée même si elle contient des CMS | Confirmé par l'utilisateur; empreinte/support du Waveshare à vérifier. |
 | SYS-09 | Firmware personnalisé avec intégration eedomus, sans dépendance Home Assistant | Interface réseau locale à définir; proposition HTTP/REST à valider avec le mode d'intégration eedomus retenu. |

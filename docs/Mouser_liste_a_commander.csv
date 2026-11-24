@@ -1,0 +1,14 @@
+﻿Quantity,Manufacturer Name,Manufacturer Part Number,Mouser Part Number,Customer Part Number,Description,Statut reference
+1,Hi-Link,HLK-5M05,,PS1,Convertisseur AC/DC isole 230VAC vers 5V/1A,ABSENT DE MOUSER (marque orientee LCSC/Chine). Commander chez LCSC : reference LCSC C209907.
+17,Vishay,1N4007-E3/54,625-1N4007-E3/54,"DPWR,D1-D16","Diode redresseuse 1N4007, DO-41",CONFIRME (deja dans votre panier)
+16,onsemi,MOC3063M,,OC1-OC16,"Optotriac zero-cross, IFT max 5mA, DIP-6","A CHERCHER SUR MOUSER avec exactement ce MPN. NE PAS prendre FOD4216 (random phase, incompatible)."
+16,Vishay,CMF50200R00FHEB,71-CMF50200R00FHEB,RL1-RL16,"Resistance 200 ohm, 1%, axiale THT",CONFIRME (deja dans votre panier)
+1,Littelfuse,0219.250MXAP,576-0219.250MXAP,F0,"Fusible temporise (anti-surge) 250mA, 250V, 5x20mm verre","TROUVE - correspond a la specification (250mA, 250V, 5x20mm, temporise)"
+1,Littelfuse,85300001009,576-85300001009,support F0,"Porte-fusible 5x20mm, montage panneau, serie 853, IP54, 10A/250V","TROUVE - montage panneau confirme par datasheet, calibre 10A largement suffisant pour un fusible 250mA"
+4,Same Sky (ex-CUI Devices),TB0014-508-02GR,179-TB0014-508-02GR,J2-J5 (x2 chacun),"Bornier 2 positions, pas 5,08mm, THT",CONFIRME (deja dans votre panier)
+1,,,,support carte,"Entretoises + support femelle 2,54mm (jeu) pour carte Waveshare","NON RESOLU - pas un oubli de recherche : depend de l'entraxe reel des trous de fixation de la carte Waveshare, jamais mesure/confirme au dossier (docs/03_Nomenclature). Mouser vend les entretoises M3 a l'unite par longueur, pas en kit assortiment comme Amazon - impossible de choisir la bonne longueur/entraxe sans cette mesure."
+1,Microchip,MCP23017-E/SP,579-MCP23017-E/SP,U2,"Expandeur I2C 16 bits, DIP-28, pilote les 16 sorties de zone",TROUVE - MPN exact
+1,Texas Instruments,UA78M33CKCS,595-UA78M33CKCS,U1,"Regulateur 3,3V TO-220-3, 500mA (remplace l'AMS1117-3.3 incompatible avec le footprint TO-220 deja grave sur le PCB)","RESOLU - brochage VIN-GND-VOUT identique a l'empreinte posee sur le PCB commande, se monte directement sans plier les pattes"
+2,Nichicon,UDB1H100MHM1TO,647-UDB1H100MHM1TO,"C1,C2","Condensateur electrolytique 10uF 50V radial THT (decouplage regulateur U1, VSYS et 3V3_OPTO)","TROUVE - correspond a la specification (10uF, 50V, radial THT)"
+1,Kemet,C320C104K5R5TA7301,80-C320C104K5R5TA7301,C3,"Condensateur ceramique 100nF 50V X7R radial THT, pas 2,54mm (decouplage U2/MCP23017)",TROUVE - confiance moyenne sur le numero Mouser exact (confirmer sur la fiche produit a l'ajout au panier)
+2,Yageo,CFR-25JB-52-4K7,603-CFR-25JB-52-4K7,"RPU1,RPU2","Resistance 4,7 kOhm, 1/4W, axiale THT (tirage I2C SDA/SCL vers 3V3_OPTO)","TROUVE - MPN exact, tres courant/en stock"

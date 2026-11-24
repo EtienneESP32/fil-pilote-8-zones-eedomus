@@ -1,6 +1,11 @@
 # Étude préliminaire : GPIO direct vers optocoupleur
 
-**Statut : point fermé (2026-11-06).** Le direct-drive étudié ici est abandonné au profit d'un étage tampon transistor (voir [02_Architecture §3](02_Architecture-et-interfaces.md)) : le calcul ci-dessous reste la justification du choix MOC3063M + 200 Ω, mais le courant n'est plus tiré du GPIO ni du rail 3,3 V de la carte Waveshare — il vient d'un régulateur 3,3 V dédié (`3V3_OPTO`) commuté par un transistor NPN. Cela lève le risque de budget de courant sur 16 voies (pire cas ~210 mA, inacceptable à prélever sur un régulateur de carte non documenté) et améliore la marge de déclenchement (~30 % contre ~12 % en direct-drive, chute de saturation transistor plus faible et plus stable que la chute VOH d'un GPIO chargé).
+**Statut : point rouvert puis refermé (2026-11-08), en faveur du direct-drive.** L'étage tampon transistor retenu le 2026-11-06 (voir ancienne version de [02_Architecture §3](02_Architecture-et-interfaces.md)) est abandonné à la demande de l'utilisateur : retour au direct-drive GPIO → résistance → LED décrit ci-dessous, pour revenir à un circuit plus simple (34 composants en moins : transistors, résistances de base, régulateur `3V3_OPTO` dédié et son découplage). Les deux risques identifiés le 2026-11-06 sont assumés tels quels, pas levés par une nouvelle donnée :
+
+- **Budget de courant** : le pire cas (~210 mA cumulés sur 16 voies actives, MOC3063M/200 Ω) revient sur le régulateur 3,3 V embarqué de la carte Waveshare, dont la capacité réelle reste non documentée (voir discussion du 2026-11-08 : le W5500 est conservé, donc pas de marge supplémentaire récupérée de ce côté). Ce risque n'a pas été fermé par une fiche technique ou une mesure — il est accepté en l'état.
+- **Marge de déclenchement** : ≈12 % sur l'IFT min du MOC3063M (chute VOH d'une GPIO chargée), contre ≈30 % avec l'étage tampon transistor retiré. Assumé.
+
+La branche `archive/etage-tampon-transistor` conserve la version avec étage tampon si ce choix doit être révisé.
 
 ## Conclusion
 

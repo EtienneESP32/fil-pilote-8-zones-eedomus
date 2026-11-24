@@ -1,0 +1,3 @@
+ANCIENNE CARTE - NE PAS FABRIQUER, NE PAS UTILISER.
+Les Gerbers de ce dossier (et de versions/) ne respectent pas les distances de securite secteur.
+La carte valable est dans hardware/kicad_v4 (Gerbers : hardware/kicad_v4/fabrication).

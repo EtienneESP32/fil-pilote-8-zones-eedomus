@@ -1,0 +1,1957 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-09T09:35:52",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.7",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/1abbba80-d3ae-4784-9b21-ec50bcd0664b",
+            "violations": [
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole J1 [CONN2]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 121.92
+                            },
+                            "uuid": "167c789c-c190-4a2b-943e-370036148bb0"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole J1 [CONN2]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 121.92
+                            },
+                            "uuid": "167c789c-c190-4a2b-943e-370036148bb0"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole J2 [CONN2]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 152.4
+                            },
+                            "uuid": "bf38a760-0d11-4bdf-9fd4-796b8e50c50c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole J2 [CONN2]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 152.4
+                            },
+                            "uuid": "bf38a760-0d11-4bdf-9fd4-796b8e50c50c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ1P [R2]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 223.52
+                            },
+                            "uuid": "f1e7bce0-7a19-4041-9830-9662cfbafbba"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ1P [R2]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 223.52
+                            },
+                            "uuid": "f1e7bce0-7a19-4041-9830-9662cfbafbba"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ1P [OC6]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 234.95
+                            },
+                            "uuid": "349182c9-b143-4162-a0d9-d840b295eacf"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ1P [OC6]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 234.95
+                            },
+                            "uuid": "349182c9-b143-4162-a0d9-d840b295eacf"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ1P [D2]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 246.38
+                            },
+                            "uuid": "d1cf53bf-aee7-4dcb-9814-c52280652db0"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ1P [D2]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 246.38
+                            },
+                            "uuid": "d1cf53bf-aee7-4dcb-9814-c52280652db0"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ5P [R2]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 294.64
+                            },
+                            "uuid": "d7075f7a-eb6a-4c34-a4de-5d15407a7d13"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ5P [R2]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 294.64
+                            },
+                            "uuid": "d7075f7a-eb6a-4c34-a4de-5d15407a7d13"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ5P [OC6]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 306.07
+                            },
+                            "uuid": "3716161c-d560-4275-8dd7-36808e648ad8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ5P [OC6]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 306.07
+                            },
+                            "uuid": "3716161c-d560-4275-8dd7-36808e648ad8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ5P [D2]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 317.5
+                            },
+                            "uuid": "e9b7eeff-401b-4989-b24c-4e477668172d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ5P [D2]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 317.5
+                            },
+                            "uuid": "e9b7eeff-401b-4989-b24c-4e477668172d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole F0 [F2]",
+                            "pos": {
+                                "x": 195.58,
+                                "y": 121.92
+                            },
+                            "uuid": "b3e3d041-eadb-435d-b9c8-e7914e3be1ea"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole F0 [F2]",
+                            "pos": {
+                                "x": 195.58,
+                                "y": 121.92
+                            },
+                            "uuid": "b3e3d041-eadb-435d-b9c8-e7914e3be1ea"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole J3 [CONN2]",
+                            "pos": {
+                                "x": 195.58,
+                                "y": 152.4
+                            },
+                            "uuid": "9d845fc8-955d-4c07-9e6f-ad52d24264ff"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole J3 [CONN2]",
+                            "pos": {
+                                "x": 195.58,
+                                "y": 152.4
+                            },
+                            "uuid": "9d845fc8-955d-4c07-9e6f-ad52d24264ff"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ1N [R2]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 223.52
+                            },
+                            "uuid": "cd7609bb-4eb1-431c-aff3-8a0fdd9a5b4a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ1N [R2]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 223.52
+                            },
+                            "uuid": "cd7609bb-4eb1-431c-aff3-8a0fdd9a5b4a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ1N [OC6]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 234.95
+                            },
+                            "uuid": "dfed4e7d-cb44-40ef-ad55-4f5967ebaf40"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ1N [OC6]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 234.95
+                            },
+                            "uuid": "dfed4e7d-cb44-40ef-ad55-4f5967ebaf40"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ1N [D2]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 246.38
+                            },
+                            "uuid": "3b743e8c-acd3-4460-96bb-5b5801e4cdac"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ1N [D2]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 246.38
+                            },
+                            "uuid": "3b743e8c-acd3-4460-96bb-5b5801e4cdac"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ5N [R2]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 294.64
+                            },
+                            "uuid": "87743428-1be9-4255-bb76-1ee19e649f6c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ5N [R2]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 294.64
+                            },
+                            "uuid": "87743428-1be9-4255-bb76-1ee19e649f6c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ5N [OC6]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 306.07
+                            },
+                            "uuid": "2816ed4a-e52b-4d1e-bb55-9353f10b0570"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ5N [OC6]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 306.07
+                            },
+                            "uuid": "2816ed4a-e52b-4d1e-bb55-9353f10b0570"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ5N [D2]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 317.5
+                            },
+                            "uuid": "3ab211e7-0fbf-4b48-b160-4eb5bea19e0a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ5N [D2]",
+                            "pos": {
+                                "x": 205.74,
+                                "y": 317.5
+                            },
+                            "uuid": "3ab211e7-0fbf-4b48-b160-4eb5bea19e0a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole PS1 [PSU4]",
+                            "pos": {
+                                "x": 215.9,
+                                "y": 121.92
+                            },
+                            "uuid": "d2299539-ebbb-4ec1-a8aa-322b6f66a0b5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole PS1 [PSU4]",
+                            "pos": {
+                                "x": 215.9,
+                                "y": 121.92
+                            },
+                            "uuid": "d2299539-ebbb-4ec1-a8aa-322b6f66a0b5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole J4 [CONN2]",
+                            "pos": {
+                                "x": 215.9,
+                                "y": 152.4
+                            },
+                            "uuid": "1d9c2fe3-7214-4d9b-a960-d4de4fb98089"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole J4 [CONN2]",
+                            "pos": {
+                                "x": 215.9,
+                                "y": 152.4
+                            },
+                            "uuid": "1d9c2fe3-7214-4d9b-a960-d4de4fb98089"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DPWR [D2]",
+                            "pos": {
+                                "x": 236.22,
+                                "y": 121.92
+                            },
+                            "uuid": "63fd48d9-1448-40d8-b879-bc5c416e65ba"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DPWR [D2]",
+                            "pos": {
+                                "x": 236.22,
+                                "y": 121.92
+                            },
+                            "uuid": "63fd48d9-1448-40d8-b879-bc5c416e65ba"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole J5 [CONN2]",
+                            "pos": {
+                                "x": 236.22,
+                                "y": 152.4
+                            },
+                            "uuid": "b77c1be8-3911-4330-a341-358288b86006"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole J5 [CONN2]",
+                            "pos": {
+                                "x": 236.22,
+                                "y": 152.4
+                            },
+                            "uuid": "b77c1be8-3911-4330-a341-358288b86006"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole C1 [CAP2]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 132.08
+                            },
+                            "uuid": "9854c049-a8c6-48a1-b584-7dff70d18dbc"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole C1 [CAP2]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 132.08
+                            },
+                            "uuid": "9854c049-a8c6-48a1-b584-7dff70d18dbc"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ2P [R2]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 223.52
+                            },
+                            "uuid": "0d903001-f0a5-4c9c-abee-155c55791c8c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ2P [R2]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 223.52
+                            },
+                            "uuid": "0d903001-f0a5-4c9c-abee-155c55791c8c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ2P [OC6]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 234.95
+                            },
+                            "uuid": "c92c755e-3718-408e-b475-49902bdd9b18"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ2P [OC6]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 234.95
+                            },
+                            "uuid": "c92c755e-3718-408e-b475-49902bdd9b18"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ2P [D2]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 246.38
+                            },
+                            "uuid": "ab3091e4-8b6e-4b55-a751-2d8c39fa7462"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ2P [D2]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 246.38
+                            },
+                            "uuid": "ab3091e4-8b6e-4b55-a751-2d8c39fa7462"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ6P [R2]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 294.64
+                            },
+                            "uuid": "7655b86b-aa2f-462e-8554-59f5854471b8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ6P [R2]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 294.64
+                            },
+                            "uuid": "7655b86b-aa2f-462e-8554-59f5854471b8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ6P [OC6]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 306.07
+                            },
+                            "uuid": "f4978308-a7df-4859-bd5d-0f4356b4fa64"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ6P [OC6]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 306.07
+                            },
+                            "uuid": "f4978308-a7df-4859-bd5d-0f4356b4fa64"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ6P [D2]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 317.5
+                            },
+                            "uuid": "e12dfc28-885e-490b-92ad-f5edaba1982d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ6P [D2]",
+                            "pos": {
+                                "x": 246.38,
+                                "y": 317.5
+                            },
+                            "uuid": "e12dfc28-885e-490b-92ad-f5edaba1982d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole U1 [REG3]",
+                            "pos": {
+                                "x": 256.54,
+                                "y": 121.92
+                            },
+                            "uuid": "d889fc89-daee-46d9-958e-f4ae3d0f4fe6"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole U1 [REG3]",
+                            "pos": {
+                                "x": 256.54,
+                                "y": 121.92
+                            },
+                            "uuid": "d889fc89-daee-46d9-958e-f4ae3d0f4fe6"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole C2 [CAP2]",
+                            "pos": {
+                                "x": 266.7,
+                                "y": 132.08
+                            },
+                            "uuid": "13d39169-eec5-4708-b845-f3aedd2f85bc"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole C2 [CAP2]",
+                            "pos": {
+                                "x": 266.7,
+                                "y": 132.08
+                            },
+                            "uuid": "13d39169-eec5-4708-b845-f3aedd2f85bc"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RPU1 [R2]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 167.64
+                            },
+                            "uuid": "8d41ab9b-f9cb-443f-b3a1-a333f2180271"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RPU1 [R2]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 167.64
+                            },
+                            "uuid": "8d41ab9b-f9cb-443f-b3a1-a333f2180271"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RPU2 [R2]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 172.72
+                            },
+                            "uuid": "45f21b7e-33f0-4eed-8cc9-48b2bf92402f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RPU2 [R2]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 172.72
+                            },
+                            "uuid": "45f21b7e-33f0-4eed-8cc9-48b2bf92402f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ2N [R2]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 223.52
+                            },
+                            "uuid": "876f005d-f916-4920-ae2b-7579fc419258"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ2N [R2]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 223.52
+                            },
+                            "uuid": "876f005d-f916-4920-ae2b-7579fc419258"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ2N [OC6]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 234.95
+                            },
+                            "uuid": "d5cc7baf-61e1-470f-b7ea-b16b62eb3af3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ2N [OC6]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 234.95
+                            },
+                            "uuid": "d5cc7baf-61e1-470f-b7ea-b16b62eb3af3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ2N [D2]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 246.38
+                            },
+                            "uuid": "eec9fa5e-fb1a-4120-99f4-1a4e19946244"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ2N [D2]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 246.38
+                            },
+                            "uuid": "eec9fa5e-fb1a-4120-99f4-1a4e19946244"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ6N [R2]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 294.64
+                            },
+                            "uuid": "b402aecf-43e7-4e91-a3dc-29860fc73d41"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ6N [R2]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 294.64
+                            },
+                            "uuid": "b402aecf-43e7-4e91-a3dc-29860fc73d41"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ6N [OC6]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 306.07
+                            },
+                            "uuid": "41d40cd9-c960-402f-bf1c-ed8f73f04a94"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ6N [OC6]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 306.07
+                            },
+                            "uuid": "41d40cd9-c960-402f-bf1c-ed8f73f04a94"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ6N [D2]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 317.5
+                            },
+                            "uuid": "05ee50f4-b484-42d1-ad0e-1677bfd96f2f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ6N [D2]",
+                            "pos": {
+                                "x": 276.86,
+                                "y": 317.5
+                            },
+                            "uuid": "05ee50f4-b484-42d1-ad0e-1677bfd96f2f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole U2 [MCP28]",
+                            "pos": {
+                                "x": 297.18,
+                                "y": 101.6
+                            },
+                            "uuid": "4790d1f4-a8ad-49c1-9a6d-cfd788019aa7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole U2 [MCP28]",
+                            "pos": {
+                                "x": 297.18,
+                                "y": 101.6
+                            },
+                            "uuid": "4790d1f4-a8ad-49c1-9a6d-cfd788019aa7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole JWS [CONN40]",
+                            "pos": {
+                                "x": 297.18,
+                                "y": 182.88
+                            },
+                            "uuid": "bb00e557-b19b-406b-85db-005a041e3d0c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole JWS [CONN40]",
+                            "pos": {
+                                "x": 297.18,
+                                "y": 182.88
+                            },
+                            "uuid": "bb00e557-b19b-406b-85db-005a041e3d0c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole C3 [CAP2]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 101.6
+                            },
+                            "uuid": "1b1b0d38-7d45-4677-a70a-4e1267dd820a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole C3 [CAP2]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 101.6
+                            },
+                            "uuid": "1b1b0d38-7d45-4677-a70a-4e1267dd820a"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ3P [R2]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 223.52
+                            },
+                            "uuid": "7ffd2f8c-53a3-4dc9-8a4b-84b8a7d747d7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ3P [R2]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 223.52
+                            },
+                            "uuid": "7ffd2f8c-53a3-4dc9-8a4b-84b8a7d747d7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ3P [OC6]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 234.95
+                            },
+                            "uuid": "ad96346d-2525-44c8-add7-366df4097f50"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ3P [OC6]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 234.95
+                            },
+                            "uuid": "ad96346d-2525-44c8-add7-366df4097f50"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ3P [D2]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 246.38
+                            },
+                            "uuid": "9c0deebb-1106-45ea-b530-1a8173633f09"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ3P [D2]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 246.38
+                            },
+                            "uuid": "9c0deebb-1106-45ea-b530-1a8173633f09"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ7P [R2]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 294.64
+                            },
+                            "uuid": "6c10d3a9-3433-4b01-9384-02b6b486743b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ7P [R2]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 294.64
+                            },
+                            "uuid": "6c10d3a9-3433-4b01-9384-02b6b486743b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ7P [OC6]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 306.07
+                            },
+                            "uuid": "8bffe68a-8222-4a7b-bf58-32fa6d2edd0b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ7P [OC6]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 306.07
+                            },
+                            "uuid": "8bffe68a-8222-4a7b-bf58-32fa6d2edd0b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ7P [D2]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 317.5
+                            },
+                            "uuid": "39426c3d-35c9-49f1-9201-3ed73aa717b4"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ7P [D2]",
+                            "pos": {
+                                "x": 317.5,
+                                "y": 317.5
+                            },
+                            "uuid": "39426c3d-35c9-49f1-9201-3ed73aa717b4"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ3N [R2]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 223.52
+                            },
+                            "uuid": "49b6f631-5504-4aa2-aee5-dfbecd6a5ca2"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ3N [R2]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 223.52
+                            },
+                            "uuid": "49b6f631-5504-4aa2-aee5-dfbecd6a5ca2"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ3N [OC6]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 234.95
+                            },
+                            "uuid": "2c2732c0-c1df-4b69-9096-45e1e7508499"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ3N [OC6]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 234.95
+                            },
+                            "uuid": "2c2732c0-c1df-4b69-9096-45e1e7508499"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ3N [D2]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 246.38
+                            },
+                            "uuid": "a294b507-7b3e-44a1-b141-67b3115fe66b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ3N [D2]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 246.38
+                            },
+                            "uuid": "a294b507-7b3e-44a1-b141-67b3115fe66b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ7N [R2]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 294.64
+                            },
+                            "uuid": "020506ca-f1a0-4826-b33c-2b86ea6a08bc"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ7N [R2]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 294.64
+                            },
+                            "uuid": "020506ca-f1a0-4826-b33c-2b86ea6a08bc"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ7N [OC6]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 306.07
+                            },
+                            "uuid": "04c5495d-2d3c-46dd-ae9b-990ea0633383"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ7N [OC6]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 306.07
+                            },
+                            "uuid": "04c5495d-2d3c-46dd-ae9b-990ea0633383"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ7N [D2]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 317.5
+                            },
+                            "uuid": "7431d01d-8255-47aa-b014-bccf217a70c5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ7N [D2]",
+                            "pos": {
+                                "x": 347.98,
+                                "y": 317.5
+                            },
+                            "uuid": "7431d01d-8255-47aa-b014-bccf217a70c5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ4P [R2]",
+                            "pos": {
+                                "x": 388.62,
+                                "y": 223.52
+                            },
+                            "uuid": "a6dac95d-0405-4455-8e2b-9c99f183a7f0"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ4P [R2]",
+                            "pos": {
+                                "x": 388.62,
+                                "y": 223.52
+                            },
+                            "uuid": "a6dac95d-0405-4455-8e2b-9c99f183a7f0"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ4P [OC6]",
+                            "pos": {
+                                "x": 388.62,
+                                "y": 234.95
+                            },
+                            "uuid": "5797ede8-8007-4611-9948-66558f55ce29"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ4P [OC6]",
+                            "pos": {
+                                "x": 388.62,
+                                "y": 234.95
+                            },
+                            "uuid": "5797ede8-8007-4611-9948-66558f55ce29"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ4P [D2]",
+                            "pos": {
+                                "x": 388.62,
+                                "y": 246.38
+                            },
+                            "uuid": "6fd29eae-19d3-4205-947a-76ded3945da5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ4P [D2]",
+                            "pos": {
+                                "x": 388.62,
+                                "y": 246.38
+                            },
+                            "uuid": "6fd29eae-19d3-4205-947a-76ded3945da5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ8P [R2]",
+                            "pos": {
+                                "x": 388.62,
+                                "y": 294.64
+                            },
+                            "uuid": "cedcc0ba-7571-4e3a-bde2-2dfc85b3e12b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ8P [R2]",
+                            "pos": {
+                                "x": 388.62,
+                                "y": 294.64
+                            },
+                            "uuid": "cedcc0ba-7571-4e3a-bde2-2dfc85b3e12b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ8P [OC6]",
+                            "pos": {
+                                "x": 388.62,
+                                "y": 306.07
+                            },
+                            "uuid": "3e5ed33a-dd81-4352-9d1c-8e248441c2d5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ8P [OC6]",
+                            "pos": {
+                                "x": 388.62,
+                                "y": 306.07
+                            },
+                            "uuid": "3e5ed33a-dd81-4352-9d1c-8e248441c2d5"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ8P [D2]",
+                            "pos": {
+                                "x": 388.62,
+                                "y": 317.5
+                            },
+                            "uuid": "89b05e82-b800-45d1-8d07-78078cbc3ff4"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ8P [D2]",
+                            "pos": {
+                                "x": 388.62,
+                                "y": 317.5
+                            },
+                            "uuid": "89b05e82-b800-45d1-8d07-78078cbc3ff4"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ4N [R2]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 223.52
+                            },
+                            "uuid": "789564f0-7ab2-4bef-8b00-3fc678625c8f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ4N [R2]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 223.52
+                            },
+                            "uuid": "789564f0-7ab2-4bef-8b00-3fc678625c8f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ4N [OC6]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 234.95
+                            },
+                            "uuid": "bc3418c5-48a0-49df-80e9-c98ea51504ea"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ4N [OC6]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 234.95
+                            },
+                            "uuid": "bc3418c5-48a0-49df-80e9-c98ea51504ea"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ4N [D2]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 246.38
+                            },
+                            "uuid": "77abfe0a-a4b1-4d34-bba6-4a64c4cf2335"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ4N [D2]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 246.38
+                            },
+                            "uuid": "77abfe0a-a4b1-4d34-bba6-4a64c4cf2335"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ8N [R2]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 294.64
+                            },
+                            "uuid": "dd8da047-015a-44b5-8f44-5e58976d0ef3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole RLZ8N [R2]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 294.64
+                            },
+                            "uuid": "dd8da047-015a-44b5-8f44-5e58976d0ef3"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ8N [OC6]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 306.07
+                            },
+                            "uuid": "594d111c-b631-4b47-9a79-a9548316da5e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole OCZ8N [OC6]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 306.07
+                            },
+                            "uuid": "594d111c-b631-4b47-9a79-a9548316da5e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ8N [D2]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 317.5
+                            },
+                            "uuid": "e4b5a497-bf85-427f-aa62-98271ab56d40"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'FP'",
+                    "items": [
+                        {
+                            "description": "Symbole DZ8N [D2]",
+                            "pos": {
+                                "x": 419.1,
+                                "y": 317.5
+                            },
+                            "uuid": "e4b5a497-bf85-427f-aa62-98271ab56d40"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                }
+            ]
+        }
+    ],
+    "source": "FilPilote_8Zones.kicad_sch"
+}

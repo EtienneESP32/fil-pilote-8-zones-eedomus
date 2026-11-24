@@ -1,9 +1,18 @@
 # Générateur du schéma FilPilote_8Zones (texte .kicad_sch, format KiCad 10)
 # Usage : powershell -File generate_schematic.ps1 -OutFile ..\FilPilote_8Zones.kicad_sch -ProjectName FilPilote_8Zones
+#
+# Reprise complete (2026-11-09) : architecture MCP23017 (expandeur I2C), voir docs/02_Architecture-et-interfaces.md.
+# - ESP32 n'utilise plus que 2 broches (GPIO1=SDA, GPIO2=SCL) ; les 16 sorties de zone viennent du MCP23017.
+# - MCP23017 + LED d'opto alimentes par un regulateur 3,3V dedie (U1, AMS1117-3,3) sur VSYS, independant
+#   du 3,3V du Waveshare (ferme le risque de budget courant non documente).
+# - Protection par voie (4,7 kOhm + fusible/PTC) : SUPPRIMEE, decision utilisateur explicite (2026-11-09),
+#   qui accepte qu'un defaut sur une zone coupe les 8 (seul F0, fusible d'entree commun 250 mA, protege).
 
 param(
 	[string]$OutFile = "$PSScriptRoot\..\FilPilote_8Zones.kicad_sch",
-	[string]$ProjectName = "FilPilote_8Zones"
+	[string]$ProjectName = "FilPilote_8Zones",
+	# Numero de version (demande utilisateur, 2026-11-09) : affiche dans le cartouche KiCad.
+	[string]$Rev = "v1-placement-propre"
 )
 
 $script:uuidCounter = 0
@@ -19,12 +28,10 @@ $PinOffsets = @{
 	"R2"     = @{ "1" = @(-3.81, 0);    "2" = @(3.81, 0) }
 	"D2"     = @{ "1" = @(-3.81, 0);    "2" = @(3.81, 0) }
 	"F2"     = @{ "1" = @(-3.81, 0);    "2" = @(3.81, 0) }
-	"CONN2"  = @{ "1" = @(-3.81, 0);    "2" = @(3.81, 0) }
 	"CAP2"   = @{ "1" = @(-3.81, 0);    "2" = @(3.81, 0) }
-	"Q3"     = @{ "1" = @(-5.08, 0);    "2" = @(0, 5.08);    "3" = @(0, -5.08) }
+	"CONN2"  = @{ "1" = @(-3.81, 0);    "2" = @(3.81, 0) }
 	"OC6"    = @{ "1" = @(-6.35, 2.54); "2" = @(-6.35, 0);   "3" = @(-6.35, -2.54); "4" = @(6.35, -2.54); "5" = @(6.35, 0); "6" = @(6.35, 2.54) }
 	"REG3"   = @{ "1" = @(-5.08, 0);    "2" = @(0, -5.08);   "3" = @(5.08, 0) }
-	"SW3"    = @{ "1" = @(-5.08, 0);    "2" = @(0, -5.08);   "3" = @(5.08, 0) }
 	"PSU4"   = @{ "1" = @(-5.08, 2.54); "2" = @(-5.08, -2.54); "3" = @(5.08, 2.54); "4" = @(5.08, -2.54) }
 }
 # CONN40 : en-tete Waveshare, 2 rangees de 20 broches (format Pico), rangees espacees de 17,78 mm
@@ -34,6 +41,20 @@ for ($k = 1; $k -le 20; $k++) {
 	$rightPin = 41 - $k
 	$PinOffsets["CONN40"]["$k"] = @(-8.89, $yoff)
 	$PinOffsets["CONN40"]["$rightPin"] = @(8.89, $yoff)
+}
+# MCP23017 : DIP-28, 14 broches par rangee, pinout reel (pin k a gauche <-> pin 29-k a droite)
+$mcpNames = @{
+	1="GPB0"; 2="GPB1"; 3="GPB2"; 4="GPB3"; 5="GPB4"; 6="GPB5"; 7="GPB6"; 8="GPB7"
+	9="VDD"; 10="VSS"; 11="NC"; 12="SCL"; 13="SDA"; 14="NC"
+	15="A0"; 16="A1"; 17="A2"; 18="RESET"; 19="INTB"; 20="INTA"
+	21="GPA0"; 22="GPA1"; 23="GPA2"; 24="GPA3"; 25="GPA4"; 26="GPA5"; 27="GPA6"; 28="GPA7"
+}
+$PinOffsets["MCP28"] = @{}
+for ($k = 1; $k -le 14; $k++) {
+	$yoff = -($k - 1) * 2.54
+	$rightPin = 29 - $k
+	$PinOffsets["MCP28"]["$k"] = @(-8.89, $yoff)
+	$PinOffsets["MCP28"]["$rightPin"] = @(8.89, $yoff)
 }
 
 $sb = New-Object System.Text.StringBuilder
@@ -46,6 +67,11 @@ W '	(generator "eeschema")'
 W '	(generator_version "10.0")'
 W "	(uuid `"$(New-SeqGuid)`")"
 W '	(paper "A2")'
+W "	(title_block"
+W "		(title `"FilPilote 8 Zones`")"
+W "		(date `"2026-11-09`")"
+W "		(rev `"$Rev`")"
+W '	)'
 W '	(lib_symbols'
 
 # ---------- lib_symbols : définitions des symboles personnalisés ----------
@@ -67,24 +93,8 @@ function Emit-Symbol2Pin([string]$name, [string]$refPrefix) {
 Emit-Symbol2Pin "R2" "R"
 Emit-Symbol2Pin "D2" "D"
 Emit-Symbol2Pin "F2" "F"
-Emit-Symbol2Pin "CONN2" "J"
 Emit-Symbol2Pin "CAP2" "C"
-
-# Q3 : transistor NPN 3 broches (B,C,E)
-W '		(symbol "FP:Q3"'
-W '			(exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (duplicate_pin_numbers_are_jumpers no)'
-W '			(property "Reference" "Q" (at 0 5.08 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))'
-W '			(property "Value" "Q3" (at 0 -5.08 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))'
-W '			(symbol "Q3_0_1"'
-W '				(rectangle (start -2.54 -2.54) (end 2.54 2.54) (stroke (width 0.254) (type default)) (fill (type none)))'
-W '			)'
-W '			(symbol "Q3_1_1"'
-W '				(pin passive line (at -5.08 0 0) (length 2.54) (name "B" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27)))))'
-W '				(pin passive line (at 0 5.08 270) (length 2.54) (name "C" (effects (font (size 1.27 1.27)))) (number "2" (effects (font (size 1.27 1.27)))))'
-W '				(pin passive line (at 0 -5.08 90) (length 2.54) (name "E" (effects (font (size 1.27 1.27)))) (number "3" (effects (font (size 1.27 1.27)))))'
-W '			)'
-W '			(embedded_fonts no)'
-W '		)'
+Emit-Symbol2Pin "CONN2" "J"
 
 # OC6 : optotriac DIP-6 (1=LED A,2=LED K,3=NC,4=MT1,5=NC,6=MT2)
 W '		(symbol "FP:OC6"'
@@ -105,7 +115,7 @@ W '			)'
 W '			(embedded_fonts no)'
 W '		)'
 
-# REG3 / SW3 : 3 broches génériques (régulateur IN/GND/OUT, sélecteur A/COM/B)
+# REG3 / PSU4 : symboles 3-4 broches génériques
 function Emit-Symbol3Pin([string]$name, [string]$refPrefix, [string]$n1, [string]$n2, [string]$n3) {
 	W "		(symbol `"FP:$name`""
 	W '			(exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (duplicate_pin_numbers_are_jumpers no)'
@@ -123,7 +133,6 @@ function Emit-Symbol3Pin([string]$name, [string]$refPrefix, [string]$n1, [string
 	W '		)'
 }
 Emit-Symbol3Pin "REG3" "U" "IN" "GND" "OUT"
-Emit-Symbol3Pin "SW3" "SW" "A" "COM" "B"
 
 # PSU4 : module AC/DC 4 broches (AC_L,AC_N,DC+,DC-)
 W '		(symbol "FP:PSU4"'
@@ -162,13 +171,31 @@ W '			)'
 W '			(embedded_fonts no)'
 W '		)'
 
+# MCP28 : MCP23017, DIP-28, pinout reel (voir datasheet Microchip)
+W '		(symbol "FP:MCP28"'
+W '			(exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (duplicate_pin_numbers_are_jumpers no)'
+W '			(property "Reference" "U" (at 0 3.81 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))'
+W '			(property "Value" "MCP23017" (at 0 -36 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))'
+W '			(symbol "MCP28_0_1"'
+W '				(rectangle (start -8.89 1.27) (end 8.89 -34.29) (stroke (width 0.254) (type default)) (fill (type none)))'
+W '			)'
+W '			(symbol "MCP28_1_1"'
+for ($k = 1; $k -le 14; $k++) {
+	$y = -($k - 1) * 2.54
+	$rightPin = 29 - $k
+	$leftName = $mcpNames[$k]
+	$rightName = $mcpNames[$rightPin]
+	W "				(pin passive line (at -8.89 $y 0) (length 2.54) (name `"$leftName`" (effects (font (size 1.27 1.27)))) (number `"$k`" (effects (font (size 1.27 1.27)))))"
+	W "				(pin passive line (at 8.89 $y 180) (length 2.54) (name `"$rightName`" (effects (font (size 1.27 1.27)))) (number `"$rightPin`" (effects (font (size 1.27 1.27)))))"
+}
+W '			)'
+W '			(embedded_fonts no)'
+W '		)'
+
 W '	)'
 # ---------- fin lib_symbols ----------
 
 # ---------- Placement et câblage ----------
-# Registre pour les no_connect (broches NC des optotriacs)
-$script:ncList = New-Object System.Collections.Generic.List[object]
-
 function Place([string]$libId, [string]$ref, [string]$value, [string]$footprint, [double]$x, [double]$y, [hashtable]$netByPin) {
 	$symUuid = New-SeqGuid
 	W "	(symbol (lib_id `"FP:$libId`") (at $x $y 0) (unit 1)"
@@ -209,61 +236,76 @@ function Place([string]$libId, [string]$ref, [string]$value, [string]$footprint,
 	}
 }
 
-# ---------- Section alimentation ----------
+# ---------- Section alimentation secteur / locale ----------
 # Toutes les coordonnees sont des multiples entiers de $G (1.27 mm) pour rester sur la grille de connexion.
+# Feuille A2 KiCad = 594 x 420 mm (paysage). Offset applique a tout le schema pour le centrer sur la
+# feuille (signale par l'utilisateur, 2026-11-09 : le schema debordait en haut a gauche sans ce decalage).
 $G = 1.27
-$px = 16 * $G; $py = 16 * $G
+$offX = 122 * $G; $offY = 80 * $G
+$px = 16 * $G + $offX; $py = 16 * $G + $offY
 Place "CONN2" "J1" "MAINS_IN" "FP:TerminalBlock_2.54_2pin" $px $py @{ "1" = "MAINS_L"; "2" = "MAINS_N" }
 Place "F2" "F0" "250mA_T_250V" "FP:Axial_THT" ($px + 16 * $G) $py @{ "1" = "MAINS_L"; "2" = "PHASE_PROT" }
 Place "PSU4" "PS1" "HLK-5M05" "FP:Module_PSU4" ($px + 32 * $G) $py @{ "1" = "PHASE_PROT"; "2" = "MAINS_N"; "3" = "LOCAL_5V"; "4" = "GND" }
-# Point ferme (2026-11-07), schema fabricant reel verifie : POE_5V est le meme net que VBUS
-# (USB-C) sur la carte Waveshare, aucune broche "sortie PoE" n'est exposee sur l'en-tete 40
-# broches. VSYS (broche 2) est la seule entree d'alimentation externe accessible, deja
-# commutee en interne entre VBUS/PoE par un MOSFET (Q3, APM2307) cote Waveshare. Le
-# selecteur manuel SW1 est donc sans objet (rien a choisir entre deux broches externes) ;
-# remplace par une diode serie bon marche qui protege le HLK-5M05 d'un retour de tension si
-# le module PoE est quand meme installe en parallele. L'exclusion mutuelle PoE/local devient
-# un choix d'assemblage (installer le module PoE OU alimenter VSYS en local, pas les deux),
-# a documenter dans la notice, pas un circuit a construire.
+# Point ferme (2026-11-07), schema fabricant reel verifie : POE_5V est le meme net que VBUS (USB-C) sur
+# la carte Waveshare, deja commute en interne par un MOSFET (Q3) entre PoE et USB vers VSYS. VSYS (broche 2
+# de l'en-tete) est la seule entree externe accessible. La diode DPWR protege juste le HLK-5M05 d'un retour
+# si le module PoE est aussi installe ; l'exclusion mutuelle PoE/local est un choix d'assemblage (notice).
 Place "D2" "DPWR" "1N4007" "FP:DO41_THT" ($px + 48 * $G) $py @{ "1" = "LOCAL_5V"; "2" = "VSYS" }
-Place "REG3" "U1" "AMS1117-3.3" "FP:TO220_3pin" ($px + 64 * $G) $py @{ "1" = "VSYS"; "2" = "GND"; "3" = "3V3_OPTO" }
-Place "CAP2" "C1" "100uF" "FP:CAP_THT_Radial" ($px + 64 * $G) ($py + 12 * $G) @{ "1" = "VSYS"; "2" = "GND" }
-Place "CAP2" "C2" "100uF" "FP:CAP_THT_Radial" ($px + 76 * $G) ($py + 12 * $G) @{ "1" = "3V3_OPTO"; "2" = "GND" }
+
+# ---------- Regulateur 3,3V dedie MCP23017 + LED opto (2026-11-09) ----------
+# Ferme le risque "capacite non documentee du regulateur 3,3V embarque du Waveshare" : le MCP23017 et les
+# 16 LED d'opto sont alimentes par ce rail 3V3_OPTO dedie, indépendant de la carte Waveshare.
+Place "REG3" "U1" "AMS1117-3.3" "FP:TO220_THT" ($px + 64 * $G) $py @{ "1" = "VSYS"; "2" = "GND"; "3" = "3V3_OPTO" }
+Place "CAP2" "C1" "10uF" "FP:Radial_THT" ($px + 56 * $G) ($py + 8 * $G) @{ "1" = "VSYS"; "2" = "GND" }
+Place "CAP2" "C2" "10uF" "FP:Radial_THT" ($px + 72 * $G) ($py + 8 * $G) @{ "1" = "3V3_OPTO"; "2" = "GND" }
 
 Place "CONN2" "J2" "FP1_FP2" "FP:TerminalBlock_5.08_2pin" ($px) ($py + 24 * $G) @{ "1" = "FP1"; "2" = "FP2" }
 Place "CONN2" "J3" "FP3_FP4" "FP:TerminalBlock_5.08_2pin" ($px + 16 * $G) ($py + 24 * $G) @{ "1" = "FP3"; "2" = "FP4" }
 Place "CONN2" "J4" "FP5_FP6" "FP:TerminalBlock_5.08_2pin" ($px + 32 * $G) ($py + 24 * $G) @{ "1" = "FP5"; "2" = "FP6" }
 Place "CONN2" "J5" "FP7_FP8" "FP:TerminalBlock_5.08_2pin" ($px + 48 * $G) ($py + 24 * $G) @{ "1" = "FP7"; "2" = "FP8" }
 
-# En-tête Waveshare ESP32-S3-ETH : pinout reel verifie le 2026-11-07 (carte 72,8x21mm, 40 broches,
-# format Raspberry Pi Pico). GPIO4/GPIO5 retires : ils ne sortent que sur le connecteur carte TF,
-# pas sur cet en-tete. GPIO21 conserve mais partage avec la LED WS2812 embarquee (effet cosmetique
-# accepte : la LED de statut suit l'etat de la zone 4 POS). GPIO3 ajoute (broche de strapping JTAG,
-# risque limite a la selection de source JTAG au demarrage, pas un risque de boot) en remplacement
-# de GPIO5. Broches GND/VSYS/VBUS/3V3/3V3_EN/RUN/GPIO0/43/44/19/20/33-37/46 non utilisees (NC).
+# ---------- En-tête Waveshare ESP32-S3-ETH ----------
+# Pinout reel verifie le 2026-11-07 (carte 72,8x21mm, 40 broches, format Raspberry Pi Pico).
+# Reprise 2026-11-09 : l'ESP32 ne pilote plus les 16 zones directement. Seules 4 broches sont utilisees :
+# VSYS (alimentation), GND, et 2 broches de bus I2C (GPIO1=SDA, GPIO2=SCL, aucune des deux n'a de
+# particularite de demarrage - voir §1 du dossier). Toutes les autres broches sont NC (non utilisees).
 $wsNets = @{
 	"2" = "VSYS"; "3" = "GND"
-	"6" = "GPIO21"; "7" = "GPIO17"; "9" = "GPIO16"; "10" = "GPIO18"; "12" = "GPIO15"
-	"14" = "GPIO3"; "15" = "GPIO2"; "16" = "GPIO1"
-	"24" = "GPIO48"; "25" = "GPIO47"; "27" = "GPIO45"
-	"29" = "GPIO42"; "30" = "GPIO41"; "31" = "GPIO40"; "32" = "GPIO39"; "34" = "GPIO38"
+	"15" = "SCL"; "16" = "SDA"
 }
 Place "CONN40" "JWS" "Waveshare_ESP32-S3-ETH_40pin" "FP:PinHeader_2x20_2.54_Pico" ($px + 96 * $G) ($py + 48 * $G) $wsNets
 
+# ---------- Expandeur I2C MCP23017 ----------
+# Adresse I2C fixe 0x20 (A0/A1/A2 a la masse, un seul expandeur sur le bus). RESET tire au 3V3_OPTO
+# (jamais actif). INTA/INTB non utilises (NC). VDD/VSS sur le rail dedie 3V3_OPTO/GND.
+Place "MCP28" "U2" "MCP23017" "FP:DIP28_THT" ($px + 96 * $G) ($py - 16 * $G) @{
+	"9" = "3V3_OPTO"; "10" = "GND"; "12" = "SCL"; "13" = "SDA"
+	"15" = "GND"; "16" = "GND"; "17" = "GND"; "18" = "3V3_OPTO"
+	"21" = "DRV_Z1A"; "22" = "DRV_Z1B"; "23" = "DRV_Z2A"; "24" = "DRV_Z2B"
+	"25" = "DRV_Z3A"; "26" = "DRV_Z3B"; "27" = "DRV_Z4A"; "28" = "DRV_Z4B"
+	"1" = "DRV_Z5A"; "2" = "DRV_Z5B"; "3" = "DRV_Z6A"; "4" = "DRV_Z6B"
+	"5" = "DRV_Z7A"; "6" = "DRV_Z7B"; "7" = "DRV_Z8A"; "8" = "DRV_Z8B"
+}
+Place "CAP2" "C3" "100nF" "FP:Radial_THT" ($px + 112 * $G) ($py - 16 * $G) @{ "1" = "3V3_OPTO"; "2" = "GND" }
+Place "R2" "RPU1" "4.7k" "FP:Axial_THT" ($px + 80 * $G) ($py + 36 * $G) @{ "1" = "SDA"; "2" = "3V3_OPTO" }
+Place "R2" "RPU2" "4.7k" "FP:Axial_THT" ($px + 80 * $G) ($py + 40 * $G) @{ "1" = "SCL"; "2" = "3V3_OPTO" }
+
 # ---------- 8 zones ----------
-$zoneGpio = @{
-	1 = @{ P = "GPIO1";  N = "GPIO2"  }
-	2 = @{ P = "GPIO15"; N = "GPIO16" }
-	3 = @{ P = "GPIO17"; N = "GPIO18" }
-	4 = @{ P = "GPIO21"; N = "GPIO45" }
-	5 = @{ P = "GPIO3";  N = "GPIO38" }
-	6 = @{ P = "GPIO39"; N = "GPIO40" }
-	7 = @{ P = "GPIO41"; N = "GPIO42" }
-	8 = @{ P = "GPIO47"; N = "GPIO48" }
+# Sorties MCP23017 -> zones : GPA0-7 = zones 1-4, GPB0-7 = zones 5-8 (affectation arbitraire, aucune
+# contrainte materielle sur ces broches, contrairement a l'ancien schema GPIO direct).
+$zoneDrv = @{
+	1 = @{ P = "DRV_Z1A"; N = "DRV_Z1B" }
+	2 = @{ P = "DRV_Z2A"; N = "DRV_Z2B" }
+	3 = @{ P = "DRV_Z3A"; N = "DRV_Z3B" }
+	4 = @{ P = "DRV_Z4A"; N = "DRV_Z4B" }
+	5 = @{ P = "DRV_Z5A"; N = "DRV_Z5B" }
+	6 = @{ P = "DRV_Z6A"; N = "DRV_Z6B" }
+	7 = @{ P = "DRV_Z7A"; N = "DRV_Z7B" }
+	8 = @{ P = "DRV_Z8A"; N = "DRV_Z8B" }
 }
 
-$zoneBaseX = 16 * $G
-$zoneBaseY = 72 * $G
+$zoneBaseX = 16 * $G + $offX
+$zoneBaseY = 96 * $G + $offY
 for ($z = 1; $z -le 8; $z++) {
 	$col = ($z - 1) % 4
 	$row = [math]::Floor(($z - 1) / 4)
@@ -272,20 +314,22 @@ for ($z = 1; $z -le 8; $z++) {
 
 	foreach ($ch in @("P", "N")) {
 		$cx = $blockX + ($(if ($ch -eq "P") { 0 } else { 24 * $G }))
-		$gpioNet = $zoneGpio[$z][$ch]
+		$drvNet = $zoneDrv[$z][$ch]
 		$suffix = "Z${z}${ch}"
 
-		Place "R2" "RB$suffix" "10k" "FP:Axial_THT" $cx ($blockY)       @{ "1" = $gpioNet; "2" = "QB_$suffix" }
-		Place "Q3" "Q$suffix"  "BC547B" "FP:TO92_BEC" $cx ($blockY + 8 * $G) @{ "1" = "QB_$suffix"; "2" = "LEDK_$suffix"; "3" = "GND" }
-		Place "R2" "RL$suffix" "200_1pct" "FP:Axial_THT" $cx ($blockY + 16 * $G) @{ "1" = "3V3_OPTO"; "2" = "LEDA_$suffix" }
-		Place "OC6" "OC$suffix" "MOC3063M" "FP:DIP6_THT" $cx ($blockY + 25 * $G) @{ "1" = "LEDA_$suffix"; "2" = "LEDK_$suffix"; "4" = "MT1D_$suffix"; "6" = "FMT2_$suffix" }
-		Place "R2" "RS$suffix" "4.7k" "FP:Axial_THT" $cx ($blockY + 35 * $G) @{ "1" = "PHASE_PROT"; "2" = "RSF_$suffix" }
-		Place "F2" "F$suffix"  "100mA_PTC" "FP:Axial_THT" $cx ($blockY + 43 * $G) @{ "1" = "RSF_$suffix"; "2" = "FMT2_$suffix" }
+		# MCP23017 -> RL (limitation LED, 200 ohms 1%) -> LED du MOC3063M.
+		Place "R2" "RL$suffix" "200_1pct" "FP:Axial_THT" $cx ($blockY) @{ "1" = $drvNet; "2" = "LEDA_$suffix" }
+		# Protection par voie (4,7k + fusible/PTC) SUPPRIMEE (decision utilisateur explicite, 2026-11-09) :
+		# MT2 revient directement sur PHASE_PROT. Seul F0 (fusible d'entree commun, 250 mA) protege ce
+		# noeud desormais ; un defaut sur une zone coupe les 8, courant de defaut non plafonne a 49 mA
+		# avant reaction de F0. Risque accepte sciemment, voir docs/03_Nomenclature.md pour le calcul
+		# d'origine et le niveau de protection perdu.
+		Place "OC6" "OC$suffix" "MOC3063M" "FP:DIP6_THT" $cx ($blockY + 9 * $G) @{ "1" = "LEDA_$suffix"; "2" = "GND"; "4" = "MT1D_$suffix"; "6" = "PHASE_PROT" }
 
 		if ($ch -eq "P") {
-			Place "D2" "D$suffix" "1N4007" "FP:DO41_THT" $cx ($blockY + 50 * $G) @{ "1" = "MT1D_$suffix"; "2" = "FP$z" }
+			Place "D2" "D$suffix" "1N4007" "FP:DO41_THT" $cx ($blockY + 18 * $G) @{ "1" = "MT1D_$suffix"; "2" = "FP$z" }
 		} else {
-			Place "D2" "D$suffix" "1N4007" "FP:DO41_THT" $cx ($blockY + 50 * $G) @{ "1" = "FP$z"; "2" = "MT1D_$suffix" }
+			Place "D2" "D$suffix" "1N4007" "FP:DO41_THT" $cx ($blockY + 18 * $G) @{ "1" = "FP$z"; "2" = "MT1D_$suffix" }
 		}
 	}
 }

@@ -1,6 +1,18 @@
 # État du projet KiCad natif
 
-**Statut (2026-11-07, révisé) :** schéma électriquement complet et vérifié ERC ; implantation PCB placée et vérifiée DRC (hors routage). Ce projet KiCad devient la référence pour la topologie électrique — il intègre toutes les clôtures du 2026-11-06 (GPIO corrigés, étage tampon transistor, 4,7 kΩ + fusibles secteur, HLK-5M05, MOC3063M) que la copie EasyEDA R1 (`FilPilote_8Zones_DIN_R1_2026-11-06`, voir [08_Revue-schema-source](08_Revue-schema-source.md)) ne contient pas encore.
+**Statut actualisé (2026-11-09) :** reprise complète de l'architecture (expandeur I2C MCP23017, direct-drive GPIO abandonné par l'ESP32 au profit du MCP23017, voir [02_Architecture-et-interfaces](02_Architecture-et-interfaces.md)) et du PCB (placement 2 colonnes de 4 zones, [03_Nomenclature](03_Nomenclature.md) et [12_Guide-de-routage](12_Guide-de-routage.md) à jour). Le reste de cette page, plus bas, décrit l'état antérieur (2026-11-06/07, architecture direct-GPIO/transistor) et n'est conservé que pour l'historique — ne pas l'utiliser comme référence actuelle.
+
+**Routage (2026-11-09) :** schéma et placement vérifiés 0 erreur ERC/DRC réelle. Routage complet par Freerouting (122/122 connexions, aucun strap) après assouplissement documenté de la règle d'isolement secteur/logique de 6 mm à 2,5 mm (décision utilisateur : 6 mm dépassait largement le minimum réglementaire IEC 60664-1 d'environ 2 mm et s'est révélé impossible à satisfaire entièrement par autorouteur sur cette carte dense — voir `hardware/kicad/FilPilote_8Zones.kicad_dru`).
+
+**Plafond réel de l'automatisation, documenté le 2026-11-09 apres une recherche approfondie (pas abandonnee au premier essai) :** plusieurs strategies testees indépendamment, chacune verifiee par un vrai DRC (jamais supposee) :
+- 4 reglages de la regle secteur/logique (2,5mm, 3,5mm, avec/sans clearance Secteur-Secteur renforcee) : le reglage le plus permissif (2,5mm/0,5mm) reste le meilleur, les plus stricts degradaient le taux de routage complet.
+- Elargissement du canal interne RL-OC-D (7/8mm -> 10/10mm, hypothese que l'OC etait trop a l'etroit) : **a aggrave le resultat** (86 -> 100-103 violations) - Freerouting etant un algorithme glouton, plus de place ne garantit pas un meilleur resultat global, juste un chemin different.
+- Correction locale automatisee (detour verifie par vrai DRC apres chaque tentative, avec jusqu'a 4 variantes de taille/direction par segment) : plafonne autour de 80-86 violations reelles, le reste ne peut plus etre corrige par un simple decalage local sans en creer une nouvelle ailleurs.
+- Repositionnement de composants (U2 decale de l'axe JWS) : neutre sur le nombre de violations.
+
+**Etat retenu : 81 points de clearance reels restants** (sur 122 connexions toutes routees, 0 connexion manquante) - limite assumee du routage 100% automatique sur cette carte aussi dense, pas une erreur de configuration non resolue. **Finition manuelle dans l'editeur graphique KiCad recommandee avant fabrication** (DRC natif, F8, localise exactement ces points ; un ajustement a la souris est generalement plus rapide qu'un script pour ce type de cas limite). Versions sauvegardées dans `hardware/kicad/versions/` (voir son README).
+
+**Statut (2026-11-07, révisé, historique) :** schéma électriquement complet et vérifié ERC ; implantation PCB placée et vérifiée DRC (hors routage). Ce projet KiCad devient la référence pour la topologie électrique — il intègre toutes les clôtures du 2026-11-06 (GPIO corrigés, étage tampon transistor, 4,7 kΩ + fusibles secteur, HLK-5M05, MOC3063M) que la copie EasyEDA R1 (`FilPilote_8Zones_DIN_R1_2026-11-06`, voir [08_Revue-schema-source](08_Revue-schema-source.md)) ne contient pas encore.
 
 **Correction importante (2026-11-07) :** l'empreinte du connecteur de la carte Waveshare, livrée dans une première version de ce document, était un connecteur générique 1 rangée / 19 broches — sans rapport avec le vrai connecteur de la carte, repérée par l'utilisateur. Voir « Correction du connecteur Waveshare » ci-dessous pour le détail et les conséquences (deux affectations GPIO supplémentaires corrigées).
 
@@ -34,6 +46,8 @@ Le schéma et le PCB sont produits par deux scripts PowerShell (`tools/generate_
 | — | — | GPIO46 présent sur l'en-tête mais **entrée seule** sur ESP32-S3 | Exclu des candidats |
 
 Table complète et à jour dans [02_Architecture-et-interfaces §2](02_Architecture-et-interfaces.md).
+
+**Corrigé (2026-11-24) :** le MOSFET Q3 cité ci-dessous n'est pas entre `VBUS` et `VSYS` (il alimente la caméra) ; c'est la diode D1. PoE abandonné, `DPWR` devient une 1N5819. KiCad pas encore modifié.
 
 **Point fermé (2026-11-07), schéma fabricant réel consulté :** le schéma officiel ([ESP32-S3-ETH-Schematic.pdf](https://files.waveshare.com/wiki/ESP32-S3-ETH/ESP32-S3-ETH-Schematic.pdf)) montre que `POE_5V` est le même net que `VBUS` (USB-C) côté Waveshare — le module PoE s'enfiche sur un connecteur interne dédié, pas sur l'en-tête 40 broches. `VSYS` (broche 2) est la seule entrée externe accessible, déjà commutée en interne entre `VBUS`/PoE par un MOSFET (Q3, APM2307). Le sélecteur manuel `SW1` prévu initialement est donc **retiré** : il n'y a rien à sélectionner entre deux broches externes. Remplacé par une simple **diode série** (`DPWR`, 1N4007, anode HLK-5M05 / cathode `VSYS`) qui protège le HLK-5M05 d'un retour si le module PoE est malgré tout installé en parallèle. L'exclusion mutuelle PoE/local devient un choix d'assemblage à documenter dans la notice, pas un circuit électronique.
 

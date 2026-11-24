@@ -1,0 +1,4894 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-09T01:45:12",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "FilPilote_8Zones.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [GND] sur F.Cu, long. 12,8750 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 10.125
+                    },
+                    "uuid": "fde58233-2275-40a0-9b26-14c0f6555c1d"
+                },
+                {
+                    "description": "Piste [GND] sur B.Cu, long. 2,6517 mm",
+                    "pos": {
+                        "x": 46.065,
+                        "y": 24.8
+                    },
+                    "uuid": "36fc78f7-a983-40bb-8f4c-329cbfffce9d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [GND] sur B.Cu, long. 0,3536 mm",
+                    "pos": {
+                        "x": 48.19,
+                        "y": 51.25
+                    },
+                    "uuid": "058324f5-88ef-4ab1-9f20-58ebf62c0635"
+                },
+                {
+                    "description": "Piste [GND] sur B.Cu, long. 2,5000 mm",
+                    "pos": {
+                        "x": 51.19,
+                        "y": 61.2
+                    },
+                    "uuid": "11510fac-60d1-4520-bd1d-bb2eaa2405c3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de OCZ1P",
+                    "pos": {
+                        "x": 51.19,
+                        "y": 14.0
+                    },
+                    "uuid": "7cdc8563-b4f7-4744-a6e9-09680e9f45b4"
+                },
+                {
+                    "description": "Pad métallisé 2 [GND] de OCZ1N",
+                    "pos": {
+                        "x": 51.19,
+                        "y": 23.8
+                    },
+                    "uuid": "367d1c35-0f1f-438f-96d1-a2f046f18665"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de OCZ3N",
+                    "pos": {
+                        "x": 51.19,
+                        "y": 61.2
+                    },
+                    "uuid": "989031b5-f2b5-4c0a-83f8-3e51a52404c6"
+                },
+                {
+                    "description": "Piste [GND] sur F.Cu, long. 2,6517 mm",
+                    "pos": {
+                        "x": 85.065,
+                        "y": 62.2
+                    },
+                    "uuid": "bfaa8904-9efd-4d70-8c61-0cbd6eec154a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [GND] sur F.Cu, long. 2,5000 mm",
+                    "pos": {
+                        "x": 90.19,
+                        "y": 42.5
+                    },
+                    "uuid": "537a6acb-97fd-49e6-a613-2cf69ba21333"
+                },
+                {
+                    "description": "Piste [GND] sur F.Cu, long. 1,2475 mm",
+                    "pos": {
+                        "x": 87.44,
+                        "y": 32.8
+                    },
+                    "uuid": "791ec366-2cbc-48d0-ac8e-4019341bdc25"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [GND] sur F.Cu, long. 2,5000 mm",
+                    "pos": {
+                        "x": 90.19,
+                        "y": 61.2
+                    },
+                    "uuid": "d3140595-8c35-4292-a061-ec704f858763"
+                },
+                {
+                    "description": "Piste [GND] sur F.Cu, long. 0,3536 mm",
+                    "pos": {
+                        "x": 87.19,
+                        "y": 51.25
+                    },
+                    "uuid": "53b5cf58-a372-4c80-a6c6-119056aa49f1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [GND] sur F.Cu, long. 2,5000 mm",
+                    "pos": {
+                        "x": 90.19,
+                        "y": 23.8
+                    },
+                    "uuid": "945651cf-a627-44b0-b236-89144461edf0"
+                },
+                {
+                    "description": "Pad métallisé 2 [GND] de OCZ5P",
+                    "pos": {
+                        "x": 90.19,
+                        "y": 14.0
+                    },
+                    "uuid": "b413969f-a961-4fec-b600-3da5943df714"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 9 [GPIO16] de JWS",
+                    "pos": {
+                        "x": 24.0,
+                        "y": 23.32
+                    },
+                    "uuid": "51b1dea8-9f49-4aec-8a53-5347e827b20c"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO16] de RLZ2N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 46.31
+                    },
+                    "uuid": "b87e9de7-5f96-40d5-af15-f82dc2208a0f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [GPIO3] sur F.Cu, long. 9,6778 mm",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 17.81
+                    },
+                    "uuid": "6e8210bb-b6da-482f-8447-eb1c21033443"
+                },
+                {
+                    "description": "Pad métallisé 14 [GPIO3] de JWS",
+                    "pos": {
+                        "x": 24.0,
+                        "y": 36.02
+                    },
+                    "uuid": "57fb80ef-7984-469a-8bc6-3f889af08425"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 15 [GPIO2] de JWS",
+                    "pos": {
+                        "x": 24.0,
+                        "y": 38.56
+                    },
+                    "uuid": "23315df7-0778-4a6e-80b0-a3d5362807b9"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO2] de RLZ1N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 27.61
+                    },
+                    "uuid": "b268cca3-4159-4c60-9a59-1d75fb47c275"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 24 [GPIO48] de JWS",
+                    "pos": {
+                        "x": 41.78,
+                        "y": 43.64
+                    },
+                    "uuid": "bf546a7c-0ce2-4ce7-a183-6db8c25bfbaf"
+                },
+                {
+                    "description": "Piste [GPIO48] sur F.Cu, long. 9,6778 mm",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 83.71
+                    },
+                    "uuid": "26c90675-8bbe-48b4-b63b-78eb4db3d13a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 25 [GPIO47] de JWS",
+                    "pos": {
+                        "x": 41.78,
+                        "y": 41.1
+                    },
+                    "uuid": "0bcdb5fc-53e4-40fd-ba93-860120911585"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO47] de RLZ8P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 73.91
+                    },
+                    "uuid": "45152691-dc98-4483-a780-3be745f7c609"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 29 [GPIO42] de JWS",
+                    "pos": {
+                        "x": 41.78,
+                        "y": 30.94
+                    },
+                    "uuid": "14f4d749-6ef4-48f5-ad11-09f0fa6a3677"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO42] de RLZ7N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 65.01
+                    },
+                    "uuid": "671fcbaf-f6b7-4784-bca5-8322cb25e2ed"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 30 [GPIO41] de JWS",
+                    "pos": {
+                        "x": 41.78,
+                        "y": 28.4
+                    },
+                    "uuid": "554799d5-6c6d-472e-b2d0-d49825dd23ed"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO41] de RLZ7P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 55.21
+                    },
+                    "uuid": "8c168800-d274-4965-aa29-2ec18f99e1e4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 31 [GPIO40] de JWS",
+                    "pos": {
+                        "x": 41.78,
+                        "y": 25.86
+                    },
+                    "uuid": "50ec8060-f3de-46ed-b4b5-a01c671c07d8"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO40] de RLZ6N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 46.31
+                    },
+                    "uuid": "0710dfe0-2790-40d1-8295-38f1962b58de"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 32 [GPIO39] de JWS",
+                    "pos": {
+                        "x": 41.78,
+                        "y": 23.32
+                    },
+                    "uuid": "8f455aab-9064-4f10-8e70-954e8b974a06"
+                },
+                {
+                    "description": "Piste [GPIO39] sur F.Cu, long. 14,5167 mm",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 36.51
+                    },
+                    "uuid": "2b64f92b-d7ba-41a0-9231-f363523b0f89"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 34 [GPIO38] de JWS",
+                    "pos": {
+                        "x": 41.78,
+                        "y": 18.24
+                    },
+                    "uuid": "b9904400-a894-4aa8-ba0a-76465e330684"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO38] de RLZ5N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 27.61
+                    },
+                    "uuid": "02d4e55b-6292-4b4f-8555-7b0e421d5e77"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [FP1] sur F.Cu, long. 9,6778 mm",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 10.19
+                    },
+                    "uuid": "808b1242-b235-4105-aa6b-39c962e56703"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP1] de J2",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 7.54
+                    },
+                    "uuid": "190e44e0-3b1d-45d4-b80c-328420234fa9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP1] de DZ1N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 27.61
+                    },
+                    "uuid": "dbc05fa1-312b-4e48-91be-1fc1fa36a163"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP1] de DZ1P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 10.19
+                    },
+                    "uuid": "bcc6588b-2661-4fbe-bda3-fb5625948de0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP2] de DZ2P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 28.89
+                    },
+                    "uuid": "239d9d48-a9dc-48fd-a4a6-59e8837219b1"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP2] de J2",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 2.46
+                    },
+                    "uuid": "103f9e2a-19de-4404-a4a7-3fc3f15e9585"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP2] de DZ2N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 46.31
+                    },
+                    "uuid": "01c332c0-a21c-43b4-8e42-b9a412de39ee"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP2] de DZ2P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 28.89
+                    },
+                    "uuid": "239d9d48-a9dc-48fd-a4a6-59e8837219b1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 1,2950 mm",
+                    "pos": {
+                        "x": 64.0,
+                        "y": 49.0
+                    },
+                    "uuid": "1129da6e-b39a-4ea1-aa45-57c16554b913"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP3] de DZ3N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 65.01
+                    },
+                    "uuid": "c106e823-26dd-465e-bb0c-9a1ee515b5bd"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [FP4] sur F.Cu, long. 9,6778 mm",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 83.71
+                    },
+                    "uuid": "30b6dab1-130c-430f-9185-a88173587be1"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP4] de DZ4P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 66.29
+                    },
+                    "uuid": "dcaaabcd-cfa0-426b-96ab-46596fa1a8c8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP4] de J3",
+                    "pos": {
+                        "x": 70.0,
+                        "y": 2.46
+                    },
+                    "uuid": "1c41310a-d824-44b4-b57e-d553d4a93569"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP4] de DZ4P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 66.29
+                    },
+                    "uuid": "dcaaabcd-cfa0-426b-96ab-46596fa1a8c8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP5] de DZ5P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 10.19
+                    },
+                    "uuid": "ce097e89-4840-4f26-b029-2893df868fb1"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP5] de J4",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 7.54
+                    },
+                    "uuid": "dc153da6-8ef9-4fee-bc5f-d51f92654e0d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP5] de DZ5N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 27.61
+                    },
+                    "uuid": "4f5b67e8-1ff2-4ed6-9517-2d8328bdbeed"
+                },
+                {
+                    "description": "Piste [FP5] sur F.Cu, long. 9,6778 mm",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 10.19
+                    },
+                    "uuid": "b10c7571-d6e7-4443-b28f-8745ff8ec146"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP6] de DZ6P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 28.89
+                    },
+                    "uuid": "1a73a940-5e31-4a0c-83a4-cb88ae70f1d6"
+                },
+                {
+                    "description": "Piste [FP6] sur F.Cu, long. 7,1617 mm",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 2.46
+                    },
+                    "uuid": "13d0f6d5-68fc-4e4d-a62f-d9f05d52cff3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP6] de DZ6N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 46.31
+                    },
+                    "uuid": "3d063bc5-e9ef-4e0c-873f-d6c78a78b5b5"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP6] de DZ6P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 28.89
+                    },
+                    "uuid": "1a73a940-5e31-4a0c-83a4-cb88ae70f1d6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [FP7] sur B.Cu, long. 1,2950 mm",
+                    "pos": {
+                        "x": 103.0,
+                        "y": 49.0
+                    },
+                    "uuid": "4403fdac-526a-4859-bbd7-a13e3002f113"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP7] de DZ7N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 65.01
+                    },
+                    "uuid": "da9a92be-5e31-4f8a-82e7-578613c0a8a4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP8] de DZ8P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 66.29
+                    },
+                    "uuid": "57f4ccc0-8d00-42d4-a36c-e9224535e8f5"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP8] de DZ8N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 83.71
+                    },
+                    "uuid": "a64f40b9-2030-49ad-a7ba-e67e7804f481"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP8] de J5",
+                    "pos": {
+                        "x": 109.0,
+                        "y": 2.46
+                    },
+                    "uuid": "612631f5-735b-4b27-9be2-67cff19e0ccb"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP8] de DZ8P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 66.29
+                    },
+                    "uuid": "57f4ccc0-8d00-42d4-a36c-e9224535e8f5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [PHASE_PROT] de PS1",
+                    "pos": {
+                        "x": 5.0,
+                        "y": 29.5
+                    },
+                    "uuid": "c53fd825-ef79-4f97-a51a-d7a4e031684e"
+                },
+                {
+                    "description": "Pad métallisé 2 [PHASE_PROT] de F0",
+                    "pos": {
+                        "x": 13.81,
+                        "y": 15.0
+                    },
+                    "uuid": "cb8cda93-7a40-4813-9111-dd8876d6de44"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ1P",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 16.54
+                    },
+                    "uuid": "f3b917ff-a7c7-4363-bb79-00c8b01f2889"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ1N",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 26.34
+                    },
+                    "uuid": "54c2a379-a97f-492d-a400-26d258a65961"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ1P",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 16.54
+                    },
+                    "uuid": "f3b917ff-a7c7-4363-bb79-00c8b01f2889"
+                },
+                {
+                    "description": "Pad métallisé 2 [PHASE_PROT] de F0",
+                    "pos": {
+                        "x": 13.81,
+                        "y": 15.0
+                    },
+                    "uuid": "cb8cda93-7a40-4813-9111-dd8876d6de44"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ2P",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 35.24
+                    },
+                    "uuid": "0381029f-d5bb-48e6-9b39-acd924565e3f"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ1N",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 26.34
+                    },
+                    "uuid": "54c2a379-a97f-492d-a400-26d258a65961"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ2P",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 35.24
+                    },
+                    "uuid": "0381029f-d5bb-48e6-9b39-acd924565e3f"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ2N",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 45.04
+                    },
+                    "uuid": "83fca8aa-64fd-4dde-ac5d-85cc4c0fa8ff"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ2N",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 45.04
+                    },
+                    "uuid": "83fca8aa-64fd-4dde-ac5d-85cc4c0fa8ff"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ3P",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 53.94
+                    },
+                    "uuid": "bb6b02bb-fe61-44ab-8eb9-a170800c44a7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ3N",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 63.74
+                    },
+                    "uuid": "60ea41e5-8279-4a17-b467-8af0f2f7d097"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ3P",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 53.94
+                    },
+                    "uuid": "bb6b02bb-fe61-44ab-8eb9-a170800c44a7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ4P",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 72.64
+                    },
+                    "uuid": "366feaf8-c5ec-4f64-ba0d-3a4f3203feea"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ3N",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 63.74
+                    },
+                    "uuid": "60ea41e5-8279-4a17-b467-8af0f2f7d097"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ4P",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 72.64
+                    },
+                    "uuid": "366feaf8-c5ec-4f64-ba0d-3a4f3203feea"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ4N",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 82.44
+                    },
+                    "uuid": "e0db858b-6994-4aeb-af14-b690b81bd37c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ5P",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 16.54
+                    },
+                    "uuid": "9a6d205c-367e-4571-9b69-1327551c8526"
+                },
+                {
+                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 11,5485 mm",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 16.54
+                    },
+                    "uuid": "5b7d0c95-6211-470d-ad35-c79ef1e35121"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ5N",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 26.34
+                    },
+                    "uuid": "965bdfdd-3394-4624-aec6-bd8387fb0117"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ5P",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 16.54
+                    },
+                    "uuid": "9a6d205c-367e-4571-9b69-1327551c8526"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ6P",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 35.24
+                    },
+                    "uuid": "88c28d97-8903-4b3f-9125-36346bba1a50"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ5N",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 26.34
+                    },
+                    "uuid": "965bdfdd-3394-4624-aec6-bd8387fb0117"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ6N",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 45.04
+                    },
+                    "uuid": "7a868e9c-d72e-48cd-8752-31a51dbbfd79"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ6P",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 35.24
+                    },
+                    "uuid": "88c28d97-8903-4b3f-9125-36346bba1a50"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ7P",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 53.94
+                    },
+                    "uuid": "d7f0396f-0bbe-485a-9b26-63b3dba6266a"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ6N",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 45.04
+                    },
+                    "uuid": "7a868e9c-d72e-48cd-8752-31a51dbbfd79"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ7N",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 63.74
+                    },
+                    "uuid": "eb553c84-0818-4d7b-b7ee-2bab1f2425df"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ7P",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 53.94
+                    },
+                    "uuid": "d7f0396f-0bbe-485a-9b26-63b3dba6266a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ8P",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 72.64
+                    },
+                    "uuid": "9c66b0c5-88bd-4e12-865d-6785f6165248"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ7N",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 63.74
+                    },
+                    "uuid": "eb553c84-0818-4d7b-b7ee-2bab1f2425df"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ8N",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 82.44
+                    },
+                    "uuid": "03f43039-f9e2-4f9c-a98b-eefe29a7d3cf"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ8P",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 72.64
+                    },
+                    "uuid": "9c66b0c5-88bd-4e12-865d-6785f6165248"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z1P] de RLZ1P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 10.19
+                    },
+                    "uuid": "14a586a2-ace6-44f8-b713-01ff244957cd"
+                },
+                {
+                    "description": "Pad métallisé 1 [LEDA_Z1P] de OCZ1P",
+                    "pos": {
+                        "x": 51.19,
+                        "y": 16.54
+                    },
+                    "uuid": "e97763f0-a33a-418b-9ad7-22c869146d19"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z2P] de RLZ2P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 28.89
+                    },
+                    "uuid": "3411766d-26d9-43f4-b153-a8f8eb5e0906"
+                },
+                {
+                    "description": "Pad métallisé 1 [LEDA_Z2P] de OCZ2P",
+                    "pos": {
+                        "x": 51.19,
+                        "y": 35.24
+                    },
+                    "uuid": "8c46e66f-404d-44aa-bf2b-24760c073dab"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z2P] de OCZ2P",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 30.16
+                    },
+                    "uuid": "197f86df-d5ae-4b06-a21f-3c07f0bc91cc"
+                },
+                {
+                    "description": "Pad métallisé 1 [MT1D_Z2P] de DZ2P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 36.51
+                    },
+                    "uuid": "5a55e321-c8e7-4d6a-859f-9ff31cae127a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z3P] de RLZ3P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 47.59
+                    },
+                    "uuid": "75f706dc-a50a-4335-9d3f-e352490d9773"
+                },
+                {
+                    "description": "Pad métallisé 1 [LEDA_Z3P] de OCZ3P",
+                    "pos": {
+                        "x": 51.19,
+                        "y": 53.94
+                    },
+                    "uuid": "9a77b444-5f77-46f4-a822-2f75fb525d10"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z3P] de OCZ3P",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 48.86
+                    },
+                    "uuid": "6489688c-8868-4497-b7ca-a9ab4e09d75e"
+                },
+                {
+                    "description": "Pad métallisé 1 [MT1D_Z3P] de DZ3P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 55.21
+                    },
+                    "uuid": "57d3089d-47f2-477a-af26-9ab6101ecd05"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_Z4P] de OCZ4P",
+                    "pos": {
+                        "x": 51.19,
+                        "y": 72.64
+                    },
+                    "uuid": "a3e0c68c-708b-4b15-a312-aea996efe045"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z4P] de RLZ4P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 66.29
+                    },
+                    "uuid": "f9da3e1f-5720-48f4-ab11-25358d163529"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z4P] de OCZ4P",
+                    "pos": {
+                        "x": 58.81,
+                        "y": 67.56
+                    },
+                    "uuid": "42b8ac0b-3903-45b9-9a5d-42172ae676a2"
+                },
+                {
+                    "description": "Pad métallisé 1 [MT1D_Z4P] de DZ4P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 73.91
+                    },
+                    "uuid": "9841bebb-952c-4ae7-b8a0-a46fc95357ad"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_Z5P] de OCZ5P",
+                    "pos": {
+                        "x": 90.19,
+                        "y": 16.54
+                    },
+                    "uuid": "6c486431-34f8-4cee-8016-3ca89a036946"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z5P] de RLZ5P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 10.19
+                    },
+                    "uuid": "15f4732f-d9ac-4ab4-8105-06ca6312ca64"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_Z6P] de OCZ6P",
+                    "pos": {
+                        "x": 90.19,
+                        "y": 35.24
+                    },
+                    "uuid": "2fef4af5-afc9-4a17-89a6-0213df34d32f"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z6P] de RLZ6P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 28.89
+                    },
+                    "uuid": "13f75cc0-af4e-4c3d-8765-46c6c10071d6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [MT1D_Z6P] sur F.Cu, long. 9,6778 mm",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 36.51
+                    },
+                    "uuid": "93b77424-8ddc-4a1f-9b26-5baec20e6706"
+                },
+                {
+                    "description": "Piste [MT1D_Z6P] sur F.Cu, long. 11,5485 mm",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 30.16
+                    },
+                    "uuid": "65010556-8b07-4481-bfd3-a0c8903aa5ab"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_Z7P] de OCZ7P",
+                    "pos": {
+                        "x": 90.19,
+                        "y": 53.94
+                    },
+                    "uuid": "c16ef056-3662-4178-886f-f0cc323af718"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z7P] de RLZ7P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 47.59
+                    },
+                    "uuid": "2573d95d-3c94-42ba-92c1-e73bd275ae73"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [MT1D_Z7P] sur F.Cu, long. 9,6778 mm",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 55.21
+                    },
+                    "uuid": "642c27c6-ee63-414c-af2d-ab568c0ada10"
+                },
+                {
+                    "description": "Piste [MT1D_Z7P] sur F.Cu, long. 11,5485 mm",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 48.86
+                    },
+                    "uuid": "1bd7aac7-2cd1-46ad-83d4-ed9b0d211b0c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_Z8P] de OCZ8P",
+                    "pos": {
+                        "x": 90.19,
+                        "y": 72.64
+                    },
+                    "uuid": "d9acf965-2223-4eeb-8586-30ef23929e06"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z8P] de RLZ8P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 66.29
+                    },
+                    "uuid": "1cb217f8-181f-4a4c-b2d2-a6599426510f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Piste [MT1D_Z8P] sur F.Cu, long. 9,6778 mm",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 73.91
+                    },
+                    "uuid": "ce50c242-6c7c-44c8-b7b2-912b2c79b043"
+                },
+                {
+                    "description": "Piste [MT1D_Z8P] sur F.Cu, long. 11,5485 mm",
+                    "pos": {
+                        "x": 97.81,
+                        "y": 67.56
+                    },
+                    "uuid": "011ece55-f5af-4854-8be8-4695d461b4f9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,3300 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP6] de DZ6N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 46.31
+                    },
+                    "uuid": "3d063bc5-e9ef-4e0c-873f-d6c78a78b5b5"
+                },
+                {
+                    "description": "Piste [FP7] sur B.Cu, long. 0,7050 mm",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 48.295
+                    },
+                    "uuid": "57de6348-75ab-4e77-8934-941b8f758482"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,3300 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP2] de DZ2N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 46.31
+                    },
+                    "uuid": "01c332c0-a21c-43b4-8e42-b9a412de39ee"
+                },
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 0,7050 mm",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 48.295
+                    },
+                    "uuid": "b789c0d7-7cfb-4af6-9415-41bd76ea78f8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_6mm' isolation 6,0000 mm; réel 5,4447 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP1] de J2",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 7.54
+                    },
+                    "uuid": "190e44e0-3b1d-45d4-b80c-328420234fa9"
+                },
+                {
+                    "description": "Pad métallisé 2 [GND] de OCZ1P",
+                    "pos": {
+                        "x": 51.19,
+                        "y": 14.0
+                    },
+                    "uuid": "7cdc8563-b4f7-4744-a6e9-09680e9f45b4"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets GPIO38 et  LEDA_Z6P)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO38] de RLZ5N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 27.61
+                    },
+                    "uuid": "02d4e55b-6292-4b4f-8555-7b0e421d5e77"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z6P] de RLZ6P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 28.89
+                    },
+                    "uuid": "13f75cc0-af4e-4c3d-8765-46c6c10071d6"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets FP2 et  FP3)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP2] de DZ2N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 46.31
+                    },
+                    "uuid": "01c332c0-a21c-43b4-8e42-b9a412de39ee"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP3] de DZ3P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 47.59
+                    },
+                    "uuid": "ddef7bf3-cc35-492d-bb32-06faf15d072b"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_6mm' isolation 6,0000 mm; réel 5,4447 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP1] de J2",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 7.54
+                    },
+                    "uuid": "190e44e0-3b1d-45d4-b80c-328420234fa9"
+                },
+                {
+                    "description": "Pad métallisé 2 [GND] de OCZ1P",
+                    "pos": {
+                        "x": 51.19,
+                        "y": 14.0
+                    },
+                    "uuid": "7cdc8563-b4f7-4744-a6e9-09680e9f45b4"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets GPIO38 et  LEDA_Z6P)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO38] de RLZ5N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 27.61
+                    },
+                    "uuid": "02d4e55b-6292-4b4f-8555-7b0e421d5e77"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z6P] de RLZ6P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 28.89
+                    },
+                    "uuid": "13f75cc0-af4e-4c3d-8765-46c6c10071d6"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets FP2 et  FP3)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP2] de DZ2N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 46.31
+                    },
+                    "uuid": "01c332c0-a21c-43b4-8e42-b9a412de39ee"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP3] de DZ3P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 47.59
+                    },
+                    "uuid": "ddef7bf3-cc35-492d-bb32-06faf15d072b"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets FP8 et  FP7)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP8] de DZ8P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 66.29
+                    },
+                    "uuid": "57f4ccc0-8d00-42d4-a36c-e9224535e8f5"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP7] de DZ7N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 65.01
+                    },
+                    "uuid": "da9a92be-5e31-4f8a-82e7-578613c0a8a4"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets FP8 et  FP7)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP8] de DZ8P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 66.29
+                    },
+                    "uuid": "57f4ccc0-8d00-42d4-a36c-e9224535e8f5"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP7] de DZ7N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 65.01
+                    },
+                    "uuid": "da9a92be-5e31-4f8a-82e7-578613c0a8a4"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets LEDA_Z8P et  GPIO42)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z8P] de RLZ8P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 66.29
+                    },
+                    "uuid": "1cb217f8-181f-4a4c-b2d2-a6599426510f"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO42] de RLZ7N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 65.01
+                    },
+                    "uuid": "671fcbaf-f6b7-4784-bca5-8322cb25e2ed"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets FP7 et  FP6)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP7] de DZ7P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 47.59
+                    },
+                    "uuid": "1b276e24-eeb9-4433-95db-305a970490c4"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP6] de DZ6N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 46.31
+                    },
+                    "uuid": "3d063bc5-e9ef-4e0c-873f-d6c78a78b5b5"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets FP7 et  FP6)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP7] de DZ7P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 47.59
+                    },
+                    "uuid": "1b276e24-eeb9-4433-95db-305a970490c4"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP6] de DZ6N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 46.31
+                    },
+                    "uuid": "3d063bc5-e9ef-4e0c-873f-d6c78a78b5b5"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets LEDA_Z8P et  GPIO42)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z8P] de RLZ8P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 66.29
+                    },
+                    "uuid": "1cb217f8-181f-4a4c-b2d2-a6599426510f"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO42] de RLZ7N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 65.01
+                    },
+                    "uuid": "671fcbaf-f6b7-4784-bca5-8322cb25e2ed"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets GPIO40 et  LEDA_Z7P)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO40] de RLZ6N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 46.31
+                    },
+                    "uuid": "0710dfe0-2790-40d1-8295-38f1962b58de"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z7P] de RLZ7P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 47.59
+                    },
+                    "uuid": "2573d95d-3c94-42ba-92c1-e73bd275ae73"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets GPIO40 et  LEDA_Z7P)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO40] de RLZ6N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 46.31
+                    },
+                    "uuid": "0710dfe0-2790-40d1-8295-38f1962b58de"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z7P] de RLZ7P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 47.59
+                    },
+                    "uuid": "2573d95d-3c94-42ba-92c1-e73bd275ae73"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets FP6 et  FP5)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP6] de DZ6P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 28.89
+                    },
+                    "uuid": "1a73a940-5e31-4a0c-83a4-cb88ae70f1d6"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP5] de DZ5N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 27.61
+                    },
+                    "uuid": "4f5b67e8-1ff2-4ed6-9517-2d8328bdbeed"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets FP6 et  FP5)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP6] de DZ6P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 28.89
+                    },
+                    "uuid": "1a73a940-5e31-4a0c-83a4-cb88ae70f1d6"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP5] de DZ5N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 27.61
+                    },
+                    "uuid": "4f5b67e8-1ff2-4ed6-9517-2d8328bdbeed"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_6mm' isolation 6,0000 mm; réel 5,8848 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z5P] de RLZ5P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 10.19
+                    },
+                    "uuid": "15f4732f-d9ac-4ab4-8105-06ca6312ca64"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP5] de J4",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 7.54
+                    },
+                    "uuid": "dc153da6-8ef9-4fee-bc5f-d51f92654e0d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_6mm' isolation 6,0000 mm; réel 5,4447 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de OCZ5P",
+                    "pos": {
+                        "x": 90.19,
+                        "y": 14.0
+                    },
+                    "uuid": "b413969f-a961-4fec-b600-3da5943df714"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP5] de J4",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 7.54
+                    },
+                    "uuid": "dc153da6-8ef9-4fee-bc5f-d51f92654e0d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_6mm' isolation 6,0000 mm; réel 5,8848 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z5P] de RLZ5P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 10.19
+                    },
+                    "uuid": "15f4732f-d9ac-4ab4-8105-06ca6312ca64"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP5] de J4",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 7.54
+                    },
+                    "uuid": "dc153da6-8ef9-4fee-bc5f-d51f92654e0d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_6mm' isolation 6,0000 mm; réel 5,4447 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de OCZ5P",
+                    "pos": {
+                        "x": 90.19,
+                        "y": 14.0
+                    },
+                    "uuid": "b413969f-a961-4fec-b600-3da5943df714"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP5] de J4",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 7.54
+                    },
+                    "uuid": "dc153da6-8ef9-4fee-bc5f-d51f92654e0d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets FP3 et  FP4)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP3] de DZ3N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 65.01
+                    },
+                    "uuid": "c106e823-26dd-465e-bb0c-9a1ee515b5bd"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP4] de DZ4P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 66.29
+                    },
+                    "uuid": "dcaaabcd-cfa0-426b-96ab-46596fa1a8c8"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets FP3 et  FP4)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP3] de DZ3N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 65.01
+                    },
+                    "uuid": "c106e823-26dd-465e-bb0c-9a1ee515b5bd"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP4] de DZ4P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 66.29
+                    },
+                    "uuid": "dcaaabcd-cfa0-426b-96ab-46596fa1a8c8"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets GPIO18 et  LEDA_Z4P)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO18] de RLZ3N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 65.01
+                    },
+                    "uuid": "d75e812d-a951-44a7-81d4-c4e99d15aa5e"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z4P] de RLZ4P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 66.29
+                    },
+                    "uuid": "f9da3e1f-5720-48f4-ab11-25358d163529"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets GPIO18 et  LEDA_Z4P)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO18] de RLZ3N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 65.01
+                    },
+                    "uuid": "d75e812d-a951-44a7-81d4-c4e99d15aa5e"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z4P] de RLZ4P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 66.29
+                    },
+                    "uuid": "f9da3e1f-5720-48f4-ab11-25358d163529"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets LEDA_Z3P et  GPIO16)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z3P] de RLZ3P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 47.59
+                    },
+                    "uuid": "75f706dc-a50a-4335-9d3f-e352490d9773"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO16] de RLZ2N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 46.31
+                    },
+                    "uuid": "b87e9de7-5f96-40d5-af15-f82dc2208a0f"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets LEDA_Z3P et  GPIO16)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z3P] de RLZ3P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 47.59
+                    },
+                    "uuid": "75f706dc-a50a-4335-9d3f-e352490d9773"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO16] de RLZ2N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 46.31
+                    },
+                    "uuid": "b87e9de7-5f96-40d5-af15-f82dc2208a0f"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets FP2 et  FP1)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP2] de DZ2P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 28.89
+                    },
+                    "uuid": "239d9d48-a9dc-48fd-a4a6-59e8837219b1"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP1] de DZ1N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 27.61
+                    },
+                    "uuid": "dbc05fa1-312b-4e48-91be-1fc1fa36a163"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets FP2 et  FP1)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP2] de DZ2P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 28.89
+                    },
+                    "uuid": "239d9d48-a9dc-48fd-a4a6-59e8837219b1"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP1] de DZ1N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 27.61
+                    },
+                    "uuid": "dbc05fa1-312b-4e48-91be-1fc1fa36a163"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets LEDA_Z2P et  GPIO2)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z2P] de RLZ2P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 28.89
+                    },
+                    "uuid": "3411766d-26d9-43f4-b153-a8f8eb5e0906"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO2] de RLZ1N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 27.61
+                    },
+                    "uuid": "b268cca3-4159-4c60-9a59-1d75fb47c275"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_6mm' isolation 6,0000 mm; réel 5,8848 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z1P] de RLZ1P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 10.19
+                    },
+                    "uuid": "14a586a2-ace6-44f8-b713-01ff244957cd"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP1] de J2",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 7.54
+                    },
+                    "uuid": "190e44e0-3b1d-45d4-b80c-328420234fa9"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_6mm' isolation 6,0000 mm; réel 5,8848 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z1P] de RLZ1P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 10.19
+                    },
+                    "uuid": "14a586a2-ace6-44f8-b713-01ff244957cd"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP1] de J2",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 7.54
+                    },
+                    "uuid": "190e44e0-3b1d-45d4-b80c-328420234fa9"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Eléments court-circuitant deux nets (nets LEDA_Z2P et  GPIO2)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z2P] de RLZ2P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 28.89
+                    },
+                    "uuid": "3411766d-26d9-43f4-b153-a8f8eb5e0906"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO2] de RLZ1N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 27.61
+                    },
+                    "uuid": "b268cca3-4159-4c60-9a59-1d75fb47c275"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte DZ3N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 61.2
+                    },
+                    "uuid": "0b30091f-441b-4f0f-a217-103642445335"
+                },
+                {
+                    "description": "Empreinte DZ4P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 70.1
+                    },
+                    "uuid": "509ad90d-03e1-43e0-bc67-e879c7d0f5b6"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP4] de DZ4P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 66.29
+                    },
+                    "uuid": "dcaaabcd-cfa0-426b-96ab-46596fa1a8c8"
+                },
+                {
+                    "description": "Empreinte DZ3N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 61.2
+                    },
+                    "uuid": "0b30091f-441b-4f0f-a217-103642445335"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP3] de DZ3N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 65.01
+                    },
+                    "uuid": "c106e823-26dd-465e-bb0c-9a1ee515b5bd"
+                },
+                {
+                    "description": "Empreinte DZ4P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 70.1
+                    },
+                    "uuid": "509ad90d-03e1-43e0-bc67-e879c7d0f5b6"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte RLZ7P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 51.4
+                    },
+                    "uuid": "1276b169-e03f-4169-9dff-5384840842fc"
+                },
+                {
+                    "description": "Empreinte RLZ6N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 42.5
+                    },
+                    "uuid": "96d14675-ee8b-476c-af5b-7c865817d62c"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO40] de RLZ6N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 46.31
+                    },
+                    "uuid": "0710dfe0-2790-40d1-8295-38f1962b58de"
+                },
+                {
+                    "description": "Empreinte RLZ7P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 51.4
+                    },
+                    "uuid": "1276b169-e03f-4169-9dff-5384840842fc"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z7P] de RLZ7P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 47.59
+                    },
+                    "uuid": "2573d95d-3c94-42ba-92c1-e73bd275ae73"
+                },
+                {
+                    "description": "Empreinte RLZ6N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 42.5
+                    },
+                    "uuid": "96d14675-ee8b-476c-af5b-7c865817d62c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte DZ5N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 23.8
+                    },
+                    "uuid": "1e26d2fd-08b7-4dba-9cfc-df2a4866d6dd"
+                },
+                {
+                    "description": "Empreinte DZ6P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 32.7
+                    },
+                    "uuid": "b45f073c-3243-48a9-bc14-337b6c9b378e"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP6] de DZ6P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 28.89
+                    },
+                    "uuid": "1a73a940-5e31-4a0c-83a4-cb88ae70f1d6"
+                },
+                {
+                    "description": "Empreinte DZ5N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 23.8
+                    },
+                    "uuid": "1e26d2fd-08b7-4dba-9cfc-df2a4866d6dd"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP5] de DZ5N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 27.61
+                    },
+                    "uuid": "4f5b67e8-1ff2-4ed6-9517-2d8328bdbeed"
+                },
+                {
+                    "description": "Empreinte DZ6P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 32.7
+                    },
+                    "uuid": "b45f073c-3243-48a9-bc14-337b6c9b378e"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte DZ3P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 51.4
+                    },
+                    "uuid": "33663e71-dafb-46f2-bf62-56c302408a4a"
+                },
+                {
+                    "description": "Empreinte DZ2N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 42.5
+                    },
+                    "uuid": "5dd7ebee-ac1b-4d42-abc9-31af0f214303"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP2] de DZ2N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 46.31
+                    },
+                    "uuid": "01c332c0-a21c-43b4-8e42-b9a412de39ee"
+                },
+                {
+                    "description": "Empreinte DZ3P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 51.4
+                    },
+                    "uuid": "33663e71-dafb-46f2-bf62-56c302408a4a"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP3] de DZ3P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 47.59
+                    },
+                    "uuid": "ddef7bf3-cc35-492d-bb32-06faf15d072b"
+                },
+                {
+                    "description": "Empreinte DZ2N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 42.5
+                    },
+                    "uuid": "5dd7ebee-ac1b-4d42-abc9-31af0f214303"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte DZ8P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 70.1
+                    },
+                    "uuid": "486b52e4-a5a0-42d9-9da9-09d9cb1f48db"
+                },
+                {
+                    "description": "Empreinte DZ7N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 61.2
+                    },
+                    "uuid": "a7378bd8-de1f-4d19-9c3b-5fb29a5d725c"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP7] de DZ7N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 65.01
+                    },
+                    "uuid": "da9a92be-5e31-4f8a-82e7-578613c0a8a4"
+                },
+                {
+                    "description": "Empreinte DZ8P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 70.1
+                    },
+                    "uuid": "486b52e4-a5a0-42d9-9da9-09d9cb1f48db"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP8] de DZ8P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 66.29
+                    },
+                    "uuid": "57f4ccc0-8d00-42d4-a36c-e9224535e8f5"
+                },
+                {
+                    "description": "Empreinte DZ7N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 61.2
+                    },
+                    "uuid": "a7378bd8-de1f-4d19-9c3b-5fb29a5d725c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte RLZ8P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 70.1
+                    },
+                    "uuid": "5cc648fb-8b02-4c01-b79d-5cbcfc6c3ab2"
+                },
+                {
+                    "description": "Empreinte RLZ7N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 61.2
+                    },
+                    "uuid": "75465c5b-821a-4aac-a781-0095a29ea40a"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO42] de RLZ7N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 65.01
+                    },
+                    "uuid": "671fcbaf-f6b7-4784-bca5-8322cb25e2ed"
+                },
+                {
+                    "description": "Empreinte RLZ8P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 70.1
+                    },
+                    "uuid": "5cc648fb-8b02-4c01-b79d-5cbcfc6c3ab2"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z8P] de RLZ8P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 66.29
+                    },
+                    "uuid": "1cb217f8-181f-4a4c-b2d2-a6599426510f"
+                },
+                {
+                    "description": "Empreinte RLZ7N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 61.2
+                    },
+                    "uuid": "75465c5b-821a-4aac-a781-0095a29ea40a"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte DZ2P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 32.7
+                    },
+                    "uuid": "5ccf3712-d257-4149-a8f5-97c0874e0c11"
+                },
+                {
+                    "description": "Empreinte DZ1N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 23.8
+                    },
+                    "uuid": "7b7641af-d650-4805-b439-3470022dac6a"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP1] de DZ1N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 27.61
+                    },
+                    "uuid": "dbc05fa1-312b-4e48-91be-1fc1fa36a163"
+                },
+                {
+                    "description": "Empreinte DZ2P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 32.7
+                    },
+                    "uuid": "5ccf3712-d257-4149-a8f5-97c0874e0c11"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP2] de DZ2P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 28.89
+                    },
+                    "uuid": "239d9d48-a9dc-48fd-a4a6-59e8837219b1"
+                },
+                {
+                    "description": "Empreinte DZ1N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 23.8
+                    },
+                    "uuid": "7b7641af-d650-4805-b439-3470022dac6a"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte DZ6N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 42.5
+                    },
+                    "uuid": "65283a5d-2127-4fef-86dd-e6b3236438e5"
+                },
+                {
+                    "description": "Empreinte DZ7P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 51.4
+                    },
+                    "uuid": "8256bce6-a62b-42a1-9e78-3e90589ed97d"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP7] de DZ7P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 47.59
+                    },
+                    "uuid": "1b276e24-eeb9-4433-95db-305a970490c4"
+                },
+                {
+                    "description": "Empreinte DZ6N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 42.5
+                    },
+                    "uuid": "65283a5d-2127-4fef-86dd-e6b3236438e5"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP6] de DZ6N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 46.31
+                    },
+                    "uuid": "3d063bc5-e9ef-4e0c-873f-d6c78a78b5b5"
+                },
+                {
+                    "description": "Empreinte DZ7P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 51.4
+                    },
+                    "uuid": "8256bce6-a62b-42a1-9e78-3e90589ed97d"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte RLZ3N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 61.2
+                    },
+                    "uuid": "6c544b35-54c8-40bc-91ad-2bff829bb963"
+                },
+                {
+                    "description": "Empreinte RLZ4P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 70.1
+                    },
+                    "uuid": "991904af-878f-4470-96f5-f606b11b227a"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z4P] de RLZ4P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 66.29
+                    },
+                    "uuid": "f9da3e1f-5720-48f4-ab11-25358d163529"
+                },
+                {
+                    "description": "Empreinte RLZ3N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 61.2
+                    },
+                    "uuid": "6c544b35-54c8-40bc-91ad-2bff829bb963"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO18] de RLZ3N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 65.01
+                    },
+                    "uuid": "d75e812d-a951-44a7-81d4-c4e99d15aa5e"
+                },
+                {
+                    "description": "Empreinte RLZ4P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 70.1
+                    },
+                    "uuid": "991904af-878f-4470-96f5-f606b11b227a"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte RLZ3P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 51.4
+                    },
+                    "uuid": "9f70d2cf-ac57-462b-8383-64b38194a672"
+                },
+                {
+                    "description": "Empreinte RLZ2N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 42.5
+                    },
+                    "uuid": "a2083c79-a5fd-4b61-8c89-4273af6065dd"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO16] de RLZ2N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 46.31
+                    },
+                    "uuid": "b87e9de7-5f96-40d5-af15-f82dc2208a0f"
+                },
+                {
+                    "description": "Empreinte RLZ3P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 51.4
+                    },
+                    "uuid": "9f70d2cf-ac57-462b-8383-64b38194a672"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z3P] de RLZ3P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 47.59
+                    },
+                    "uuid": "75f706dc-a50a-4335-9d3f-e352490d9773"
+                },
+                {
+                    "description": "Empreinte RLZ2N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 42.5
+                    },
+                    "uuid": "a2083c79-a5fd-4b61-8c89-4273af6065dd"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte RLZ2P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 32.7
+                    },
+                    "uuid": "db49d212-c980-4028-8085-cbb1cc13e64c"
+                },
+                {
+                    "description": "Empreinte RLZ1N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 23.8
+                    },
+                    "uuid": "fdfb5dcb-49b9-4c5e-9128-83fbbb4a76d7"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO2] de RLZ1N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 27.61
+                    },
+                    "uuid": "b268cca3-4159-4c60-9a59-1d75fb47c275"
+                },
+                {
+                    "description": "Empreinte RLZ2P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 32.7
+                    },
+                    "uuid": "db49d212-c980-4028-8085-cbb1cc13e64c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z2P] de RLZ2P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 28.89
+                    },
+                    "uuid": "3411766d-26d9-43f4-b153-a8f8eb5e0906"
+                },
+                {
+                    "description": "Empreinte RLZ1N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 23.8
+                    },
+                    "uuid": "fdfb5dcb-49b9-4c5e-9128-83fbbb4a76d7"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte RLZ6P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 32.7
+                    },
+                    "uuid": "ececff3f-44b9-43a5-9581-455572ff4617"
+                },
+                {
+                    "description": "Empreinte RLZ5N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 23.8
+                    },
+                    "uuid": "fec55f61-4f68-4376-a975-74297757e0a7"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO38] de RLZ5N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 27.61
+                    },
+                    "uuid": "02d4e55b-6292-4b4f-8555-7b0e421d5e77"
+                },
+                {
+                    "description": "Empreinte RLZ6P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 32.7
+                    },
+                    "uuid": "ececff3f-44b9-43a5-9581-455572ff4617"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z6P] de RLZ6P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 28.89
+                    },
+                    "uuid": "13f75cc0-af4e-4c3d-8765-46c6c10071d6"
+                },
+                {
+                    "description": "Empreinte RLZ5N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 23.8
+                    },
+                    "uuid": "fec55f61-4f68-4376-a975-74297757e0a7"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessus relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP3] de DZ3N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 65.01
+                    },
+                    "uuid": "c106e823-26dd-465e-bb0c-9a1ee515b5bd"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP4] de DZ4P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 66.29
+                    },
+                    "uuid": "dcaaabcd-cfa0-426b-96ab-46596fa1a8c8"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessous relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP3] de DZ3N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 65.01
+                    },
+                    "uuid": "c106e823-26dd-465e-bb0c-9a1ee515b5bd"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP4] de DZ4P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 66.29
+                    },
+                    "uuid": "dcaaabcd-cfa0-426b-96ab-46596fa1a8c8"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessus relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z4P] de RLZ4P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 66.29
+                    },
+                    "uuid": "f9da3e1f-5720-48f4-ab11-25358d163529"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO18] de RLZ3N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 65.01
+                    },
+                    "uuid": "d75e812d-a951-44a7-81d4-c4e99d15aa5e"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessous relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z4P] de RLZ4P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 66.29
+                    },
+                    "uuid": "f9da3e1f-5720-48f4-ab11-25358d163529"
+                },
+                {
+                    "description": "Pad métallisé 1 [GPIO18] de RLZ3N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 65.01
+                    },
+                    "uuid": "d75e812d-a951-44a7-81d4-c4e99d15aa5e"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessus relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO38] de RLZ5N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 27.61
+                    },
+                    "uuid": "02d4e55b-6292-4b4f-8555-7b0e421d5e77"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z6P] de RLZ6P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 28.89
+                    },
+                    "uuid": "13f75cc0-af4e-4c3d-8765-46c6c10071d6"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessous relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO38] de RLZ5N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 27.61
+                    },
+                    "uuid": "02d4e55b-6292-4b4f-8555-7b0e421d5e77"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z6P] de RLZ6P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 28.89
+                    },
+                    "uuid": "13f75cc0-af4e-4c3d-8765-46c6c10071d6"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessus relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO2] de RLZ1N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 27.61
+                    },
+                    "uuid": "b268cca3-4159-4c60-9a59-1d75fb47c275"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z2P] de RLZ2P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 28.89
+                    },
+                    "uuid": "3411766d-26d9-43f4-b153-a8f8eb5e0906"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessus relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP5] de DZ5N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 27.61
+                    },
+                    "uuid": "4f5b67e8-1ff2-4ed6-9517-2d8328bdbeed"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP6] de DZ6P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 28.89
+                    },
+                    "uuid": "1a73a940-5e31-4a0c-83a4-cb88ae70f1d6"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessous relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO2] de RLZ1N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 27.61
+                    },
+                    "uuid": "b268cca3-4159-4c60-9a59-1d75fb47c275"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z2P] de RLZ2P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 28.89
+                    },
+                    "uuid": "3411766d-26d9-43f4-b153-a8f8eb5e0906"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessus relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP1] de DZ1N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 27.61
+                    },
+                    "uuid": "dbc05fa1-312b-4e48-91be-1fc1fa36a163"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP2] de DZ2P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 28.89
+                    },
+                    "uuid": "239d9d48-a9dc-48fd-a4a6-59e8837219b1"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessous relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP5] de DZ5N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 27.61
+                    },
+                    "uuid": "4f5b67e8-1ff2-4ed6-9517-2d8328bdbeed"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP6] de DZ6P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 28.89
+                    },
+                    "uuid": "1a73a940-5e31-4a0c-83a4-cb88ae70f1d6"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessous relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP1] de DZ1N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 27.61
+                    },
+                    "uuid": "dbc05fa1-312b-4e48-91be-1fc1fa36a163"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP2] de DZ2P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 28.89
+                    },
+                    "uuid": "239d9d48-a9dc-48fd-a4a6-59e8837219b1"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessus relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO40] de RLZ6N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 46.31
+                    },
+                    "uuid": "0710dfe0-2790-40d1-8295-38f1962b58de"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z7P] de RLZ7P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 47.59
+                    },
+                    "uuid": "2573d95d-3c94-42ba-92c1-e73bd275ae73"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessous relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO40] de RLZ6N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 46.31
+                    },
+                    "uuid": "0710dfe0-2790-40d1-8295-38f1962b58de"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z7P] de RLZ7P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 47.59
+                    },
+                    "uuid": "2573d95d-3c94-42ba-92c1-e73bd275ae73"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessus relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO16] de RLZ2N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 46.31
+                    },
+                    "uuid": "b87e9de7-5f96-40d5-af15-f82dc2208a0f"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z3P] de RLZ3P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 47.59
+                    },
+                    "uuid": "75f706dc-a50a-4335-9d3f-e352490d9773"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessus relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP6] de DZ6N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 46.31
+                    },
+                    "uuid": "3d063bc5-e9ef-4e0c-873f-d6c78a78b5b5"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP7] de DZ7P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 47.59
+                    },
+                    "uuid": "1b276e24-eeb9-4433-95db-305a970490c4"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessous relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP6] de DZ6N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 46.31
+                    },
+                    "uuid": "3d063bc5-e9ef-4e0c-873f-d6c78a78b5b5"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP7] de DZ7P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 47.59
+                    },
+                    "uuid": "1b276e24-eeb9-4433-95db-305a970490c4"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessous relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO16] de RLZ2N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 46.31
+                    },
+                    "uuid": "b87e9de7-5f96-40d5-af15-f82dc2208a0f"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z3P] de RLZ3P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 47.59
+                    },
+                    "uuid": "75f706dc-a50a-4335-9d3f-e352490d9773"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessus relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO42] de RLZ7N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 65.01
+                    },
+                    "uuid": "671fcbaf-f6b7-4784-bca5-8322cb25e2ed"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z8P] de RLZ8P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 66.29
+                    },
+                    "uuid": "1cb217f8-181f-4a4c-b2d2-a6599426510f"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessus relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP2] de DZ2N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 46.31
+                    },
+                    "uuid": "01c332c0-a21c-43b4-8e42-b9a412de39ee"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP3] de DZ3P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 47.59
+                    },
+                    "uuid": "ddef7bf3-cc35-492d-bb32-06faf15d072b"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessous relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [GPIO42] de RLZ7N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 65.01
+                    },
+                    "uuid": "671fcbaf-f6b7-4784-bca5-8322cb25e2ed"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z8P] de RLZ8P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 66.29
+                    },
+                    "uuid": "1cb217f8-181f-4a4c-b2d2-a6599426510f"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessous relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP2] de DZ2N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 46.31
+                    },
+                    "uuid": "01c332c0-a21c-43b4-8e42-b9a412de39ee"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP3] de DZ3P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 47.59
+                    },
+                    "uuid": "ddef7bf3-cc35-492d-bb32-06faf15d072b"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessus relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP7] de DZ7N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 65.01
+                    },
+                    "uuid": "da9a92be-5e31-4f8a-82e7-578613c0a8a4"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP8] de DZ8P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 66.29
+                    },
+                    "uuid": "57f4ccc0-8d00-42d4-a36c-e9224535e8f5"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "L’ouverture du masque de soudure de dessous relie des éléments de différents nets",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP7] de DZ7N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 65.01
+                    },
+                    "uuid": "da9a92be-5e31-4f8a-82e7-578613c0a8a4"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP8] de DZ8P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 66.29
+                    },
+                    "uuid": "57f4ccc0-8d00-42d4-a36c-e9224535e8f5"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte JWS",
+                    "pos": {
+                        "x": 24.0,
+                        "y": 3.0
+                    },
+                    "uuid": "7199a516-3719-4176-86ab-2682ce02662b"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DPWR",
+                    "pos": {
+                        "x": 33.0,
+                        "y": 56.0
+                    },
+                    "uuid": "5ba2ecd2-e818-4e9f-b576-5f18e2bc6855"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte J1",
+                    "pos": {
+                        "x": 10.0,
+                        "y": 40.0
+                    },
+                    "uuid": "d117df86-c4f8-4410-bb04-02d164385d53"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte J2",
+                    "pos": {
+                        "x": 54.0,
+                        "y": 5.0
+                    },
+                    "uuid": "46a2f535-db92-4170-95d6-12e76ef5afd4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte J3",
+                    "pos": {
+                        "x": 70.0,
+                        "y": 5.0
+                    },
+                    "uuid": "2dad3144-d9d5-4dd5-b676-2fab4ae5bc9c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte J4",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 5.0
+                    },
+                    "uuid": "9bccb386-3520-45b6-85b3-2b46a22c6221"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte J5",
+                    "pos": {
+                        "x": 109.0,
+                        "y": 5.0
+                    },
+                    "uuid": "25dca35d-0d5d-44cc-981d-a2184af5c807"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte F0",
+                    "pos": {
+                        "x": 10.0,
+                        "y": 15.0
+                    },
+                    "uuid": "9eb35b26-6ae8-4742-8796-59203f530e06"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte PS1",
+                    "pos": {
+                        "x": 10.0,
+                        "y": 27.0
+                    },
+                    "uuid": "355d6eed-dee6-41ea-8844-00ff980eab58"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ1P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 14.0
+                    },
+                    "uuid": "fd4d66b2-b2aa-447e-bb5d-653fa6a3325a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ1P",
+                    "pos": {
+                        "x": 55.0,
+                        "y": 14.0
+                    },
+                    "uuid": "4793d325-b223-424c-85f1-bfcb5e383e35"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ1P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 14.0
+                    },
+                    "uuid": "9a8853ff-e16f-4944-8383-3c1ceed54ca5"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ1N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 23.8
+                    },
+                    "uuid": "fdfb5dcb-49b9-4c5e-9128-83fbbb4a76d7"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ1N",
+                    "pos": {
+                        "x": 55.0,
+                        "y": 23.8
+                    },
+                    "uuid": "0ede5235-8226-4207-a08d-ccfd45a0171f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ1N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 23.8
+                    },
+                    "uuid": "7b7641af-d650-4805-b439-3470022dac6a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ2P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 32.7
+                    },
+                    "uuid": "db49d212-c980-4028-8085-cbb1cc13e64c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ2P",
+                    "pos": {
+                        "x": 55.0,
+                        "y": 32.7
+                    },
+                    "uuid": "4eb8fff5-d259-497a-ad94-7920d3b08b97"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ2P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 32.7
+                    },
+                    "uuid": "5ccf3712-d257-4149-a8f5-97c0874e0c11"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ2N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 42.5
+                    },
+                    "uuid": "a2083c79-a5fd-4b61-8c89-4273af6065dd"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ2N",
+                    "pos": {
+                        "x": 55.0,
+                        "y": 42.5
+                    },
+                    "uuid": "81b092f5-3844-4ffb-9cbf-2be03e9872b0"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ2N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 42.5
+                    },
+                    "uuid": "5dd7ebee-ac1b-4d42-abc9-31af0f214303"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ3P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 51.4
+                    },
+                    "uuid": "9f70d2cf-ac57-462b-8383-64b38194a672"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ3P",
+                    "pos": {
+                        "x": 55.0,
+                        "y": 51.4
+                    },
+                    "uuid": "10b731c9-4c9c-4149-bf39-675d50c07dd6"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ3P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 51.4
+                    },
+                    "uuid": "33663e71-dafb-46f2-bf62-56c302408a4a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ3N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 61.2
+                    },
+                    "uuid": "6c544b35-54c8-40bc-91ad-2bff829bb963"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ3N",
+                    "pos": {
+                        "x": 55.0,
+                        "y": 61.2
+                    },
+                    "uuid": "a617a8c0-f519-4c2a-b34d-f204d4c2c94a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ3N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 61.2
+                    },
+                    "uuid": "0b30091f-441b-4f0f-a217-103642445335"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ4P",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 70.1
+                    },
+                    "uuid": "991904af-878f-4470-96f5-f606b11b227a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ4P",
+                    "pos": {
+                        "x": 55.0,
+                        "y": 70.1
+                    },
+                    "uuid": "dc24e6c6-2633-421c-9573-3e5bdb60347a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ4P",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 70.1
+                    },
+                    "uuid": "509ad90d-03e1-43e0-bc67-e879c7d0f5b6"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ4N",
+                    "pos": {
+                        "x": 47.0,
+                        "y": 79.9
+                    },
+                    "uuid": "6cdc1e15-7421-4a8a-a584-c8377f07794c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ4N",
+                    "pos": {
+                        "x": 55.0,
+                        "y": 79.9
+                    },
+                    "uuid": "da1d0d58-4b80-48cc-b5c3-4999d233e103"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ4N",
+                    "pos": {
+                        "x": 62.0,
+                        "y": 79.9
+                    },
+                    "uuid": "d2f03289-5904-4c08-8724-cda16d6050dd"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ5P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 14.0
+                    },
+                    "uuid": "65426798-94c8-4fff-9591-c15e2c122636"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ5P",
+                    "pos": {
+                        "x": 94.0,
+                        "y": 14.0
+                    },
+                    "uuid": "7f63c925-6888-4583-9be2-06182ea2e46b"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ5P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 14.0
+                    },
+                    "uuid": "ecf98e51-6c82-4662-9908-76f1d2efa1d7"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ5N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 23.8
+                    },
+                    "uuid": "fec55f61-4f68-4376-a975-74297757e0a7"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ5N",
+                    "pos": {
+                        "x": 94.0,
+                        "y": 23.8
+                    },
+                    "uuid": "c9f36e08-458e-4d2c-a58c-4a2ca802366e"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ5N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 23.8
+                    },
+                    "uuid": "1e26d2fd-08b7-4dba-9cfc-df2a4866d6dd"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ6P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 32.7
+                    },
+                    "uuid": "ececff3f-44b9-43a5-9581-455572ff4617"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ6P",
+                    "pos": {
+                        "x": 94.0,
+                        "y": 32.7
+                    },
+                    "uuid": "8e3a10dd-e622-4c11-8837-9850807f1e76"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ6P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 32.7
+                    },
+                    "uuid": "b45f073c-3243-48a9-bc14-337b6c9b378e"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ6N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 42.5
+                    },
+                    "uuid": "96d14675-ee8b-476c-af5b-7c865817d62c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ6N",
+                    "pos": {
+                        "x": 94.0,
+                        "y": 42.5
+                    },
+                    "uuid": "d96b2cc5-d75e-4980-af55-363b3f6d27ee"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ6N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 42.5
+                    },
+                    "uuid": "65283a5d-2127-4fef-86dd-e6b3236438e5"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ7P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 51.4
+                    },
+                    "uuid": "1276b169-e03f-4169-9dff-5384840842fc"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ7P",
+                    "pos": {
+                        "x": 94.0,
+                        "y": 51.4
+                    },
+                    "uuid": "f5188657-5ade-48ea-bdf8-bcc2471a226c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ7P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 51.4
+                    },
+                    "uuid": "8256bce6-a62b-42a1-9e78-3e90589ed97d"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ7N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 61.2
+                    },
+                    "uuid": "75465c5b-821a-4aac-a781-0095a29ea40a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ7N",
+                    "pos": {
+                        "x": 94.0,
+                        "y": 61.2
+                    },
+                    "uuid": "3131c301-3d58-4e14-82ef-c85c9d0cfbf4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ7N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 61.2
+                    },
+                    "uuid": "a7378bd8-de1f-4d19-9c3b-5fb29a5d725c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ8P",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 70.1
+                    },
+                    "uuid": "5cc648fb-8b02-4c01-b79d-5cbcfc6c3ab2"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ8P",
+                    "pos": {
+                        "x": 94.0,
+                        "y": 70.1
+                    },
+                    "uuid": "920a529e-c224-4c41-aff4-035ce60974c8"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ8P",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 70.1
+                    },
+                    "uuid": "486b52e4-a5a0-42d9-9da9-09d9cb1f48db"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ8N",
+                    "pos": {
+                        "x": 86.0,
+                        "y": 79.9
+                    },
+                    "uuid": "3160e3b2-703e-4b8c-aacb-796e06174ad2"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ8N",
+                    "pos": {
+                        "x": 94.0,
+                        "y": 79.9
+                    },
+                    "uuid": "7caf27e3-19de-477d-92a4-7d8b80fc86bc"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ8N",
+                    "pos": {
+                        "x": 101.0,
+                        "y": 79.9
+                    },
+                    "uuid": "5c865359-0a14-4bd7-ad56-4f1e95bd47e0"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S4B",
+                    "pos": {
+                        "x": 39.876627,
+                        "y": 70.32151
+                    },
+                    "uuid": "3f74c1c1-7dec-4c41-a961-e0581a4dfa4f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S5B",
+                    "pos": {
+                        "x": 78.876627,
+                        "y": 14.22151
+                    },
+                    "uuid": "a021e8f5-0662-4f72-8ed8-25976846e161"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S6B",
+                    "pos": {
+                        "x": 78.876627,
+                        "y": 32.92151
+                    },
+                    "uuid": "7bee09ab-3bee-481d-aea8-37cd97474594"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S7B",
+                    "pos": {
+                        "x": 78.876627,
+                        "y": 51.62151
+                    },
+                    "uuid": "f899534f-20bc-4d98-8621-eac4e097c5a0"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S8B",
+                    "pos": {
+                        "x": 78.876627,
+                        "y": 70.32151
+                    },
+                    "uuid": "f3a98348-1d74-4830-81d3-1873b4765ad4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S9A",
+                    "pos": {
+                        "x": 69.772742,
+                        "y": 33.791265
+                    },
+                    "uuid": "6c385d41-fde6-4d1a-8e0f-34d1ea109280"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S10A",
+                    "pos": {
+                        "x": 69.772742,
+                        "y": 52.491265
+                    },
+                    "uuid": "2d202169-a2fa-4486-bca7-36e39705cc47"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S11A",
+                    "pos": {
+                        "x": 69.772742,
+                        "y": 71.191265
+                    },
+                    "uuid": "d9edbfd2-0661-41ac-8236-3c89e71fc3b3"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S12A",
+                    "pos": {
+                        "x": 108.772742,
+                        "y": 33.791265
+                    },
+                    "uuid": "e6233673-9cd7-4313-a7d9-eef7b0528345"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S12B",
+                    "pos": {
+                        "x": 110.186939,
+                        "y": 39.553053
+                    },
+                    "uuid": "cbba9ce9-cdde-474c-8e98-97e77f203316"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S13A",
+                    "pos": {
+                        "x": 108.772742,
+                        "y": 52.491265
+                    },
+                    "uuid": "b413f68f-5e21-4871-97df-53694a66c300"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S13B",
+                    "pos": {
+                        "x": 110.186939,
+                        "y": 58.253053
+                    },
+                    "uuid": "7b782cff-e1e2-4052-9561-58f17ca60924"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S14A",
+                    "pos": {
+                        "x": 108.772742,
+                        "y": 71.191265
+                    },
+                    "uuid": "440a0e88-5083-46f3-a83a-cc31425e3b04"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S14B",
+                    "pos": {
+                        "x": 110.186939,
+                        "y": 76.953053
+                    },
+                    "uuid": "5b3a6c2b-4098-46b2-b628-143fa45f0708"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S17B",
+                    "pos": {
+                        "x": 76.714417,
+                        "y": 20.537265
+                    },
+                    "uuid": "94e22a7e-9178-476a-8f42-31af1bcf0e43"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S19B",
+                    "pos": {
+                        "x": 73.229324,
+                        "y": 43.412527
+                    },
+                    "uuid": "5b61fb86-8aba-48bd-90aa-396cd157ea2d"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S24B",
+                    "pos": {
+                        "x": 78.828515,
+                        "y": 77.211552
+                    },
+                    "uuid": "b16e480a-d1e9-4154-bef8-904c4498caa8"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S25B",
+                    "pos": {
+                        "x": 57.655719,
+                        "y": 1.542038
+                    },
+                    "uuid": "9aa883cb-9480-4a64-b944-07a3cb97c508"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S30A",
+                    "pos": {
+                        "x": 62.893907,
+                        "y": 1.569373
+                    },
+                    "uuid": "a56462ba-3631-4e7e-901c-c0619e43d0d0"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S31B",
+                    "pos": {
+                        "x": 68.843246,
+                        "y": 76.866754
+                    },
+                    "uuid": "24c612bd-afd6-42aa-8e47-34278909299e"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S32B",
+                    "pos": {
+                        "x": 110.186903,
+                        "y": 13.233162
+                    },
+                    "uuid": "4c259f6e-2069-495f-b73a-4b3941a16b2a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S34A",
+                    "pos": {
+                        "x": 99.314002,
+                        "y": 5.839816
+                    },
+                    "uuid": "d46e58b5-eef9-4194-89be-4c9ccf51c50f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S37A",
+                    "pos": {
+                        "x": 101.893907,
+                        "y": 1.569373
+                    },
+                    "uuid": "75c83dcc-f2db-4f8f-8c1d-4745d69dbd29"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S38B",
+                    "pos": {
+                        "x": 110.677811,
+                        "y": 83.71
+                    },
+                    "uuid": "c2aa424f-6d80-4795-81bc-dfd908a40e17"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S46A",
+                    "pos": {
+                        "x": 5.539155,
+                        "y": 9.974749
+                    },
+                    "uuid": "ba3a82c2-4b15-4102-a4af-601d8ab2c6bc"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte S47B",
+                    "pos": {
+                        "x": 67.250539,
+                        "y": 8.658053
+                    },
+                    "uuid": "42b7fab3-eb47-49c1-a2b3-75c55532a9f6"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de J3",
+                    "pos": {
+                        "x": 66.0,
+                        "y": 5.0
+                    },
+                    "uuid": "379b191d-f91e-49ad-a2fb-c9c6ae2a44b5"
+                },
+                {
+                    "description": "Champ référence de S47B",
+                    "pos": {
+                        "x": 67.250539,
+                        "y": 4.658053
+                    },
+                    "uuid": "38c98b2a-4542-47f6-adbd-16f2551045fe"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        }
+    ]
+}

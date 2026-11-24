@@ -1,0 +1,3274 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-09T14:55:56",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "FilPilote_8Zones.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 1,6694 mm)",
+            "items": [
+                {
+                    "description": "Piste [GND] sur F.Cu, long. 23,6188 mm",
+                    "pos": {
+                        "x": 256.9994,
+                        "y": 184.6594
+                    },
+                    "uuid": "5a76015b-d856-457c-963d-1a07a8cbe271"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z4N] de DZ4N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 182.04
+                    },
+                    "uuid": "c654975a-382a-463f-bc4c-93fa6ccf5231"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 2,0117 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP3] de DZ3N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 170.06
+                    },
+                    "uuid": "32af4912-0adb-434e-a23b-16f767e6d044"
+                },
+                {
+                    "description": "Piste [DRV_Z7A] sur F.Cu, long. 5,1430 mm",
+                    "pos": {
+                        "x": 242.0187,
+                        "y": 167.0983
+                    },
+                    "uuid": "faf33db6-e6c4-45f0-8917-bb4e1334b758"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2621 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z3N] de DZ3N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 162.44
+                    },
+                    "uuid": "3917cfbd-eabf-464d-a5bc-7a6599c3e43c"
+                },
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 14,8958 mm",
+                    "pos": {
+                        "x": 244.2621,
+                        "y": 168.7979
+                    },
+                    "uuid": "976c9efc-8c90-4107-8865-2ffd2b23131e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 1,9892 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP3] de DZ3N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 170.06
+                    },
+                    "uuid": "32af4912-0adb-434e-a23b-16f767e6d044"
+                },
+                {
+                    "description": "Piste [DRV_Z7A] sur F.Cu, long. 1,7842 mm",
+                    "pos": {
+                        "x": 239.8128,
+                        "y": 167.52
+                    },
+                    "uuid": "880cbba8-cf9a-4db5-b65d-9598d52c6b63"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 1,9892 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP3] de DZ3N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 170.06
+                    },
+                    "uuid": "32af4912-0adb-434e-a23b-16f767e6d044"
+                },
+                {
+                    "description": "Piste [DRV_Z7A] sur F.Cu, long. 0,5964 mm",
+                    "pos": {
+                        "x": 241.597,
+                        "y": 167.52
+                    },
+                    "uuid": "8409ad7c-8b01-4e9d-a2fc-322e7290cd7f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 0,3200 mm)",
+            "items": [
+                {
+                    "description": "Piste [DRV_Z7A] sur F.Cu, long. 3,3430 mm",
+                    "pos": {
+                        "x": 236.4698,
+                        "y": 167.52
+                    },
+                    "uuid": "0c7e8655-338e-4789-9558-115bc3c83701"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ3N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 168.79
+                    },
+                    "uuid": "d81547e8-7b3f-46eb-a898-9e7a9b69ded3"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 2,3304 mm)",
+            "items": [
+                {
+                    "description": "Piste [DRV_Z5A] sur F.Cu, long. 0,8481 mm",
+                    "pos": {
+                        "x": 241.2568,
+                        "y": 120.4611
+                    },
+                    "uuid": "ba717e48-a931-4a6a-b5b7-451a4a3b9d07"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z1N] de DZ1N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 123.24
+                    },
+                    "uuid": "daadece2-4805-4cea-beaa-d57c9c05f90e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 2,4286 mm)",
+            "items": [
+                {
+                    "description": "Piste [DRV_Z5A] sur F.Cu, long. 10,9449 mm",
+                    "pos": {
+                        "x": 241.8565,
+                        "y": 119.8614
+                    },
+                    "uuid": "aa546d4b-0900-4772-952d-6ffec1da2565"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z1N] de DZ1N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 123.24
+                    },
+                    "uuid": "daadece2-4805-4cea-beaa-d57c9c05f90e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 2,0622 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z1N] de OCZ1N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 124.51
+                    },
+                    "uuid": "6cd1d6f1-8ea1-4e37-bb18-b9236b8ab2db"
+                },
+                {
+                    "description": "Piste [DRV_Z5A] sur F.Cu, long. 1,5487 mm",
+                    "pos": {
+                        "x": 240.1617,
+                        "y": 121.5562
+                    },
+                    "uuid": "fa01648e-3a47-4cf8-a7e2-affc8ffa113b"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 2,0447 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z1N] de OCZ1N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 124.51
+                    },
+                    "uuid": "6cd1d6f1-8ea1-4e37-bb18-b9236b8ab2db"
+                },
+                {
+                    "description": "Piste [DRV_Z5A] sur F.Cu, long. 7,0233 mm",
+                    "pos": {
+                        "x": 232.2933,
+                        "y": 121.5562
+                    },
+                    "uuid": "79f3888e-11c7-4bd7-8075-ddd2b787f2bb"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 2,0413 mm)",
+            "items": [
+                {
+                    "description": "Piste [DRV_Z5A] sur F.Cu, long. 0,8451 mm",
+                    "pos": {
+                        "x": 239.3166,
+                        "y": 121.5562
+                    },
+                    "uuid": "5e3c83d7-e0a3-461c-a267-8d5bbcee71b7"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z1N] de OCZ1N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 124.51
+                    },
+                    "uuid": "6cd1d6f1-8ea1-4e37-bb18-b9236b8ab2db"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2700 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ4N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 188.39
+                    },
+                    "uuid": "4a6acffa-98c2-4ab0-91a7-bf4d5caf86a5"
+                },
+                {
+                    "description": "Piste [FP4] sur B.Cu, long. 3,6614 mm",
+                    "pos": {
+                        "x": 239.3386,
+                        "y": 189.66
+                    },
+                    "uuid": "be9335b4-9a39-43a9-8a90-962e5f639eda"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 1,8814 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z1P] de RLZ1P",
+                    "pos": {
+                        "x": 228.0,
+                        "y": 113.44
+                    },
+                    "uuid": "8229b7c7-d332-4f7e-b446-a1c988e17628"
+                },
+                {
+                    "description": "Piste [FP4] sur B.Cu, long. 4,8031 mm",
+                    "pos": {
+                        "x": 224.9482,
+                        "y": 110.5586
+                    },
+                    "uuid": "c4820a61-a40f-4446-8059-6a411cfcf289"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2314 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ4N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 188.39
+                    },
+                    "uuid": "4a6acffa-98c2-4ab0-91a7-bf4d5caf86a5"
+                },
+                {
+                    "description": "Piste [FP4] sur B.Cu, long. 2,6337 mm",
+                    "pos": {
+                        "x": 237.4763,
+                        "y": 187.7977
+                    },
+                    "uuid": "b3390ce3-b550-452e-824a-a838896cc1f5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2638 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP4] sur B.Cu, long. 14,8924 mm",
+                    "pos": {
+                        "x": 244.2638,
+                        "y": 188.3962
+                    },
+                    "uuid": "9f0ee521-1bcf-4e07-bec1-e87223acded5"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z4N] de DZ4N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 182.04
+                    },
+                    "uuid": "c654975a-382a-463f-bc4c-93fa6ccf5231"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 2,2758 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP4] sur B.Cu, long. 10,9248 mm",
+                    "pos": {
+                        "x": 229.7513,
+                        "y": 110.5586
+                    },
+                    "uuid": "602d6864-b3b9-43dd-8c56-64cf10630b79"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z1P] de RLZ1P",
+                    "pos": {
+                        "x": 228.0,
+                        "y": 113.44
+                    },
+                    "uuid": "8229b7c7-d332-4f7e-b446-a1c988e17628"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 1,5888 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP3] de DZ3P",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 152.64
+                    },
+                    "uuid": "4082fed5-14b4-42cc-8235-19819af80319"
+                },
+                {
+                    "description": "Piste [DRV_Z6B] sur F.Cu, long. 50,1729 mm",
+                    "pos": {
+                        "x": 249.2812,
+                        "y": 155.1788
+                    },
+                    "uuid": "8f8343e1-241e-4588-9962-3e7bb9781d10"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 0,2882 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [MT1D_Z4P] de DZ4P",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 179.86
+                    },
+                    "uuid": "bb9cbb26-eff1-48a1-936e-8268207af30c"
+                },
+                {
+                    "description": "Piste [DRV_Z8A] sur F.Cu, long. 1,4422 mm",
+                    "pos": {
+                        "x": 243.3444,
+                        "y": 178.7098
+                    },
+                    "uuid": "d4ca7932-e6a0-4b03-b5f7-2dcada9774b1"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 1,3227 mm)",
+            "items": [
+                {
+                    "description": "Piste [DRV_Z8A] sur F.Cu, long. 0,5233 mm",
+                    "pos": {
+                        "x": 241.9546,
+                        "y": 177.32
+                    },
+                    "uuid": "7453c366-7b93-4728-8184-644f866608db"
+                },
+                {
+                    "description": "Pad métallisé 1 [MT1D_Z4P] de DZ4P",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 179.86
+                    },
+                    "uuid": "bb9cbb26-eff1-48a1-936e-8268207af30c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 0,2882 mm)",
+            "items": [
+                {
+                    "description": "Piste [DRV_Z8A] sur F.Cu, long. 10,6556 mm",
+                    "pos": {
+                        "x": 254.0,
+                        "y": 178.7098
+                    },
+                    "uuid": "5654aaab-7684-4064-afb3-b5c66d2ec8a3"
+                },
+                {
+                    "description": "Pad métallisé 1 [MT1D_Z4P] de DZ4P",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 179.86
+                    },
+                    "uuid": "bb9cbb26-eff1-48a1-936e-8268207af30c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 1,7967 mm)",
+            "items": [
+                {
+                    "description": "Piste [DRV_Z8A] sur F.Cu, long. 12,0495 mm",
+                    "pos": {
+                        "x": 229.9051,
+                        "y": 177.32
+                    },
+                    "uuid": "2d5cb276-7965-4a64-8ad8-895b5838fb6e"
+                },
+                {
+                    "description": "Pad métallisé 1 [MT1D_Z4P] de DZ4P",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 179.86
+                    },
+                    "uuid": "bb9cbb26-eff1-48a1-936e-8268207af30c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 0,3200 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ2N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 149.19
+                    },
+                    "uuid": "58d1fa44-d097-4dab-8205-a8c27dae61f7"
+                },
+                {
+                    "description": "Piste [DRV_Z6A] sur F.Cu, long. 10,0261 mm",
+                    "pos": {
+                        "x": 229.7867,
+                        "y": 147.92
+                    },
+                    "uuid": "e10eda2b-a465-409b-b098-a91fbdf01751"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 2,0117 mm)",
+            "items": [
+                {
+                    "description": "Piste [DRV_Z6A] sur F.Cu, long. 5,1430 mm",
+                    "pos": {
+                        "x": 242.0187,
+                        "y": 147.4983
+                    },
+                    "uuid": "4cd3e917-3c09-4d86-bca0-50c076432d2e"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP2] de DZ2N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 150.46
+                    },
+                    "uuid": "d82f219b-aa10-4d5e-a534-7e0f935fa281"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 1,9892 mm)",
+            "items": [
+                {
+                    "description": "Piste [DRV_Z6A] sur F.Cu, long. 1,7842 mm",
+                    "pos": {
+                        "x": 239.8128,
+                        "y": 147.92
+                    },
+                    "uuid": "3913c857-fe61-4ad5-bd9b-d2fd1f418f20"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP2] de DZ2N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 150.46
+                    },
+                    "uuid": "d82f219b-aa10-4d5e-a534-7e0f935fa281"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 1,9892 mm)",
+            "items": [
+                {
+                    "description": "Piste [DRV_Z6A] sur F.Cu, long. 0,5964 mm",
+                    "pos": {
+                        "x": 241.597,
+                        "y": 147.92
+                    },
+                    "uuid": "64e1f521-df45-4ca6-aa2e-b02584454e3a"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP2] de DZ2N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 150.46
+                    },
+                    "uuid": "d82f219b-aa10-4d5e-a534-7e0f935fa281"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 0,2700 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de OCZ5N",
+                    "pos": {
+                        "x": 258.19,
+                        "y": 127.05
+                    },
+                    "uuid": "7a21b056-64d6-444f-a6a9-0b4247c0d67e"
+                },
+                {
+                    "description": "Piste [FP6] sur F.Cu, long. 40,9027 mm",
+                    "pos": {
+                        "x": 266.2927,
+                        "y": 125.78
+                    },
+                    "uuid": "b9ad83f8-578c-49c8-9093-cc8f4f7648f8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,3586 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP6] sur F.Cu, long. 1,0536 mm",
+                    "pos": {
+                        "x": 267.0377,
+                        "y": 126.525
+                    },
+                    "uuid": "6c855a21-1425-42d3-b662-91f5aa7b2a2d"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z5N] de OCZ5N",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 124.51
+                    },
+                    "uuid": "94953463-d652-4668-a5fa-2e9281714522"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2277 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP6] sur F.Cu, long. 4,5527 mm",
+                    "pos": {
+                        "x": 267.0377,
+                        "y": 131.0777
+                    },
+                    "uuid": "43849e97-22b9-4f07-8d92-1778b09f8ad3"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ5N",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 129.59
+                    },
+                    "uuid": "a1f03be5-caa3-43c6-89eb-a7ec5fc363b0"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 1,5900 mm)",
+            "items": [
+                {
+                    "description": "Piste [DRV_Z7B] sur F.Cu, long. 63,0000 mm",
+                    "pos": {
+                        "x": 186.28,
+                        "y": 174.78
+                    },
+                    "uuid": "ceb8ea28-6833-47b9-a586-0809f4759046"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP4] de DZ4P",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 172.24
+                    },
+                    "uuid": "d307c135-e683-4754-8173-b344593f3ac8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 0,2882 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP4] de DZ4N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 189.66
+                    },
+                    "uuid": "4d0b093e-3275-4aec-9d4c-933a4a64fc85"
+                },
+                {
+                    "description": "Piste [DRV_Z8B] sur F.Cu, long. 1,4422 mm",
+                    "pos": {
+                        "x": 243.3444,
+                        "y": 188.5098
+                    },
+                    "uuid": "e451c501-4958-418a-b011-b364a0e8db2e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 1,3227 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP4] de DZ4N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 189.66
+                    },
+                    "uuid": "4d0b093e-3275-4aec-9d4c-933a4a64fc85"
+                },
+                {
+                    "description": "Piste [DRV_Z8B] sur F.Cu, long. 0,5254 mm",
+                    "pos": {
+                        "x": 242.3246,
+                        "y": 187.49
+                    },
+                    "uuid": "93c730a4-1d21-4957-8fa5-6bc300343887"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 0,2882 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP4] de DZ4N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 189.66
+                    },
+                    "uuid": "4d0b093e-3275-4aec-9d4c-933a4a64fc85"
+                },
+                {
+                    "description": "Piste [DRV_Z8B] sur F.Cu, long. 10,6556 mm",
+                    "pos": {
+                        "x": 254.0,
+                        "y": 188.5098
+                    },
+                    "uuid": "7c48a000-3df3-4b28-9ac0-0295a903399b"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 1,7987 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP4] de DZ4N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 189.66
+                    },
+                    "uuid": "4d0b093e-3275-4aec-9d4c-933a4a64fc85"
+                },
+                {
+                    "description": "Piste [DRV_Z8B] sur F.Cu, long. 44,4346 mm",
+                    "pos": {
+                        "x": 241.9531,
+                        "y": 187.1185
+                    },
+                    "uuid": "c05d9ed9-8dc6-47fc-b036-9607315613cf"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 2,3150 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z2P] de RLZ2P",
+                    "pos": {
+                        "x": 228.0,
+                        "y": 133.04
+                    },
+                    "uuid": "f476c048-7e4d-4bf8-a9e6-b44d50f42122"
+                },
+                {
+                    "description": "Piste [FP2] sur F.Cu, long. 5,3737 mm",
+                    "pos": {
+                        "x": 232.6881,
+                        "y": 133.04
+                    },
+                    "uuid": "f8995293-f4d5-484c-a32c-c50213354cae"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 2,3202 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP2] sur F.Cu, long. 20,3581 mm",
+                    "pos": {
+                        "x": 228.8883,
+                        "y": 129.2402
+                    },
+                    "uuid": "3bce9d71-8297-4be4-bcd0-03b9651d71aa"
+                },
+                {
+                    "description": "Pad métallisé 1 [LEDA_Z1N] de OCZ1N",
+                    "pos": {
+                        "x": 232.19,
+                        "y": 129.59
+                    },
+                    "uuid": "71d108f5-33cc-4e38-9066-b2649f674861"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2638 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [MT1D_Z1P] de DZ1P",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 121.06
+                    },
+                    "uuid": "08ccfa55-d8c6-4f65-8e1c-9986a2b104d9"
+                },
+                {
+                    "description": "Piste [FP1] sur B.Cu, long. 14,8924 mm",
+                    "pos": {
+                        "x": 244.2638,
+                        "y": 129.5962
+                    },
+                    "uuid": "6ff03c0b-3dc7-4a60-84c8-07f59118a2c5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2700 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z2P] de OCZ2P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 134.31
+                    },
+                    "uuid": "719e9e6c-762a-4924-a393-92cbf1708f00"
+                },
+                {
+                    "description": "Piste [FP2] sur F.Cu, long. 10,3119 mm",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 133.04
+                    },
+                    "uuid": "e1d06ac5-0aa7-47a6-82f5-69dbb2830a27"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2302 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP6] de J4",
+                    "pos": {
+                        "x": 209.86,
+                        "y": 110.25
+                    },
+                    "uuid": "c1684b49-0f55-4cec-82d2-2b670cb6b6ee"
+                },
+                {
+                    "description": "Piste [FP1] sur F.Cu, long. 3,5290 mm",
+                    "pos": {
+                        "x": 209.3636,
+                        "y": 109.0066
+                    },
+                    "uuid": "fcc598fc-8e5f-4e4b-bf2f-8add7a5e37e0"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2434 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP1] sur F.Cu, long. 29,2030 mm",
+                    "pos": {
+                        "x": 238.5666,
+                        "y": 109.0066
+                    },
+                    "uuid": "126fe00d-11d5-45c2-88d8-275a1a608185"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP7] de J5",
+                    "pos": {
+                        "x": 214.94,
+                        "y": 110.25
+                    },
+                    "uuid": "8d96523e-11bd-44b6-ad2e-9292f295f42a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2700 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ1P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 119.79
+                    },
+                    "uuid": "967aae51-dc27-4c90-bd75-918c8ee2cf9d"
+                },
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 1,2302 mm",
+                    "pos": {
+                        "x": 240.2943,
+                        "y": 118.52
+                    },
+                    "uuid": "aa84d5d3-237e-4043-89fe-d737f554bbaa"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2537 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z2N] de DZ2N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 142.84
+                    },
+                    "uuid": "7e8405e7-6601-4fe5-8f41-26f5a2d6f095"
+                },
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 6,7631 mm",
+                    "pos": {
+                        "x": 244.2537,
+                        "y": 143.6402
+                    },
+                    "uuid": "b1513294-123c-4ff9-a461-ff64bc3f3b95"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2502 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP4] de J3",
+                    "pos": {
+                        "x": 199.7,
+                        "y": 110.25
+                    },
+                    "uuid": "4f1aed74-49ce-4c57-b881-d77ffdca2842"
+                },
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 4,5466 mm",
+                    "pos": {
+                        "x": 200.4168,
+                        "y": 108.9998
+                    },
+                    "uuid": "89112fbb-b08c-439f-91c2-20808a085f9c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2095 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 19,4459 mm",
+                    "pos": {
+                        "x": 222.3224,
+                        "y": 111.4595
+                    },
+                    "uuid": "92b7dd62-9d0c-409e-ba63-3b1cff013c66"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP8] de J5",
+                    "pos": {
+                        "x": 220.02,
+                        "y": 110.25
+                    },
+                    "uuid": "99f38a25-d1e7-4729-968d-de04543bbadd"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,4523 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 3,4856 mm",
+                    "pos": {
+                        "x": 241.789,
+                        "y": 146.1049
+                    },
+                    "uuid": "5e807059-6aed-40c7-90ad-3c1f2c3b99f7"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z2N] de DZ2N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 142.84
+                    },
+                    "uuid": "7e8405e7-6601-4fe5-8f41-26f5a2d6f095"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2405 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 1,3318 mm",
+                    "pos": {
+                        "x": 241.236,
+                        "y": 119.4617
+                    },
+                    "uuid": "43289e86-c770-40bf-a2a7-54ed9c0ca60c"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ1P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 119.79
+                    },
+                    "uuid": "967aae51-dc27-4c90-bd75-918c8ee2cf9d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,3909 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 3,4785 mm",
+                    "pos": {
+                        "x": 202.8765,
+                        "y": 111.4595
+                    },
+                    "uuid": "41fd36b1-1849-4008-b284-3986a943b5c7"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP4] de J3",
+                    "pos": {
+                        "x": 199.7,
+                        "y": 110.25
+                    },
+                    "uuid": "4f1aed74-49ce-4c57-b881-d77ffdca2842"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2110 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 5,3241 mm",
+                    "pos": {
+                        "x": 241.789,
+                        "y": 151.429
+                    },
+                    "uuid": "5395a8f7-2130-486a-bc3d-6ecb6f3107b5"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP2] de DZ2N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 150.46
+                    },
+                    "uuid": "d82f219b-aa10-4d5e-a534-7e0f935fa281"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,4728 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 12,6121 mm",
+                    "pos": {
+                        "x": 239.0641,
+                        "y": 118.52
+                    },
+                    "uuid": "89459d08-2228-46db-bb80-d037394e9740"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ1P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 119.79
+                    },
+                    "uuid": "967aae51-dc27-4c90-bd75-918c8ee2cf9d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,4955 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 4,2677 mm",
+                    "pos": {
+                        "x": 244.2537,
+                        "y": 136.8771
+                    },
+                    "uuid": "27723d05-a81d-4135-8d13-760130505ef8"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z2P] de OCZ2P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 134.31
+                    },
+                    "uuid": "719e9e6c-762a-4924-a393-92cbf1708f00"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,4260 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP3] sur B.Cu, long. 14,3977 mm",
+                    "pos": {
+                        "x": 241.236,
+                        "y": 133.8594
+                    },
+                    "uuid": "17905d99-41dd-41ea-b76d-c7f3d9c0b2aa"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z1N] de OCZ1N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 124.51
+                    },
+                    "uuid": "6cd1d6f1-8ea1-4e37-bb18-b9236b8ab2db"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 0,3200 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ3P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 158.99
+                    },
+                    "uuid": "65523ca9-4fa6-488a-a96e-88b8116a8a90"
+                },
+                {
+                    "description": "Piste [DRV_Z5B] sur F.Cu, long. 69,5803 mm",
+                    "pos": {
+                        "x": 178.3658,
+                        "y": 157.72
+                    },
+                    "uuid": "fc0a08cd-908d-4948-b76e-25f5111160c6"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2700 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ8N",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 188.39
+                    },
+                    "uuid": "096139f9-950f-494a-b70f-9e9e16859249"
+                },
+                {
+                    "description": "Piste [FP8] sur B.Cu, long. 3,6614 mm",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 189.66
+                    },
+                    "uuid": "b1aee178-165b-45ad-a92a-1946519afde0"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2314 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ8N",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 188.39
+                    },
+                    "uuid": "096139f9-950f-494a-b70f-9e9e16859249"
+                },
+                {
+                    "description": "Piste [FP8] sur B.Cu, long. 2,6337 mm",
+                    "pos": {
+                        "x": 265.3386,
+                        "y": 189.66
+                    },
+                    "uuid": "5181bc45-4547-41fc-993d-77cfd01819fb"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2096 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP8] sur B.Cu, long. 15,0008 mm",
+                    "pos": {
+                        "x": 270.2096,
+                        "y": 188.4504
+                    },
+                    "uuid": "31bf90fd-94a5-4fc6-8f2d-922c693172cd"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z8N] de DZ8N",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 182.04
+                    },
+                    "uuid": "7e536a1e-ceab-4a4f-b4db-311fd0c2102c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2172 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z6N] de DZ6N",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 142.84
+                    },
+                    "uuid": "2a0ff3b6-42e4-4219-9b74-2e335e873222"
+                },
+                {
+                    "description": "Piste [FP7] sur B.Cu, long. 7,0586 mm",
+                    "pos": {
+                        "x": 270.2172,
+                        "y": 143.6402
+                    },
+                    "uuid": "c0427d69-9e2f-4e41-b52a-86105286bd2a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,4260 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OCZ5P",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 119.79
+                    },
+                    "uuid": "8e0a16e3-b183-4313-8896-94a133aaeed3"
+                },
+                {
+                    "description": "Piste [FP7] sur B.Cu, long. 14,1387 mm",
+                    "pos": {
+                        "x": 267.236,
+                        "y": 133.6004
+                    },
+                    "uuid": "ca1b9797-d52c-4586-ab9c-97f4fe037dff"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,4265 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP7] sur B.Cu, long. 3,4340 mm",
+                    "pos": {
+                        "x": 267.789,
+                        "y": 146.0684
+                    },
+                    "uuid": "135f3c80-8836-4c35-bf81-856015fa7bab"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z6N] de DZ6N",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 142.84
+                    },
+                    "uuid": "2a0ff3b6-42e4-4219-9b74-2e335e873222"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2382 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ5P",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 117.25
+                    },
+                    "uuid": "311ec236-e560-45a8-a36f-3c1a153c4c8e"
+                },
+                {
+                    "description": "Piste [FP7] sur B.Cu, long. 15,2650 mm",
+                    "pos": {
+                        "x": 265.3289,
+                        "y": 118.52
+                    },
+                    "uuid": "6662d7d7-fcef-464c-ad78-8c77f1a75615"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2700 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ5P",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 117.25
+                    },
+                    "uuid": "311ec236-e560-45a8-a36f-3c1a153c4c8e"
+                },
+                {
+                    "description": "Piste [FP7] sur B.Cu, long. 0,9654 mm",
+                    "pos": {
+                        "x": 266.2943,
+                        "y": 118.52
+                    },
+                    "uuid": "43d404f8-3b2d-42fb-a228-e2f692b44c3d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,3592 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP7] sur B.Cu, long. 1,3318 mm",
+                    "pos": {
+                        "x": 267.236,
+                        "y": 119.4617
+                    },
+                    "uuid": "0f252fd1-b30a-4d2c-b7ca-6af53d3aa3d9"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ5P",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 117.25
+                    },
+                    "uuid": "311ec236-e560-45a8-a36f-3c1a153c4c8e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2243 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [MT1D_Z5N] de DZ5N",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 123.24
+                    },
+                    "uuid": "407b83bf-c24c-4ba7-82bf-1427d9d42b22"
+                },
+                {
+                    "description": "Piste [FP5] sur B.Cu, long. 14,9714 mm",
+                    "pos": {
+                        "x": 270.2243,
+                        "y": 129.6357
+                    },
+                    "uuid": "d535c3e9-ac90-4487-9f28-723403c61b81"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2110 mm)",
+            "items": [
+                {
+                    "description": "Piste [FP7] sur B.Cu, long. 5,3606 mm",
+                    "pos": {
+                        "x": 267.789,
+                        "y": 151.429
+                    },
+                    "uuid": "04b285cc-c940-40b9-9538-42c58adc89ce"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP6] de DZ6N",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 150.46
+                    },
+                    "uuid": "fd79d8f1-41e5-4be7-b328-870d3ad5d760"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 2,0348 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [PHASE_PROT] de F0",
+                    "pos": {
+                        "x": 145.81,
+                        "y": 125.25
+                    },
+                    "uuid": "09d656f9-e3e1-4c76-bffd-a63c646cfe8f"
+                },
+                {
+                    "description": "Piste [VSYS] sur B.Cu, long. 10,2789 mm",
+                    "pos": {
+                        "x": 148.7948,
+                        "y": 119.9952
+                    },
+                    "uuid": "5b555817-0333-4498-9640-1c14bba8fb7a"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2353 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z1N] de OCZ1N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 124.51
+                    },
+                    "uuid": "6cd1d6f1-8ea1-4e37-bb18-b9236b8ab2db"
+                },
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3294 mm",
+                    "pos": {
+                        "x": 238.5747,
+                        "y": 128.3547
+                    },
+                    "uuid": "c6fd5183-4847-4028-b198-b48f4d0b1a99"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2353 mm)",
+            "items": [
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3294 mm",
+                    "pos": {
+                        "x": 264.5747,
+                        "y": 138.1547
+                    },
+                    "uuid": "ae4ffb23-5409-44a9-9fa7-eabfe2126efa"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z6P] de OCZ6P",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 134.31
+                    },
+                    "uuid": "e128ca77-0ae0-4181-8329-7a8c1636bdbc"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2470 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ8N",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 185.85
+                    },
+                    "uuid": "039824f0-404e-4a13-a060-622e0610d082"
+                },
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3060 mm",
+                    "pos": {
+                        "x": 264.563,
+                        "y": 187.143
+                    },
+                    "uuid": "a9d84c2d-9735-40a2-a6cf-1af6e485ef97"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2353 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ2P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 136.85
+                    },
+                    "uuid": "498800f5-960b-4efe-9928-88cb43290c8e"
+                },
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3294 mm",
+                    "pos": {
+                        "x": 238.5747,
+                        "y": 138.1547
+                    },
+                    "uuid": "9e309776-6fc3-4a1e-8b48-1c8ffefce453"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2353 mm)",
+            "items": [
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3294 mm",
+                    "pos": {
+                        "x": 264.5747,
+                        "y": 147.9547
+                    },
+                    "uuid": "9f4d378f-f4b2-443f-8bad-8daa79ea625a"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z6N] de OCZ6N",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 144.11
+                    },
+                    "uuid": "aa074876-2211-4690-9fee-086db305e46e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2353 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ3P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 156.45
+                    },
+                    "uuid": "5fa7adac-d205-429e-8bab-c114f366fd8d"
+                },
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3294 mm",
+                    "pos": {
+                        "x": 238.5747,
+                        "y": 157.7547
+                    },
+                    "uuid": "992c855e-0efd-460b-879b-8dc5d850bd0e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2353 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z7P] de OCZ7P",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 153.91
+                    },
+                    "uuid": "7635f668-2cad-4721-85f8-54d3b0daa7a8"
+                },
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3294 mm",
+                    "pos": {
+                        "x": 264.5747,
+                        "y": 157.7547
+                    },
+                    "uuid": "8edc0bf7-161f-4e20-b8fc-e2f3df3178ea"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2353 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ2N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 146.65
+                    },
+                    "uuid": "2bcfa704-29c2-4ad6-8df0-79cce22025f5"
+                },
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3294 mm",
+                    "pos": {
+                        "x": 238.5747,
+                        "y": 147.9547
+                    },
+                    "uuid": "8e9bf76e-71cc-4a38-8da5-57a7aa771463"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2353 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z7N] de OCZ7N",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 163.71
+                    },
+                    "uuid": "1dc1999b-646f-4e93-9b71-1bbd4687f662"
+                },
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3294 mm",
+                    "pos": {
+                        "x": 264.5747,
+                        "y": 167.5547
+                    },
+                    "uuid": "53e9121d-cd92-4844-bf5a-4a63b2f10edb"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2353 mm)",
+            "items": [
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3294 mm",
+                    "pos": {
+                        "x": 264.5747,
+                        "y": 177.3547
+                    },
+                    "uuid": "81a964e5-9233-4833-b89d-103b47f1745d"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z8P] de OCZ8P",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 173.51
+                    },
+                    "uuid": "94e05184-493b-4976-be1e-b11aedd4f731"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2353 mm)",
+            "items": [
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3294 mm",
+                    "pos": {
+                        "x": 264.5747,
+                        "y": 128.3547
+                    },
+                    "uuid": "51a9b64d-26de-48b5-a379-e62dfeeec970"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z5N] de OCZ5N",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 124.51
+                    },
+                    "uuid": "94953463-d652-4668-a5fa-2e9281714522"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2353 mm)",
+            "items": [
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3294 mm",
+                    "pos": {
+                        "x": 238.5747,
+                        "y": 177.3547
+                    },
+                    "uuid": "2b87d0e3-9860-402c-a1de-06f7d707fe07"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ4P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 176.05
+                    },
+                    "uuid": "2e81808c-4765-4288-9d5c-5bc3bcaca7e9"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2502 mm)",
+            "items": [
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,2996 mm",
+                    "pos": {
+                        "x": 238.5598,
+                        "y": 167.5398
+                    },
+                    "uuid": "40a0e761-6b8e-4e8a-b8ef-208a48cf4245"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z3N] de OCZ3N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 163.71
+                    },
+                    "uuid": "ab20db16-4c1d-4e42-bb96-e9da4d36ea5d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2470 mm)",
+            "items": [
+                {
+                    "description": "Piste [PHASE_PROT] sur B.Cu, long. 7,3060 mm",
+                    "pos": {
+                        "x": 238.563,
+                        "y": 187.143
+                    },
+                    "uuid": "1e7874bf-ecc6-4cc4-8e51-bbf4d80ede25"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT1D_Z4N] de OCZ4N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 183.31
+                    },
+                    "uuid": "41d70e31-14ec-4af3-b762-7f3656ea3ece"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 0,3232 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de OCZ5N",
+                    "pos": {
+                        "x": 258.19,
+                        "y": 127.05
+                    },
+                    "uuid": "7a21b056-64d6-444f-a6a9-0b4247c0d67e"
+                },
+                {
+                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 23,5664 mm",
+                    "pos": {
+                        "x": 264.5932,
+                        "y": 128.3732
+                    },
+                    "uuid": "faf58c60-116c-41e4-8dcd-f6107040fd67"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 0,2700 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_Z1N] de OCZ1N",
+                    "pos": {
+                        "x": 232.19,
+                        "y": 129.59
+                    },
+                    "uuid": "71d108f5-33cc-4e38-9066-b2649f674861"
+                },
+                {
+                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 26,1512 mm",
+                    "pos": {
+                        "x": 238.54,
+                        "y": 128.32
+                    },
+                    "uuid": "78263ac1-1f08-4bed-9d93-a7cffff5512e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (netclasse 'Secteur' isolation 0,5000 mm; réel 0,2056 mm)",
+            "items": [
+                {
+                    "description": "Piste [PHASE_PROT] sur F.Cu, long. 61,5776 mm",
+                    "pos": {
+                        "x": 208.3532,
+                        "y": 124.2844
+                    },
+                    "uuid": "2f60fa3d-ebb0-4c90-8ad0-5de5d64de820"
+                },
+                {
+                    "description": "Pad métallisé 34 [<no net>] de JWS",
+                    "pos": {
+                        "x": 173.78,
+                        "y": 125.49
+                    },
+                    "uuid": "b33edb21-cb47-4c68-af79-1d6ce36ee03f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation (règle 'isolement_secteur_logique_2_5mm' isolation 2,5000 mm; réel 2,2929 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDA_Z5P] de RLZ5P",
+                    "pos": {
+                        "x": 254.0,
+                        "y": 113.44
+                    },
+                    "uuid": "409d152f-7c52-412e-8d40-c4927a802819"
+                },
+                {
+                    "description": "Piste [FP8] sur B.Cu, long. 13,5497 mm",
+                    "pos": {
+                        "x": 263.4763,
+                        "y": 118.2594
+                    },
+                    "uuid": "9a277ef6-c949-41ad-b284-5c1535103303"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ1N",
+                    "pos": {
+                        "x": 236.0,
+                        "y": 127.05
+                    },
+                    "uuid": "061db059-2428-42b9-9d32-0c456573030a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ8P",
+                    "pos": {
+                        "x": 262.0,
+                        "y": 176.05
+                    },
+                    "uuid": "076d4c7b-d0eb-448d-82f8-1c17d56487f5"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DPWR",
+                    "pos": {
+                        "x": 142.0,
+                        "y": 155.25
+                    },
+                    "uuid": "0bd44d91-addb-4271-a369-51b45810520f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ5N",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 127.05
+                    },
+                    "uuid": "0da8addc-8dd1-412f-9960-f1af1d203847"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte J5",
+                    "pos": {
+                        "x": 217.48,
+                        "y": 110.25
+                    },
+                    "uuid": "1436c909-c14f-46e3-9a32-9dc5bcf87dd2"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte J1",
+                    "pos": {
+                        "x": 142.0,
+                        "y": 110.25
+                    },
+                    "uuid": "16e479f5-fc10-4000-92de-b7ce89547424"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RPU2",
+                    "pos": {
+                        "x": 178.0,
+                        "y": 145.25
+                    },
+                    "uuid": "1f98341f-a7a9-4a69-9a2e-7ef0422ac436"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ3P",
+                    "pos": {
+                        "x": 236.0,
+                        "y": 156.45
+                    },
+                    "uuid": "28ac4449-399e-4aab-9a6f-00c7882c3715"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ2N",
+                    "pos": {
+                        "x": 236.0,
+                        "y": 146.65
+                    },
+                    "uuid": "3530c1db-de10-4dd1-a633-35637bbcd54f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ7P",
+                    "pos": {
+                        "x": 262.0,
+                        "y": 156.45
+                    },
+                    "uuid": "36153c9d-fe36-401e-a16d-cd8d5e48fd70"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ7P",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 156.45
+                    },
+                    "uuid": "3adb84e7-4f5b-43b8-8618-a02a4ea81dce"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ5N",
+                    "pos": {
+                        "x": 254.0,
+                        "y": 127.05
+                    },
+                    "uuid": "3e66e109-40f3-4eb0-8098-cca8ef111cca"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RPU1",
+                    "pos": {
+                        "x": 178.0,
+                        "y": 135.25
+                    },
+                    "uuid": "45c69b7e-36c6-4ab9-a82a-3dad7ae32cb7"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte U1",
+                    "pos": {
+                        "x": 142.0,
+                        "y": 168.25
+                    },
+                    "uuid": "4814642d-0e59-48e9-b9a4-49c3522816cb"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ8N",
+                    "pos": {
+                        "x": 262.0,
+                        "y": 185.85
+                    },
+                    "uuid": "4d398670-8303-4426-9db0-a8be75312db8"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte C3",
+                    "pos": {
+                        "x": 187.0,
+                        "y": 183.25
+                    },
+                    "uuid": "4db57888-2526-4609-b261-2cf5b2e9505e"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ3N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 166.25
+                    },
+                    "uuid": "4fecf305-6bd4-4b2a-8f8c-6312501fdb1f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte C1",
+                    "pos": {
+                        "x": 142.0,
+                        "y": 176.25
+                    },
+                    "uuid": "52981392-6745-4c42-9ed8-94ca4efaa8d6"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ8N",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 185.85
+                    },
+                    "uuid": "547a5619-0615-417e-8d54-f182caaf4428"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte J2",
+                    "pos": {
+                        "x": 187.0,
+                        "y": 110.25
+                    },
+                    "uuid": "5747f438-f832-4d76-a71d-2fb6c18dc8a0"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ2P",
+                    "pos": {
+                        "x": 228.0,
+                        "y": 136.85
+                    },
+                    "uuid": "5c6345b1-85f8-4e48-b28b-dea670b92cd8"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ7N",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 166.25
+                    },
+                    "uuid": "5f513167-59ac-414e-b3dc-7b61911ad33a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ8N",
+                    "pos": {
+                        "x": 254.0,
+                        "y": 185.85
+                    },
+                    "uuid": "6271c099-b3e3-4e36-9f25-70629a101f0d"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ6P",
+                    "pos": {
+                        "x": 262.0,
+                        "y": 136.85
+                    },
+                    "uuid": "66b7e17e-9cb0-4cb1-a0c3-32d8c119a596"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ2P",
+                    "pos": {
+                        "x": 236.0,
+                        "y": 136.85
+                    },
+                    "uuid": "717974c2-82f6-4f68-afdb-5cf285b39ca8"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ1P",
+                    "pos": {
+                        "x": 228.0,
+                        "y": 117.25
+                    },
+                    "uuid": "751f5b51-ed57-47a2-99ab-f22e39700871"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ1N",
+                    "pos": {
+                        "x": 228.0,
+                        "y": 127.05
+                    },
+                    "uuid": "77e4b96c-f8b8-44f5-b11d-a5d9c891a880"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ2N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 146.65
+                    },
+                    "uuid": "829ac642-c55c-44a2-a812-39825dbdc92d"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ4N",
+                    "pos": {
+                        "x": 236.0,
+                        "y": 185.85
+                    },
+                    "uuid": "8507c9ac-f72d-4194-98fa-66ecefa964c9"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ1P",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 117.25
+                    },
+                    "uuid": "86a13c84-0bd1-4bab-96b7-d60df5bce4d2"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte C2",
+                    "pos": {
+                        "x": 142.0,
+                        "y": 183.25
+                    },
+                    "uuid": "88bdf97d-e252-4f3a-9242-22d7132436e6"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ7N",
+                    "pos": {
+                        "x": 254.0,
+                        "y": 166.25
+                    },
+                    "uuid": "8bcc68f2-f597-498f-b158-63fa5f82a364"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ2N",
+                    "pos": {
+                        "x": 228.0,
+                        "y": 146.65
+                    },
+                    "uuid": "8cbaed8a-82fd-4b49-9b0c-8a14aaa1e130"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ4P",
+                    "pos": {
+                        "x": 236.0,
+                        "y": 176.05
+                    },
+                    "uuid": "8d2efcb3-87f9-451a-b63e-9681cebca43e"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ5P",
+                    "pos": {
+                        "x": 262.0,
+                        "y": 117.25
+                    },
+                    "uuid": "9cc63431-f2f4-4b84-a3b6-9cc72e16d0fb"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ6N",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 146.65
+                    },
+                    "uuid": "a1cfed4a-6909-4342-9759-491dae7fcd7f"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ6P",
+                    "pos": {
+                        "x": 254.0,
+                        "y": 136.85
+                    },
+                    "uuid": "a922ca68-ccb8-4631-a4c0-4b5c3242adc4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ4P",
+                    "pos": {
+                        "x": 228.0,
+                        "y": 176.05
+                    },
+                    "uuid": "aa22e99a-140e-4bda-b2cc-5646fd06f53a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ4N",
+                    "pos": {
+                        "x": 228.0,
+                        "y": 185.85
+                    },
+                    "uuid": "aa2ac9f0-ae7d-4b2e-abae-d69d472c49ba"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte PS1",
+                    "pos": {
+                        "x": 142.0,
+                        "y": 140.25
+                    },
+                    "uuid": "b425c9ab-d96e-4107-9843-242763c3b4ad"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ8P",
+                    "pos": {
+                        "x": 254.0,
+                        "y": 176.05
+                    },
+                    "uuid": "b69b01d7-4448-441e-bdc0-3c24bced10d0"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ1N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 127.05
+                    },
+                    "uuid": "bb5fdc0f-fef8-4383-be9b-0e8bcf4972fd"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ5N",
+                    "pos": {
+                        "x": 262.0,
+                        "y": 127.05
+                    },
+                    "uuid": "bcf18791-b1d3-4646-8221-4b26f394bc73"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte F0",
+                    "pos": {
+                        "x": 142.0,
+                        "y": 125.25
+                    },
+                    "uuid": "bdb1ee76-fb0e-41eb-9b18-d76c234677c0"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ6N",
+                    "pos": {
+                        "x": 254.0,
+                        "y": 146.65
+                    },
+                    "uuid": "bdca3c5c-7335-427c-a515-fe01105bd291"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ3P",
+                    "pos": {
+                        "x": 228.0,
+                        "y": 156.45
+                    },
+                    "uuid": "bf87f523-2532-4de8-b3d9-e29bdd5924f6"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ6P",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 136.85
+                    },
+                    "uuid": "c14f968a-1339-4fc4-af7f-84409a131bca"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte J3",
+                    "pos": {
+                        "x": 197.16,
+                        "y": 110.25
+                    },
+                    "uuid": "c5e82e4b-dab8-430b-b1ba-74a42dfa5a97"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ3N",
+                    "pos": {
+                        "x": 236.0,
+                        "y": 166.25
+                    },
+                    "uuid": "c87889e2-4993-4bcd-ac6d-9aa965a85ae5"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ6N",
+                    "pos": {
+                        "x": 262.0,
+                        "y": 146.65
+                    },
+                    "uuid": "d1ff2e47-04e2-45cb-8e52-1c44c6e1373d"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ8P",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 176.05
+                    },
+                    "uuid": "d6c33e75-e6bb-46a0-80b6-127c5b9dbcf4"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ1P",
+                    "pos": {
+                        "x": 236.0,
+                        "y": 117.25
+                    },
+                    "uuid": "daf24551-1a47-4ad8-a1d2-55bb966011e3"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ4P",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 176.05
+                    },
+                    "uuid": "dc917b5d-16dc-486f-9b4a-993f00c2138a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte U2",
+                    "pos": {
+                        "x": 187.0,
+                        "y": 170.25
+                    },
+                    "uuid": "dfc0914a-9c76-441d-b0c0-079d72e3c2cf"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ3N",
+                    "pos": {
+                        "x": 228.0,
+                        "y": 166.25
+                    },
+                    "uuid": "e195554a-cc1f-4984-8251-92718a45119a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ5P",
+                    "pos": {
+                        "x": 254.0,
+                        "y": 117.25
+                    },
+                    "uuid": "e58b76df-322f-42a0-841e-cdd163b63744"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte OCZ7N",
+                    "pos": {
+                        "x": 262.0,
+                        "y": 166.25
+                    },
+                    "uuid": "e9531df6-e460-49f9-9a18-b017ae7d7a4a"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte RLZ7P",
+                    "pos": {
+                        "x": 254.0,
+                        "y": 156.45
+                    },
+                    "uuid": "efaed20c-9cbd-4a20-b482-0fd58af1a59c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte J4",
+                    "pos": {
+                        "x": 207.32,
+                        "y": 110.25
+                    },
+                    "uuid": "f0306d39-c89a-4f62-925b-4009d814419c"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ2P",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 136.85
+                    },
+                    "uuid": "f131a05a-e3ec-4a52-8b7a-4c77af2642a3"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte JWS",
+                    "pos": {
+                        "x": 156.0,
+                        "y": 110.25
+                    },
+                    "uuid": "f30db219-e9f1-4e12-a7ad-3e318b860b5b"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ4N",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 185.85
+                    },
+                    "uuid": "f572daa7-4320-4ed3-b6ee-8e1117a4acaa"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ5P",
+                    "pos": {
+                        "x": 269.0,
+                        "y": 117.25
+                    },
+                    "uuid": "f817170c-9ca1-4643-a6cf-69f5a2f1fbfe"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'FP'",
+            "items": [
+                {
+                    "description": "Empreinte DZ3P",
+                    "pos": {
+                        "x": 243.0,
+                        "y": 156.45
+                    },
+                    "uuid": "fa0cb5a2-c3ac-4222-898e-384550b42439"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ5N",
+                    "pos": {
+                        "x": 265.0,
+                        "y": 127.05
+                    },
+                    "uuid": "bb3ae042-fa67-41ca-8860-61e33d7e78e0"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ5N",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 127.05
+                    },
+                    "uuid": "d07c74ea-a0ef-4848-a48b-7f1511315377"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ5P",
+                    "pos": {
+                        "x": 265.0,
+                        "y": 117.25
+                    },
+                    "uuid": "b0f59312-470b-4059-966d-0e07ba38b8c8"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ5P",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 117.25
+                    },
+                    "uuid": "311ec236-e560-45a8-a36f-3c1a153c4c8e"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ2P",
+                    "pos": {
+                        "x": 239.0,
+                        "y": 136.85
+                    },
+                    "uuid": "0c1b2e68-ecba-481d-9cc5-e3779658c547"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ2P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 136.85
+                    },
+                    "uuid": "498800f5-960b-4efe-9928-88cb43290c8e"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ6P",
+                    "pos": {
+                        "x": 265.0,
+                        "y": 136.85
+                    },
+                    "uuid": "7fef5e2f-9b06-45cf-a90e-ec332991c4d3"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ6P",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 136.85
+                    },
+                    "uuid": "767200ad-fdc3-4191-aba5-8976b4eb01bf"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ1N",
+                    "pos": {
+                        "x": 239.0,
+                        "y": 127.05
+                    },
+                    "uuid": "38f6d352-0cf4-4893-bfa4-f0a67aceb8e2"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ1N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 127.05
+                    },
+                    "uuid": "fcde1aae-d0e9-44ba-b4fb-1d41bb473606"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ1P",
+                    "pos": {
+                        "x": 239.0,
+                        "y": 117.25
+                    },
+                    "uuid": "a3f322be-e376-4437-8d42-e34e16b9f441"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ1P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 117.25
+                    },
+                    "uuid": "89574e84-8b5c-4377-ab3a-ac72899b17ea"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ3N",
+                    "pos": {
+                        "x": 239.0,
+                        "y": 166.25
+                    },
+                    "uuid": "aa9b25c4-98ac-4b02-8081-637e310f0877"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ3N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 166.25
+                    },
+                    "uuid": "bc2e8116-bd11-44c2-ab0b-f502bfc5fba2"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ2N",
+                    "pos": {
+                        "x": 239.0,
+                        "y": 146.65
+                    },
+                    "uuid": "d949f928-f239-4adc-8fcf-764c324653f9"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ2N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 146.65
+                    },
+                    "uuid": "2bcfa704-29c2-4ad6-8df0-79cce22025f5"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de RPU2",
+                    "pos": {
+                        "x": 174.0,
+                        "y": 145.25
+                    },
+                    "uuid": "eb4525b8-c9f2-4f00-9ec0-6fdf8cdb130a"
+                },
+                {
+                    "description": "Pad métallisé 26 [<no net>] de JWS",
+                    "pos": {
+                        "x": 173.78,
+                        "y": 145.81
+                    },
+                    "uuid": "f7dfa11e-8609-4179-8c38-d23bf94ff8de"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de RPU1",
+                    "pos": {
+                        "x": 174.0,
+                        "y": 135.25
+                    },
+                    "uuid": "51252068-747d-4071-abe9-d2679df2eba8"
+                },
+                {
+                    "description": "Pad métallisé 30 [<no net>] de JWS",
+                    "pos": {
+                        "x": 173.78,
+                        "y": 135.65
+                    },
+                    "uuid": "b0a7112c-7ec9-47f3-9c53-14c2df89a66f"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ7N",
+                    "pos": {
+                        "x": 265.0,
+                        "y": 166.25
+                    },
+                    "uuid": "2daad85d-1291-433c-9f88-56509d4b4e2d"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ7N",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 166.25
+                    },
+                    "uuid": "33bade60-2411-4585-8ef3-7b2eb1a11368"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ8N",
+                    "pos": {
+                        "x": 265.0,
+                        "y": 185.85
+                    },
+                    "uuid": "b4450733-7b7b-4633-98b2-9058e561c7fc"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ8N",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 185.85
+                    },
+                    "uuid": "039824f0-404e-4a13-a060-622e0610d082"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ8P",
+                    "pos": {
+                        "x": 265.0,
+                        "y": 176.05
+                    },
+                    "uuid": "c4692b87-369b-4a94-8068-0f09ee067dc7"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ8P",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 176.05
+                    },
+                    "uuid": "6bc8985f-8cc0-4ca9-a14d-a6cdc78b1c94"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ4P",
+                    "pos": {
+                        "x": 239.0,
+                        "y": 176.05
+                    },
+                    "uuid": "e3c6e440-fbd8-4b5a-8a0a-f8a2c6435248"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ4P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 176.05
+                    },
+                    "uuid": "2e81808c-4765-4288-9d5c-5bc3bcaca7e9"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ4N",
+                    "pos": {
+                        "x": 239.0,
+                        "y": 185.85
+                    },
+                    "uuid": "c982e60a-6148-4829-a03e-d9eba3c9425a"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ4N",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 185.85
+                    },
+                    "uuid": "54c20d65-b06e-4d3a-8937-c479a9db7498"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ3P",
+                    "pos": {
+                        "x": 239.0,
+                        "y": 156.45
+                    },
+                    "uuid": "d11e1291-d433-468e-a58c-7b10f48d3ab0"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ3P",
+                    "pos": {
+                        "x": 239.81,
+                        "y": 156.45
+                    },
+                    "uuid": "5fa7adac-d205-429e-8bab-c114f366fd8d"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ7P",
+                    "pos": {
+                        "x": 265.0,
+                        "y": 156.45
+                    },
+                    "uuid": "dfaf7705-4e77-44e2-96d4-a4f3d1dd1bd5"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ7P",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 156.45
+                    },
+                    "uuid": "5e6ff365-5704-4e18-a988-a6ae14e339df"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de DZ6N",
+                    "pos": {
+                        "x": 265.0,
+                        "y": 146.65
+                    },
+                    "uuid": "d4820727-20d6-43d5-bf74-2fe34ccc7050"
+                },
+                {
+                    "description": "Pad métallisé 5 [<no net>] de OCZ6N",
+                    "pos": {
+                        "x": 265.81,
+                        "y": 146.65
+                    },
+                    "uuid": "8a9aba05-d222-4d60-9ee1-8fe397327138"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        }
+    ]
+}

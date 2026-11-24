@@ -526,7 +526,7 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "Logique",
-        "pcb_color": "rgba(0, 120, 255, 1.000)",
+        "pcb_color": "rgb(0, 120, 255)",
         "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.3,
@@ -545,7 +545,7 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "Secteur",
-        "pcb_color": "rgba(255, 0, 0, 1.000)",
+        "pcb_color": "rgb(255, 0, 0)",
         "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.4,
@@ -561,28 +561,94 @@
     "net_colors": {},
     "netclass_assignments": {},
     "netclass_patterns": [
-      { "netclass": "Secteur", "pattern": "PHASE_PROT" },
-      { "netclass": "Secteur", "pattern": "MAINS_L" },
-      { "netclass": "Secteur", "pattern": "MAINS_N" },
-      { "netclass": "Secteur", "pattern": "RSF_*" },
-      { "netclass": "Secteur", "pattern": "FMT2_*" },
-      { "netclass": "Secteur", "pattern": "MT1D_*" },
-      { "netclass": "Secteur", "pattern": "FP1" },
-      { "netclass": "Secteur", "pattern": "FP2" },
-      { "netclass": "Secteur", "pattern": "FP3" },
-      { "netclass": "Secteur", "pattern": "FP4" },
-      { "netclass": "Secteur", "pattern": "FP5" },
-      { "netclass": "Secteur", "pattern": "FP6" },
-      { "netclass": "Secteur", "pattern": "FP7" },
-      { "netclass": "Secteur", "pattern": "FP8" },
-      { "netclass": "Logique", "pattern": "GPIO*" },
-      { "netclass": "Logique", "pattern": "QB_*" },
-      { "netclass": "Logique", "pattern": "LEDA_*" },
-      { "netclass": "Logique", "pattern": "LEDK_*" },
-      { "netclass": "Logique", "pattern": "GND" },
-      { "netclass": "Logique", "pattern": "VSYS" },
-      { "netclass": "Logique", "pattern": "LOCAL_5V" },
-      { "netclass": "Logique", "pattern": "3V3_OPTO" }
+      {
+        "netclass": "Secteur",
+        "pattern": "PHASE_PROT"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "MAINS_L"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "MAINS_N"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "RSF_*"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "FMT2_*"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "MT1D_*"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "FP1"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "FP2"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "FP3"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "FP4"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "FP5"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "FP6"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "FP7"
+      },
+      {
+        "netclass": "Secteur",
+        "pattern": "FP8"
+      },
+      {
+        "netclass": "Logique",
+        "pattern": "GPIO*"
+      },
+      {
+        "netclass": "Logique",
+        "pattern": "QB_*"
+      },
+      {
+        "netclass": "Logique",
+        "pattern": "LEDA_*"
+      },
+      {
+        "netclass": "Logique",
+        "pattern": "LEDK_*"
+      },
+      {
+        "netclass": "Logique",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "Logique",
+        "pattern": "VSYS"
+      },
+      {
+        "netclass": "Logique",
+        "pattern": "LOCAL_5V"
+      },
+      {
+        "netclass": "Logique",
+        "pattern": "3V3_OPTO"
+      }
     ]
   },
   "pcbnew": {

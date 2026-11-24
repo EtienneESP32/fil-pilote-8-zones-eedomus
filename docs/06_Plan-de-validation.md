@@ -11,7 +11,7 @@ Ce plan est une trame documentaire. Les contrôles secteur et les mesures de sé
 - [ ] Exigences d'isolement et contexte d'installation déterminés et revus.
 - [ ] Boîtier, connecteurs et enveloppe mécanique identifiés.
 - [ ] `PHASE_PROT` unique sur L1/L2/L3 : architecture validée par décision utilisateur (fermé) ; câblage neutre/différentiel commun documenté à la mise en service, sans remise en cause de l'architecture.
-- [ ] Diode anti-retour `DPWR` (HLK-5M05 → `VSYS`) testée ; notice d'assemblage précisant l'exclusion mutuelle PoE/local (ne pas installer le module PoE et alimenter `VSYS` en local simultanément).
+- [ ] Diode anti-retour `DPWR` (1N5819, IRM-05-5 → `VSYS`) testée ; tension `VSYS` mesurée en charge (4,4 V mini visés).
 
 ## 2. Vérifications schématiques et logiques
 

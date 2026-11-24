@@ -2,7 +2,7 @@
 
 ## Objet
 
-Dossier documentaire de travail pour une carte de commande fil pilote à huit zones, avec le Waveshare ESP32-S3-POE-ETH (SKU 28771) comme candidat retenu. La documentation fabricant indique que le kit POE inclut le module PoE et que l'Ethernet est fourni par un W5500 sur SPI. Le schéma de référence fourni est `../Schematic_FilPilote_8Zones_DIN_2_2026-11-06.pdf`; le cahier initial est `../contour du projet.docx`, revu dans `../Analyse et commentaires.md`.
+Dossier documentaire de travail pour une carte de commande fil pilote à huit zones, avec le Waveshare ESP32-S3-ETH-M (SKU 34882, sans PoE) comme carte retenue (2026-11-24). L'Ethernet est fourni par un W5500 sur SPI. Le schéma de référence fourni est `../Schematic_FilPilote_8Zones_DIN_2_2026-11-06.pdf`; le cahier initial est `../contour du projet.docx`, revu dans `../Analyse et commentaires.md`.
 
 Cette documentation décrit l'intention et les décisions connues. Elle ne constitue ni un schéma électrique validé, ni un dossier de conformité, ni une autorisation de raccordement au secteur. Les valeurs de composants et les règles d'isolement restent à valider avant conception finale.
 

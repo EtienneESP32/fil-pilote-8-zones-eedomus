@@ -1,15 +1,25 @@
 (version 1)
 
-# Regle de securite (2026-11-07) : isolement secteur/logique.
-# Point ferme le 2026-11-06 (voir docs/04_Implantation-PCB.md) : 6 mm de creepage/clearance
-# entre le cote secteur (230 V, classe de net "Secteur") et le cote logique basse tension
-# (classe "Logique"), marge sur le minimum IEC 60664-1 (~1-2 mm pour cette tension/categorie).
-# Cette regle n'existait nulle part avant ce fichier - seule la separation physique des
-# composants par construction l'assurait, sans verification DRC reelle. Les classes de net
-# elles-memes gardent leur propre clearance normale (0,2 mm Logique, 0,5 mm Secteur) : cette
-# regle ne s'applique qu'A LA FRONTIERE entre les deux domaines, jamais a l'interieur de l'un
-# ou de l'autre (sinon le routage secteur-secteur/logique-logique, ou les composants sont
-# espaces de quelques mm seulement, deviendrait geometriquement impossible).
-(rule "isolement_secteur_logique_6mm"
+# Regle de securite (2026-11-07, assouplie le 2026-11-09) : isolement secteur/logique.
+# Point ferme le 2026-11-06 (voir docs/04_Implantation-PCB.md) : minimum reglementaire IEC 60664-1
+# pour 250V/degre de pollution 2 = ~1,0mm (isolation basique) a ~2,0mm (isolation renforcee). Les
+# 6mm retenus a l'origine etaient une marge genereuse AU-DELA de ce minimum, pas le minimum
+# lui-meme - et se sont reveles impossibles a router entierement par autorouteur sur cette carte
+# dense (174 violations persistantes malgre plusieurs reconfigurations, voir conversation du
+# 2026-11-09 : Freerouting ne respecte pas fiablement une clearance aussi large contre les
+# pastilles, pas seulement contre les autres pistes). Assoupli a 2,5mm sur decision utilisateur
+# (2026-11-09) pour permettre un routage 100% automatique sans strap : depasse toujours le minimum
+# IEC 60664-1 renforce (~2,0mm) avec une legere marge, mais n'exige plus un detour de plusieurs cm
+# a chaque croisement de domaine. Les classes de net elles-memes gardent leur propre clearance
+# normale (0,2mm Logique, 0,5mm Secteur) : cette regle ne s'applique qu'A LA FRONTIERE entre les
+# deux domaines.
+# Teste 3,5mm puis revenu a 2,5mm (2026-11-09, meme session) : relever la cible a 3,5mm (ou
+# relever la clearance Secteur-Secteur a 0,8mm) degradait le taux de routage complet (121/122 au
+# lieu de 122/122) sans reellement reduire les violations residuelles - la contrainte plus large
+# genait plus qu'elle n'aidait sur une carte aussi dense. 2,5mm + 0,5mm (valeurs d'origine)
+# retenues comme meilleur compromis trouve a ce jour : 122/122 routees, violations residuelles
+# toutes "pres du seuil" (pas d'ecart massif), traitees au cas par cas plutot que par un reglage
+# global supplementaire.
+(rule "isolement_secteur_logique_2_5mm"
 	(condition "(A.NetClass == 'Secteur' && B.NetClass == 'Logique') || (A.NetClass == 'Logique' && B.NetClass == 'Secteur')")
-	(constraint clearance (min 6mm)))
+	(constraint clearance (min 2.5mm)))
