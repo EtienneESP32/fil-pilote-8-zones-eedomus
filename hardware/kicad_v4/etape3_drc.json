@@ -1,0 +1,4570 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-24T08:14:23",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "FilPilote_v4.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_81] de OC81",
+                    "pos": {
+                        "x": 83.2,
+                        "y": 76.2
+                    },
+                    "uuid": "e8d5911b-b5bf-45a7-bff4-0ca0a7a9de18"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_81] de RL81",
+                    "pos": {
+                        "x": 86.3,
+                        "y": 97.5
+                    },
+                    "uuid": "b9643e5c-a455-4fc6-a952-21e6e998a60b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDK_81] de OC81",
+                    "pos": {
+                        "x": 83.2,
+                        "y": 78.74
+                    },
+                    "uuid": "ce709cae-54d1-46d7-bdbb-0dc5daca0614"
+                },
+                {
+                    "description": "Pad métallisé 15 [LEDK_81] de U5",
+                    "pos": {
+                        "x": 87.14,
+                        "y": 111.38
+                    },
+                    "uuid": "13f0b143-42f4-4b59-85ba-b3eba7bfcc38"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT_81] de OC81",
+                    "pos": {
+                        "x": 90.82,
+                        "y": 81.28
+                    },
+                    "uuid": "7ca87018-491d-4f27-9c09-f34fb8e6f1b9"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT_81] de D81",
+                    "pos": {
+                        "x": 94.599999,
+                        "y": 68.0
+                    },
+                    "uuid": "1125cf61-5029-4417-aaf3-36516f651430"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC82",
+                    "pos": {
+                        "x": 90.82,
+                        "y": 68.0
+                    },
+                    "uuid": "7f342af6-93eb-49fc-996c-b88ccdef51c4"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC81",
+                    "pos": {
+                        "x": 90.82,
+                        "y": 76.2
+                    },
+                    "uuid": "9ca937ee-5270-4aa6-af9c-45c484a573ef"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC81",
+                    "pos": {
+                        "x": 90.82,
+                        "y": 76.2
+                    },
+                    "uuid": "9ca937ee-5270-4aa6-af9c-45c484a573ef"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC72",
+                    "pos": {
+                        "x": 89.35,
+                        "y": 86.0
+                    },
+                    "uuid": "8226a340-fe9e-4743-ab86-04ad34b2afa9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC71",
+                    "pos": {
+                        "x": 97.55,
+                        "y": 86.0
+                    },
+                    "uuid": "8a25f45c-69fd-45f3-b93c-b3c57d08961f"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC72",
+                    "pos": {
+                        "x": 89.35,
+                        "y": 86.0
+                    },
+                    "uuid": "8226a340-fe9e-4743-ab86-04ad34b2afa9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC62",
+                    "pos": {
+                        "x": 105.75,
+                        "y": 86.0
+                    },
+                    "uuid": "338bb1dd-6664-425e-9313-9915d23370cd"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC71",
+                    "pos": {
+                        "x": 97.55,
+                        "y": 86.0
+                    },
+                    "uuid": "8a25f45c-69fd-45f3-b93c-b3c57d08961f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC61",
+                    "pos": {
+                        "x": 113.95,
+                        "y": 86.0
+                    },
+                    "uuid": "93c64091-77db-48af-a6a5-04f2052d2c1f"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC62",
+                    "pos": {
+                        "x": 105.75,
+                        "y": 86.0
+                    },
+                    "uuid": "338bb1dd-6664-425e-9313-9915d23370cd"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC52",
+                    "pos": {
+                        "x": 122.15,
+                        "y": 86.0
+                    },
+                    "uuid": "ac6a8702-3736-4355-bebc-48ba72f8fe0f"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC51",
+                    "pos": {
+                        "x": 130.35,
+                        "y": 86.0
+                    },
+                    "uuid": "7cd23b79-2e0e-4eba-81db-30ab86684919"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC52",
+                    "pos": {
+                        "x": 122.15,
+                        "y": 86.0
+                    },
+                    "uuid": "ac6a8702-3736-4355-bebc-48ba72f8fe0f"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC61",
+                    "pos": {
+                        "x": 113.95,
+                        "y": 86.0
+                    },
+                    "uuid": "93c64091-77db-48af-a6a5-04f2052d2c1f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC51",
+                    "pos": {
+                        "x": 130.35,
+                        "y": 86.0
+                    },
+                    "uuid": "7cd23b79-2e0e-4eba-81db-30ab86684919"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC42",
+                    "pos": {
+                        "x": 138.55,
+                        "y": 86.0
+                    },
+                    "uuid": "4f993e4e-5ac3-42cb-b7c2-89d48cb9131e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC42",
+                    "pos": {
+                        "x": 138.55,
+                        "y": 86.0
+                    },
+                    "uuid": "4f993e4e-5ac3-42cb-b7c2-89d48cb9131e"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC41",
+                    "pos": {
+                        "x": 146.75,
+                        "y": 86.0
+                    },
+                    "uuid": "d3916780-de09-4be7-95ab-d8c10326acba"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC41",
+                    "pos": {
+                        "x": 146.75,
+                        "y": 86.0
+                    },
+                    "uuid": "d3916780-de09-4be7-95ab-d8c10326acba"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC32",
+                    "pos": {
+                        "x": 154.95,
+                        "y": 86.0
+                    },
+                    "uuid": "fecde6b7-4784-4078-b440-d46026787dd1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC32",
+                    "pos": {
+                        "x": 154.95,
+                        "y": 86.0
+                    },
+                    "uuid": "fecde6b7-4784-4078-b440-d46026787dd1"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC31",
+                    "pos": {
+                        "x": 163.15,
+                        "y": 86.0
+                    },
+                    "uuid": "2af910b5-82c0-4cc8-893d-e60efb142c86"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC31",
+                    "pos": {
+                        "x": 163.15,
+                        "y": 86.0
+                    },
+                    "uuid": "2af910b5-82c0-4cc8-893d-e60efb142c86"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC22",
+                    "pos": {
+                        "x": 171.35,
+                        "y": 86.0
+                    },
+                    "uuid": "b2ec4946-27ec-4ff3-9247-57297e7bf963"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC22",
+                    "pos": {
+                        "x": 171.35,
+                        "y": 86.0
+                    },
+                    "uuid": "b2ec4946-27ec-4ff3-9247-57297e7bf963"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC21",
+                    "pos": {
+                        "x": 179.55,
+                        "y": 86.0
+                    },
+                    "uuid": "8b6f113d-7181-4820-a146-a5441780c67c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC22",
+                    "pos": {
+                        "x": 171.35,
+                        "y": 86.0
+                    },
+                    "uuid": "b2ec4946-27ec-4ff3-9247-57297e7bf963"
+                },
+                {
+                    "description": "Pad métallisé 2 [PHASE_PROT] de F0",
+                    "pos": {
+                        "x": 175.0,
+                        "y": 65.75
+                    },
+                    "uuid": "b1893262-d888-44d3-af08-f623eff3facf"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC21",
+                    "pos": {
+                        "x": 179.55,
+                        "y": 86.0
+                    },
+                    "uuid": "8b6f113d-7181-4820-a146-a5441780c67c"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC12",
+                    "pos": {
+                        "x": 187.75,
+                        "y": 86.0
+                    },
+                    "uuid": "598a7176-4add-4fb6-a37e-67e67eabaf89"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC11",
+                    "pos": {
+                        "x": 195.95,
+                        "y": 86.0
+                    },
+                    "uuid": "9e478985-ac5a-414d-b38d-5b70a2376f28"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC12",
+                    "pos": {
+                        "x": 187.75,
+                        "y": 86.0
+                    },
+                    "uuid": "598a7176-4add-4fb6-a37e-67e67eabaf89"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [PHASE_PROT] de PS1",
+                    "pos": {
+                        "x": 209.0,
+                        "y": 99.0
+                    },
+                    "uuid": "a76a69d4-0bfe-4aa3-9a25-f9f72bebec00"
+                },
+                {
+                    "description": "Pad métallisé 6 [PHASE_PROT] de OC11",
+                    "pos": {
+                        "x": 195.95,
+                        "y": 86.0
+                    },
+                    "uuid": "9e478985-ac5a-414d-b38d-5b70a2376f28"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_12] de OC12",
+                    "pos": {
+                        "x": 187.75,
+                        "y": 93.62
+                    },
+                    "uuid": "91714529-a1e2-48a0-9b39-73dc2245f8b6"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_12] de RL12",
+                    "pos": {
+                        "x": 187.75,
+                        "y": 124.44
+                    },
+                    "uuid": "45340da3-0161-4676-8da8-f82953cdb955"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 11 [LEDK_12] de U3",
+                    "pos": {
+                        "x": 155.2,
+                        "y": 111.38
+                    },
+                    "uuid": "aa3dc01e-beb2-44b0-856b-c31b44363f45"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDK_12] de OC12",
+                    "pos": {
+                        "x": 190.29,
+                        "y": 93.62
+                    },
+                    "uuid": "468ec191-e7ad-40ad-aa6b-d96570c1c47f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [MT_12] de D12",
+                    "pos": {
+                        "x": 192.83,
+                        "y": 82.4
+                    },
+                    "uuid": "a69a94cd-8f44-42b0-9f15-ec0b1eb373ab"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT_12] de OC12",
+                    "pos": {
+                        "x": 192.83,
+                        "y": 86.0
+                    },
+                    "uuid": "9eb6999c-8a49-45b5-8b56-dae0ab4f1dcc"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL82",
+                    "pos": {
+                        "x": 83.3,
+                        "y": 107.66
+                    },
+                    "uuid": "d5881b13-5a7b-4453-9de4-34ebd352f802"
+                },
+                {
+                    "description": "Pad métallisé 39 [VSYS] de JWS1",
+                    "pos": {
+                        "x": 61.71,
+                        "y": 114.09
+                    },
+                    "uuid": "85932fd7-ec83-4396-ac6a-2d3c973adac6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL81",
+                    "pos": {
+                        "x": 86.3,
+                        "y": 107.66
+                    },
+                    "uuid": "50296b20-873e-4595-bbf4-612acfa3687c"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL82",
+                    "pos": {
+                        "x": 83.3,
+                        "y": 107.66
+                    },
+                    "uuid": "d5881b13-5a7b-4453-9de4-34ebd352f802"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL72",
+                    "pos": {
+                        "x": 89.35,
+                        "y": 107.66
+                    },
+                    "uuid": "398c82d0-42de-4efd-aa97-fcec7906f0ab"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL81",
+                    "pos": {
+                        "x": 86.3,
+                        "y": 107.66
+                    },
+                    "uuid": "50296b20-873e-4595-bbf4-612acfa3687c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL71",
+                    "pos": {
+                        "x": 97.55,
+                        "y": 107.66
+                    },
+                    "uuid": "d8b0215d-fd12-4832-83fb-f122352b8959"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL72",
+                    "pos": {
+                        "x": 89.35,
+                        "y": 107.66
+                    },
+                    "uuid": "398c82d0-42de-4efd-aa97-fcec7906f0ab"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 9 [VSYS] de U5",
+                    "pos": {
+                        "x": 102.38,
+                        "y": 111.38
+                    },
+                    "uuid": "c5ed9c2a-0ac5-4193-8bd2-13d7f1d625b6"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL62",
+                    "pos": {
+                        "x": 105.75,
+                        "y": 107.66
+                    },
+                    "uuid": "1c3d7130-70c0-4b09-a5cc-f17bee18c024"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 9 [VSYS] de U5",
+                    "pos": {
+                        "x": 102.38,
+                        "y": 111.38
+                    },
+                    "uuid": "c5ed9c2a-0ac5-4193-8bd2-13d7f1d625b6"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL71",
+                    "pos": {
+                        "x": 97.55,
+                        "y": 107.66
+                    },
+                    "uuid": "d8b0215d-fd12-4832-83fb-f122352b8959"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL61",
+                    "pos": {
+                        "x": 113.95,
+                        "y": 107.66
+                    },
+                    "uuid": "6de138a9-8bad-40b1-b577-3a40308780f6"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL62",
+                    "pos": {
+                        "x": 105.75,
+                        "y": 107.66
+                    },
+                    "uuid": "1c3d7130-70c0-4b09-a5cc-f17bee18c024"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL52",
+                    "pos": {
+                        "x": 122.15,
+                        "y": 107.66
+                    },
+                    "uuid": "3ac9060f-1545-4414-bdd7-a21429c331d1"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL61",
+                    "pos": {
+                        "x": 113.95,
+                        "y": 107.66
+                    },
+                    "uuid": "6de138a9-8bad-40b1-b577-3a40308780f6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 9 [VSYS] de U4",
+                    "pos": {
+                        "x": 125.78,
+                        "y": 111.38
+                    },
+                    "uuid": "df9d1420-1b3c-47aa-bd3d-2d9fff3b9613"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL52",
+                    "pos": {
+                        "x": 122.15,
+                        "y": 107.66
+                    },
+                    "uuid": "3ac9060f-1545-4414-bdd7-a21429c331d1"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de C4",
+                    "pos": {
+                        "x": 130.0,
+                        "y": 120.5
+                    },
+                    "uuid": "b247ae9e-6646-4d7f-9df9-dfa75e15cfeb"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de U1",
+                    "pos": {
+                        "x": 130.9,
+                        "y": 113.4
+                    },
+                    "uuid": "add496ba-1a41-4ab3-9067-90a041d7fea7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de U1",
+                    "pos": {
+                        "x": 130.9,
+                        "y": 113.4
+                    },
+                    "uuid": "add496ba-1a41-4ab3-9067-90a041d7fea7"
+                },
+                {
+                    "description": "Pad métallisé 9 [VSYS] de U4",
+                    "pos": {
+                        "x": 125.78,
+                        "y": 111.38
+                    },
+                    "uuid": "df9d1420-1b3c-47aa-bd3d-2d9fff3b9613"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de U1",
+                    "pos": {
+                        "x": 130.9,
+                        "y": 113.4
+                    },
+                    "uuid": "add496ba-1a41-4ab3-9067-90a041d7fea7"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL51",
+                    "pos": {
+                        "x": 130.35,
+                        "y": 107.66
+                    },
+                    "uuid": "2cf2630d-7638-4f95-9f3c-5e2f27ab3d34"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL42",
+                    "pos": {
+                        "x": 138.55,
+                        "y": 107.66
+                    },
+                    "uuid": "304e6d32-b6b0-4440-813f-08e99059d78b"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL51",
+                    "pos": {
+                        "x": 130.35,
+                        "y": 107.66
+                    },
+                    "uuid": "2cf2630d-7638-4f95-9f3c-5e2f27ab3d34"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de C1",
+                    "pos": {
+                        "x": 140.6,
+                        "y": 129.5
+                    },
+                    "uuid": "6a96275a-8971-4d15-a1da-8cbd619e8402"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de DPWR1",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 126.2
+                    },
+                    "uuid": "c1bc391d-4e68-4f0d-bc85-768600170cda"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de C1",
+                    "pos": {
+                        "x": 140.6,
+                        "y": 129.5
+                    },
+                    "uuid": "6a96275a-8971-4d15-a1da-8cbd619e8402"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de C4",
+                    "pos": {
+                        "x": 130.0,
+                        "y": 120.5
+                    },
+                    "uuid": "b247ae9e-6646-4d7f-9df9-dfa75e15cfeb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL41",
+                    "pos": {
+                        "x": 146.75,
+                        "y": 107.66
+                    },
+                    "uuid": "b6ea612c-1bc0-4411-bc10-6199276e23d7"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL42",
+                    "pos": {
+                        "x": 138.55,
+                        "y": 107.66
+                    },
+                    "uuid": "304e6d32-b6b0-4440-813f-08e99059d78b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de DPWR1",
+                    "pos": {
+                        "x": 150.0,
+                        "y": 126.2
+                    },
+                    "uuid": "c1bc391d-4e68-4f0d-bc85-768600170cda"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL22",
+                    "pos": {
+                        "x": 171.35,
+                        "y": 134.6
+                    },
+                    "uuid": "1b0b3173-876f-43d3-80f4-3c90e75d7059"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL32",
+                    "pos": {
+                        "x": 154.95,
+                        "y": 107.66
+                    },
+                    "uuid": "9ff508f3-dfb3-46a6-a556-e52811558e2a"
+                },
+                {
+                    "description": "Pad métallisé 9 [VSYS] de U3",
+                    "pos": {
+                        "x": 160.28,
+                        "y": 111.38
+                    },
+                    "uuid": "dd5ed4a9-b880-455b-a202-a7ffc0a7dea0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL32",
+                    "pos": {
+                        "x": 154.95,
+                        "y": 107.66
+                    },
+                    "uuid": "9ff508f3-dfb3-46a6-a556-e52811558e2a"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL41",
+                    "pos": {
+                        "x": 146.75,
+                        "y": 107.66
+                    },
+                    "uuid": "b6ea612c-1bc0-4411-bc10-6199276e23d7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 9 [VSYS] de U3",
+                    "pos": {
+                        "x": 160.28,
+                        "y": 111.38
+                    },
+                    "uuid": "dd5ed4a9-b880-455b-a202-a7ffc0a7dea0"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL31",
+                    "pos": {
+                        "x": 163.15,
+                        "y": 107.66
+                    },
+                    "uuid": "e446c191-e542-4f00-8107-4f5ae4571e3f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL22",
+                    "pos": {
+                        "x": 171.35,
+                        "y": 134.6
+                    },
+                    "uuid": "1b0b3173-876f-43d3-80f4-3c90e75d7059"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL21",
+                    "pos": {
+                        "x": 179.55,
+                        "y": 134.6
+                    },
+                    "uuid": "35db9188-f815-4893-8e84-b6de5b53700d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL21",
+                    "pos": {
+                        "x": 179.55,
+                        "y": 134.6
+                    },
+                    "uuid": "35db9188-f815-4893-8e84-b6de5b53700d"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL12",
+                    "pos": {
+                        "x": 187.75,
+                        "y": 134.6
+                    },
+                    "uuid": "8882fdc9-927c-4842-817b-764c82269803"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL12",
+                    "pos": {
+                        "x": 187.75,
+                        "y": 134.6
+                    },
+                    "uuid": "8882fdc9-927c-4842-817b-764c82269803"
+                },
+                {
+                    "description": "Pad métallisé 1 [VSYS] de RL11",
+                    "pos": {
+                        "x": 195.95,
+                        "y": 134.6
+                    },
+                    "uuid": "bd454b73-01cb-455b-a3aa-4044ce3746bf"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT_72] de OC72",
+                    "pos": {
+                        "x": 94.43,
+                        "y": 86.0
+                    },
+                    "uuid": "a7c87c8d-709a-49d5-81b2-dbdce9a6ab91"
+                },
+                {
+                    "description": "Pad métallisé 1 [MT_72] de D72",
+                    "pos": {
+                        "x": 95.95,
+                        "y": 82.4
+                    },
+                    "uuid": "a0386e97-c3d6-45d1-9f77-a800f461ca0f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP7] de D72",
+                    "pos": {
+                        "x": 95.95,
+                        "y": 72.24
+                    },
+                    "uuid": "ba09bbc1-d1c0-4281-9b56-6e5c6f73cc55"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP7] de D71",
+                    "pos": {
+                        "x": 104.15,
+                        "y": 72.24
+                    },
+                    "uuid": "731b0cdd-a226-4db6-adb0-b60090ac16b0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP7] de D71",
+                    "pos": {
+                        "x": 104.15,
+                        "y": 72.24
+                    },
+                    "uuid": "731b0cdd-a226-4db6-adb0-b60090ac16b0"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP7] de J5",
+                    "pos": {
+                        "x": 101.34,
+                        "y": 54.9
+                    },
+                    "uuid": "1fd7d986-aa2c-41dc-b625-3147c0c5d410"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP3] de J3",
+                    "pos": {
+                        "x": 152.84,
+                        "y": 54.9
+                    },
+                    "uuid": "60ca05e7-196d-4842-8b5b-7228955b25f8"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP3] de D32",
+                    "pos": {
+                        "x": 161.55,
+                        "y": 72.24
+                    },
+                    "uuid": "f43cda30-4334-452e-a679-f76823cdc622"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP3] de D32",
+                    "pos": {
+                        "x": 161.55,
+                        "y": 72.24
+                    },
+                    "uuid": "f43cda30-4334-452e-a679-f76823cdc622"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP3] de D31",
+                    "pos": {
+                        "x": 169.75,
+                        "y": 72.24
+                    },
+                    "uuid": "93660dc4-f2ea-4497-aef8-56af8e44d570"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT_31] de OC31",
+                    "pos": {
+                        "x": 168.23,
+                        "y": 86.0
+                    },
+                    "uuid": "062e477e-ef76-423c-aa31-914deafb6294"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT_31] de D31",
+                    "pos": {
+                        "x": 169.75,
+                        "y": 82.4
+                    },
+                    "uuid": "e0d68e1d-3c91-417e-883b-ac2bab3250bf"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_42] de OC42",
+                    "pos": {
+                        "x": 138.55,
+                        "y": 93.62
+                    },
+                    "uuid": "92c2c696-e322-4003-a1c3-6343039c007e"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_42] de RL42",
+                    "pos": {
+                        "x": 138.55,
+                        "y": 97.5
+                    },
+                    "uuid": "0bb58502-7923-43e5-ba08-92ebf5f2b062"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT_71] de OC71",
+                    "pos": {
+                        "x": 102.63,
+                        "y": 86.0
+                    },
+                    "uuid": "ed81f175-c493-448e-9e04-10ce57be8f92"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT_71] de D71",
+                    "pos": {
+                        "x": 104.15,
+                        "y": 82.4
+                    },
+                    "uuid": "627c1693-2c77-4338-b755-ae4b5f9b1739"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_21] de OC21",
+                    "pos": {
+                        "x": 179.55,
+                        "y": 93.62
+                    },
+                    "uuid": "2029087c-0354-4e68-afd5-646601ba1237"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_21] de RL21",
+                    "pos": {
+                        "x": 179.55,
+                        "y": 124.44
+                    },
+                    "uuid": "1a889a2a-5e78-49a4-aec9-e49acbb24c37"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_62] de OC62",
+                    "pos": {
+                        "x": 105.75,
+                        "y": 93.62
+                    },
+                    "uuid": "fb4cd431-0da5-48e0-9ebd-a0b6aa8755d1"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_62] de RL62",
+                    "pos": {
+                        "x": 105.75,
+                        "y": 97.5
+                    },
+                    "uuid": "3d6fe9c2-ddde-4bac-88a2-818da811a209"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDK_62] de OC62",
+                    "pos": {
+                        "x": 108.29,
+                        "y": 93.62
+                    },
+                    "uuid": "f1e787f5-4e31-44ec-91f5-8a159ccb93a9"
+                },
+                {
+                    "description": "Pad métallisé 14 [LEDK_62] de U4",
+                    "pos": {
+                        "x": 113.08,
+                        "y": 111.38
+                    },
+                    "uuid": "5bea5852-d2d6-4146-9318-6496813c6bba"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT_62] de OC62",
+                    "pos": {
+                        "x": 110.83,
+                        "y": 86.0
+                    },
+                    "uuid": "951dd798-b8ca-40ce-84a4-39caecadbd86"
+                },
+                {
+                    "description": "Pad métallisé 1 [MT_62] de D62",
+                    "pos": {
+                        "x": 112.35,
+                        "y": 82.4
+                    },
+                    "uuid": "e2aaab25-60a8-497c-be81-0640dd06853e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_51] de OC51",
+                    "pos": {
+                        "x": 130.35,
+                        "y": 93.62
+                    },
+                    "uuid": "d1cb8332-553f-491a-b755-f11bc79dd215"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_51] de RL51",
+                    "pos": {
+                        "x": 130.35,
+                        "y": 97.5
+                    },
+                    "uuid": "3242e34c-330a-4562-a0aa-23f6c8283513"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 11 [LEDK_51] de U4",
+                    "pos": {
+                        "x": 120.7,
+                        "y": 111.38
+                    },
+                    "uuid": "ff3f21f6-4dfb-4293-bce1-9cfd7af24bd9"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDK_51] de OC51",
+                    "pos": {
+                        "x": 132.89,
+                        "y": 93.62
+                    },
+                    "uuid": "55fdeba8-6697-4bb3-a01c-031d74bee7e8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT_51] de OC51",
+                    "pos": {
+                        "x": 135.43,
+                        "y": 86.0
+                    },
+                    "uuid": "27b48974-7a78-4567-9e17-43329abf69e9"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT_51] de D51",
+                    "pos": {
+                        "x": 136.95,
+                        "y": 82.4
+                    },
+                    "uuid": "778f7616-fd22-4cfa-8130-1a7ec06a2d89"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP1] de J2",
+                    "pos": {
+                        "x": 179.84,
+                        "y": 54.9
+                    },
+                    "uuid": "cd6e9e29-4bf3-4a45-8ed0-a53d8bd044ac"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP1] de D12",
+                    "pos": {
+                        "x": 192.83,
+                        "y": 72.24
+                    },
+                    "uuid": "900b4657-454d-4033-9198-89f9f8c8e41b"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP1] de D12",
+                    "pos": {
+                        "x": 192.83,
+                        "y": 72.24
+                    },
+                    "uuid": "900b4657-454d-4033-9198-89f9f8c8e41b"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP1] de D11",
+                    "pos": {
+                        "x": 201.03,
+                        "y": 72.24
+                    },
+                    "uuid": "83deda4f-0a2d-4610-9e15-f3be814bc46f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [MT_11] de D11",
+                    "pos": {
+                        "x": 201.03,
+                        "y": 82.4
+                    },
+                    "uuid": "45810a42-d834-4141-b77d-bd57d244a9dd"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT_11] de OC11",
+                    "pos": {
+                        "x": 201.03,
+                        "y": 86.0
+                    },
+                    "uuid": "d7ec3524-d916-4278-856a-b641cef6ef7c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [3V3_OPTO] de RPU1",
+                    "pos": {
+                        "x": 84.2,
+                        "y": 126.0
+                    },
+                    "uuid": "e5241048-d84c-46c3-b604-04885f8f9e55"
+                },
+                {
+                    "description": "Pad métallisé 1 [3V3_OPTO] de RPU2",
+                    "pos": {
+                        "x": 84.2,
+                        "y": 130.0
+                    },
+                    "uuid": "6f99ef76-d865-4a54-8eab-c13ce2b29c4d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [3V3_OPTO] de RPU2",
+                    "pos": {
+                        "x": 84.2,
+                        "y": 130.0
+                    },
+                    "uuid": "6f99ef76-d865-4a54-8eab-c13ce2b29c4d"
+                },
+                {
+                    "description": "Pad métallisé 18 [3V3_OPTO] de U2",
+                    "pos": {
+                        "x": 106.6,
+                        "y": 134.04
+                    },
+                    "uuid": "b6b04037-d78b-4b65-96fb-276317c1620a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 18 [3V3_OPTO] de U2",
+                    "pos": {
+                        "x": 106.6,
+                        "y": 134.04
+                    },
+                    "uuid": "b6b04037-d78b-4b65-96fb-276317c1620a"
+                },
+                {
+                    "description": "Pad métallisé 9 [3V3_OPTO] de U2",
+                    "pos": {
+                        "x": 111.68,
+                        "y": 126.42
+                    },
+                    "uuid": "a1539e3f-8f4b-45d2-bf37-7d37be8dacaa"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 9 [3V3_OPTO] de U2",
+                    "pos": {
+                        "x": 111.68,
+                        "y": 126.42
+                    },
+                    "uuid": "a1539e3f-8f4b-45d2-bf37-7d37be8dacaa"
+                },
+                {
+                    "description": "Pad métallisé 1 [3V3_OPTO] de C3",
+                    "pos": {
+                        "x": 111.5,
+                        "y": 122.9
+                    },
+                    "uuid": "431dcca9-9132-468b-a87c-8f7e4c77b108"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [3V3_OPTO] de C2",
+                    "pos": {
+                        "x": 136.6,
+                        "y": 119.0
+                    },
+                    "uuid": "394f991f-419d-4e38-8c57-c61440fda2f5"
+                },
+                {
+                    "description": "Pad métallisé 3 [3V3_OPTO] de U1",
+                    "pos": {
+                        "x": 135.98,
+                        "y": 113.4
+                    },
+                    "uuid": "ff365246-8dc9-4435-a2ac-8bae2fa4a502"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [3V3_OPTO] de C2",
+                    "pos": {
+                        "x": 136.6,
+                        "y": 119.0
+                    },
+                    "uuid": "394f991f-419d-4e38-8c57-c61440fda2f5"
+                },
+                {
+                    "description": "Pad métallisé 1 [3V3_OPTO] de C3",
+                    "pos": {
+                        "x": 111.5,
+                        "y": 122.9
+                    },
+                    "uuid": "431dcca9-9132-468b-a87c-8f7e4c77b108"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 23 [GND] de JWS1",
+                    "pos": {
+                        "x": 61.71,
+                        "y": 73.45
+                    },
+                    "uuid": "7f2e536d-1ba3-47db-b8dc-0d8950e19126"
+                },
+                {
+                    "description": "Pad métallisé 28 [GND] de JWS1",
+                    "pos": {
+                        "x": 61.71,
+                        "y": 86.15
+                    },
+                    "uuid": "305ea79b-5ce8-4ce8-9e4d-1db416794ebb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 28 [GND] de JWS1",
+                    "pos": {
+                        "x": 61.71,
+                        "y": 86.15
+                    },
+                    "uuid": "305ea79b-5ce8-4ce8-9e4d-1db416794ebb"
+                },
+                {
+                    "description": "Pad métallisé 33 [GND] de JWS1",
+                    "pos": {
+                        "x": 61.71,
+                        "y": 98.85
+                    },
+                    "uuid": "374270b8-a7f0-474b-b352-ec64cfc50f85"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 33 [GND] de JWS1",
+                    "pos": {
+                        "x": 61.71,
+                        "y": 98.85
+                    },
+                    "uuid": "374270b8-a7f0-474b-b352-ec64cfc50f85"
+                },
+                {
+                    "description": "Pad métallisé 38 [GND] de JWS1",
+                    "pos": {
+                        "x": 61.71,
+                        "y": 111.55
+                    },
+                    "uuid": "441a16a1-8bd9-4a9e-9870-2ea1d959547c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 18 [GND] de JWS1",
+                    "pos": {
+                        "x": 79.49,
+                        "y": 73.45
+                    },
+                    "uuid": "5987ba19-fb18-4fe0-8ebd-fa405f91d2b3"
+                },
+                {
+                    "description": "Pad métallisé 13 [GND] de JWS1",
+                    "pos": {
+                        "x": 79.49,
+                        "y": 86.15
+                    },
+                    "uuid": "05122132-144a-4f04-b152-e9ed3b155ac5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 8 [GND] de JWS1",
+                    "pos": {
+                        "x": 79.49,
+                        "y": 98.85
+                    },
+                    "uuid": "98184c40-627c-41ee-b798-dc2192c37665"
+                },
+                {
+                    "description": "Pad métallisé 13 [GND] de JWS1",
+                    "pos": {
+                        "x": 79.49,
+                        "y": 86.15
+                    },
+                    "uuid": "05122132-144a-4f04-b152-e9ed3b155ac5"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 8 [GND] de JWS1",
+                    "pos": {
+                        "x": 79.49,
+                        "y": 98.85
+                    },
+                    "uuid": "98184c40-627c-41ee-b798-dc2192c37665"
+                },
+                {
+                    "description": "Pad métallisé 33 [GND] de JWS1",
+                    "pos": {
+                        "x": 61.71,
+                        "y": 98.85
+                    },
+                    "uuid": "374270b8-a7f0-474b-b352-ec64cfc50f85"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 3 [GND] de JWS1",
+                    "pos": {
+                        "x": 79.49,
+                        "y": 111.55
+                    },
+                    "uuid": "03bc9f31-cd3a-40bc-bc2a-31e743e747ce"
+                },
+                {
+                    "description": "Pad métallisé 3 [GND] de U5",
+                    "pos": {
+                        "x": 89.68,
+                        "y": 119.0
+                    },
+                    "uuid": "8937d64c-75a0-4549-bc2d-c477a211736c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 3 [GND] de JWS1",
+                    "pos": {
+                        "x": 79.49,
+                        "y": 111.55
+                    },
+                    "uuid": "03bc9f31-cd3a-40bc-bc2a-31e743e747ce"
+                },
+                {
+                    "description": "Pad métallisé 8 [GND] de JWS1",
+                    "pos": {
+                        "x": 79.49,
+                        "y": 98.85
+                    },
+                    "uuid": "98184c40-627c-41ee-b798-dc2192c37665"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 3 [GND] de U5",
+                    "pos": {
+                        "x": 89.68,
+                        "y": 119.0
+                    },
+                    "uuid": "8937d64c-75a0-4549-bc2d-c477a211736c"
+                },
+                {
+                    "description": "Pad métallisé 4 [GND] de U5",
+                    "pos": {
+                        "x": 92.22,
+                        "y": 119.0
+                    },
+                    "uuid": "43ec5cf3-773f-4b47-b03a-df51a744e488"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [GND] de U5",
+                    "pos": {
+                        "x": 92.22,
+                        "y": 119.0
+                    },
+                    "uuid": "43ec5cf3-773f-4b47-b03a-df51a744e488"
+                },
+                {
+                    "description": "Pad métallisé 5 [GND] de U5",
+                    "pos": {
+                        "x": 94.76,
+                        "y": 119.0
+                    },
+                    "uuid": "251dd9b8-06f3-4c1e-95df-c45d4d241cea"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [GND] de U5",
+                    "pos": {
+                        "x": 94.76,
+                        "y": 119.0
+                    },
+                    "uuid": "251dd9b8-06f3-4c1e-95df-c45d4d241cea"
+                },
+                {
+                    "description": "Pad métallisé 6 [GND] de U5",
+                    "pos": {
+                        "x": 97.3,
+                        "y": 119.0
+                    },
+                    "uuid": "0470fecc-2643-4637-8507-d3eefced4916"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [GND] de U5",
+                    "pos": {
+                        "x": 97.3,
+                        "y": 119.0
+                    },
+                    "uuid": "0470fecc-2643-4637-8507-d3eefced4916"
+                },
+                {
+                    "description": "Pad métallisé 7 [GND] de U5",
+                    "pos": {
+                        "x": 99.84,
+                        "y": 119.0
+                    },
+                    "uuid": "9023ed7f-9417-4da0-95d5-805dd90a5144"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 15 [GND] de U2",
+                    "pos": {
+                        "x": 98.98,
+                        "y": 134.04
+                    },
+                    "uuid": "09ca7b7a-601e-4d3d-88d0-18576fb49160"
+                },
+                {
+                    "description": "Pad métallisé 16 [GND] de U2",
+                    "pos": {
+                        "x": 101.52,
+                        "y": 134.04
+                    },
+                    "uuid": "de0a7569-a6b8-4f62-82bd-d9c07a71cf0e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 16 [GND] de U2",
+                    "pos": {
+                        "x": 101.52,
+                        "y": 134.04
+                    },
+                    "uuid": "de0a7569-a6b8-4f62-82bd-d9c07a71cf0e"
+                },
+                {
+                    "description": "Pad métallisé 17 [GND] de U2",
+                    "pos": {
+                        "x": 104.06,
+                        "y": 134.04
+                    },
+                    "uuid": "cf329d58-040d-45d9-86a0-81870bf46d29"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 8 [GND] de U5",
+                    "pos": {
+                        "x": 102.38,
+                        "y": 119.0
+                    },
+                    "uuid": "bb6f33fa-3187-4f95-9a7e-7c6d00387ce6"
+                },
+                {
+                    "description": "Pad métallisé 7 [GND] de U5",
+                    "pos": {
+                        "x": 99.84,
+                        "y": 119.0
+                    },
+                    "uuid": "9023ed7f-9417-4da0-95d5-805dd90a5144"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 8 [GND] de U5",
+                    "pos": {
+                        "x": 102.38,
+                        "y": 119.0
+                    },
+                    "uuid": "bb6f33fa-3187-4f95-9a7e-7c6d00387ce6"
+                },
+                {
+                    "description": "Pad métallisé 2 [GND] de C3",
+                    "pos": {
+                        "x": 109.0,
+                        "y": 122.9
+                    },
+                    "uuid": "33142479-74e5-41ec-8380-cb6ea4408781"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de C3",
+                    "pos": {
+                        "x": 109.0,
+                        "y": 122.9
+                    },
+                    "uuid": "33142479-74e5-41ec-8380-cb6ea4408781"
+                },
+                {
+                    "description": "Pad métallisé 10 [GND] de U2",
+                    "pos": {
+                        "x": 109.14,
+                        "y": 126.42
+                    },
+                    "uuid": "2a8af95d-f9d9-4c2e-960a-9019d8d6707d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de C3",
+                    "pos": {
+                        "x": 109.0,
+                        "y": 122.9
+                    },
+                    "uuid": "33142479-74e5-41ec-8380-cb6ea4408781"
+                },
+                {
+                    "description": "Pad métallisé 8 [GND] de U4",
+                    "pos": {
+                        "x": 125.78,
+                        "y": 119.0
+                    },
+                    "uuid": "e8ccbb96-16ad-4636-bcfa-401e9b7e0da9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 10 [GND] de U2",
+                    "pos": {
+                        "x": 109.14,
+                        "y": 126.42
+                    },
+                    "uuid": "2a8af95d-f9d9-4c2e-960a-9019d8d6707d"
+                },
+                {
+                    "description": "Pad métallisé 17 [GND] de U2",
+                    "pos": {
+                        "x": 104.06,
+                        "y": 134.04
+                    },
+                    "uuid": "cf329d58-040d-45d9-86a0-81870bf46d29"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de C4",
+                    "pos": {
+                        "x": 132.5,
+                        "y": 120.5
+                    },
+                    "uuid": "88a1be54-df2c-4ed8-a885-022146c9210f"
+                },
+                {
+                    "description": "Pad métallisé 2 [GND] de C2",
+                    "pos": {
+                        "x": 138.6,
+                        "y": 119.0
+                    },
+                    "uuid": "aeb423d3-bd6d-4765-acb7-0ac96121648f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de C4",
+                    "pos": {
+                        "x": 132.5,
+                        "y": 120.5
+                    },
+                    "uuid": "88a1be54-df2c-4ed8-a885-022146c9210f"
+                },
+                {
+                    "description": "Pad métallisé 8 [GND] de U4",
+                    "pos": {
+                        "x": 125.78,
+                        "y": 119.0
+                    },
+                    "uuid": "e8ccbb96-16ad-4636-bcfa-401e9b7e0da9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de C4",
+                    "pos": {
+                        "x": 132.5,
+                        "y": 120.5
+                    },
+                    "uuid": "88a1be54-df2c-4ed8-a885-022146c9210f"
+                },
+                {
+                    "description": "Pad métallisé 2 [GND] de U1",
+                    "pos": {
+                        "x": 133.44,
+                        "y": 113.4
+                    },
+                    "uuid": "f6084cef-173c-460a-bf35-b4e75ea2e95a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de C1",
+                    "pos": {
+                        "x": 142.6,
+                        "y": 129.5
+                    },
+                    "uuid": "bea46e51-abfb-49b8-9e05-760892525a2f"
+                },
+                {
+                    "description": "Pad métallisé 2 [GND] de C2",
+                    "pos": {
+                        "x": 138.6,
+                        "y": 119.0
+                    },
+                    "uuid": "aeb423d3-bd6d-4765-acb7-0ac96121648f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de C1",
+                    "pos": {
+                        "x": 142.6,
+                        "y": 129.5
+                    },
+                    "uuid": "bea46e51-abfb-49b8-9e05-760892525a2f"
+                },
+                {
+                    "description": "Pad métallisé 8 [GND] de U3",
+                    "pos": {
+                        "x": 160.28,
+                        "y": 119.0
+                    },
+                    "uuid": "86dcd333-a40f-4286-8283-6976be1e8095"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 8 [GND] de U3",
+                    "pos": {
+                        "x": 160.28,
+                        "y": 119.0
+                    },
+                    "uuid": "86dcd333-a40f-4286-8283-6976be1e8095"
+                },
+                {
+                    "description": "Pad métallisé 3 [GND] de PS1",
+                    "pos": {
+                        "x": 170.5,
+                        "y": 99.0
+                    },
+                    "uuid": "abdd38ca-ac75-4084-9c58-db168c497361"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_22] de OC22",
+                    "pos": {
+                        "x": 171.35,
+                        "y": 93.62
+                    },
+                    "uuid": "78195c6b-0218-4121-91de-be484ac568a7"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_22] de RL22",
+                    "pos": {
+                        "x": 171.35,
+                        "y": 124.44
+                    },
+                    "uuid": "9cbcf1f0-7bfd-4786-9da7-050b870432cf"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_82] de OC82",
+                    "pos": {
+                        "x": 83.2,
+                        "y": 68.0
+                    },
+                    "uuid": "d7ed401d-4160-433b-8caf-86134f5bcb3a"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_82] de RL82",
+                    "pos": {
+                        "x": 83.3,
+                        "y": 97.5
+                    },
+                    "uuid": "c8cfb7ff-92f2-4ef5-95f3-cd597d78c493"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_71] de OC71",
+                    "pos": {
+                        "x": 97.55,
+                        "y": 93.62
+                    },
+                    "uuid": "29f9ac1a-9c7d-4020-88bb-05436a0ff536"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_71] de RL71",
+                    "pos": {
+                        "x": 97.55,
+                        "y": 97.5
+                    },
+                    "uuid": "0ac8830c-81a4-4716-805e-a425463da022"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDK_71] de OC71",
+                    "pos": {
+                        "x": 100.09,
+                        "y": 93.62
+                    },
+                    "uuid": "e270dfa8-8b5e-4a82-a7c7-64e7b07ef500"
+                },
+                {
+                    "description": "Pad métallisé 15 [LEDK_71] de U4",
+                    "pos": {
+                        "x": 110.54,
+                        "y": 111.38
+                    },
+                    "uuid": "0bafcd72-c5ff-49bf-918f-e620cb4546d8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [DRV_51] de U4",
+                    "pos": {
+                        "x": 120.7,
+                        "y": 119.0
+                    },
+                    "uuid": "6fb33899-c97a-46c1-88d5-35e9d3835906"
+                },
+                {
+                    "description": "Pad métallisé 1 [DRV_51] de U2",
+                    "pos": {
+                        "x": 132.0,
+                        "y": 126.42
+                    },
+                    "uuid": "5d0e7073-7cf0-4ad5-bfb5-49e634e2151f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [DRV_52] de U4",
+                    "pos": {
+                        "x": 118.16,
+                        "y": 119.0
+                    },
+                    "uuid": "9d824eb9-7f36-4c74-9c2e-42c751bbcca3"
+                },
+                {
+                    "description": "Pad métallisé 2 [DRV_52] de U2",
+                    "pos": {
+                        "x": 129.46,
+                        "y": 126.42
+                    },
+                    "uuid": "36797b0c-65f4-4195-a488-54e2c923f3a0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [DRV_61] de U4",
+                    "pos": {
+                        "x": 115.62,
+                        "y": 119.0
+                    },
+                    "uuid": "f541e3a8-61bb-40be-983e-16f7355f4ea2"
+                },
+                {
+                    "description": "Pad métallisé 3 [DRV_61] de U2",
+                    "pos": {
+                        "x": 126.92,
+                        "y": 126.42
+                    },
+                    "uuid": "90e5358c-357b-4cc2-ad19-4ff394d53d5c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 3 [DRV_62] de U4",
+                    "pos": {
+                        "x": 113.08,
+                        "y": 119.0
+                    },
+                    "uuid": "95b832b5-3bd0-4068-a00b-1c88d19a2849"
+                },
+                {
+                    "description": "Pad métallisé 4 [DRV_62] de U2",
+                    "pos": {
+                        "x": 124.38,
+                        "y": 126.42
+                    },
+                    "uuid": "295e66e2-0a71-4fa0-a532-a5e74d19ab04"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [DRV_71] de U4",
+                    "pos": {
+                        "x": 110.54,
+                        "y": 119.0
+                    },
+                    "uuid": "81b308c3-9df8-411f-bce2-3dc5b79cfa71"
+                },
+                {
+                    "description": "Pad métallisé 5 [DRV_71] de U2",
+                    "pos": {
+                        "x": 121.84,
+                        "y": 126.42
+                    },
+                    "uuid": "c3a703e4-ae0e-4c9a-b051-5fb7feff1d44"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [DRV_72] de U4",
+                    "pos": {
+                        "x": 108.0,
+                        "y": 119.0
+                    },
+                    "uuid": "b9184b49-b197-4444-98d7-5603cd503abb"
+                },
+                {
+                    "description": "Pad métallisé 6 [DRV_72] de U2",
+                    "pos": {
+                        "x": 119.3,
+                        "y": 126.42
+                    },
+                    "uuid": "7b794a3a-ee3b-4d0c-b1d4-549e4342caa9"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [DRV_81] de U5",
+                    "pos": {
+                        "x": 87.14,
+                        "y": 119.0
+                    },
+                    "uuid": "13552985-49ab-4356-91db-35007baca33f"
+                },
+                {
+                    "description": "Pad métallisé 7 [DRV_81] de U2",
+                    "pos": {
+                        "x": 116.76,
+                        "y": 126.42
+                    },
+                    "uuid": "9442faee-2915-4ab9-b6c4-ab274c91aea6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [DRV_82] de U5",
+                    "pos": {
+                        "x": 84.6,
+                        "y": 119.0
+                    },
+                    "uuid": "5174be41-67fd-485d-90f8-7d02d5efd8fc"
+                },
+                {
+                    "description": "Pad métallisé 8 [DRV_82] de U2",
+                    "pos": {
+                        "x": 114.22,
+                        "y": 126.42
+                    },
+                    "uuid": "9832eecf-3620-4c78-936a-41f74cde2287"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 26 [SCL] de JWS1",
+                    "pos": {
+                        "x": 61.71,
+                        "y": 81.07
+                    },
+                    "uuid": "36838ecf-05db-484c-812a-80d1c85ee744"
+                },
+                {
+                    "description": "Pad métallisé 2 [SCL] de RPU2",
+                    "pos": {
+                        "x": 94.36,
+                        "y": 130.0
+                    },
+                    "uuid": "9b27da5e-28fd-4b4a-a404-5147894089d0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [SCL] de RPU2",
+                    "pos": {
+                        "x": 94.36,
+                        "y": 130.0
+                    },
+                    "uuid": "9b27da5e-28fd-4b4a-a404-5147894089d0"
+                },
+                {
+                    "description": "Pad métallisé 12 [SCL] de U2",
+                    "pos": {
+                        "x": 104.06,
+                        "y": 126.42
+                    },
+                    "uuid": "9a60a544-8d5f-4da5-ab8c-8faac8456316"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 25 [SDA] de JWS1",
+                    "pos": {
+                        "x": 61.71,
+                        "y": 78.53
+                    },
+                    "uuid": "fd1ad825-a0ad-4de3-8470-6191e8ad2c88"
+                },
+                {
+                    "description": "Pad métallisé 2 [SDA] de RPU1",
+                    "pos": {
+                        "x": 94.36,
+                        "y": 126.0
+                    },
+                    "uuid": "eb29d44d-abbf-4326-8c26-6d7aaf3d6eed"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [SDA] de RPU1",
+                    "pos": {
+                        "x": 94.36,
+                        "y": 126.0
+                    },
+                    "uuid": "eb29d44d-abbf-4326-8c26-6d7aaf3d6eed"
+                },
+                {
+                    "description": "Pad métallisé 13 [SDA] de U2",
+                    "pos": {
+                        "x": 101.52,
+                        "y": 126.42
+                    },
+                    "uuid": "8af97bb4-9ccd-4472-9469-c2fd0082ff6d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 21 [DRV_42] de U2",
+                    "pos": {
+                        "x": 114.22,
+                        "y": 134.04
+                    },
+                    "uuid": "301fdfba-54f7-43fc-b7c6-c08c7629e450"
+                },
+                {
+                    "description": "Pad métallisé 7 [DRV_42] de U4",
+                    "pos": {
+                        "x": 123.24,
+                        "y": 119.0
+                    },
+                    "uuid": "2991e6c2-3b60-4c93-a1c8-203f9970a297"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 22 [DRV_41] de U2",
+                    "pos": {
+                        "x": 116.76,
+                        "y": 134.04
+                    },
+                    "uuid": "1721fe6d-6404-444e-aa1c-5352572462e0"
+                },
+                {
+                    "description": "Pad métallisé 1 [DRV_41] de U3",
+                    "pos": {
+                        "x": 142.5,
+                        "y": 119.0
+                    },
+                    "uuid": "05377ff0-1497-46f2-91cc-6ffafecd7408"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 23 [DRV_32] de U2",
+                    "pos": {
+                        "x": 119.3,
+                        "y": 134.04
+                    },
+                    "uuid": "ac0dacc2-8099-4ec8-b427-3b7f3ebd72a8"
+                },
+                {
+                    "description": "Pad métallisé 2 [DRV_32] de U3",
+                    "pos": {
+                        "x": 145.04,
+                        "y": 119.0
+                    },
+                    "uuid": "5cd27ebb-95c1-4c60-b760-c188e46585cd"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 24 [DRV_31] de U2",
+                    "pos": {
+                        "x": 121.84,
+                        "y": 134.04
+                    },
+                    "uuid": "b923c45e-5256-45f4-bea9-821c9a3b47cb"
+                },
+                {
+                    "description": "Pad métallisé 3 [DRV_31] de U3",
+                    "pos": {
+                        "x": 147.58,
+                        "y": 119.0
+                    },
+                    "uuid": "f3c98164-5673-4f60-aad4-9f60c3c308df"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 25 [DRV_22] de U2",
+                    "pos": {
+                        "x": 124.38,
+                        "y": 134.04
+                    },
+                    "uuid": "93760000-180f-4ff9-bf70-1174fb4e3d4b"
+                },
+                {
+                    "description": "Pad métallisé 4 [DRV_22] de U3",
+                    "pos": {
+                        "x": 150.12,
+                        "y": 119.0
+                    },
+                    "uuid": "006b0064-3866-4f29-9f2c-d6d828b32106"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 26 [DRV_21] de U2",
+                    "pos": {
+                        "x": 126.92,
+                        "y": 134.04
+                    },
+                    "uuid": "288a5798-fcfb-47f7-9c53-aa84339e4f32"
+                },
+                {
+                    "description": "Pad métallisé 5 [DRV_21] de U3",
+                    "pos": {
+                        "x": 152.66,
+                        "y": 119.0
+                    },
+                    "uuid": "1dde085c-3e85-4a87-84df-565cc66f03c3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 27 [DRV_12] de U2",
+                    "pos": {
+                        "x": 129.46,
+                        "y": 134.04
+                    },
+                    "uuid": "3572b7c0-1c4a-4add-acff-2a076ab9d4ef"
+                },
+                {
+                    "description": "Pad métallisé 6 [DRV_12] de U3",
+                    "pos": {
+                        "x": 155.2,
+                        "y": 119.0
+                    },
+                    "uuid": "4d82623e-bc85-47fc-814e-e9096d7b0121"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 28 [DRV_11] de U2",
+                    "pos": {
+                        "x": 132.0,
+                        "y": 134.04
+                    },
+                    "uuid": "5bdee580-2349-4aed-aade-1fe3787c8aae"
+                },
+                {
+                    "description": "Pad métallisé 7 [DRV_11] de U3",
+                    "pos": {
+                        "x": 157.74,
+                        "y": 119.0
+                    },
+                    "uuid": "5ad0ef62-b851-4d96-8dc2-895de1583971"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT_42] de OC42",
+                    "pos": {
+                        "x": 143.63,
+                        "y": 86.0
+                    },
+                    "uuid": "646a4ebf-4eac-4605-b65f-305fb96aa6c1"
+                },
+                {
+                    "description": "Pad métallisé 1 [MT_42] de D42",
+                    "pos": {
+                        "x": 145.15,
+                        "y": 82.4
+                    },
+                    "uuid": "88cec5b0-1441-4d7b-be87-b355ea77c9a7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP4] de D42",
+                    "pos": {
+                        "x": 145.15,
+                        "y": 72.24
+                    },
+                    "uuid": "e56a84f0-9172-4b90-826b-d545c7aef48c"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP4] de D41",
+                    "pos": {
+                        "x": 153.35,
+                        "y": 72.24
+                    },
+                    "uuid": "30440763-4044-43c7-b4e6-7edd02ae5e5c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP4] de J3",
+                    "pos": {
+                        "x": 147.76,
+                        "y": 54.9
+                    },
+                    "uuid": "bb8f4488-4884-4b95-a122-f797010270c9"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP4] de D42",
+                    "pos": {
+                        "x": 145.15,
+                        "y": 72.24
+                    },
+                    "uuid": "e56a84f0-9172-4b90-826b-d545c7aef48c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_52] de OC52",
+                    "pos": {
+                        "x": 122.15,
+                        "y": 93.62
+                    },
+                    "uuid": "096cab35-d014-4026-96b9-5a07d7a8dd71"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_52] de RL52",
+                    "pos": {
+                        "x": 122.15,
+                        "y": 97.5
+                    },
+                    "uuid": "e4193e0d-519b-4501-aef0-3ccb2138e747"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 12 [LEDK_52] de U4",
+                    "pos": {
+                        "x": 118.16,
+                        "y": 111.38
+                    },
+                    "uuid": "9280a090-d883-44a4-bc00-be141a61b49d"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDK_52] de OC52",
+                    "pos": {
+                        "x": 124.69,
+                        "y": 93.62
+                    },
+                    "uuid": "489e20bb-bf99-416d-9d1a-2a107b1ed9af"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT_52] de OC52",
+                    "pos": {
+                        "x": 127.23,
+                        "y": 86.0
+                    },
+                    "uuid": "0b2d05a8-b46f-4102-b999-5a2c390262e3"
+                },
+                {
+                    "description": "Pad métallisé 1 [MT_52] de D52",
+                    "pos": {
+                        "x": 128.75,
+                        "y": 82.4
+                    },
+                    "uuid": "dfc96c06-28ba-4e0b-9fab-fff18df68509"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT_32] de OC32",
+                    "pos": {
+                        "x": 160.03,
+                        "y": 86.0
+                    },
+                    "uuid": "7745e41a-7631-4696-bdf1-22a80dc7a6ca"
+                },
+                {
+                    "description": "Pad métallisé 1 [MT_32] de D32",
+                    "pos": {
+                        "x": 161.55,
+                        "y": 82.4
+                    },
+                    "uuid": "89db54de-2727-4364-bf92-e7c070a56181"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_11] de OC11",
+                    "pos": {
+                        "x": 195.95,
+                        "y": 93.62
+                    },
+                    "uuid": "d3576804-b2ab-444b-a92b-28a424ad5e3f"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_11] de RL11",
+                    "pos": {
+                        "x": 195.95,
+                        "y": 124.44
+                    },
+                    "uuid": "c82c006d-aa57-477c-9e53-fa62b7ed6a47"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [MT_22] de D22",
+                    "pos": {
+                        "x": 176.43,
+                        "y": 82.4
+                    },
+                    "uuid": "b0c88c7f-7b91-4bb6-aa26-5a100f82d809"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT_22] de OC22",
+                    "pos": {
+                        "x": 176.43,
+                        "y": 86.0
+                    },
+                    "uuid": "92509b0d-8007-4a4e-8922-82605c995f41"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP2] de J2",
+                    "pos": {
+                        "x": 174.76,
+                        "y": 54.9
+                    },
+                    "uuid": "dbad055c-9a4f-430f-b955-107b505e528c"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP2] de D22",
+                    "pos": {
+                        "x": 176.43,
+                        "y": 72.24
+                    },
+                    "uuid": "4f7a9c58-a1e0-4269-adfc-17092ee3f2be"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP2] de D22",
+                    "pos": {
+                        "x": 176.43,
+                        "y": 72.24
+                    },
+                    "uuid": "4f7a9c58-a1e0-4269-adfc-17092ee3f2be"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP2] de D21",
+                    "pos": {
+                        "x": 184.63,
+                        "y": 72.24
+                    },
+                    "uuid": "d9a982f5-34f7-465d-9156-e40d5182bd54"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_41] de OC41",
+                    "pos": {
+                        "x": 146.75,
+                        "y": 93.62
+                    },
+                    "uuid": "cdc4ccfe-f398-4437-b9e3-b61968edf097"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_41] de RL41",
+                    "pos": {
+                        "x": 146.75,
+                        "y": 97.5
+                    },
+                    "uuid": "c08ac969-91a2-41b0-aa7a-c83663b7038d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 13 [LEDK_22] de U3",
+                    "pos": {
+                        "x": 150.12,
+                        "y": 111.38
+                    },
+                    "uuid": "a56475b3-5c3f-45d1-a828-f3bd224caad8"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDK_22] de OC22",
+                    "pos": {
+                        "x": 173.89,
+                        "y": 93.62
+                    },
+                    "uuid": "313ec4f4-057d-4e0c-ae9e-cf79007ee2f2"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_61] de OC61",
+                    "pos": {
+                        "x": 113.95,
+                        "y": 93.62
+                    },
+                    "uuid": "3b0c571d-4d89-43b9-b3dd-06b9c69a2226"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_61] de RL61",
+                    "pos": {
+                        "x": 113.95,
+                        "y": 97.5
+                    },
+                    "uuid": "50ec1cc6-5f6e-431b-ba50-7f8c8bd2415c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 13 [LEDK_61] de U4",
+                    "pos": {
+                        "x": 115.62,
+                        "y": 111.38
+                    },
+                    "uuid": "08acf6b5-84de-4e84-933e-55a5e81cb08f"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDK_61] de OC61",
+                    "pos": {
+                        "x": 116.49,
+                        "y": 93.62
+                    },
+                    "uuid": "8cd357df-4d68-4856-9ac4-08402933c10a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT_61] de OC61",
+                    "pos": {
+                        "x": 119.03,
+                        "y": 86.0
+                    },
+                    "uuid": "94ee0f1c-205c-4a19-98ab-3579c8021916"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT_61] de D61",
+                    "pos": {
+                        "x": 120.55,
+                        "y": 82.4
+                    },
+                    "uuid": "1db9be04-b739-46c1-a7f1-3ef835555b43"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 10 [LEDK_42] de U4",
+                    "pos": {
+                        "x": 123.24,
+                        "y": 111.38
+                    },
+                    "uuid": "6b241194-ab05-4a1a-bbe2-32f28adb956b"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDK_42] de OC42",
+                    "pos": {
+                        "x": 141.09,
+                        "y": 93.62
+                    },
+                    "uuid": "a5f2335a-14cd-48be-860f-f885f8a5f66c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDK_72] de OC72",
+                    "pos": {
+                        "x": 91.89,
+                        "y": 93.62
+                    },
+                    "uuid": "223c992e-1e73-49e6-ae24-da0d9d16b7a7"
+                },
+                {
+                    "description": "Pad métallisé 16 [LEDK_72] de U4",
+                    "pos": {
+                        "x": 108.0,
+                        "y": 111.38
+                    },
+                    "uuid": "fc948a3a-1986-4a24-b2fd-9bc86670cd80"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP5] de J4",
+                    "pos": {
+                        "x": 127.44,
+                        "y": 54.9
+                    },
+                    "uuid": "0ab3ddf9-0103-4c8a-9dfc-9e059d805a36"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP5] de D52",
+                    "pos": {
+                        "x": 128.75,
+                        "y": 72.24
+                    },
+                    "uuid": "70d1b7d8-c7ff-4138-a1b5-1720f5928a45"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP5] de D52",
+                    "pos": {
+                        "x": 128.75,
+                        "y": 72.24
+                    },
+                    "uuid": "70d1b7d8-c7ff-4138-a1b5-1720f5928a45"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP5] de D51",
+                    "pos": {
+                        "x": 136.95,
+                        "y": 72.24
+                    },
+                    "uuid": "848b580f-c0e0-437b-944a-6b4b178345d0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT_41] de OC41",
+                    "pos": {
+                        "x": 151.83,
+                        "y": 86.0
+                    },
+                    "uuid": "2be38caf-88ba-4cbd-a16a-a93f2314a0de"
+                },
+                {
+                    "description": "Pad métallisé 2 [MT_41] de D41",
+                    "pos": {
+                        "x": 153.35,
+                        "y": 82.4
+                    },
+                    "uuid": "9a26722d-e4d3-4037-980d-a5c7b10ef236"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [MAINS_L] de F0",
+                    "pos": {
+                        "x": 197.5,
+                        "y": 65.75
+                    },
+                    "uuid": "28330591-5810-4958-92f1-669f5ce76182"
+                },
+                {
+                    "description": "Pad métallisé 1 [MAINS_L] de J1",
+                    "pos": {
+                        "x": 200.16,
+                        "y": 54.9
+                    },
+                    "uuid": "ae098573-05ce-4c01-bdc9-ac5bc05c0d9c"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LOCAL_5V] de DPWR1",
+                    "pos": {
+                        "x": 160.16,
+                        "y": 126.2
+                    },
+                    "uuid": "b8175143-f32a-45c7-9b62-7f0799d5fc4a"
+                },
+                {
+                    "description": "Pad métallisé 4 [LOCAL_5V] de PS1",
+                    "pos": {
+                        "x": 170.5,
+                        "y": 107.0
+                    },
+                    "uuid": "01ed07ad-0897-4f3a-9f0a-f4df85b16a5a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [LEDK_82] de OC82",
+                    "pos": {
+                        "x": 83.2,
+                        "y": 70.54
+                    },
+                    "uuid": "0106b596-d0f1-4305-b3f0-ae8e07f0bf0a"
+                },
+                {
+                    "description": "Pad métallisé 16 [LEDK_82] de U5",
+                    "pos": {
+                        "x": 84.6,
+                        "y": 111.38
+                    },
+                    "uuid": "eb77decc-5062-469f-9779-ebb28dc98033"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_72] de OC72",
+                    "pos": {
+                        "x": 89.35,
+                        "y": 93.62
+                    },
+                    "uuid": "3761ad3f-271a-4c4a-aae9-ccf50cb035d5"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_72] de RL72",
+                    "pos": {
+                        "x": 89.35,
+                        "y": 97.5
+                    },
+                    "uuid": "55319706-3d5e-4a97-ad94-68b5969b3d3d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_31] de OC31",
+                    "pos": {
+                        "x": 163.15,
+                        "y": 93.62
+                    },
+                    "uuid": "62ff78cc-4b12-45cc-a399-ec78c2b0515c"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_31] de RL31",
+                    "pos": {
+                        "x": 163.15,
+                        "y": 97.5
+                    },
+                    "uuid": "74a5b6e2-6b98-4f3c-a7bd-673876d900a4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP6] de D62",
+                    "pos": {
+                        "x": 112.35,
+                        "y": 72.24
+                    },
+                    "uuid": "d00d630d-ab23-4c33-93b9-76b3c0ab70ca"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP6] de D61",
+                    "pos": {
+                        "x": 120.55,
+                        "y": 72.24
+                    },
+                    "uuid": "408df26b-be30-46e6-928a-f10368c586a8"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP6] de D61",
+                    "pos": {
+                        "x": 120.55,
+                        "y": 72.24
+                    },
+                    "uuid": "408df26b-be30-46e6-928a-f10368c586a8"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP6] de J4",
+                    "pos": {
+                        "x": 122.36,
+                        "y": 54.9
+                    },
+                    "uuid": "7792cc88-a497-4470-a062-6b3fa6912906"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [MT_21] de D21",
+                    "pos": {
+                        "x": 184.63,
+                        "y": 82.4
+                    },
+                    "uuid": "5387f3a9-6f22-4e26-9942-e0395ac44e65"
+                },
+                {
+                    "description": "Pad métallisé 4 [MT_21] de OC21",
+                    "pos": {
+                        "x": 184.63,
+                        "y": 86.0
+                    },
+                    "uuid": "589ba9d1-336f-417e-97cc-b45b6717b510"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [MAINS_N] de J1",
+                    "pos": {
+                        "x": 195.08,
+                        "y": 54.9
+                    },
+                    "uuid": "b0701af6-6fac-4d6e-a9a0-62c438b1bbb9"
+                },
+                {
+                    "description": "Pad métallisé 1 [MAINS_N] de PS1",
+                    "pos": {
+                        "x": 209.0,
+                        "y": 109.75
+                    },
+                    "uuid": "e404cce1-4759-4a98-abff-d7ce1ad2ba64"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [MT_82] de OC82",
+                    "pos": {
+                        "x": 90.82,
+                        "y": 73.08
+                    },
+                    "uuid": "535f5c29-2246-48e9-8d85-d9a47062399c"
+                },
+                {
+                    "description": "Pad métallisé 1 [MT_82] de D82",
+                    "pos": {
+                        "x": 94.6,
+                        "y": 64.0
+                    },
+                    "uuid": "f7f572f8-a14a-4977-bfef-1b39c65d52b3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 14 [LEDK_31] de U3",
+                    "pos": {
+                        "x": 147.58,
+                        "y": 111.38
+                    },
+                    "uuid": "25212ffa-d306-485b-9f2a-bc1517792a0b"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDK_31] de OC31",
+                    "pos": {
+                        "x": 165.69,
+                        "y": 93.62
+                    },
+                    "uuid": "21a3830a-f264-41f0-9d96-48abd631cfc7"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [FP8] de D81",
+                    "pos": {
+                        "x": 104.759999,
+                        "y": 68.0
+                    },
+                    "uuid": "1b37ce2b-eecf-42fa-9999-3b83e5d08af9"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP8] de D82",
+                    "pos": {
+                        "x": 104.76,
+                        "y": 64.0
+                    },
+                    "uuid": "b46b4e27-4c11-4522-bbfc-c00707a0cae0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [FP8] de D82",
+                    "pos": {
+                        "x": 104.76,
+                        "y": 64.0
+                    },
+                    "uuid": "b46b4e27-4c11-4522-bbfc-c00707a0cae0"
+                },
+                {
+                    "description": "Pad métallisé 2 [FP8] de J5",
+                    "pos": {
+                        "x": 96.26,
+                        "y": 54.9
+                    },
+                    "uuid": "6c8440a1-3413-41dd-98ec-2580e481cee3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 12 [LEDK_21] de U3",
+                    "pos": {
+                        "x": 152.66,
+                        "y": 111.38
+                    },
+                    "uuid": "d6a7bf78-52b4-4b82-be9d-5fa01aecd06d"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDK_21] de OC21",
+                    "pos": {
+                        "x": 182.09,
+                        "y": 93.62
+                    },
+                    "uuid": "abefee1e-8af2-4bce-b4aa-252787b38bdb"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 10 [LEDK_11] de U3",
+                    "pos": {
+                        "x": 157.74,
+                        "y": 111.38
+                    },
+                    "uuid": "36bf31b5-264a-480f-bf7f-48787ed6eecd"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDK_11] de OC11",
+                    "pos": {
+                        "x": 198.49,
+                        "y": 93.62
+                    },
+                    "uuid": "fb87c93f-b4fc-4cea-8ecb-57c9a9c3b373"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [LEDA_32] de OC32",
+                    "pos": {
+                        "x": 154.95,
+                        "y": 93.62
+                    },
+                    "uuid": "d2324fdb-e456-4b8b-a8fa-7e54ff5f586f"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDA_32] de RL32",
+                    "pos": {
+                        "x": 154.95,
+                        "y": 97.5
+                    },
+                    "uuid": "0e04e85f-71cc-4e8e-a999-32024181ebd4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 15 [LEDK_32] de U3",
+                    "pos": {
+                        "x": 145.04,
+                        "y": 111.38
+                    },
+                    "uuid": "a810f19d-1ccb-4135-ad3a-47ffae6ddf58"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDK_32] de OC32",
+                    "pos": {
+                        "x": 157.49,
+                        "y": 93.62
+                    },
+                    "uuid": "30ed23b0-4c1d-4028-ba0d-7c783fe4a4d4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad métallisé 16 [LEDK_41] de U3",
+                    "pos": {
+                        "x": 142.5,
+                        "y": 111.38
+                    },
+                    "uuid": "1495dea0-d9ae-4db4-b28e-73322872d602"
+                },
+                {
+                    "description": "Pad métallisé 2 [LEDK_41] de OC41",
+                    "pos": {
+                        "x": 149.29,
+                        "y": 93.62
+                    },
+                    "uuid": "5cfb9161-088b-449a-8412-013d0e81f71e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Pad Non Métallisé de H2",
+                    "pos": {
+                        "x": 67.3,
+                        "y": 123.15
+                    },
+                    "uuid": "dc9ee81d-d15e-4f5f-a5f4-a7003ad0c287"
+                },
+                {
+                    "description": "Champ référence de JWS1",
+                    "pos": {
+                        "x": 70.6,
+                        "y": 124.63
+                    },
+                    "uuid": "21598f71-8b71-4fd0-a84b-f221b365b1ab"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Rectangle sur Edge.Cuts",
+                    "pos": {
+                        "x": 60.0,
+                        "y": 50.0
+                    },
+                    "uuid": "c62cdd66-6277-49e5-8439-5db532485801"
+                },
+                {
+                    "description": "Rectangle de JWS1 sur F.Silkscreen",
+                    "pos": {
+                        "x": 81.22,
+                        "y": 136.62
+                    },
+                    "uuid": "b9c5c8b0-0cc8-4e2e-88e0-307ada3530e1"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Pad Non Métallisé de H2",
+                    "pos": {
+                        "x": 67.3,
+                        "y": 123.15
+                    },
+                    "uuid": "dc9ee81d-d15e-4f5f-a5f4-a7003ad0c287"
+                },
+                {
+                    "description": "Champ référence de H2",
+                    "pos": {
+                        "x": 67.3,
+                        "y": 119.0
+                    },
+                    "uuid": "0a93d6f9-07ab-42dd-89b7-1b3e308b3172"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Rectangle sur Edge.Cuts",
+                    "pos": {
+                        "x": 60.0,
+                        "y": 50.0
+                    },
+                    "uuid": "c62cdd66-6277-49e5-8439-5db532485801"
+                },
+                {
+                    "description": "Polygone de J1 sur F.Silkscreen",
+                    "pos": {
+                        "x": 200.16,
+                        "y": 50.18
+                    },
+                    "uuid": "744b06c5-232d-4274-b849-133cfdfe6cef"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Rectangle sur Edge.Cuts",
+                    "pos": {
+                        "x": 60.0,
+                        "y": 50.0
+                    },
+                    "uuid": "c62cdd66-6277-49e5-8439-5db532485801"
+                },
+                {
+                    "description": "Polygone de J3 sur F.Silkscreen",
+                    "pos": {
+                        "x": 152.84,
+                        "y": 50.18
+                    },
+                    "uuid": "0e7acf7a-dfe6-46a9-a3ba-e091eaa322a1"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Rectangle sur Edge.Cuts",
+                    "pos": {
+                        "x": 60.0,
+                        "y": 50.0
+                    },
+                    "uuid": "c62cdd66-6277-49e5-8439-5db532485801"
+                },
+                {
+                    "description": "Polygone de J5 sur F.Silkscreen",
+                    "pos": {
+                        "x": 101.34,
+                        "y": 50.18
+                    },
+                    "uuid": "bef94f53-8761-4f7e-8b5a-2c31de7424b0"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Rectangle sur Edge.Cuts",
+                    "pos": {
+                        "x": 60.0,
+                        "y": 50.0
+                    },
+                    "uuid": "c62cdd66-6277-49e5-8439-5db532485801"
+                },
+                {
+                    "description": "Polygone de J4 sur F.Silkscreen",
+                    "pos": {
+                        "x": 127.44,
+                        "y": 50.18
+                    },
+                    "uuid": "95c4d191-c322-4eff-8920-95465f5bdf26"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Rectangle sur Edge.Cuts",
+                    "pos": {
+                        "x": 60.0,
+                        "y": 50.0
+                    },
+                    "uuid": "c62cdd66-6277-49e5-8439-5db532485801"
+                },
+                {
+                    "description": "Polygone de J2 sur F.Silkscreen",
+                    "pos": {
+                        "x": 179.84,
+                        "y": 50.18
+                    },
+                    "uuid": "3cfe46ae-2318-4e20-8d5f-13895a149670"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Pad Non Métallisé de H1",
+                    "pos": {
+                        "x": 208.7,
+                        "y": 63.35
+                    },
+                    "uuid": "fca15962-0b28-45af-a31c-75b1e0ad4ce1"
+                },
+                {
+                    "description": "Champ référence de H1",
+                    "pos": {
+                        "x": 208.7,
+                        "y": 59.2
+                    },
+                    "uuid": "464eaeb5-bfb1-48e1-a1b8-df1304ffd896"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de OC81",
+                    "pos": {
+                        "x": 87.01,
+                        "y": 73.87
+                    },
+                    "uuid": "b8cda488-001f-447a-a77b-fa9b945270d2"
+                },
+                {
+                    "description": "Segment de OC82 sur F.Silkscreen",
+                    "pos": {
+                        "x": 84.36,
+                        "y": 74.41
+                    },
+                    "uuid": "ff174f38-f9c8-4a74-87f8-1ec95697791b"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de OC62",
+                    "pos": {
+                        "x": 103.42,
+                        "y": 89.81
+                    },
+                    "uuid": "41a16a81-d06b-4d8d-9ca8-1e8da05fc9c9"
+                },
+                {
+                    "description": "Segment de OC71 sur F.Silkscreen",
+                    "pos": {
+                        "x": 103.96,
+                        "y": 92.46
+                    },
+                    "uuid": "4b6296ec-322d-43db-abb7-0a483e9e3bc9"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de OC71",
+                    "pos": {
+                        "x": 95.22,
+                        "y": 89.81
+                    },
+                    "uuid": "2124a1ef-fc71-43d8-90cb-ffa90a4a9712"
+                },
+                {
+                    "description": "Segment de OC72 sur F.Silkscreen",
+                    "pos": {
+                        "x": 95.76,
+                        "y": 92.46
+                    },
+                    "uuid": "e7045dbc-277f-4a31-ae3c-ded8c1a5af92"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de OC61",
+                    "pos": {
+                        "x": 111.62,
+                        "y": 89.81
+                    },
+                    "uuid": "c1f13bbf-e840-4cea-9d85-a1af5e103665"
+                },
+                {
+                    "description": "Segment de OC62 sur F.Silkscreen",
+                    "pos": {
+                        "x": 112.16,
+                        "y": 92.46
+                    },
+                    "uuid": "c7a40df9-4a8a-431b-a8eb-aeed4245772d"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de OC52",
+                    "pos": {
+                        "x": 119.82,
+                        "y": 89.81
+                    },
+                    "uuid": "845926f2-a925-4e76-a489-0328014fc1d7"
+                },
+                {
+                    "description": "Segment de OC61 sur F.Silkscreen",
+                    "pos": {
+                        "x": 120.36,
+                        "y": 92.46
+                    },
+                    "uuid": "f6df88d4-d416-4ffc-944f-aa6128b2692e"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Rectangle de RPU1 sur F.Silkscreen",
+                    "pos": {
+                        "x": 86.01,
+                        "y": 124.63
+                    },
+                    "uuid": "8a94b875-df2d-44fc-a1d5-3c124c89ac81"
+                },
+                {
+                    "description": "Champ référence de RPU2",
+                    "pos": {
+                        "x": 89.28,
+                        "y": 127.63
+                    },
+                    "uuid": "b193efa3-36a4-4d5b-a9be-73bbdc472e75"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Segment de OC21 sur F.Silkscreen",
+                    "pos": {
+                        "x": 185.96,
+                        "y": 92.46
+                    },
+                    "uuid": "9dd55fdb-3ef6-4f55-9885-78b1e4c80f56"
+                },
+                {
+                    "description": "Champ référence de OC12",
+                    "pos": {
+                        "x": 185.42,
+                        "y": 89.81
+                    },
+                    "uuid": "e4faeef6-4da4-43e0-96cc-116ccfafd894"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de OC11",
+                    "pos": {
+                        "x": 193.62,
+                        "y": 89.81
+                    },
+                    "uuid": "10a3aeb6-150a-485e-a222-7b23acf9ebec"
+                },
+                {
+                    "description": "Segment de OC12 sur F.Silkscreen",
+                    "pos": {
+                        "x": 194.16,
+                        "y": 92.46
+                    },
+                    "uuid": "22fdabc6-9b06-4dfd-b6b7-0dff45caf13b"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Texte empreinte de D21 (K)",
+                    "pos": {
+                        "x": 186.73,
+                        "y": 72.24
+                    },
+                    "uuid": "2abac212-1471-42fa-8979-851665ff8537"
+                },
+                {
+                    "description": "Champ référence de F0",
+                    "pos": {
+                        "x": 186.25,
+                        "y": 71.75
+                    },
+                    "uuid": "323d309c-8998-4c4c-b6aa-60f796f9e760"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Segment de PS1 sur F.Silkscreen",
+                    "pos": {
+                        "x": 212.7,
+                        "y": 121.05
+                    },
+                    "uuid": "69dae45e-a74f-4c59-800e-a633a54cd5fe"
+                },
+                {
+                    "description": "Champ référence de PS1",
+                    "pos": {
+                        "x": 186.58,
+                        "y": 121.63
+                    },
+                    "uuid": "7011ef2e-b648-4730-878e-bff655edabbf"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Segment de DPWR1 sur F.Silkscreen",
+                    "pos": {
+                        "x": 153.14,
+                        "y": 124.73
+                    },
+                    "uuid": "85ab2975-3dcd-4f2a-9cee-b863b04722cf"
+                },
+                {
+                    "description": "Champ référence de DPWR1",
+                    "pos": {
+                        "x": 155.08,
+                        "y": 126.2
+                    },
+                    "uuid": "96c33d6c-b725-41bd-b55e-68a4a352037d"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Segment de DPWR1 sur F.Silkscreen",
+                    "pos": {
+                        "x": 153.26,
+                        "y": 124.73
+                    },
+                    "uuid": "4390562b-b9b2-476c-baab-0d993b205335"
+                },
+                {
+                    "description": "Champ référence de DPWR1",
+                    "pos": {
+                        "x": 155.08,
+                        "y": 126.2
+                    },
+                    "uuid": "96c33d6c-b725-41bd-b55e-68a4a352037d"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de DPWR1",
+                    "pos": {
+                        "x": 155.08,
+                        "y": 126.2
+                    },
+                    "uuid": "96c33d6c-b725-41bd-b55e-68a4a352037d"
+                },
+                {
+                    "description": "Segment de DPWR1 sur F.Silkscreen",
+                    "pos": {
+                        "x": 153.38,
+                        "y": 124.73
+                    },
+                    "uuid": "c433c100-6dda-4eea-bab7-afaeea12f340"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de OC22",
+                    "pos": {
+                        "x": 169.02,
+                        "y": 89.81
+                    },
+                    "uuid": "7b3cd516-63de-47fb-9955-dc04ac55a167"
+                },
+                {
+                    "description": "Segment de OC31 sur F.Silkscreen",
+                    "pos": {
+                        "x": 169.56,
+                        "y": 92.46
+                    },
+                    "uuid": "eabc8eb7-5b44-497d-be0c-a19d2272c226"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de OC21",
+                    "pos": {
+                        "x": 177.22,
+                        "y": 89.81
+                    },
+                    "uuid": "7cf881a4-7a80-44c0-8c15-ac4c26cb892a"
+                },
+                {
+                    "description": "Segment de OC22 sur F.Silkscreen",
+                    "pos": {
+                        "x": 177.76,
+                        "y": 92.46
+                    },
+                    "uuid": "af134611-36ae-4acd-9806-1749c25b06e0"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Segment de OC42 sur F.Silkscreen",
+                    "pos": {
+                        "x": 144.96,
+                        "y": 92.46
+                    },
+                    "uuid": "28eee978-22e0-4b24-970d-025d1568966b"
+                },
+                {
+                    "description": "Champ référence de OC41",
+                    "pos": {
+                        "x": 144.42,
+                        "y": 89.81
+                    },
+                    "uuid": "c6c02f92-2885-4f9e-b10a-f3f11195c256"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Segment de OC32 sur F.Silkscreen",
+                    "pos": {
+                        "x": 161.36,
+                        "y": 92.46
+                    },
+                    "uuid": "a96a7c74-1b91-442e-bfe6-50bff13109e2"
+                },
+                {
+                    "description": "Champ référence de OC31",
+                    "pos": {
+                        "x": 160.82,
+                        "y": 89.81
+                    },
+                    "uuid": "c1653a07-32e5-4c4f-b114-580e2d11445d"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de OC32",
+                    "pos": {
+                        "x": 152.62,
+                        "y": 89.81
+                    },
+                    "uuid": "287c83bc-21ad-4bfc-8693-73047dca3ee3"
+                },
+                {
+                    "description": "Segment de OC41 sur F.Silkscreen",
+                    "pos": {
+                        "x": 153.16,
+                        "y": 92.46
+                    },
+                    "uuid": "bc4befb6-a932-49d7-8f33-7461bdac80cb"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Segment de F0 sur F.Silkscreen",
+                    "pos": {
+                        "x": 197.61,
+                        "y": 60.84
+                    },
+                    "uuid": "1a90ad23-7fa8-4054-992e-9c62e3a56f16"
+                },
+                {
+                    "description": "Champ référence de J1",
+                    "pos": {
+                        "x": 197.62,
+                        "y": 61.22
+                    },
+                    "uuid": "a5d4489a-1fa1-4625-b0bd-9fefd3e5ffe9"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de J2",
+                    "pos": {
+                        "x": 177.3,
+                        "y": 61.22
+                    },
+                    "uuid": "a4dbe8c8-6cd7-4285-ba84-08db6bf169a6"
+                },
+                {
+                    "description": "Segment de F0 sur F.Silkscreen",
+                    "pos": {
+                        "x": 197.61,
+                        "y": 60.84
+                    },
+                    "uuid": "ec7cc384-501f-48be-9974-959de2c731ba"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de J1",
+                    "pos": {
+                        "x": 197.62,
+                        "y": 61.22
+                    },
+                    "uuid": "a5d4489a-1fa1-4625-b0bd-9fefd3e5ffe9"
+                },
+                {
+                    "description": "Segment de F0 sur F.Silkscreen",
+                    "pos": {
+                        "x": 197.61,
+                        "y": 60.84
+                    },
+                    "uuid": "ec7cc384-501f-48be-9974-959de2c731ba"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de OC42",
+                    "pos": {
+                        "x": 136.22,
+                        "y": 89.81
+                    },
+                    "uuid": "7acbf587-7f05-43f8-aefb-2ef4ad187bce"
+                },
+                {
+                    "description": "Segment de OC51 sur F.Silkscreen",
+                    "pos": {
+                        "x": 136.76,
+                        "y": 92.46
+                    },
+                    "uuid": "fe52e728-e05d-4fcf-80b7-e0ccb7fe9d2f"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Segment de OC52 sur F.Silkscreen",
+                    "pos": {
+                        "x": 128.56,
+                        "y": 92.46
+                    },
+                    "uuid": "3531236c-de0f-4248-b756-b7871dae9368"
+                },
+                {
+                    "description": "Champ référence de OC51",
+                    "pos": {
+                        "x": 128.02,
+                        "y": 89.81
+                    },
+                    "uuid": "d7f54004-d835-4448-a64a-2e0f9596e928"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Champ référence de C3",
+                    "pos": {
+                        "x": 110.25,
+                        "y": 125.4
+                    },
+                    "uuid": "18a9f49b-afa9-4105-99b5-d893456bdda6"
+                },
+                {
+                    "description": "Rectangle de U2 sur F.Silkscreen",
+                    "pos": {
+                        "x": 133.39,
+                        "y": 125.09
+                    },
+                    "uuid": "4f175bff-a213-441d-a44b-5cafe16f6a35"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Segment de U1 sur F.Silkscreen",
+                    "pos": {
+                        "x": 138.55,
+                        "y": 114.76
+                    },
+                    "uuid": "47a0f668-1e04-4de0-9ddc-5b8a948f8f55"
+                },
+                {
+                    "description": "Champ référence de C2",
+                    "pos": {
+                        "x": 137.6,
+                        "y": 115.25
+                    },
+                    "uuid": "ad059910-bd11-4657-81b9-9f5d4316aa21"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de JWS1",
+                    "pos": {
+                        "x": 70.6,
+                        "y": 124.63
+                    },
+                    "uuid": "21598f71-8b71-4fd0-a84b-f221b365b1ab"
+                },
+                {
+                    "description": "Pad Non Métallisé de H2",
+                    "pos": {
+                        "x": 67.3,
+                        "y": 123.15
+                    },
+                    "uuid": "dc9ee81d-d15e-4f5f-a5f4-a7003ad0c287"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de H2",
+                    "pos": {
+                        "x": 67.3,
+                        "y": 119.0
+                    },
+                    "uuid": "0a93d6f9-07ab-42dd-89b7-1b3e308b3172"
+                },
+                {
+                    "description": "Pad Non Métallisé de H2",
+                    "pos": {
+                        "x": 67.3,
+                        "y": 123.15
+                    },
+                    "uuid": "dc9ee81d-d15e-4f5f-a5f4-a7003ad0c287"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de F0",
+                    "pos": {
+                        "x": 186.25,
+                        "y": 71.75
+                    },
+                    "uuid": "323d309c-8998-4c4c-b6aa-60f796f9e760"
+                },
+                {
+                    "description": "Pad métallisé 1 [FP2] de D21",
+                    "pos": {
+                        "x": 184.63,
+                        "y": 72.24
+                    },
+                    "uuid": "d9a982f5-34f7-465d-9156-e40d5182bd54"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de H1",
+                    "pos": {
+                        "x": 208.7,
+                        "y": 59.2
+                    },
+                    "uuid": "464eaeb5-bfb1-48e1-a1b8-df1304ffd896"
+                },
+                {
+                    "description": "Pad Non Métallisé de H1",
+                    "pos": {
+                        "x": 208.7,
+                        "y": 63.35
+                    },
+                    "uuid": "fca15962-0b28-45af-a31c-75b1e0ad4ce1"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Champ référence de C3",
+                    "pos": {
+                        "x": 110.25,
+                        "y": 125.4
+                    },
+                    "uuid": "18a9f49b-afa9-4105-99b5-d893456bdda6"
+                },
+                {
+                    "description": "Pad métallisé 10 [GND] de U2",
+                    "pos": {
+                        "x": 109.14,
+                        "y": 126.42
+                    },
+                    "uuid": "2a8af95d-f9d9-4c2e-960a-9019d8d6707d"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        }
+    ]
+}

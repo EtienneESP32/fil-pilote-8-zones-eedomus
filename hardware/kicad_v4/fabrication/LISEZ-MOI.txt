@@ -1,0 +1,12 @@
+FIL PILOTE 8 ZONES v4 - fabrication (2026-11-24)
+A commander : FilPilote_v4_Gerbers.zip (ce dossier), et aucun autre.
+NE PAS utiliser hardware/kicad/FilPilote_8Zones_Gerbers.zip (ancienne carte inutilisable).
+
+Carte        156,0 x 86,5 mm, 2 couches, FR4, 1,6 mm
+Cuivre       35 um (1 oz)
+Vernis       2 faces, obligatoire (compte dans les distances secteur). Vias recouverts.
+Serigraphie  2 faces
+Finition     HASL sans plomb
+Trous        313 metallises (0,4 a 1,5 mm), 1 non metallise de 2,7 mm, 2 oblongs non metallises de 4,0 x 10,4 mm
+Minimum      piste 0,3 mm, isolement 0,25 mm, trou 0,4 mm
+A verifier sur l'apercu du fabricant : 2 oblongs, contour 156 x 86,5 mm, aucune modification du cuivre.

@@ -1,0 +1,4 @@
+﻿Source;Code commande;Qte;Designation;Reference fabricant;Obligatoire;Remarque
+Farnell;1774539;1;Couvercle transparent coffret taille 9;CamdenBoss CNMB/9/PC;Non;Le kit RS contient deja un couvercle gris. Stock France non verifie
+Amazon;B0H5PPDWJ1;1;Carte controleur ESP32-S3 Ethernet, broches soudees, sans PoE;Waveshare ESP32-S3-ETH-M (SKU 34882);Oui;Choix utilisateur du 2026-11-24. Verifier sur la fiche : ESP32-S3-ETH-M et broches cote USB-C
+Amazon;B017C03V1K;1;Antenne 2,4 GHz uFL cordon 100 mm;Adafruit ADA2308;Non;Seulement si l antenne ceramique ne suffit pas. Resistance 0 ohm a deplacer sur la carte

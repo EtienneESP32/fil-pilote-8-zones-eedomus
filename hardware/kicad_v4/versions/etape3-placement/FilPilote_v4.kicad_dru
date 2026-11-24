@@ -1,0 +1,11 @@
+(version 1)
+# 1) Broches secteur d'un meme opto : pas de 2,54 impose par le boitier (0,94 mm entre pastilles).
+#    Ne concerne que Secteur / Secteur. Placee AVANT la regle d'isolement : KiCad donne priorite a la derniere.
+(rule "broches_secteur_meme_opto"
+	(constraint clearance (min 0.9mm))
+	(condition "A.Type == 'Pad' && B.Type == 'Pad' && A.hasNetclass('Secteur') && B.hasNetclass('Secteur') && A.Parent == B.Parent && A.memberOfFootprint('OC*')"))
+# 2) Isolation secteur / tres basse tension : 6 mm minimum, jamais relachee.
+#    Formulee en "tout ce qui n'est pas Secteur" pour attraper aussi un net sans classe.
+(rule "isolement_secteur_TBT"
+	(constraint clearance (min 6mm))
+	(condition "A.hasNetclass('Secteur') && !B.hasNetclass('Secteur')"))

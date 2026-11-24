@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "FilPilote")(type "KiCad")(uri "${KIPRJMOD}/FilPilote.kicad_sym")(options "")(descr ""))
+)

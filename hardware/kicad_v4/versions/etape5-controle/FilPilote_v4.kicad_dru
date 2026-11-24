@@ -1,0 +1,34 @@
+(version 1)
+# 0) U2 broches 15 a 17 (GND) : reliees entre elles par une piste de 0,8 mm, un seul rayon de frein thermique suffit.
+(rule "freins_thermiques_U2"
+	(constraint min_resolved_spokes 1)
+	(condition "A.memberOfFootprint('U2') && A.NetName == 'GND'"))
+# KiCad donne priorite a la DERNIERE regle qui s'applique. L'isolation de 6 mm est donc la derniere.
+# 1) Secteur / Secteur (isolation fonctionnelle) : 2,5 mm partout (classe Secteur du projet), sauf :
+#    a) une piste qui sort d'un opto, par rapport a ce qui est hors de l'opto : 1,9 mm ;
+#    b) pastille d'opto par rapport a une piste voisine, ou deux elements au droit d'un opto : 1,0 mm ; c) broches d'un meme opto : 0,9 mm.
+(rule "sortie_opto"
+	(constraint clearance (min 1.9mm))
+	(condition "A.hasNetclass('Secteur') && B.hasNetclass('Secteur') && A.intersectsCourtyard('OC*')"))
+(rule "voisinage_optos"
+	(constraint clearance (min 1.0mm))
+	(condition "A.hasNetclass('Secteur') && B.hasNetclass('Secteur') && A.intersectsCourtyard('OC*') && (B.intersectsCourtyard('OC*') || (A.memberOfFootprint('OC*') && B.Type == 'Track'))"))
+(rule "broches_secteur_meme_opto"
+	(constraint clearance (min 0.9mm))
+	(condition "A.Type == 'Pad' && B.Type == 'Pad' && A.hasNetclass('Secteur') && B.hasNetclass('Secteur') && A.Parent == B.Parent && A.memberOfFootprint('OC*')"))
+# 2) Neutre, et phase avant fusible : 3 mm par rapport a tout le reste du secteur
+(rule "neutre_vs_secteur"
+	(constraint clearance (min 3mm))
+	(condition "A.NetName == 'MAINS_N' && B.hasNetclass('Secteur')"))
+(rule "phase_avant_fusible_vs_secteur"
+	(constraint clearance (min 3mm))
+	(condition "A.NetName == 'MAINS_L' && B.hasNetclass('Secteur')"))
+# 3) Secteur / bord de carte
+(rule "secteur_bord"
+	(constraint edge_clearance (min 1.2mm))
+	(condition "A.hasNetclass('Secteur')"))
+# 4) Isolation secteur / tres basse tension : 6 mm minimum, jamais relachee.
+#    Formulee en "tout ce qui n'est pas Secteur" pour attraper aussi un net sans classe.
+(rule "isolement_secteur_TBT"
+	(constraint clearance (min 6mm))
+	(condition "A.hasNetclass('Secteur') && !B.hasNetclass('Secteur')"))

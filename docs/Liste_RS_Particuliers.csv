@@ -1,0 +1,21 @@
+﻿Code RS;Qte a saisir au panier;Besoin reel;Repere;Designation;Fabricant;Reference fabricant;Conditionnement;Prix unitaire TTC releve (EUR);Total TTC estime (EUR);Etat panier actuel;Remarque
+1841322;2;16;OC x16;Optotriac zero-cross DIP-6;onsemi;MOC3063M;Paquet de 10 (prix au paquet);7,32;14,64;OK - en stock au panier;2 paquets = 20 pieces
+7484975;100;16;D x16;Diode 1N4007 DO-41;Taiwan Semiconductor;1N4007G;Paquet de 100;0,11;11,16;OK - en stock au panier;Remplace 6491143 (refuse au panier)
+6870754;50;1;DPWR;Diode Schottky 1A 40V DO-41;STMicroelectronics;1N5819RL;Paquet de 50 (a confirmer);;;OK - prise par l utilisateur le 2026-11-24;Prix a relever au panier. Remplace la 1N4007 sur DPWR : VSYS environ 4,5 V au lieu de 4,0 a 4,2 V (JW5060 : 4 V mini)
+6833281;25;16;RL x16;Resistance 200 ohms 1% 0,6W;Vishay;MRS25000C2000FCT00;Paquet de 25;0,11;2,79;OK - en stock au panier;
+1930564;5;5;J1 a J5;Bornier a vis 2 poles pas 5,08;Phoenix Contact;1715721;Paquet de 5;1,40;7,00;OK - en stock au panier;Le 5e sert a l'entree secteur J1 (a valider)
+403806;5;1;U2;Expandeur I2C 16 E/S SPDIP-28 etroit;Microchip;MCP23017-E/SP;Paquet de 5;1,83;9,14;OK - en stock au panier;
+4368451;3;3;U3 U4 U5;Reseau 7 Darlington DIP-16;Texas Instruments;ULN2003AN;La piece;1,42;4,25;OK - en stock au panier;Commande les 16 LED a la place du MCP23017 (limite 125 mA)
+3554128;1;1;U1;Regulateur 3,3V TO-220;STMicroelectronics;LF33CV;La piece;1,64;1,64;OK - en stock au panier;Brochage entree-masse-sortie verifie
+1991793;200;2;RPU1 RPU2;Resistance 4,7 kohms 1/4W;Yageo;CFR-25JT-52-4K7;Bande de 200;0,02;4,32;OK - en stock au panier;
+4491034;5;2;C1 C2;Condensateur 47uF 25V 5x11 pas 2 mm;Panasonic;EEUFC1E470;Paquet de 5;0,56;2,81;OK - en stock au panier;Remplace 571256 (refuse). LF33C : CO min 2 uF, typ 10, pas de max, ESR 0,1 a 10 ohms, ESR releve 0,8 ohm
+1902933;1;2;C3 + entree U1;Condensateur 100nF 50V X7R;Murata;RDER71H104K0P1H03B;Paquet de 10 (prix au paquet);2,42;2,42;OK - en stock au panier;
+1358923;1;1;PS1;Alimentation 230VAC vers 5V 1A;MEAN WELL;IRM-05-5;La piece;11,86;11,86;OK - en stock au panier;Remplace HLK-5M05. Fiche 2025-08-08 : 45,7x25,4x21,5 mm, broches 1,0 mm, appel 40 A a 230 V
+563738;10;1;F0;Fusible 250mA T 5x20 verre;RS PRO;VBS USL 250MA 250V (05);Paquet de 10;0,48;4,76;OK - en stock au panier;Choix utilisateur du 2026-11-24. Pouvoir de coupure non confirme (verre). Remplacable sans modifier le PCB par un 5x20 ceramique, ex. 7690118
+1769047;10;1;Support F0;Porte-fusible 5x20 pour CI;Schurter;0031.8201;Paquet de 10;1,03;10,26;OK - en stock au panier;Broches a 22,5 mm
+1769069;10;1;Capot F0;Capot transparent porte-fusible OGN;Schurter;0853.0551;Paquet de 10;0,76;7,61;OK - en stock au panier;Compatibilite OGN verifiee (fiche Schurter)
+7495830;1;1;Coffret;Kit coffret rail DIN 160x90x58;CamdenBoss;CNMB/9/KIT;La piece;40,13;40,13;OK - en stock au panier;Corps + couvercle gris + 6 caches perfores 5,08 + 3 caches pleins
+6742426;20;16;Supports OC;Support DIL 6 broches 7,62;ASSMANN WSW;A 06-LC-TT;Paquet de 10;0,40;8,04;OK - en stock au panier;Secours : Preci-Dip 7020657
+6742432;10;3;Supports U3-U5;Support DIL 16 broches 7,62;ASSMANN WSW;A 16-LC-TT;Paquet de 10;0,32;3,22;OK - en stock au panier;Secours : Preci-Dip 7020688
+6742450;10;1;Support U2;Support DIL 28 broches etroit 7,62;ASSMANN WSW;A 28-LC/7-T;Paquet de 10;1,01;10,07;OK - en stock au panier;Secours : Preci-Dip 7022726
+7655806;2;2;Support ESP32;Barrette femelle 1x20 pas 2,54;Samtec;SSW-120-01-G-S;La piece;5,64;11,28;OK - en stock au panier;Remplace 2079241 (refuse). Deux rangees de 20
